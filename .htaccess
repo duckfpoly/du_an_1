@@ -1,3 +1,9 @@
 RewriteEngine On
+
+RewriteRule ^admin$ admin.php
+RewriteRule ^admin/([a-zA-Z0-9_-]+)$ admin.php?module=$1 [QSA]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ admin.php?module=$1&act=$2 [QSA]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ admin.php?module=$1&act=$2&id=$3 [QSA]
+
 RewriteRule ^home$ index.php
 RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?v=$1 [QSA]
