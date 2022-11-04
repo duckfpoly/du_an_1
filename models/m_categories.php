@@ -33,4 +33,8 @@
         $sql = "DELETE FROM categories WHERE id = ?";
         (new process())->query_sql($sql,$id);
     }
+    function category_detail($id){
+        $sql = "SELECT * FROM categories WHERE id = ?";
+        (new process())->query_one($sql,$id);
+    }
 ?>

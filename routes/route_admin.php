@@ -10,7 +10,6 @@
         $dir_img = $host.'assets/uploads/'.$module.'/';
     }else {
         require_once 'controllers/admin/dashboard/dashboard.php';
-
     }
     $module = isset($_GET['module']) ? $_GET['module'] : "";
     switch ($module) {

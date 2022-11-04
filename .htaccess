@@ -1,11 +1,24 @@
+<Files .htaccess>
+
+Order Allow,Deny
+
+Deny from all
+
+</Files>
+
 RewriteEngine On
-
-
+ErrorDocument 404 http://localhost/course_ddh/page_not_found
+Options All -Indexes
+# DirectoryIndex newindex.html
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME} !-f 
+# admin
 RewriteRule ^page_not_found$ views/404.php
 RewriteRule ^admin$ admin.php
-RewriteRule ^admin/([a-zA-Z0-9_-]+)$ admin.php?module=$1 [QSA]
-RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ admin.php?module=$1&act=$2 [QSA]
-RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ admin.php?module=$1&act=$2&id=$3 [QSA]
-
+RewriteRule ^admin/([a-zA-Z0-9_-]+)$ admin.php?module=$1 [QSA,L]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ admin.php?module=$1&act=$2 [QSA,L]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ admin.php?module=$1&act=$2&id=$3 [QSA,L]
+# site
 RewriteRule ^home$ index.php
-RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?v=$1 [QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?v=$1 [QSA,L]
+
