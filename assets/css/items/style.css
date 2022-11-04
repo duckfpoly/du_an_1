@@ -1,11 +1,11 @@
 .page-item.active > a{
-      color: #fff !important;
-    }
-    .form-select {
-      width: 60px !important;
-      margin-left:10px;
-      margin-right:10px;
-    }
-    .dataTables_info {
-      font-size: 14px;
-    }
+  color: #fff !important;
+}
+.form-select {
+  width: 60px !important;
+  margin-left:10px;
+  margin-right:10px;
+}
+.dataTables_info {
+  font-size: 14px;
+}

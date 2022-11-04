@@ -8,8 +8,8 @@ $(document).ready(function () {
       lengthMenu: "Hiển thị _MENU_ mục",
       zeroRecords: "Nothing found - sorry",
       info: "Đang xem _PAGE_ trên _PAGES_ mục",
-      infoEmpty: "No records available",
-      infoFiltered: "(filtered from _MAX_ total records)",
+      infoEmpty: "Không có dữ liệu",
+      infoFiltered: "(lọc trong _MAX_ dữ liệu)",
       search: "Tìm kiếm _INPUT_",
     },
   });
