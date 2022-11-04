@@ -14,9 +14,7 @@
   <link href="<?= $host ?>assets/css/nucleo-svg.css" rel="stylesheet" />
   <link href="<?= $host ?>assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
   <link rel="stylesheet" href="<?= $host ?>assets/css/items/style.css">
-
   <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
-
   <link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"

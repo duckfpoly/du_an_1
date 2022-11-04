@@ -10,7 +10,7 @@
                 <div class="card-body px-0 pt-0 pb-2 d-flex justify-content-around flex-wrap">
                     <div class="col-3 mb-5">
                         <div class="preview_img border">
-                            <a class="my-image-links" data-gall="gallery01" href="#"><img id="image_course_preview" src="#" alt="your image" /></a>
+                            <a class="my-image-links" data-gall="gallery01" id="preview_img" href="https://lzd-img-global.slatic.net/g/shop/48483780466e40d1b21bc23a570034be.png_1200x1200q80.jpg_.webp"><img id="image_course_preview" src="https://lzd-img-global.slatic.net/g/shop/48483780466e40d1b21bc23a570034be.png_1200x1200q80.jpg_.webp" alt="your image" /></a>
                         </div>
                     </div>
                     <div class="p-3 col-8 ">
@@ -84,11 +84,10 @@
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function (e) {
-            $("#image_course_preview").attr("src", e.target.result);
+                $("#image_course_preview").attr("src", e.target.result);
+                $("#preview_img").attr("href", e.target.result);
             };
-
             reader.readAsDataURL(input.files[0]);
         }
     }

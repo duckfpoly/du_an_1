@@ -22,14 +22,8 @@
       <div class="ms-md-auto pe-md-3 d-flex align-items-center">
       </div>
       <ul class="navbar-nav  justify-content-end">
-        <li class="nav-item d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
-            <i class="fa fa-user me-sm-1"></i>
-            <span class="d-sm-inline d-none">Sign In</span>
-          </a>
-        </li>
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+          <a href="#" class="nav-link text-white p-0" id="iconNavbarSidenav">
             <div class="sidenav-toggler-inner">
               <i class="sidenav-toggler-line bg-white"></i>
               <i class="sidenav-toggler-line bg-white"></i>
@@ -38,20 +32,20 @@
           </a>
         </li>
         <li class="nav-item px-3 d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-white p-0">
+          <a href="#" class="nav-link text-white p-0">
             <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
           </a>
-        </li>
+        </li>&nbsp;&nbsp;
         <li class="nav-item dropdown pe-2 d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <a href="#" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-bell cursor-pointer"></i>
           </a>
-          <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+          <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4 d-none" aria-labelledby="dropdownMenuButton">
             <li class="mb-2">
               <a class="dropdown-item border-radius-md" href="javascript:;">
                 <div class="d-flex py-1">
                   <div class="my-auto">
-                    <img src="./assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                    <img src="<?= $host ?>assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="text-sm font-weight-normal mb-1">
@@ -69,7 +63,7 @@
               <a class="dropdown-item border-radius-md" href="javascript:;">
                 <div class="d-flex py-1">
                   <div class="my-auto">
-                    <img src="./assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                    <img src="<?= $host ?>assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="text-sm font-weight-normal mb-1">
@@ -114,6 +108,12 @@
               </a>
             </li>
           </ul>
+        </li>&emsp;
+        <li class="nav-item d-flex align-items-center">
+          <a href="#" class="nav-link text-white font-weight-bold px-0">
+            <i class="fa fa-user me-sm-1"></i>
+            <span class="d-sm-inline d-none">Đăng xuất</span>
+          </a>
         </li>
       </ul>
     </div>
