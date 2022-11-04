@@ -119,6 +119,7 @@ CREATE TABLE `staff_manager` (
     `id`            bigint UNSIGNED NOT NULL,
     `username`      varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `password`      varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `scope`         tinyint COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `status`        tinyint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ALTER TABLE `staff_manager` MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
