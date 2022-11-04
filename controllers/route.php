@@ -1,5 +1,4 @@
 <?php 
-    include_once 'global.php';
     // route admin
     $module = isset($_GET['module']) ? $_GET['module'] : "";
     switch ($module) {
@@ -10,5 +9,6 @@
             include_once 'views/admin/dashboard.php';
             break;
     }
+    active_item($module)
     // route site
 ?>

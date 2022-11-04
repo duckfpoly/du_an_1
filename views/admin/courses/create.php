@@ -7,9 +7,14 @@
                         <h3>Thêm khóa học</h3>
                     </div>
                 </div>
-                <div class="card-body px-0 pt-0 pb-2">
-                    <div class="p-3 ">
-                        <form action="" method="post" id="form-1">
+                <div class="card-body px-0 pt-0 pb-2 d-flex justify-content-around">
+                    <div class="col-3 mb-5">
+                        <div class="preview_img border">
+                            <a class="my-image-links" data-gall="gallery01" href="#"><img id="image_course_preview" src="#" alt="your image" /></a>
+                        </div>
+                    </div>
+                    <div class="p-3 col-8 ">
+                        <form action="<?= COURSES ?>/store" method="post" id="form-1" enctype="multipart/form-data">
                             <div class="form-group ">
                                 <label for="" class="form-label">Tên khóa học</label>
                                 <input type="text" name="name_course" id="name_course" class="form-control">
@@ -18,6 +23,11 @@
                             <div class="form-group ">
                                 <label for="price_course" class="form-label">Đơn giá</label>
                                 <input type="number" name="price_course" id="price_course" class="form-control" min="0">
+                                <div class="form-message text-danger mt-1"><br></div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="image_course" class="form-label">Ảnh</label>
+                                <input type="file" name="image_course" id="image_course" class="form-control" onchange="readURL(this);">
                                 <div class="form-message text-danger mt-1"><br></div>
                             </div>
                             <div class="form-group ">
@@ -31,8 +41,8 @@
                                 <div class="form-message text-danger mt-1"><br></div>
                             </div>
                             <div class="mt-5">
-                                <a href="<?= $root_url_2 ?>courses" class="btn btn-secondary">Quay lại</a>
-                                <button class="btn btn-success" type="submit">Thêm</button>
+                                <a href="<?= COURSES ?>" class="btn btn-secondary">Quay lại</a>
+                                <button class="btn btn-success" name="create_course" type="submit">Thêm</button>
                             </div>
                         </form>
                     </div>
@@ -41,23 +51,34 @@
         </div>
     </div>
 </section>
-<style>
-    .form-group.invalid .form-control{
-        border-color: #f33a58;
-    }
-</style>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("DOMContentLoaded", function () {
         Validator({
-        form: '#form-1',
-        formGroupSelector: '.form-group',
-        errorSelector: '.form-message',
+            form: "#form-1",
+            formGroupSelector: ".form-group",
+            errorSelector: ".form-message",
             rules: [
-                Validator.isRequired('#name_course', 'Vui lòng nhập tên khóa học'),
-                Validator.isRequired('#price_course', 'Vui lòng nhập giá khóa học'),
-                Validator.isRequired('#description_course', 'Vui lòng nhập mô tả khóa học'),
-                Validator.isRequired('#quote', 'Vui lòng nhập trích dẫn'),
-            ]
-        })
+            Validator.isRequired("#name_course", "Vui lòng nhập tên khóa học"),
+            Validator.isRequired("#price_course", "Vui lòng nhập giá khóa học"),
+            Validator.isRequired(
+                "#description_course",
+                "Vui lòng nhập mô tả khóa học"
+            ),
+            Validator.isRequired("#quote", "Vui lòng nhập trích dẫn"),
+            Validator.isRequired("#image_course", "Vui lòng chọn ảnh"),
+            ],
+        });
     });
+    
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+            $("#image_course_preview").attr("src", e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 </script>

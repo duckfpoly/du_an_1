@@ -1,6 +1,8 @@
 <?php 
-    $url        = $_SERVER['REQUEST_URI'];
-    $base_url   = 'http://localhost/course_ddh/admin';
-    $root_url   = 'http://localhost/course_ddh';
-    $root_url_2 = 'http://localhost/course_ddh/admin/'
+    $url             =  $_SERVER['REQUEST_URI'];
+    $host            =  'http://localhost/course_ddh';
+    $base_url        =  $host.'admin';
+    $root_url        =  $host.'admin/';
+    $courses         =  $host.'courses/';
+    $course_home     =  $host.'courses';
 ?>

@@ -6,7 +6,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h6>Danh sách khóa học</h6>
                         <div class="d-flex align-items-center">
-                            <a class="btn btn-success m-0" href="<?= $url ?>/create">Thêm</a>
+                            <a class="btn btn-success m-0" href="<?= COURSES ?>/create">Thêm</a>
                             &emsp;
                             <form>
                                 <input type="search" name="s" placeholder="Tìm kiếm ..." class="form-control">
@@ -48,10 +48,10 @@
                                         ?>
                                     </td>
                                     <td class="align-middle text-center d-flex justify-content-center align-items-center">
-                                        <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0" href="<?= $url ?>/detail/<?= $values['id'] ?>">Chi tiết</a></span>&emsp;
-                                        <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0" href="<?= $url ?>/edit/<?= $values['id'] ?>">Sửa</a></span>&emsp;
+                                        <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0" href="<?= COURSES ?>/detail/<?= $values['id'] ?>">Chi tiết</a></span>&emsp;
+                                        <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0" href="<?= COURSES ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
                                         <span class="text-secondary text-xs font-weight-bold">
-                                            <form action="#" method="post">
+                                            <form action="<?= COURSES ?>/destroy/<?= $values['id'] ?>" method="post">
                                                 <button onclick="return confirm('Bạn muốn xóa khóa học <?= $values['name_course'] ?> ?')" class="btn btn-danger m-0">Xóa</button>
                                             </form>
                                         </span>

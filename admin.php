@@ -1,4 +1,4 @@
-<?php include_once 'url.php'; ?>
+<?php include_once 'global.php';  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +12,21 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
-  <link href="<?= $root_url ?>/assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="<?= $root_url ?>/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="<?= $host ?>/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="<?= $host ?>/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="<?= $root_url ?>/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="<?= $host ?>/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="<?= $root_url ?>/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link id="pagestyle" href="<?= $host ?>/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+			integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.css" integrity="sha512-HFaR9dTfvVVIkca85XvaYOlbZqtyRp5f7cyfb3ycnQU60RM1qjmJKq7qZPLDI+nudOkFDuY5giiwQqfbP7M36g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="g-sidenav-show   bg-gray-100">
   <div class="min-height-300 bg-primary position-absolute w-100"></div>
@@ -101,16 +109,25 @@
   </div>
   <!--   Core JS Files   -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="<?= $root_url ?>/assets/js/core/popper.min.js"></script>
-  <script src="<?= $root_url ?>/assets/js/core/bootstrap.min.js"></script>
-  <script src="<?= $root_url ?>/assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="<?= $root_url ?>/assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="<?= $root_url ?>/assets/js/plugins/chartjs.min.js"></script>
-  <script src="<?= $root_url ?>/assets/js/plugins/validate.js"></script>
-  <script src="<?= $root_url ?>/assets/js/plugins/active.js"></script>
+  <script src="<?= $host ?>/assets/js/core/popper.min.js"></script>
+  <script src="<?= $host ?>/assets/js/core/bootstrap.min.js"></script>
+  <script src="<?= $host ?>/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="<?= $host ?>/assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="<?= $host ?>/assets/js/plugins/chartjs.min.js"></script>
+  <script src="<?= $host ?>/assets/js/plugins/validate.js"></script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?= $root_url ?>/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="<?= $host ?>/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.js" integrity="sha512-KX9LF4BMXOG6qr9aGjFIPK1xysZAHWXpuZW6gnRi6oM+41qa8x4zaLPkckNxz5veoSWzmV5HZqPMMtknU+431g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>  
+    new VenoBox({
+        selector: '.my-image-links',
+        numeration: true,
+        infinigall: true,
+        share: true,
+        spinner: 'rotating-plane'
+    });
+  </script>
 
 </body>
