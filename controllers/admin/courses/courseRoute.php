@@ -36,7 +36,7 @@
                 $quote                  = $_POST['quote'];
                 $created_at             = $_POST['created_at'];
                 $id_category            = $_POST['id_category'];
-                ctrl_edit_courses($status_course,$name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category  );
+                ctrl_edit_courses($status_course,$name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category);
             break;
         case "detail":
                 $courses_detail = ctrl_detail_courses();

@@ -13,12 +13,16 @@
     }
     $module = isset($_GET['module']) ? $_GET['module'] : "";
     switch ($module) {
-        case "courses":
-            include_once 'controllers/admin/courses/courseRoute.php';
-            break;
         case "categories":
             include_once 'controllers/admin/categories/categoryRoute.php';
             break;
+        case "courses":
+            include_once 'controllers/admin/courses/courseRoute.php';
+            break;
+        case "teachers":
+            include_once 'controllers/admin/teachers/teacherRoute.php';
+            break;
+        
     }
     active_item($module);
 ?>
