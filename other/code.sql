@@ -4,7 +4,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ALTER TABLE `categories` MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 ALTER TABLE `categories` ADD PRIMARY KEY (`id`);
-
+INSERT INTO `categories` SET `name_category` = 'Lập trình'
 
 CREATE TABLE `courses` (
     `id`                  bigint UNSIGNED NOT NULL,

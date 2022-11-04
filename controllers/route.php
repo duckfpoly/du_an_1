@@ -5,6 +5,9 @@
         case "courses":
             include_once 'controllers/admin/courses/courseRoute.php';
             break;
+        case "categories":
+            include_once 'controllers/admin/categories/categoryRoute.php';
+            break;
         default:
             include_once 'views/admin/dashboard.php';
             break;

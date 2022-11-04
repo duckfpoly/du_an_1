@@ -36,9 +36,6 @@
                 $created_at             = $_POST['created_at'];
                 ctrl_edit_courses($status_course,$name_course,$price_course,$image_course,$star_course,$rate_course,$description_course,$quote,$created_at );
             break;
-        case "delete":
-                include_once 'views/admin/'.$module.'/delete.php';
-            break;
         case "detail":
                 $courses_detail = ctrl_detail_courses();
                 include_once 'views/admin/'.$module.'/detail.php';
