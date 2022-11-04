@@ -40,6 +40,16 @@
                                 <input type="text" name="quote" id="quote" class="form-control">
                                 <div class="form-message text-danger mt-1"><br></div>
                             </div>
+                            <div class="form-group ">
+                                <label for="quote" class="form-label">Danh mục</label>
+                                <select name="id_category" id="id_category" class="form-control">
+                                    <option disabled selected value="">Chọn danh mục</option>
+                                    <?php foreach($category_read as $key => $values): ?>
+                                        <option value="<?= $values['id'] ?>"><?= $values['name_category'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <div class="form-message text-danger mt-1"><br></div>
+                            </div>
                             <div class="mt-5">
                                 <a href="<?= COURSES ?>" class="btn btn-secondary">Quay lại</a>
                                 <button class="btn btn-success" name="create_course" type="submit">Thêm</button>
@@ -58,14 +68,15 @@
             formGroupSelector: ".form-group",
             errorSelector: ".form-message",
             rules: [
-            Validator.isRequired("#name_course", "Vui lòng nhập tên khóa học"),
-            Validator.isRequired("#price_course", "Vui lòng nhập giá khóa học"),
-            Validator.isRequired(
-                "#description_course",
-                "Vui lòng nhập mô tả khóa học"
-            ),
-            Validator.isRequired("#quote", "Vui lòng nhập trích dẫn"),
-            Validator.isRequired("#image_course", "Vui lòng chọn ảnh"),
+                Validator.isRequired("#name_course", "Vui lòng nhập tên khóa học"),
+                Validator.isRequired("#price_course", "Vui lòng nhập giá khóa học"),
+                Validator.isRequired(
+                    "#description_course",
+                    "Vui lòng nhập mô tả khóa học"
+                ),
+                Validator.isRequired("#quote", "Vui lòng nhập trích dẫn"),
+                Validator.isRequired("#image_course", "Vui lòng chọn ảnh"),
+                Validator.isRequired("#id_category", "Vui lòng chọn danh mục"),
             ],
         });
     });

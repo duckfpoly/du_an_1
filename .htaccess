@@ -1,5 +1,7 @@
 RewriteEngine On
 
+
+RewriteRule ^page_not_found$ views/404.php
 RewriteRule ^admin$ admin.php
 RewriteRule ^admin/([a-zA-Z0-9_-]+)$ admin.php?module=$1 [QSA]
 RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ admin.php?module=$1&act=$2 [QSA]

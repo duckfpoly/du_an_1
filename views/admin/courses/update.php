@@ -36,8 +36,6 @@
                                 </div>
                             </div>
                             <input type="hidden" name="old_image_course"    value="<?= $courses_update['image_course'] ?>">
-                            <input type="hidden" name="star_course"         value="<?= $courses_update['star_course'] ?>">
-                            <input type="hidden" name="rate_course"         value="<?= $courses_update['rate_course'] ?>">
                             <input type="hidden" name="created_at"          value="<?= $courses_update['created_at'] ?>">
                             <div class="form-group mb-3">
                                 <label for="name_course" class="form-label">Tên khóa học</label>
@@ -62,6 +60,15 @@
                             <div class="form-group mb-3">
                                 <label for="quote" class="form-label">Trích dẫn khóa học</label>
                                 <input type="text" name="quote" id="quote" class="form-control" value="<?= $courses_update['description_course'] ?>">
+                                <div class="form-message text-danger mt-1"><br></div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="quote" class="form-label">Danh mục</label>
+                                <select name="id_category" id="id_category" class="form-control">
+                                    <?php foreach($category_read as $key => $values): ?>
+                                        <option <?= $courses_update['id_category'] == $values['id'] ? "selected" : "" ?> value="<?= $values['id'] ?>"><?= $values['name_category'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                                 <div class="form-message text-danger mt-1"><br></div>
                             </div>
                             <div class="mt-5">
