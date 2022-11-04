@@ -37,4 +37,12 @@
         move_uploaded_file($file_uploaded["tmp_name"], $target_path);
         return $file_name;
     }
+    function title_tab($data,$home){
+        if(isset($_GET[$data])){
+            echo strtoupper($_GET[$data]);
+        }
+        else {
+            echo strtoupper($home);
+        }
+    }
 ?>  

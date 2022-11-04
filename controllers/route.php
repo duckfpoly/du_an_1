@@ -3,7 +3,7 @@
     $module = isset($_GET['module']) ? $_GET['module'] : "";
     switch ($module) {
         case "courses":
-            include_once 'controllers/admin/courses/index.php';
+            include_once 'controllers/admin/courses/courseRoute.php';
             break;
         default:
             include_once 'views/admin/dashboard.php';
