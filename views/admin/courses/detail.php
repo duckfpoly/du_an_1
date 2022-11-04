@@ -7,7 +7,7 @@
                         <h3>Chi tiết khóa học</h3>
                     </div>
                 </div>
-                <div class="card-body px-0 pt-0 pb-2 d-flex justify-content-around">
+                <div class="card-body px-0 pt-0 pb-2 d-flex justify-content-around flex-wrap">
                     <div class="col-4">
                         <div class="preview_img p-3">
                             <a class="my-image-links" data-gall="gallery01" href="<?= $dir_img.$courses_detail['image_course'] ?>"><img id="image_course_preview" src="<?= $dir_img.$courses_detail['image_course'] ?>" alt="your image" /></a>

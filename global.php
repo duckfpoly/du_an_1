@@ -45,4 +45,9 @@
             echo strtoupper($home);
         }
     }
+    function check_id($id){
+        if(empty($id)){
+            location(COURSES);
+        }
+    }
 ?>  

@@ -7,7 +7,7 @@
                         <h3>Thêm khóa học</h3>
                     </div>
                 </div>
-                <div class="card-body px-0 pt-0 pb-2 d-flex justify-content-around">
+                <div class="card-body px-0 pt-0 pb-2 d-flex justify-content-around flex-wrap">
                     <div class="col-3 mb-5">
                         <div class="preview_img border">
                             <a class="my-image-links" data-gall="gallery01" href="#"><img id="image_course_preview" src="#" alt="your image" /></a>

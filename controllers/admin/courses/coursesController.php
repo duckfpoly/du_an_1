@@ -15,23 +15,27 @@
         return $courses_read;
     }
     function ctrl_update_courses(){
-        $id = isset($_GET['id']) ? $_GET['id'] : "";
+        $id = $_GET['id'];
+        check_id($id);
         $courses_update = course_detail($id);
         return $courses_update;
     }
     function ctrl_edit_courses($status_course,$name_course,$price_course,$image_course,$star_course,$rate_course,$description_course,$quote,$created_at ){
-        $id                     = isset($_GET['id']) ? $_GET['id'] : "";
+        $id = $_GET['id'];
+        check_id($id);
         $updated_at             = date("Y-m-d H:i:s");
         courses_update($name_course,$price_course,$image_course,$star_course,$rate_course,$status_course,$description_course,$quote,$created_at,$updated_at,$id);
         location(COURSES);
     }
     function ctrl_destroy_courses(){
-        $id             = isset($_GET['id']) ? $_GET['id'] : "";
+        $id = $_GET['id'];
+        check_id($id);
         $courses_delete = course_delete($id);
         location(COURSES);
     }
     function ctrl_detail_courses(){
-        $id = isset($_GET['id']) ? $_GET['id'] : "";
+        $id = $_GET['id'];
+        check_id($id);
         $courses_detail = course_detail($id);
         return $courses_detail;
     }
