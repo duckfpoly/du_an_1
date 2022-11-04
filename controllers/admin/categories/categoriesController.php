@@ -31,7 +31,6 @@
             }
         }
         $update_category = category_detail($id);
-        echo $update_category['id'];
         return $update_category ;
     }
     function ctrl_edit_category($name_category){
