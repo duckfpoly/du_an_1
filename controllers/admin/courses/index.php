@@ -27,7 +27,7 @@
                     $image_course = $image_goc;
                 } else {
                     $image_course = $image_up;
-                    save_image('image_course',$module);
+                    save_file('image_course', 'courses');
                 }
                 $star_course            = $_POST['star_course'];
                 $rate_course            = $_POST['rate_course'];

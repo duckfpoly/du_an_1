@@ -35,5 +35,4 @@
         $courses_detail = course_detail($id);
         return $courses_detail;
     }
-    
 ?>
