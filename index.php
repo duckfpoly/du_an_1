@@ -1,9 +1,10 @@
+<?php include 'global.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Courses</title>
+    <title> App landing</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -42,10 +43,9 @@
             </div>
         </div>
     </div>
-    <?php include 'views/site/layout/navbar.php'?>
-    <?php include 'views/site/home.php'?>
-    <?php include 'views/site/layout/footer.php'?>
-
+    <?php include './views/site/layout/navbar.php'?>
+    <?php include './routes/route_site.php'?>
+    <?php include './views/site/layout/footer.php'?>
 
 <script src="./assets/js/course/jquery-3.2.1.min.js"></script>
 <script src="./assets/js/course/course.js"></script>

@@ -17,7 +17,7 @@
     define("STAFFS",        $host.'admin/staffs'); 
     // url site
     define("HOME",          $host);  
-    define("COURSE",        $host.'course'); 
+    define("LESSONS",        $host.'lessions'); 
     define("ABOUT",         $host.'about'); 
     define("CONTACT",       $host.'contact'); 
     function active_item($item){
