@@ -3,7 +3,7 @@ RewriteEngine On
 RewriteRule ^page_not_found$ views/404.php
 
 # Thay đổi trang báo lỗi 
-ErrorDocument 404 http://localhost/course_ddh/page_not_found
+ErrorDocument 404 http://localhost/coursesWeb/du_an_1/page_not_found
 # điều hướng 
 # DirectoryIndex newindex.html
 

@@ -4,7 +4,7 @@
     require_once 'models/m_courses.php';
     require_once 'models/m_teachers.php';
     $url                    =  $_SERVER['REQUEST_URI'];
-    $host                   =  'http://localhost/course_ddh/';
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
     // url admin
     define("DASHBOARD",     $host.'admin');  
     define("CATEGORIES",    $host.'admin/categories'); 

@@ -11,6 +11,7 @@
     }else {
         require_once 'controllers/admin/dashboard/dashboard.php';
     }
+    
     switch ($module) {
         case "categories":
             include_once 'controllers/admin/categories/categoryRoute.php';
