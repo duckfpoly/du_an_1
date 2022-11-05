@@ -2,54 +2,54 @@
     function ctrl_create_category(){
 
     }
-    function ctrl_store_category($name_category) { 
+    function ctrl_store_teacher($name_category) {
         if(empty($name_category)){
             location(CATEGORIES);
         }
         else {
-            $create = category_create($name_category);
+            $create = teacher_create($name_category);
             if(isset($create)){
                 alert($create);
-                location(CATEGORIES."/create");
+                location(TEACHERS."/create");
             }else {
-                location(CATEGORIES);
+                location(TEACHERS);
             }
         }
     }
-    function ctrl_read_category(){
-        return category_read();
+    function ctrl_read_teacher(){
+        return teacher_read();
     }
-    function ctrl_update_category(){
+    function ctrl_update_teacher(){
         $id = $_GET['id'];
         if(empty($id)){
-            location(CATEGORIES);
+            location(TEACHERS);
         }else {
-            $update = check_id_category($id);
+            $update = check_id_teacher($id);
             if(isset($update)){
                 alert($update);
-                location(CATEGORIES);
+                location(TEACHERS);
             }
         }
-        $update_category = category_detail($id);
+        $update_category = teacher_detail($id);
         return $update_category ;
     }
-    function ctrl_edit_category($name_category){
+    function ctrl_edit_teacher($name_category){
         $id = $_GET['id'];
         category_update($name_category,$id);
-        location(CATEGORIES);
+        location(TEACHERS);
     }
-    function ctrl_destroy_category(){
+    function ctrl_destroy_teacher(){
         $id = $_GET['id'];
         if(empty($id)){
-            location(CATEGORIES);
+            location(TEACHERS);
         }else {
-            $delete = check_id_category($id);
+            $delete = check_id_teacher($id);
             if(isset($delete)){
                 alert($delete);
-                location(CATEGORIES);
+                location(TEACHERS);
             }else {
                 category_delete($id);
-                location(CATEGORIES);
+                location(TEACHERS);
             }
         }
     }

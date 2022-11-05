@@ -2,6 +2,7 @@
     require_once 'models/process.php';
     require_once 'models/m_categories.php';
     require_once 'models/m_courses.php';
+    require_once 'models/m_teachers.php';
     $url                    =  $_SERVER['REQUEST_URI'];
     $host                   =  'http://localhost/course_ddh/';
     // url admin

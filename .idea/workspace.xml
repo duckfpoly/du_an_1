@@ -2,208 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9be05a-b278-4d0c-bfbc-f82ad03dcec3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/course_ddh.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/uploads/teachers/course_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/m_teachers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/teachers/create.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/teachers/detail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/teachers/read.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/teachers/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/argon-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/argon-dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/argon-dashboard.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/argon-dashboard.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/argon-dashboard.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/items/courses.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/items/courses.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/items/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/items/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/nucleo-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/nucleo-icons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/nucleo-svg.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/nucleo-svg.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/argon-dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/argon-dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/argon-dashboard.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/argon-dashboard.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/argon-dashboard.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/core/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/core/bootstrap.bundle.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/core/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/core/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/core/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/core/popper.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/items/courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/items/courses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/items/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/items/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/plugins/Chart.extension.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/plugins/Chart.extension.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/plugins/active.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/plugins/active.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/plugins/bootstrap-notify.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/plugins/bootstrap-notify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/plugins/chartjs.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/plugins/chartjs.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/plugins/perfect-scrollbar.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/plugins/perfect-scrollbar.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/plugins/smooth-scrollbar.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/plugins/smooth-scrollbar.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/plugins/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/plugins/validate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_alert.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_avatars.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_breadcrumbs.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_cards.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_dark-version.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_dropdown.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_dropup.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_fixed-plugin.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_footer.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_gradients.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_header.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_info-areas.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_misc.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_nav.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_navbar-vertical.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_navbar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_popovers.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_progress.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_rtl.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_social-buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_tables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_tilt.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_timeline.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_tooltips.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_typography.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_utilities-extend.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_utilities.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_accordion.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_alert.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_breadcrumb.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_button-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_card.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_carousel.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_close.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_containers.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_dropdown.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_functions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_helpers.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_images.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_maps.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_modal.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_nav.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_navbar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_offcanvas.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_placeholders.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_popover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_progress.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_reboot.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_root.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_spinners.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_tables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_toasts.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_tooltip.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_transitions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_type.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_utilities.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/bootstrap-grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/bootstrap-reboot.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/bootstrap-utilities.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/bootstrap.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/forms/_floating-labels.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/forms/_form-check.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/forms/_form-control.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/forms/_form-range.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/forms/_form-select.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/forms/_form-text.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/forms/_input-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/forms/_labels.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/forms/_validation.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/helpers/_clearfix.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/helpers/_color-bg.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/helpers/_colored-links.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/helpers/_position.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/helpers/_ratio.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/helpers/_stacks.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/helpers/_stretched-link.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/helpers/_text-truncation.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/helpers/_visually-hidden.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/helpers/_vr.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_alert.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_backdrop.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_border-radius.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_box-shadow.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_breakpoints.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_caret.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_clearfix.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_color-scheme.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_container.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_deprecate.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_gradients.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_image.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_lists.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_reset-text.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_resize.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_table-variants.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_text-truncate.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_transition.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_utilities.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/mixins/_visually-hidden.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/utilities/_api.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/bootstrap/vendor/_rfs.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/cards/card-background.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/cards/card-carousel.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/custom/_styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/custom/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/forms/_form-check.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/forms/_form-select.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/forms/_form-switch.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/forms/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/forms/_input-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/forms/_inputs.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/forms/_labels.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/mixins/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/mixins/_colored-shadows.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/mixins/_hover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/mixins/_social-buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/mixins/mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/plugins/free/_flatpickr.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/plugins/free/_nouislider.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/plugins/free/_perfect-scrollbar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/plugins/free/_prism.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/plugins/free/plugins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/theme.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_animations.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_avatars.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_breadcrumb.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_cards-extend.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_cards.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_choices.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_dark-version.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_dropdowns.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_fixed-plugin.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_form-switch.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_full-calendar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_header.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_info-areas.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_misc-extend.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_misc.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_navbar-vertical.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_navbar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_rtl.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_social-buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_table.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_timeline.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_utilities-extend.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_utilities.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/argon-dashboard/variables/_virtual-reality.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/categories/categoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/categories/categoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/css/items/courses.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/items/courses.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/css/items/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/css/nucleo-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/nucleo-icons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/js/items/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/items/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/about_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/blog_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/comment_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/comment_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/course_7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/course_image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/single_blog_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/single_blog_4.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/admin/categories/categoryRoute.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/categories/categoryRoute.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/admin/courses/courseRoute.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/courses/courseRoute.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/courses/coursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/courses/coursesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/m_categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/m_categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/m_courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/m_courses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/teachers/teacherRoute.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/teachers/teacherRoute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/teachers/teachersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/teachers/teachersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/global.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/other/code.sql" beforeDir="false" afterPath="$PROJECT_DIR$/other/code.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/route_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/404.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/admin/categories/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/categories/read.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/courses/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/courses/read.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/layouts/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/layouts/sidebar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,13 +67,28 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/laragon/www/course_ddh",
+    "last_opened_file_path": "D:/laragon/www/course_ddh/assets/uploads/teachers",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\course_ddh\assets\uploads\teachers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\course_ddh\assets\admin" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -245,7 +97,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667610228694</updated>
-      <workItem from="1667610231139" duration="5818000" />
+      <workItem from="1667610231139" duration="6299000" />
+      <workItem from="1667617910223" duration="2266000" />
+      <workItem from="1667622589785" duration="4524000" />
     </task>
     <servers />
   </component>

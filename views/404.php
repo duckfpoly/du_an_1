@@ -261,7 +261,7 @@ span.green {
 
 <br/>
       <span class="orange">&lt;/html&gt;</span>
-    </code></pre>
+    </span></pre>
   </div>
 </div>
 

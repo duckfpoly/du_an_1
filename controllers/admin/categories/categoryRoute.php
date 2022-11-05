@@ -30,4 +30,4 @@
     }
 ?>
 <link rel="stylesheet" href="<?= $host ?>/assets/css/items/courses.css">
-<script src="<?= $host ?>/assets/js/items/courses.js"></script>
+<!-- <script src="<?= $host ?>/assets/js/items/courses.js"></script> -->

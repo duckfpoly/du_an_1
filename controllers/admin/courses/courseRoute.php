@@ -26,9 +26,7 @@
                 include_once 'views/admin/'.$module.'/update.php';
             break;
         case "edit":
-            alert("Chưa có danh mục. Không thể tạo khóa học!");
-
-            $status_course          = $_POST['status_course'];
+                $status_course          = $_POST['status_course'];
                 $name_course            = $_POST['name_course'];
                 $price_course           = $_POST['price_course'];
                 $image_goc              = $_POST['old_image_course'];
@@ -62,5 +60,3 @@
             break;
     }
 ?>
-<link rel="stylesheet" href="<?= $host ?>/assets/css/items/courses.css">
-<!-- <script src="<?= $host ?>/assets/js/items/courses.js"></script> -->

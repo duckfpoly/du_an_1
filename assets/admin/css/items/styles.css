@@ -1,0 +1,41 @@
+.page-item.active > a{
+  color: #fff !important;
+}
+.form-select {
+  width: 60px !important;
+  margin-left:10px;
+  margin-right:10px;
+}
+.dataTables_info {
+  font-size: 14px;
+}
+.dt-buttons {
+  float: right !important;
+  margin-bottom: 30px !important;
+}
+.dt-button {
+  background: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 6px rgb(50 50 93 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+  transition: 0.3s all ease-in-out;
+  background: transparent !important;
+  border: none !important;
+
+}
+.dt-button:hover {
+  border: none !important;
+  transform: translateY(-1.5px);
+}
+.form-group.invalid .form-control {
+  border-color: #f33a58;
+}
+.preview_img {
+  width: 100%;
+  height: 100%;
+}
+.preview_img img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
+}

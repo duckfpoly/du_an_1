@@ -6,24 +6,22 @@
             break;
         case "store":
                 $name_category = $_POST['name_category'];
-                ctrl_store_category($name_category);
+                ctrl_store_teacher($name_category);
             break;
         case "update":
-                $update_category = ctrl_update_category();
+                $update_category = ctrl_update_teacher();
                 include_once 'views/admin/'.$module.'/update.php';
             break;
         case "edit":
                 $name_category = $_POST['name_category'];
-                ctrl_edit_category($name_category);
+                ctrl_edit_teacher($name_category);
             break;
         case "destroy":
-                ctrl_destroy_category();
+                ctrl_destroy_teacher();
             break;
         default:
-                $read_category = ctrl_read_category();
+                $read_teacher = ctrl_read_teacher();
                 include_once 'views/admin/'.$module.'/read.php';
             break;
     }
 ?>
-<link rel="stylesheet" href="<?= $host ?>/assets/css/items/courses.css">
-<script src="<?= $host ?>/assets/js/items/courses.js"></script>

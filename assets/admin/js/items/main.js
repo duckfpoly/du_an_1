@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#example").DataTable({
+  var table = $("#example").DataTable({
     language: {
       paginate: {
         previous: '<span class="prev-icon"><</span>',
@@ -12,6 +12,12 @@ $(document).ready(function () {
       infoFiltered: "(lọc trong _MAX_ dữ liệu)",
       search: "Tìm kiếm _INPUT_",
     },
+    searching: false,
+    paging: true,
+    info: false,
+    responsive: true,
+    dom: "Blfrtip",
+    buttons: ["copy", "csv", "excel", "pdf", "print"],
   });
 });
 new VenoBox({
@@ -22,8 +28,7 @@ new VenoBox({
   spinner: "rotating-plane",
 });
 
-
-if (document.getElementById("chart-line")){
+if (document.getElementById("chart-line")) {
   var ctx1 = document.getElementById("chart-line").getContext("2d");
   var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
   gradientStroke1.addColorStop(1, "rgba(94, 114, 228, 0.2)");
@@ -107,4 +112,3 @@ if (document.getElementById("chart-line")){
     },
   });
 }
-  
