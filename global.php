@@ -5,8 +5,9 @@
     require_once 'models/m_teachers.php';
     $url                    =  $_SERVER['REQUEST_URI'];
     $host                   =  'http://localhost/course_ddh/';
+    $admin                  =  'http://localhost/course_ddh/admin/';
     // url admin
-    define("DASHBOARD",     $host.'admin');  
+    define("DASHBOARD",     $host.'admin');
     define("CATEGORIES",    $host.'admin/categories'); 
     define("COURSES",       $host.'admin/courses'); 
     define("TEACHERS",      $host.'admin/teachers'); 
@@ -53,5 +54,10 @@
             location(COURSES);
         }
         exit();
+    }
+    function check_empty($data,$redirect){
+        if(empty($data)){
+            location($redirect);
+        }
     }
 ?>  
