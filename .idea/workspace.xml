@@ -2,45 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9be05a-b278-4d0c-bfbc-f82ad03dcec3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/uploads/teachers/course_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/m_teachers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/teachers/create.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/teachers/detail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/teachers/read.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/teachers/update.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/uploads/teachers/about_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/uploads/teachers/blog_4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/css/items/courses.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/items/courses.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/css/items/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/css/nucleo-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/nucleo-icons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/js/items/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/items/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo-icons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/nucleo.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/about_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/blog_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/comment_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/comment_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/course_7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/course_image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/single_blog_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/uploads/courses/single_blog_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/categories/categoryRoute.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/categories/categoryRoute.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/courses/courseRoute.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/courses/courseRoute.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/teachers/teacherRoute.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/teachers/teacherRoute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/teachers/teacherRoute.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/admin/teachers/teachersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/teachers/teachersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/global.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/code.sql" beforeDir="false" afterPath="$PROJECT_DIR$/other/code.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/m_teachers.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/m_teachers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/route_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route_admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/404.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/categories/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/categories/read.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/layouts/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/layouts/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/layouts/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/layouts/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/teachers/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/teachers/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/teachers/detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/teachers/detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/teachers/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/teachers/read.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/teachers/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/teachers/update.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +27,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/models/m_teachers.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -99,7 +77,7 @@
       <updated>1667610228694</updated>
       <workItem from="1667610231139" duration="6299000" />
       <workItem from="1667617910223" duration="2266000" />
-      <workItem from="1667622589785" duration="4524000" />
+      <workItem from="1667622589785" duration="11970000" />
     </task>
     <servers />
   </component>

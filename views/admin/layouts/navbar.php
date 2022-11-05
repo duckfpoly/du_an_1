@@ -7,7 +7,7 @@
           if(isset($_GET['module']) == true){
             if(isset($_GET['act']) == true){
               echo ' 
-                <li class="breadcrumb-item text-sm text-white active" aria-current="page"><a class="opacity-5 text-white" href="'.CATEGORIES.'">'.ucfirst($_GET['module']).'</a></li>
+                <li class="breadcrumb-item text-sm text-white active" aria-current="page"><a class="opacity-5 text-white" href="'.$admin.$_GET['module'].'">'.ucfirst($_GET['module']).'</a></li>
                 <li class="breadcrumb-item text-sm text-white active" aria-current="page">'.ucfirst($_GET['act']).'</li>
               ';
             }

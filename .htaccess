@@ -10,15 +10,23 @@ ErrorDocument 404 http://localhost/coursesWeb/du_an_1/page_not_found
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteCond %{REQUEST_FILENAME} !-f 
 
-RewriteRule ^sign_in$       views/account/sign_in.php
-RewriteRule ^sign_up$       views/account/sign_up.php
+RewriteRule ^sign_in$                                                   views/account/sign_in.php
+RewriteRule ^sign_up$                                                   views/account/sign_up.php
+
+
+
 # admin
-RewriteRule ^admin$ admin.php
-RewriteRule ^admin/([a-zA-Z0-9_-]+)$ admin.php?module=$1 [QSA,L]
-RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ admin.php?module=$1&act=$2 [QSA,L]
-RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ admin.php?module=$1&act=$2&id=$3 [QSA,L]
+RewriteRule ^admin$                                                     admin.php
+RewriteRule ^admin/([a-zA-Z0-9_-]+)$                                    admin.php?module=$1 [QSA,L]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                   admin.php?module=$1&act=$2 [QSA,L]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$  admin.php?module=$1&act=$2&id=$3 [QSA,L]
+
+
+
+
 # site
-RewriteRule ^forgot_pass$   views/account/forgot_pass.php
-RewriteRule ^reset_pass$    views/account/reset_pass.php
-RewriteRule ^home$          index.php
-RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?v=$1 [QSA,L]
+RewriteRule ^forgot_pass$                                               views/account/forgot_pass.php
+RewriteRule ^reset_pass$                                                views/account/reset_pass.php
+RewriteRule ^home$                                                      index.php
+RewriteRule ^([a-zA-Z0-9_-]+)$                                          index.php?v=$1 [QSA,L]
+

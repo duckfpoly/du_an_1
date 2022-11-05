@@ -1,56 +1,71 @@
-<?php 
-    function ctrl_create_category(){
-
-    }
-    function ctrl_store_teacher($name_category) {
-        if(empty($name_category)){
-            location(CATEGORIES);
-        }
-        else {
-            $create = teacher_create($name_category);
-            if(isset($create)){
-                alert($create);
-                location(TEACHERS."/create");
-            }else {
-                location(TEACHERS);
-            }
-        }
-    }
-    function ctrl_read_teacher(){
-        return teacher_read();
-    }
-    function ctrl_update_teacher(){
-        $id = $_GET['id'];
-        if(empty($id)){
-            location(TEACHERS);
-        }else {
-            $update = check_id_teacher($id);
-            if(isset($update)){
-                alert($update);
-                location(TEACHERS);
-            }
-        }
-        $update_category = teacher_detail($id);
-        return $update_category ;
-    }
-    function ctrl_edit_teacher($name_category){
-        $id = $_GET['id'];
-        category_update($name_category,$id);
+<?php
+$act = isset($_GET['act']) ? $_GET['act'] : "";
+switch ($act) {
+    case "create":
+        include_once 'views/admin/'.$module.'/create.php';
+        break;
+    case "store":
+        // lấy dữ liệu từ form
+        $name_teacher           = $_POST['name_teacher'];
+        $email_teacher          = $_POST['email_teacher'];
+        $phone_teacher          = $_POST['phone_teacher'];
+        $password_teacher       = $_POST['password_teacher'];
+        $image_teacher          = $_FILES['image_teacher']['name'];
+        $about_teacher          = $_POST['about_teacher'];
+        $scope_teacher          = $_POST['scope_teacher'];
+        $created_at             = date("Y-m-d H:i:s");
+        // đường dẫn ( trang thêm gv )
+        $redirect = TEACHERS."/create";
+        // hàm check_empty sẽ kiểm tra xem dữ liệu rỗng không, nếu rỗng sẽ điều hướng về trang đã khai báo redirect bên trên
+        check_empty($name_teacher       ,$redirect);
+        check_empty($email_teacher      ,$redirect);
+        check_empty($phone_teacher      ,$redirect);
+        check_empty($password_teacher   ,$redirect);
+        check_empty($image_teacher      ,$redirect);
+        check_empty($about_teacher      ,$redirect);
+        check_empty($scope_teacher      ,$redirect);
+        // sau khi pass qua kiểm tra sẽ thực hiện insert vào db và lưu ảnh vào thư mục
+        // lưu file ảnh, field: name input ở form thêm, name_dir: là tên của mục đang làm ( đang làm là teachers nên name_dir sẽ là teachers )
+        save_file('image_teacher', 'teachers');
+        // Gọi models để thêm dữ liệu vào database
+        teachers_create($name_teacher,$email_teacher,$phone_teacher, $password_teacher,$image_teacher,$about_teacher,$scope_teacher,$created_at);
+        // sau khi thêm hoàn thành sẽ điều hướng về trang read
         location(TEACHERS);
-    }
-    function ctrl_destroy_teacher(){
+        break;
+    case "update":
         $id = $_GET['id'];
-        if(empty($id)){
-            location(TEACHERS);
-        }else {
-            $delete = check_id_teacher($id);
-            if(isset($delete)){
-                alert($delete);
-                location(TEACHERS);
-            }else {
-                category_delete($id);
-                location(TEACHERS);
-            }
-        }
-    }
+        check_empty($id,TEACHERS);
+        $teacher_detail = teacher_detail($id);
+        include_once 'views/admin/'.$module.'/update.php';
+        break;
+    case "edit":
+        $name_teacher           = $_POST['name_teacher'];
+        $email_teacher          = $_POST['email_teacher'];
+        $phone_teacher          = $_POST['phone_teacher'];
+        $password_teacher       = $_POST['password_teacher'];
+        $image_teacher          = $_FILES['image_teacher']['name'];
+        $about_teacher          = $_POST['about_teacher'];
+        $scope_teacher          = $_POST['scope_teacher'];
+        $created_at             = $_POST['created_at'];
+        $updated_at             = date("Y-m-d H:i:s");
+        $status_teacher         = $_POST['status_teacher'];
+        teachers_update($name_teacher,$email_teacher,$phone_teacher, $password_teacher,$image_teacher,$about_teacher,$scope_teacher,$created_at,$updated_at,$status_teacher);
+        break;
+    case "destroy":
+        $id = $_GET['id'];
+        check_empty($id,TEACHERS);
+        teacher_delete($id);
+        location(TEACHERS);
+        break;
+    case "detail":
+        $id = $_GET['id'];
+        check_empty($id,TEACHERS);
+        $teacher_detail = teacher_detail($id);
+        include_once 'views/admin/'.$module.'/detail.php';
+        break;
+    default:
+        $read_teacher = teacher_read();
+        include_once 'views/admin/'.$module.'/read.php';
+        break;
+}
 ?>

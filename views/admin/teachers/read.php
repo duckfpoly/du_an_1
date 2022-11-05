@@ -17,7 +17,7 @@
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên giảng viên</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ảnh</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số điện thoại</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Thao tác</th>
                             </tr>
@@ -35,15 +35,13 @@
                                         </td>
                                         <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_teacher'] ?></p></td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">
-                                                <img id="image_teacher" src="<?= $dir_img.$values['image_teacher'] ?>" alt="">
-                                            </span>
+                                            <span class="text-secondary text-xs font-weight-bold"><?= $values['phone_teacher'] ?></span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <?=
                                             $values['status_teacher'] == 0
-                                                ? '<span class="badge badge-sm bg-gradient-success">Kích hoạt</span>'
-                                                : '<span class="badge badge-sm bg-gradient-danger">Cấm</span>'
+                                                ? '<span class="badge badge-sm bg-gradient-success">active</span>'
+                                                : '<span class="badge badge-sm bg-gradient-danger">ban</span>'
                                             ?>
                                         </td>
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">

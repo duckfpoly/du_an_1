@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="p-3 col-8 ">
-                        <form action="<?= COURSES ?>/store" method="post" id="form-1" enctype="multipart/form-data">
+                        <form action="<?= TEACHERS ?>/store" method="post" id="form-1" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="name_teacher" class="form-label">Tên giảng viên</label>
                                 <input type="text" name="name_teacher" id="name_teacher" class="form-control">
@@ -22,7 +22,7 @@
                             </div>
                             <div class="form-group ">
                                 <label for="email_teacher" class="form-label">Email</label>
-                                    <input type="text" name="email_teacher" id="email_teacher" class="form-control">
+                                    <input type="email" name="email_teacher" id="email_teacher" class="form-control">
                                     <div class="form-message text-danger mt-1"><br></div>
                             </div>
                             <div class="form-group ">
@@ -32,10 +32,10 @@
                             </div>
                             <div class="form-group ">
                                 <label for="password_teacher" class="form-label">Mật khẩu</label>
-                                <input type="number" name="password_teacher" id="password_teacher" class="form-control" min="0">
+                                <input type="password" name="password_teacher" id="password_teacher" class="form-control" min="0">
                                 <div class="form-message text-danger mt-1"><br></div>
                             </div>
-                            <div class="form-group ">
+                            <div class="form-group">
                                 <label for="image_teacher" class="form-label">Ảnh</label>
                                 <input type="file" name="image_teacher" id="image_teacher" class="form-control" onchange="readURL(this);">
                                 <div class="form-message text-danger mt-1"><br></div>
@@ -51,7 +51,7 @@
                                 <div class="form-message text-danger mt-1"><br></div>
                             </div>
                             <div class="mt-5">
-                                <a href="<?= COURSES ?>" class="btn btn-secondary">Quay lại</a>
+                                <a href="<?= TEACHERS ?>" class="btn btn-secondary">Quay lại</a>
                                 <button class="btn btn-success" name="create_course" type="submit">Thêm</button>
                             </div>
                         </form>
@@ -68,12 +68,16 @@
             formGroupSelector: ".form-group",
             errorSelector: ".form-message",
             rules: [
-                Validator.isRequired("#name_course", "Vui lòng nhập tên giảng viên"),
-                Validator.isRequired("#price_course", "Vui lòng nhập ảnh giảng viên"),
-                Validator.isRequired("#description_course","Vui lòng nhập mô tả khóa học"),
-                Validator.isRequired("#quote", "Vui lòng nhập trích dẫn"),
-                Validator.isRequired("#image_course", "Vui lòng chọn ảnh"),
-                Validator.isRequired("#id_category", "Vui lòng chọn danh mục"),
+                Validator.isRequired("#name_teacher", "Vui lòng nhập tên giảng viên"),
+                Validator.isRequired("#email_teacher", "Vui lòng nhập email giảng viên"),
+                Validator.isRequired("#phone_teacher", "Vui lòng nhập số điện thoại giảng viên"),
+                Validator.isRequired("#password_teacher", "Vui lòng nhập mật khẩu giảng viên"),
+                Validator.isRequired("#image_teacher", "Vui lòng chọn ảnh giảng viên"),
+                Validator.isRequired("#about_teacher", "Vui lòng nhập giới thiệu giảng viên"),
+                Validator.isRequired("#scope_teacher", "Vui lòng nhập kỹ năng giảng viên"),
+                Validator.isEmail('#email_teacher'),
+                Validator.isPhone('#phone_teacher'),
+                Validator.minLength('#password_teacher', 8),
             ],
         });
     });
