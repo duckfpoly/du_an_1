@@ -1,8 +1,8 @@
 <?php 
     function check_name_course($name_course){
         $sql = "SELECT * FROM `courses` WHERE name_course = ?";
-        $check_name_course = $this->query_one($sql, $name_course);
-        if($check_name_course > 0) { $alert = "Tên khóa học đã được sử dụng !"; return $alert; }
+        $check_name_course = (new process())->query_one($sql, $name_course);
+        if($check_name_course > 0) { return "Tên khóa học đã được sử dụng !"; }
     }
     function check_id_course($id){
         $sql = "SELECT * FROM `courses` WHERE id = ?";
@@ -12,7 +12,7 @@
         }
     }
     function courses_create($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$id_category){
-        if(check_name_category($name_category) > 0 ){
+        if(check_name_category($name_course) > 0 ){
             return "Tên khóa học đã được sử dụng!";
         }else {
             $sql = "INSERT INTO `courses` SET 
@@ -61,5 +61,8 @@
                 WHERE courses.id = ?";
         return (new process())->query_one($sql,$id);
     }
-    
+    function course_search($key){
+        $sql = "SELECT * FROM courses WHERE name_course LIKE '%$key%'";
+        return (new process())->query($sql);
+    }
 ?>

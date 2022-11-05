@@ -29,14 +29,19 @@
                 alert($update);
                 location(CATEGORIES);
             }
+            $update_category = category_detail($id);
+            return $update_category ;
         }
-        $update_category = category_detail($id);
-        return $update_category ;
     }
     function ctrl_edit_category($name_category){
         $id = $_GET['id'];
-        category_update($name_category,$id);
-        location(CATEGORIES);
+        $update_category = category_update($name_category,$id);
+        if(isset($update_category)){
+            alert($update_category);
+            location(CATEGORIES."/update/".$id);
+        }else {
+            location(CATEGORIES);
+        }
     }
     function ctrl_destroy_category(){
         $id = $_GET['id'];
@@ -52,5 +57,8 @@
                 location(CATEGORIES);
             }
         }
+    }
+    function ctrl_search_category($data){
+        return category_search($data);
     }
 ?>

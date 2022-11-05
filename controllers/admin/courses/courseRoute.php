@@ -2,8 +2,13 @@
     $act    = isset($_GET['act'])       ? $_GET['act']      : "";
     switch ($act) {
         case "create":
+            if(count_category() == 0){
+                alert("Chưa có danh mục. Không thể tạo khóa học!");
+                location(COURSES);
+            }else {
                 $category_read = ctrl_create_courses();
                 include_once 'views/admin/'.$module.'/create.php';
+            }
             break;
         case "store":
                 $name_course            = $_POST['name_course'];
@@ -21,7 +26,9 @@
                 include_once 'views/admin/'.$module.'/update.php';
             break;
         case "edit":
-                $status_course          = $_POST['status_course'];
+            alert("Chưa có danh mục. Không thể tạo khóa học!");
+
+            $status_course          = $_POST['status_course'];
                 $name_course            = $_POST['name_course'];
                 $price_course           = $_POST['price_course'];
                 $image_goc              = $_POST['old_image_course'];
@@ -46,7 +53,11 @@
                 ctrl_destroy_courses();
             break;
         default:
-                $courses_read   = ctrl_read_courses();
+                if(isset($_GET['s'])){
+                    $courses_read   = ctrl_search_courses($_GET['s']);
+                }else {
+                    $courses_read   = ctrl_read_courses();
+                }
                 include_once 'views/admin/'.$module.'/read.php';
             break;
     }

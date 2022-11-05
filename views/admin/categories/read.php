@@ -5,8 +5,12 @@
                 <div class="card-header border-bottom ">
                     <div class="d-flex justify-content-between align-items-center">
                         <h6>Danh sách danh mục</h6>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex justify-content-between align-items-center">
                             <a class="btn btn-success m-0" href="<?= CATEGORIES ?>/create">Thêm</a>
+                            &emsp;|&emsp;
+                            <form action="<?= CATEGORIES ?>" class="d-flex justify-content-center align-items-center">
+                                <input type="search" name="s" class="form-control" placeholder="Tìm kiếm">
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -57,3 +61,48 @@
         </div>
     </div>
 </section>
+<script>
+    $(document).ready(function () {
+        var table = $("#example").DataTable({
+            language: {
+                paginate: {
+                    previous: '<span class="prev-icon"><</span>',
+                    next: '<span class="next-icon">></span>',
+                },
+                lengthMenu: "Hiển thị _MENU_ mục",
+                zeroRecords: "Nothing found - sorry",
+                info: "Đang xem _PAGE_ trên _PAGES_ mục",
+                infoEmpty: "Không có dữ liệu",
+                infoFiltered: "(lọc trong _MAX_ dữ liệu)",
+                search: "Tìm kiếm _INPUT_",
+            },
+            searching: false,
+            paging: true,
+            info: true,
+            responsive: true,
+            dom: 'Blfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
+        });
+    });
+</script>
+<style>
+    .dt-buttons {
+        float: right !important;
+        margin-bottom: 30px !important;
+    }
+    .dt-button {
+        background: none !important;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 6px rgb(50 50 93 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+        transition: 0.3s all ease-in-out;
+        background: transparent !important;
+        border: none !important;
+
+    }
+    .dt-button:hover {
+        border: none !important;
+        transform: translateY(-1.5px);
+    }
+</style>
