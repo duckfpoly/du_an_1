@@ -28,8 +28,8 @@ function teacher_read(){
     $sql = "SELECT * FROM `teachers`";
     return (new process())->query($sql);
 }
-function teachers_update($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id){
-    $sql = "UPDATE `courses` SET 
+function teachers_update($name_teacher,$email_teacher,$phone_teacher, $password_teacher,$image_teacher,$about_teacher,$scope_teacher,$created_at,$updated_at,$status_teacher,$id){
+    $sql = "UPDATE `teachers` SET 
                 `name_teacher`          =   ?,
                 `email_teacher`         =   ?,
                 `phone_teacher`         =   ?,
@@ -37,10 +37,12 @@ function teachers_update($name_course,$price_course,$image_course,$status_course
                 `image_teacher`         =   ?,
                 `about_teacher`         =   ?,
                 `scope_teacher`         =   ?,
-                `created_at`            =   ?
+                `created_at`            =   ?,
+                `updated_at`            =   ?,
+                `status_teacher`        =   ?
                 WHERE id = ?
         ";
-    (new process())->query_sql($sql,$name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id);
+    (new process())->query_sql($sql,$name_teacher,$email_teacher,$phone_teacher, $password_teacher,$image_teacher,$about_teacher,$scope_teacher,$created_at,$updated_at,$status_teacher,$id);
 }
 function teacher_delete($id){
     $sql = "DELETE FROM teachers WHERE id = ?";

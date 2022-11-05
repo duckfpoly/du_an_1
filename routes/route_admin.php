@@ -1,19 +1,27 @@
 <?php
-    $module     = isset($_GET['module']) ? $_GET['module'] : '';
-    $dir_img    = $host.'assets/uploads/'.$module.'/';
-    switch ($module) {
-        case "categories":
-            include_once 'controllers/admin/'.$module.'/'.$module.'Controller.php';
-            break;
-        case "courses":
-            include_once 'controllers/admin/'.$module.'/'.$module.'Controller.php';
-            break;
-        case "teachers":
-            include_once 'controllers/admin/'.$module.'/'.$module.'Controller.php';
-            break;
-        default:
-            include_once 'controllers/admin/dashboard/dashboard.php';
-            break;
+    $dir_ctrl   = 'controllers/admin/';
+    $name_exten = 'Controller.php';
+    if(isset($_GET['module'])) {
+        $module         = $_GET['module'];
+        $dir_img        = $host.'assets/uploads/'.$module.'/';
+        $objectt        = $dir_ctrl.$module.$name_exten;
+        switch ($module) {
+            case "categories":
+                include_once $objectt;
+                break;
+            case "courses":
+                include_once $objectt;
+                break;
+            case "teachers":
+                include_once $objectt;
+                break;
+            default:
+                location($host."page_not_found");
+                break;
+        }
+        active_item($module);
     }
-    active_item($module);
+    else {
+        include_once $dir_ctrl.'dashboard/dashboard.php';
+    }
 ?>
