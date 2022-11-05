@@ -27,18 +27,6 @@
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="name_course" class="form-label">Đánh giá ( <span class="Stars" style="--rating: <?= $courses_detail['star_course'] * 5 ?> " aria-label="Rating of this product is 2.3 out of 5."></span> )</label>
-                            <div class="form-control">
-                                <?= $courses_detail['star_course'] ?> 
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="name_course" class="form-label">Số lượng đánh giá</label>
-                            <div class="form-control">
-                                <?= $courses_detail['rate_course'] ?> 
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
                             <label for="name_course" class="form-label">Mô tả khóa học</label>
                             <div class="form-control">
                                 <?= $courses_detail['description_course'] ?> 
@@ -48,6 +36,12 @@
                             <label for="name_course" class="form-label">Trích dẫn</label>
                             <div class="form-control">
                                 <?= $courses_detail['quote'] ?> 
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="name_course" class="form-label">Danh mục</label>
+                            <div class="form-control">
+                                <?= $courses_detail['name_category'] ?> 
                             </div>
                         </div>
                         <div class="mt-3">
@@ -84,23 +78,6 @@
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        Validator({
-            form: "#form-1",
-            formGroupSelector: ".form-group",
-            errorSelector: ".form-message",
-            rules: [
-            Validator.isRequired("#name_course", "Vui lòng nhập tên khóa học"),
-            Validator.isRequired("#price_course", "Vui lòng nhập giá khóa học"),
-            Validator.isRequired(
-                "#description_course",
-                "Vui lòng nhập mô tả khóa học"
-            ),
-            Validator.isRequired("#quote", "Vui lòng nhập trích dẫn"),
-            Validator.isRequired("#image_course", "Vui lòng chọn ảnh"),
-            ],
-        });
-    });
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -112,5 +89,4 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
-   
 </script>

@@ -1,5 +1,5 @@
 <?php 
-    $act = isset($_GET['act']) ? $_GET['act'] : "";
+    $act    = isset($_GET['act'])       ? $_GET['act']      : "";
     switch ($act) {
         case "create":
                 include_once 'views/admin/'.$module.'/create.php';
@@ -20,11 +20,7 @@
                 ctrl_destroy_category();
             break;
         default:
-                if(isset($_GET['s'])){
-                    $read_category = ctrl_search_category($_GET['s']);
-                }else {
-                    $read_category = ctrl_read_category();
-                }
+                $read_category = ctrl_read_category();
                 include_once 'views/admin/'.$module.'/read.php';
             break;
     }

@@ -42,7 +42,7 @@ CREATE TABLE `rate_courses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ALTER TABLE `rate_courses` MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 ALTER TABLE `rate_courses` ADD PRIMARY KEY (`id`);
-ALTER TABLE `rate_courses` ADD CONSTRAINT FK_ID_COURSE_2 FOREIGN KEY (id_course) REFERENCES `courses` (id)
+    ALTER TABLE `rate_courses` ADD CONSTRAINT FK_ID_COURSE_2 FOREIGN KEY (id_course) REFERENCES `courses` (id)
 
 
 CREATE TABLE `sale_courses` (
@@ -57,7 +57,7 @@ ALTER TABLE `sale_courses` ADD CONSTRAINT FK_ID_COURSE_3 FOREIGN KEY (id_course)
 
 
 CREATE TABLE `teachers` (
-    `id` bigint UNSIGNED NOT NULL,
+    `id`                  bigint UNSIGNED NOT NULL,
     `name_teacher`        varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `email_teacher`       varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `phone_teacher`       varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -73,7 +73,6 @@ CREATE TABLE `teachers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ALTER TABLE `teachers` MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
 ALTER TABLE `teachers` ADD PRIMARY KEY (`id`);
-ALTER TABLE `teachers` ADD CONSTRAINT FK_ID_COURSE_4 FOREIGN KEY (id_course) REFERENCES `courses` (id)
 
 
 CREATE TABLE `teachers_courses` (
@@ -84,7 +83,7 @@ CREATE TABLE `teachers_courses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ALTER TABLE `teachers_courses` MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 ALTER TABLE `teachers_courses` ADD PRIMARY KEY (`id`);
-ALTER TABLE `teachers_courses` ADD CONSTRAINT FK_ID_COURSE_5    FOREIGN KEY (id_course)     REFERENCES `courses` (id)
+ALTER TABLE `teachers_courses` ADD CONSTRAINT FK_ID_COURSEE    FOREIGN KEY (id_course)     REFERENCES `courses` (id)
 ALTER TABLE `teachers_courses` ADD CONSTRAINT FK_ID_TEACHER     FOREIGN KEY (id_teachers)   REFERENCES `teachers` (id)
 
 
@@ -101,7 +100,7 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ALTER TABLE `students` MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
 ALTER TABLE `students` ADD PRIMARY KEY (`id`);
-
+ 
 
 CREATE TABLE `students_courses` (
     `id`          bigint UNSIGNED NOT NULL,

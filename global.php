@@ -1,7 +1,10 @@
 <?php 
     require_once 'models/process.php';
+    require_once 'models/m_categories.php';
+    require_once 'models/m_courses.php';
     $url                    =  $_SERVER['REQUEST_URI'];
     $host                   =  'http://localhost/course_ddh/';
+    // url admin
     define("DASHBOARD",     $host.'admin');  
     define("CATEGORIES",    $host.'admin/categories'); 
     define("COURSES",       $host.'admin/courses'); 
@@ -9,15 +12,11 @@
     define("STUDENTS",      $host.'admin/students'); 
     define("BILLS",         $host.'admin/bills'); 
     define("STAFFS",        $host.'admin/staffs'); 
-    if(isset($_GET['module'])){
-        $module = $_GET['module'];
-        require_once 'controllers/admin/'.$module.'/'.$module.'Controller.php';
-        require_once 'models/m_'.$module.'.php';
-        $dir_img = $host.'assets/uploads/'.$module.'/';
-    }else {
-        $module = '';
-        $dir_img = '';
-    }
+    // url site
+    define("HOME",          $host);  
+    define("COURSE",        $host.'course'); 
+    define("ABOUT",         $host.'about'); 
+    define("CONTACT",       $host.'contact'); 
     function active_item($item){
         if(!empty($item)){
             echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';
@@ -28,6 +27,9 @@
     }
     function location($url){
         echo '<script>window.location="'.$url.'";</script>';
+    }
+    function alert($text){
+        echo '<script>alert("'.$text.'");</script>';
     }
     function save_file($fieldname, $name_dir){
         $target_dir = 'assets/uploads/'.$name_dir.'/';
@@ -49,5 +51,6 @@
         if(empty($id)){
             location(COURSES);
         }
+        exit();
     }
 ?>  
