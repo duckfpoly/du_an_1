@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="p-3 col-8 ">
-                        <form action="<?= TEACHERS ?>/store" method="post" id="form-1" enctype="multipart/form-data">
+                        <form action="<?= TEACHERS ?>/edit/<?= $teacher_detail['id'] ?>" method="post" id="form-1" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="statuscourse" class="form-label">
                                     Trạng thái
@@ -74,7 +74,7 @@
                             </div>
                             <div class="mt-5">
                                 <a href="<?= TEACHERS ?>" class="btn btn-secondary">Quay lại</a>
-                                <button class="btn btn-success" name="create_course" type="submit">Thêm</button>
+                                <button class="btn btn-success" name="create_course" type="submit">Sửa</button>
                             </div>
                         </form>
                     </div>
@@ -94,7 +94,6 @@
                 Validator.isRequired("#email_teacher", "Vui lòng nhập email giảng viên"),
                 Validator.isRequired("#phone_teacher", "Vui lòng nhập số điện thoại giảng viên"),
                 Validator.isRequired("#password_teacher", "Vui lòng nhập mật khẩu giảng viên"),
-                Validator.isRequired("#image_teacher", "Vui lòng chọn ảnh giảng viên"),
                 Validator.isRequired("#about_teacher", "Vui lòng nhập giới thiệu giảng viên"),
                 Validator.isRequired("#scope_teacher", "Vui lòng nhập kỹ năng giảng viên"),
                 Validator.isEmail('#email_teacher'),

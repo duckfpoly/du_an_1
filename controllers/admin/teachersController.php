@@ -39,17 +39,27 @@ switch ($act) {
         include_once 'views/admin/'.$module.'/update.php';
         break;
     case "edit":
+        $id = $_GET['id'];
+        check_empty($id,TEACHERS);
         $name_teacher           = $_POST['name_teacher'];
         $email_teacher          = $_POST['email_teacher'];
         $phone_teacher          = $_POST['phone_teacher'];
         $password_teacher       = $_POST['password_teacher'];
-        $image_teacher          = $_FILES['image_teacher']['name'];
+        $image_goc              = $_POST['old_image_teacher'];
+        $image_up               = $_FILES['image_teacher']['name'];
+        if ($image_up == '') {
+            $image_teacher = $image_goc;
+        } else {
+            $image_teacher = $image_up;
+            save_file('image_teacher', 'teachers');
+        }
         $about_teacher          = $_POST['about_teacher'];
         $scope_teacher          = $_POST['scope_teacher'];
         $created_at             = $_POST['created_at'];
         $updated_at             = date("Y-m-d H:i:s");
         $status_teacher         = $_POST['status_teacher'];
-        teachers_update($name_teacher,$email_teacher,$phone_teacher, $password_teacher,$image_teacher,$about_teacher,$scope_teacher,$created_at,$updated_at,$status_teacher);
+        teachers_update($name_teacher,$email_teacher,$phone_teacher, $password_teacher,$image_teacher,$about_teacher,$scope_teacher,$created_at,$updated_at,$status_teacher,$id);
+        location(TEACHERS);
         break;
     case "destroy":
         $id = $_GET['id'];
