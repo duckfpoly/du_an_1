@@ -9,7 +9,7 @@
                             <a class="btn btn-success m-0" href="<?= CATEGORIES ?>/create">Thêm</a>
                             &emsp;|&emsp;
                             <form action="<?= CATEGORIES ?>" class="d-flex justify-content-center align-items-center">
-                                <input type="search" name="s" class="form-control" placeholder="Tìm kiếm">
+                                <input type="search" name="s" class="form-control" placeholder="Tìm danh mục">
                             </form>
                         </div>
                     </div>

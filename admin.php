@@ -8,13 +8,13 @@
   <link rel="icon" type="image/png" href="<?= $host ?>assets/img/favicon.png">
   <title>DDH Manager - <?php title_tab('module', 'dashboard'); ?></title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="<?= $host ?>assets/admin/css/items/styles.css">
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="<?= $host ?>assets/admin/css/nucleo-icons.css" rel="stylesheet" />
   <link href="<?= $host ?>assets/admin/css/nucleo-svg.css" rel="stylesheet" />
   <link href="<?= $host ?>assets/admin/css/nucleo-svg.css" rel="stylesheet" />
   <link href="<?= $host ?>assets/admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
-  <link rel="stylesheet" href="<?= $host ?>assets/admin/css/items/styles.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
   <link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"

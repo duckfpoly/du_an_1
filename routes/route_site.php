@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
     if(isset($_GET['v'])) {
         $v = $_GET['v'];
@@ -15,9 +14,7 @@
         include_once 'views/site/home.php';
     }
 ?>
-
-=======
-<?php 
+<?php
         $v = isset($_GET['v']) ? $_GET['v'] : "";
         if($v){
             switch ($v){
@@ -39,4 +36,3 @@
             include_once 'views/site/home.php';
         }
 ?>
->>>>>>> cee4fb25bd4d9ea8b12694619c3e19e5c29f3795

@@ -3,20 +3,21 @@
         $sql = " SELECT * FROM `courses` 
         INNER JOIN teachers ON courses.id_teacher = teachers.id
         WHERE name_course = ? AND teachers.id = ?";
-        $check_name_course = (new process())->query_one($sql, $name_course,$id);
+        $check_name_course = query_one($sql, $name_course,$id);
         if($check_name_course > 0) {
             return "Tên khóa học đã được giảng viên sử dụng !";
         }
     }
     function check_id_course($id){
         $sql = "SELECT * FROM `courses` WHERE id = ?";
-        $check_ID = (new process())->query_one($sql, $id);
+        $check_ID = query_one($sql, $id);
         if(!isset($check_ID['id'])) {
             return "Khóa học không tồn tại !";
         }
     }
     function courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher){
-            $sql = "INSERT INTO `courses` SET 
+//        die($name_course.' - '.$price_course.' - '.$image_course.' - '.$description_course.' - '.$quote.' - '.$created_at.' - '.$id_category.' - '.$id_teacher);
+        $sql = "INSERT INTO `courses` SET 
                         `name_course`           =   ?,
                         `price_course`          =   ?,
                         `image_course`          =   ?,
@@ -24,13 +25,13 @@
                         `quote`                 =   ?,
                         `created_at`            =   ?,
                         `id_category`           =   ?,
-                        `id_teacher             =   ?
+                        `id_teacher`             =   ?
             ";
-            (new process())->query_sql($sql,$name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher);
+        query_sql($sql,$name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher);
     }
     function courses_read(){
         $sql = "SELECT * FROM `courses`";
-        return (new process())->query($sql);
+        return query($sql);
     }
     function courses_update($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id_teacher,$id){
         $sql = "UPDATE `courses` SET 
@@ -46,26 +47,31 @@
                     `id_teacher`           =   ?
                 WHERE id = ?
         ";
-        (new process())->query_sql($sql,$name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id_teacher,$id);
+        query_sql($sql,$name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id_teacher,$id);
     }
     function course_delete($id){
         $sql = "DELETE FROM courses WHERE id = ?";
-        (new process())->query_sql($sql,$id);
+        query_sql($sql,$id);
     }
     function course_detail($id){
         $sql = "SELECT 
                 categories.id id_cate,
                 categories.name_category,
                 courses.*,
-                teachers.name_teacher
+                teachers.name_teacher,
+                teachers.id id_tchr
                 FROM courses 
                 INNER JOIN categories ON courses.id_category = categories.id
                 INNER JOIN teachers ON courses.id_teacher = teachers.id
                 WHERE courses.id = ?";
-        return (new process())->query_one($sql,$id);
+        return query_one($sql,$id);
     }
     function course_search($key){
         $sql = "SELECT * FROM courses WHERE name_course LIKE '%$key%'";
-        return (new process())->query($sql);
+        return query($sql);
+    }
+    function course_count(){
+        $sql = "SELECT COUNT(*) FROM courses";
+        return query_value($sql);
     }
 ?>

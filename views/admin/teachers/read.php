@@ -9,7 +9,7 @@
                             <a class="btn btn-success m-0" href="<?= TEACHERS ?>/create">Thêm</a>
                             &emsp;|&emsp;
                             <form action="<?= TEACHERS ?>" class="d-flex justify-content-center align-items-center">
-                                <input type="search" name="s" class="form-control" placeholder="Tìm kiếm">
+                                <input type="search" name="s" class="form-control" placeholder="Tìm giảng viên">
                             </form>
                         </div>
                     </div>

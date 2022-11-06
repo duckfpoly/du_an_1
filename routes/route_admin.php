@@ -26,6 +26,7 @@
         active_item($module);
     }
     else {
+        echo '<script>document.getElementById("dashboard").classList.add("active");</script>';
         include_once $dir_ctrl.'/dashboard.php';
     }
 ?>

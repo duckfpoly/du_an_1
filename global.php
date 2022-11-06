@@ -1,12 +1,14 @@
 <?php 
-    require_once 'models/process.php';
+    require_once 'models/process_db.php';
     require_once 'models/m_categories.php';
     require_once 'models/m_courses.php';
     require_once 'models/m_teachers.php';
-    $url                    =  $_SERVER['REQUEST_URI'];
-    $host                   =  'http://localhost/coursesWeb/du_an_1/';
 
-    $admin                  =  'http://localhost/coursesWeb/admin/';
+    $url                    =  $_SERVER['REQUEST_URI'];
+
+    $host                   =  'http://localhost/course_ddh/';
+    $admin                  =  'http://localhost/course_ddh/';
+
     // url admin
     define("DASHBOARD",     $host.'admin');
     define("CATEGORIES",    $host.'admin/categories'); 
@@ -17,21 +19,13 @@
     define("STAFFS",        $host.'admin/staffs'); 
     // url site
     define("HOME",          $host);  
-<<<<<<< HEAD
     define("LESSON",        $host.'lesson');
-=======
-    define("LESSONS",        $host.'lessions'); 
->>>>>>> cee4fb25bd4d9ea8b12694619c3e19e5c29f3795
-    define("ABOUT",         $host.'about'); 
+    define("LESSONS",        $host.'lessions');
+    define("ABOUT",         $host.'about');
     define("CONTACT",       $host.'contact');
 
     function active_item($item){
-        if(!empty($item)){
-            echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';
-        }
-        else {
-            echo '<script>document.getElementById("dashboard").classList.add("active");</script>';
-        }
+        echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';
     }
 
     function location($url){
@@ -70,7 +64,29 @@
         if($data_post != $data_compare) {
             $check_data = $fn_check;
             if (isset($check_data)) {
-                die(alert($check_data,$url));
+                die('<section class="container-fluid py-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card mb-4">
+                                    <div class="card-header pb-0">
+                                        <div class="text-center">
+                                            <h3>Lỗi xử lý dữ liệu !</h3>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-0 pb-2">
+                                        <div class="p-3">
+                                            <div class="form-group text-danger text-center">
+                                                <p>'.$check_data.'</p>
+                                            </div>
+                                            <div class="mt-5 text-center">
+                                                <button type="button" onclick="return_page()" class="btn btn-outline-secondary">Quay lại</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>');
             }
         }
     }
@@ -78,7 +94,29 @@
     function check_data($data_check,$url){
         $check_data = $data_check;
         if(isset($check_data)){
-            die(alert($check_data,$url));
+            die('<section class="container-fluid py-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card mb-4">
+                                    <div class="card-header pb-0">
+                                        <div class="text-center">
+                                            <h3>Lỗi xử lý dữ liệu !</h3>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-0 pb-2">
+                                        <div class="p-3">
+                                            <div class="form-group text-danger text-center">
+                                                <p>'.$check_data.'</p>
+                                            </div>
+                                            <div class="mt-5 text-center">
+                                                <button type="button" onclick="return_page()" class="btn btn-outline-secondary">Quay lại</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>');
         }
     }
 
@@ -110,3 +148,8 @@
     }
 
 ?>
+<script>
+    function return_page(){
+        history.back();
+    }
+</script>
