@@ -16,9 +16,10 @@
     define("STAFFS",        $host.'admin/staffs'); 
     // url site
     define("HOME",          $host);  
-    define("COURSE",        $host.'course'); 
+    define("LESSON",        $host.'lesson');
     define("ABOUT",         $host.'about'); 
-    define("CONTACT",       $host.'contact'); 
+    define("CONTACT",       $host.'contact');
+
     function active_item($item){
         if(!empty($item)){
             echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';
@@ -27,12 +28,15 @@
             echo '<script>document.getElementById("dashboard").classList.add("active");</script>';
         }
     }
+
     function location($url){
         echo '<script>window.location="'.$url.'";</script>';
     }
-    function alert($text){
-        echo '<script>alert("'.$text.'");</script>';
+
+    function alert($text,$url){
+        echo '<script>alert("'.$text.'"); window.location="'.$url.'";</script>';
     }
+
     function save_file($fieldname, $name_dir){
         $target_dir = 'assets/uploads/'.$name_dir.'/';
         $file_uploaded = $_FILES[$fieldname];
@@ -41,6 +45,7 @@
         move_uploaded_file($file_uploaded["tmp_name"], $target_path);
         return $file_name;
     }
+
     function title_tab($data,$home){
         if(isset($_GET[$data])){
             echo strtoupper($_GET[$data]);
@@ -49,15 +54,54 @@
             echo strtoupper($home);
         }
     }
-    function check_id($id){
-        if(empty($id)){
-            location(COURSES);
-        }
-        exit();
-    }
+
     function check_empty($data,$redirect){
         if(empty($data)){
             location($redirect);
         }
     }
-?>  
+
+    function compare_data($data_post,$data_compare,$fn_check,$url){
+        if($data_post != $data_compare) {
+            $check_data = $fn_check;
+            if (isset($check_data)) {
+                die(alert($check_data,$url));
+            }
+        }
+    }
+
+    function check_data($data_check,$url){
+        $check_data = $data_check;
+        if(isset($check_data)){
+            die(alert($check_data,$url));
+        }
+    }
+
+    function send_mail($mail,$output,$title){
+        $mailer         = new PHPMailer(true);
+        $mailer->SMTPDebug = 0;
+        $mailer->isSMTP();
+        $mailer->Host       = 'smtp.gmail.com';
+        $mailer->SMTPAuth   = true;
+        $mailer->Username   = 'ndcake.store@gmail.com';
+        $mailer->Password   = 'mswwgrjitnohamff';
+        $mailer->SMTPSecure = 'tls';
+        $mailer->Port       = 587;
+        $mailer->setFrom('ndcake.store@gmail.com', 'DDH Manager');
+        $mailer->addAddress($mail);
+        $mailer->isHTML(true);
+        $mailer->AddReplyTo('ndcake.store@gmail.com', 'DDH Manager');
+        $body = $output;
+        $mailer->Subject = 'DDH Manager - '.$title;
+        $mailer->Body = $body;
+        $mailer->send();
+    }
+    function cut_email($email){
+        $string = $email;
+        $return = strrev($string);
+        $string_confirm = strstr($return, '@');
+        $final = strrev($string_confirm) ;
+        return chop($final,"@");
+    }
+
+?>

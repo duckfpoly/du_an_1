@@ -1,8 +1,12 @@
 <?php 
-    function check_name_course($name_course){
-        $sql = "SELECT * FROM `courses` WHERE name_course = ?";
-        $check_name_course = (new process())->query_one($sql, $name_course);
-        if($check_name_course > 0) { return "Tên khóa học đã được sử dụng !"; }
+    function check_name_course($name_course,$id){
+        $sql = " SELECT * FROM `courses` 
+        INNER JOIN teachers ON courses.id_teacher = teachers.id
+        WHERE name_course = ? AND teachers.id = ?";
+        $check_name_course = (new process())->query_one($sql, $name_course,$id);
+        if($check_name_course > 0) {
+            return "Tên khóa học đã được giảng viên sử dụng !";
+        }
     }
     function check_id_course($id){
         $sql = "SELECT * FROM `courses` WHERE id = ?";
@@ -11,28 +15,24 @@
             return "Khóa học không tồn tại !";
         }
     }
-    function courses_create($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$id_category){
-        if(check_name_category($name_course) > 0 ){
-            return "Tên khóa học đã được sử dụng!";
-        }else {
+    function courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher){
             $sql = "INSERT INTO `courses` SET 
                         `name_course`           =   ?,
                         `price_course`          =   ?,
                         `image_course`          =   ?,
-                        `status_course`         =   ?,
                         `description_course`    =   ?,
                         `quote`                 =   ?,
                         `created_at`            =   ?,
-                        `id_category`            =   ?
+                        `id_category`           =   ?,
+                        `id_teacher             =   ?
             ";
-            (new process())->query_sql($sql,$name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$id_category);
-        }
+            (new process())->query_sql($sql,$name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher);
     }
     function courses_read(){
         $sql = "SELECT * FROM `courses`";
         return (new process())->query($sql);
     }
-    function courses_update($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id){
+    function courses_update($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id_teacher,$id){
         $sql = "UPDATE `courses` SET 
                     `name_course`           =   ?,
                     `price_course`          =   ?,
@@ -42,10 +42,11 @@
                     `quote`                 =   ?,
                     `created_at`            =   ?,
                     `updated_at`            =   ?,
-                    `id_category`           =   ?
+                    `id_category`           =   ?,
+                    `id_teacher`           =   ?
                 WHERE id = ?
         ";
-        (new process())->query_sql($sql,$name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id);
+        (new process())->query_sql($sql,$name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id_teacher,$id);
     }
     function course_delete($id){
         $sql = "DELETE FROM courses WHERE id = ?";
@@ -55,9 +56,11 @@
         $sql = "SELECT 
                 categories.id id_cate,
                 categories.name_category,
-                courses.* 
+                courses.*,
+                teachers.name_teacher
                 FROM courses 
                 INNER JOIN categories ON courses.id_category = categories.id
+                INNER JOIN teachers ON courses.id_teacher = teachers.id
                 WHERE courses.id = ?";
         return (new process())->query_one($sql,$id);
     }

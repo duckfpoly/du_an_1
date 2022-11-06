@@ -41,11 +41,21 @@
                                 <div class="form-message text-danger mt-1"><br></div>
                             </div>
                             <div class="form-group ">
-                                <label for="quote" class="form-label">Danh mục</label>
+                                <label for="id_category" class="form-label">Danh mục</label>
                                 <select name="id_category" id="id_category" class="form-control">
                                     <option disabled selected value="">Chọn danh mục</option>
                                     <?php foreach($category_read as $key => $values): ?>
                                         <option value="<?= $values['id'] ?>"><?= $values['name_category'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <div class="form-message text-danger mt-1"><br></div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="id_teacher" class="form-label">Giảng viên</label>
+                                <select name="id_teacher" id="id_teacher" class="form-control">
+                                    <option disabled selected value="">Chọn giảng viên</option>
+                                    <?php foreach($teacher_read as $key => $values): ?>
+                                        <option value="<?= $values['id'] ?>"><?= $values['name_teacher'] ?> - MGV: <?= $values['id'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                                 <div class="form-message text-danger mt-1"><br></div>
@@ -77,6 +87,7 @@
                 Validator.isRequired("#quote", "Vui lòng nhập trích dẫn"),
                 Validator.isRequired("#image_course", "Vui lòng chọn ảnh"),
                 Validator.isRequired("#id_category", "Vui lòng chọn danh mục"),
+                Validator.isRequired("#id_teacher", "Vui lòng chọn giảng viên"),
             ],
         });
     });

@@ -3,6 +3,10 @@
     $name_exten = 'Controller.php';
     if(isset($_GET['module'])) {
         $module         = $_GET['module'];
+        $direct_read    = 'views/admin/'.$module.'/read.php';
+        if(isset($_GET['act'])){
+            $direct_act = 'views/admin/'.$module.'/'.$_GET['act'].'.php';
+        }
         $dir_img        = $host.'assets/uploads/'.$module.'/';
         $objectt        = $dir_ctrl.$module.$name_exten;
         switch ($module) {
@@ -22,6 +26,6 @@
         active_item($module);
     }
     else {
-        include_once $dir_ctrl.'dashboard/dashboard.php';
+        include_once $dir_ctrl.'/dashboard.php';
     }
 ?>

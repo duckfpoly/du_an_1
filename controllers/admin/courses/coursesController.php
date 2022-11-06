@@ -5,7 +5,6 @@
     function ctrl_store_courses($name_course,$price_course,$description_course,$quote,$image_course,$id_category) {
         $status_course          = '1';
         $created_at             = date("Y-m-d H:i:s");
-        courses_create($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$created_at,$id_category);
         location(COURSES);
 
     }

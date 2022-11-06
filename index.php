@@ -1,3 +1,4 @@
+<?php include_once 'global.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +44,8 @@
         </div>
     </div>
     <?php include 'views/site/layout/navbar.php'?>
-    <?php include 'views/site/home.php'?>
+<!--    --><?php //include 'views/site/home.php'?>
+    <?php include_once 'routes/route_site.php' ?>
     <?php include 'views/site/layout/footer.php'?>
 
 

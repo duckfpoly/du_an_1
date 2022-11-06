@@ -1,14 +1,17 @@
-<?php 
-    if(isset($_GET['v'])){
+<?php
+    if(isset($_GET['v'])) {
         $v = $_GET['v'];
-        try{
-            require_once 'controllers/site/'.$v.'/'.$v.'Controller.php';
-        } 
-        catch (Throwable|Exception $e){    
-            echo '<script>window.location="'.$host.'page_not_found";</script>';
+        switch ($v) {
+            case "lesson":
+                include_once 'views/site/lession.php';
+                break;
+            default:
+                location($host."page_not_found");
+                break;
         }
-        $dir_img = $host.'assets/uploads/'.$v.'/';
-    }else {
-        
+    }
+    else {
+        include_once 'views/site/home.php';
     }
 ?>
+

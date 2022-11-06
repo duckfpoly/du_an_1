@@ -15,33 +15,39 @@
                     </div>
                     <div class="p-3 col-8">
                         <div class="form-group mb-3">
-                            <label for="name_course" class="form-label">Tên giảng viên</label>
+                            <label for="name_teacher" class="form-label">Tên giảng viên</label>
                             <div class="form-control">
                                 <?= $teacher_detail['name_teacher'] ?>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="name_course" class="form-label">Email</label>
+                            <label for="email_teacher" class="form-label">Email</label>
                             <div class="form-control">
                                 <?= $teacher_detail['email_teacher'] ?>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="name_course" class="form-label">Số điện thoại</label>
+                            <label for="phone_teacher" class="form-label">Số điện thoại</label>
                             <div class="form-control">
                                 <?= $teacher_detail['phone_teacher'] ?>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="name_course" class="form-label">Giới thiệu</label>
+                            <label for="about_teacher" class="form-label">Giới thiệu</label>
                             <div class="form-control">
                                 <?= $teacher_detail['about_teacher'] ?>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="name_course" class="form-label">Kỹ năng</label>
+                            <label for="scope_teacher" class="form-label">Kỹ năng</label>
                             <div class="form-control">
                                 <?= $teacher_detail['scope_teacher'] ?>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="role" class="form-label">Chức vụ</label>
+                            <div class="form-control">
+                                <?= $teacher_detail['role'] == 0 ? "Giảng viên" : "" ?>
                             </div>
                         </div>
                         <div class="mt-3">

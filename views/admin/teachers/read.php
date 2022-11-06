@@ -5,8 +5,12 @@
                 <div class="card-header border-bottom">
                     <div class="d-flex justify-content-between align-items-center">
                         <h6>Danh sách giảng viên</h6>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex justify-content-between align-items-center">
                             <a class="btn btn-success m-0" href="<?= TEACHERS ?>/create">Thêm</a>
+                            &emsp;|&emsp;
+                            <form action="<?= TEACHERS ?>" class="d-flex justify-content-center align-items-center">
+                                <input type="search" name="s" class="form-control" placeholder="Tìm kiếm">
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -40,8 +44,8 @@
                                         <td class="align-middle text-center text-sm">
                                             <?=
                                             $values['status_teacher'] == 0
-                                                ? '<span class="badge badge-sm bg-gradient-success">active</span>'
-                                                : '<span class="badge badge-sm bg-gradient-danger">ban</span>'
+                                                ? '<span class="badge badge-sm bg-gradient-success">Kích hoạt</span>'
+                                                : '<span class="badge badge-sm bg-gradient-danger">Cấm</span>'
                                             ?>
                                         </td>
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
