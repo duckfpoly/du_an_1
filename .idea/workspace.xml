@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9be05a-b278-4d0c-bfbc-f82ad03dcec3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/admin/js/items/content_load.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/bills.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/sales.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/staffs.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/students.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/layouts/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/css/argon-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/argon-dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/global.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/m_categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/m_courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/m_teachers.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/teachers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/process.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/categories/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/categories/read.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/courses/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/courses/read.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/layouts/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/layouts/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/teachers/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/teachers/read.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/route_site.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route_site.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +39,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2H6f0GYH06W9ExxLw33S4lVl00Q" />
   <component name="ProjectLevelVcsManager">
@@ -114,7 +99,7 @@
       <workItem from="1667610231139" duration="6299000" />
       <workItem from="1667617910223" duration="2266000" />
       <workItem from="1667622589785" duration="25325000" />
-      <workItem from="1667693164098" duration="18617000" />
+      <workItem from="1667693164098" duration="18798000" />
     </task>
     <servers />
   </component>
