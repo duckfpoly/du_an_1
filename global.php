@@ -1,26 +1,32 @@
-<?php 
-    require_once 'models/process_db.php';
-    require_once 'models/m_categories.php';
-    require_once 'models/m_courses.php';
-    require_once 'models/m_teachers.php';
+<?php
+    $dir_model = 'models/';
 
-    $url                    =  $_SERVER['REQUEST_URI'];
+    require_once $dir_model.'process_db.php';
+    require_once $dir_model.'categories.php';
+    require_once $dir_model.'courses.php';
+    require_once $dir_model.'teachers.php';
+    require_once $dir_model.'students.php';
+    require_once $dir_model.'bills.php';
+    require_once $dir_model.'sales.php';
+    require_once $dir_model.'staffs.php';
 
     $host                   =  'http://localhost/course_ddh/';
-    $admin                  =  'http://localhost/course_ddh/';
+    $admin                  =  'http://localhost/course_ddh/admin/';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
     define("CATEGORIES",    $host.'admin/categories'); 
     define("COURSES",       $host.'admin/courses'); 
     define("TEACHERS",      $host.'admin/teachers'); 
-    define("STUDENTS",      $host.'admin/students'); 
-    define("BILLS",         $host.'admin/bills'); 
-    define("STAFFS",        $host.'admin/staffs'); 
+    define("STUDENTS",      $host.'admin/students');
+    define("SALES",         $host.'admin/sales');
+    define("BILLS",         $host.'admin/bills');
+    define("STAFFS",        $host.'admin/staffs');
+
     // url site
     define("HOME",          $host);  
     define("LESSON",        $host.'lesson');
-    define("LESSONS",        $host.'lessions');
+    define("LESSONS",       $host.'lessions');
     define("ABOUT",         $host.'about');
     define("CONTACT",       $host.'contact');
 
@@ -139,6 +145,7 @@
         $mailer->Body = $body;
         $mailer->send();
     }
+
     function cut_email($email){
         $string = $email;
         $return = strrev($string);

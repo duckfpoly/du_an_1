@@ -9,7 +9,7 @@
                             <a class="btn btn-success m-0" href="<?= CATEGORIES ?>/create">Thêm</a>
                             &emsp;|&emsp;
                             <form action="<?= CATEGORIES ?>" class="d-flex justify-content-center align-items-center">
-                                <input type="search" name="s" class="form-control" placeholder="Tìm danh mục">
+                                <input type="search" name="s" class="form-control" placeholder="Tìm danh mục" value="<?= isset($_GET['s']) ? $_GET['s'] : "" ?>">
                             </form>
                         </div>
                     </div>
@@ -21,6 +21,7 @@
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên danh mục</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Khóa học thuộc danh mục</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Thao tác</th>
                                 </tr>
                             </thead>
@@ -36,6 +37,7 @@
                                             </div>
                                         </td>
                                         <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_category'] ?></p></td>
+                                        <td><p class="text-xs font-weight-bold mb-0"><?= count_course_with_cate($values['id']) ?> khóa học</p></td>
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0" href="<?= CATEGORIES ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold">

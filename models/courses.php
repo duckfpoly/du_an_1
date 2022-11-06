@@ -74,4 +74,12 @@
         $sql = "SELECT COUNT(*) FROM courses";
         return query_value($sql);
     }
+    function count_course_with_cate($id){
+        $sql = "
+        SELECT COUNT(*) FROM courses 
+        INNER JOIN categories ON categories.id = courses.id_category
+        WHERE categories.id = ?
+        ";
+        return query_value($sql,$id);
+    }
 ?>

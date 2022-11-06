@@ -9,7 +9,7 @@
                             <a class="btn btn-success m-0" href="<?= COURSES ?>/create">Thêm</a>
                             &emsp;|&emsp;
                             <form action="<?= COURSES ?>" class="d-flex justify-content-center align-items-center">
-                                <input type="search" name="s" class="form-control" placeholder="Tìm khóa học">
+                                <input type="search" name="s" class="form-control" placeholder="Tìm khóa học" value="<?= isset($_GET['s']) ? $_GET['s'] : "" ?>">
                             </form>
                         </div>
                     </div>
