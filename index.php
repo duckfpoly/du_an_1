@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php include_once 'global.php' ?>
+=======
+<?php include 'global.php'?>
+>>>>>>> cee4fb25bd4d9ea8b12694619c3e19e5c29f3795
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,11 +47,17 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <?php include 'views/site/layout/navbar.php'?>
 <!--    --><?php //include 'views/site/home.php'?>
     <?php include_once 'routes/route_site.php' ?>
     <?php include 'views/site/layout/footer.php'?>
 
+=======
+    <?php include './views/site/layout/navbar.php'?>
+    <?php include './routes/route_site.php'?>
+    <?php include './views/site/layout/footer.php'?>
+>>>>>>> cee4fb25bd4d9ea8b12694619c3e19e5c29f3795
 
 <script src="./assets/js/course/jquery-3.2.1.min.js"></script>
 <script src="./assets/js/course/course.js"></script>

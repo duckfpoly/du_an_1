@@ -1,4 +1,4 @@
-<?php $host =  'http://localhost/course_ddh/'; ?>
+<?php $host =  'http://localhost/coursesWeb/du_an_1/'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

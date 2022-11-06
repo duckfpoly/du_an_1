@@ -3,8 +3,12 @@ RewriteEngine On
 RewriteRule ^page_not_found$ views/404.php
 
 # Thay đổi trang báo lỗi 
+<<<<<<< HEAD
 ErrorDocument 404 http://localhost/course_ddh/page_not_found
 
+=======
+ErrorDocument 404 http://localhost/coursesWeb/du_an_1/page_not_found
+>>>>>>> cee4fb25bd4d9ea8b12694619c3e19e5c29f3795
 # điều hướng 
 # DirectoryIndex newindex.html
 
@@ -25,6 +29,10 @@ RewriteRule ^forgot_pass$                                               views/ac
 RewriteRule ^reset_pass$                                                views/account/reset_pass.php
 RewriteRule ^home$                                                      index.php
 RewriteRule ^([a-zA-Z0-9_-]+)$                                          index.php?v=$1 [QSA,L]
+<<<<<<< HEAD
 RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                         index.php?v=$1&id=$2 [QSA,L] # lession/1
 
+=======
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$        index.php?v=$1&id=$3 [QSA,L] # lession/detail/1
+>>>>>>> cee4fb25bd4d9ea8b12694619c3e19e5c29f3795
 

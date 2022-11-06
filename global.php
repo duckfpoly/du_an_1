@@ -4,8 +4,9 @@
     require_once 'models/m_courses.php';
     require_once 'models/m_teachers.php';
     $url                    =  $_SERVER['REQUEST_URI'];
-    $host                   =  'http://localhost/course_ddh/';
-    $admin                  =  'http://localhost/course_ddh/admin/';
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
+
+    $admin                  =  'http://localhost/coursesWeb/admin/';
     // url admin
     define("DASHBOARD",     $host.'admin');
     define("CATEGORIES",    $host.'admin/categories'); 
@@ -16,7 +17,11 @@
     define("STAFFS",        $host.'admin/staffs'); 
     // url site
     define("HOME",          $host);  
+<<<<<<< HEAD
     define("LESSON",        $host.'lesson');
+=======
+    define("LESSONS",        $host.'lessions'); 
+>>>>>>> cee4fb25bd4d9ea8b12694619c3e19e5c29f3795
     define("ABOUT",         $host.'about'); 
     define("CONTACT",       $host.'contact');
 
