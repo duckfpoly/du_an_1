@@ -17,11 +17,8 @@
     define("STAFFS",        $host.'admin/staffs'); 
     // url site
     define("HOME",          $host);  
-<<<<<<< HEAD
-    define("LESSON",        $host.'lesson');
-=======
     define("LESSONS",        $host.'lessions'); 
->>>>>>> cee4fb25bd4d9ea8b12694619c3e19e5c29f3795
+    define("DETAIL",        $host.'detail'); 
     define("ABOUT",         $host.'about'); 
     define("CONTACT",       $host.'contact');
 

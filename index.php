@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<?php include_once 'global.php' ?>
-=======
 <?php include 'global.php'?>
->>>>>>> cee4fb25bd4d9ea8b12694619c3e19e5c29f3795
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="./assets/img/img_site/img/favicon.ico">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/icons/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="./assets/css/css_site/course.css">
@@ -47,17 +43,9 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-    <?php include 'views/site/layout/navbar.php'?>
-<!--    --><?php //include 'views/site/home.php'?>
-    <?php include_once 'routes/route_site.php' ?>
-    <?php include 'views/site/layout/footer.php'?>
-
-=======
     <?php include './views/site/layout/navbar.php'?>
     <?php include './routes/route_site.php'?>
     <?php include './views/site/layout/footer.php'?>
->>>>>>> cee4fb25bd4d9ea8b12694619c3e19e5c29f3795
 
 <script src="./assets/js/course/jquery-3.2.1.min.js"></script>
 <script src="./assets/js/course/course.js"></script>
@@ -103,6 +91,9 @@
 <!-- Jquery Plugins, main Jquery -->	
 <script src="./assets/js/js/plugins.js"></script>
 <script src="./assets/js/js/main.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
 
