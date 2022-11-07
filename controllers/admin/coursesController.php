@@ -33,20 +33,21 @@ if(isset($_GET['act'])){
             check_empty($quote                  ,$redirect);
             check_empty($id_category            ,$redirect);
             check_empty($id_teacher             ,$redirect);
+            check_data(check_name_course($name_course,$id_teacher),COURSES.'/create');
             // sau khi pass qua kiểm tra sẽ thực hiện insert vào db và lưu ảnh vào thư mục
             // lưu file ảnh, field: name input file ở form thêm, name_dir: là tên của mục đang làm
             save_file('image_course', 'courses');
             // Gọi model để thêm dữ liệu vào database
-            courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher);
+           courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher);
             // sau khi thêm hoàn thành sẽ điều hướng về trang read
             location(COURSES);
             break;
         case "update":
             $id = $_GET['id'];
             check_empty($id,COURSES);
+            $courses_update = course_detail($id);
             $category_read  = category_read();
             $teacher_read   = teacher_read();
-            $courses_update = course_detail($id);
             include_once $direct_act;
             break;
         case "edit":
@@ -76,11 +77,19 @@ if(isset($_GET['act'])){
                 $image_course = $image_up;
                 save_file('image_course', 'courses');
             }
-            check_data(check_name_course($name_course,$id_teacher),COURSES.'/update/'.$id);
-            // Sau khi pass qua validate => Thực hiện update lên database
-            courses_update($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$created_at,$updated_at,$id_category,$id_teacher,$id);
-            // update hoàn thành, điều hướng về trang danh sách
-            location(COURSES);
+            // nếu tên đổi - gv k đổi
+            if($name_course != $course_detail['name_course'] && $id_teacher == $course_detail['id_tchr']){
+                check_data(check_name_course($name_course,$id_teacher),COURSES.'/update/'.$id);
+            }
+            // nếu tên k đổi - gv đổi
+            if($name_course == $course_detail['name_course'] && $id_teacher != $course_detail['id_tchr']){
+                check_data(check_name_course($name_course,$id_teacher),COURSES.'/update/'.$id);
+            }
+            // nếu tên vs id gv k đổi
+            if($name_course == $course_detail['name_course'] && $id_teacher == $course_detail['id_tchr']){
+                courses_update($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$created_at,$updated_at,$id_category,$id_teacher,$id);
+                location(COURSES);
+            }
             break;
         case "destroy":
             // Lấy id từ trên url và kiểm tra

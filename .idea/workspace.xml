@@ -2,36 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9be05a-b278-4d0c-bfbc-f82ad03dcec3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/uploads/courses/blog_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/uploads/teachers/blog_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/uploads/teachers/blog_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/admin/billsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/admin/categoriesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/admin/coursesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/admin/staffsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/admin/studentsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/other/db_demo.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/site/lession.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/categories/categoriesController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/categories/categoryRoute.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/courses/coursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/courses/coursesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/dashboard/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/teachersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/teachersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/global.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/m_categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/m_categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/m_courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/m_courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/m_teachers.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/m_teachers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/db_course.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/route_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route_admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/route_site.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route_site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/courses/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/courses/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/courses/detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/courses/detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/courses/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/courses/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/teachers/detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/teachers/detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/teachers/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/teachers/read.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,22 +13,35 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/admin.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/controllers/admin/categoriesController.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/controllers/admin/courses/courseRoute.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/controllers/admin/coursesController.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/controllers/admin/teachersController.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/global.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/models/m_categories.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/models/m_courses.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/models/m_teachers.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/models/categories.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/models/courses.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/models/students.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/models/teachers.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/routes/route_admin.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/views/admin/dashboard.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/views/admin/layouts/navbar.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2H6f0GYH06W9ExxLw33S4lVl00Q" />
   <component name="ProjectLevelVcsManager">
@@ -88,9 +73,20 @@
       <recent name="D:\laragon\www\course_ddh\assets\uploads\teachers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\course_ddh\views\admin" />
       <recent name="D:\laragon\www\course_ddh\controllers\admin" />
       <recent name="D:\laragon\www\course_ddh\assets\admin" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/course_ddh/template_site/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -103,7 +99,7 @@
       <workItem from="1667610231139" duration="6299000" />
       <workItem from="1667617910223" duration="2266000" />
       <workItem from="1667622589785" duration="25325000" />
-      <workItem from="1667693164098" duration="6530000" />
+      <workItem from="1667693164098" duration="18798000" />
     </task>
     <servers />
   </component>

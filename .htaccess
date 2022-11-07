@@ -4,7 +4,6 @@ RewriteRule ^page_not_found$ views/404.php
 
 # Thay đổi trang báo lỗi 
 ErrorDocument 404 http://localhost/coursesWeb/du_an_1/page_not_found
-# điều hướng 
 # DirectoryIndex newindex.html
 
 RewriteCond %{REQUEST_FILENAME} !-d 
@@ -27,4 +26,3 @@ RewriteRule ^([a-zA-Z0-9_-]+)$                                          index.ph
 # RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                         index.php?v=$1&id=$2 [QSA,L] # lession/1
 
 RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$        index.php?v=$1&id=$3 [QSA,L] # lession/detail/1
-

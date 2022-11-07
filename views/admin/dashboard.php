@@ -6,11 +6,11 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Money</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Danh mục khóa học</p>
                     <h5 class="font-weight-bolder">
-                      $53,000
+                      <?= $count_categories ?>
                     </h5>
-                    <p class="mb-0">
+                    <p class="mb-0 d-none">
                       <span class="text-success text-sm font-weight-bolder">+55%</span>
                       since yesterday
                     </p>
@@ -31,11 +31,11 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Khóa học</p>
                     <h5 class="font-weight-bolder">
-                      2,300
+                        <?= $count_courses ?>
                     </h5>
-                    <p class="mb-0">
+                    <p class="mb-0 d-none">
                       <span class="text-success text-sm font-weight-bolder">+3%</span>
                       since last week
                     </p>
@@ -56,11 +56,11 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Giảng viên</p>
                     <h5 class="font-weight-bolder">
-                      +3,462
+                        <?= $count_teachers ?>
                     </h5>
-                    <p class="mb-0">
+                    <p class="mb-0 d-none">
                       <span class="text-danger text-sm font-weight-bolder">-2%</span>
                       since last quarter
                     </p>
@@ -81,11 +81,11 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Học viên</p>
                     <h5 class="font-weight-bolder">
-                      $103,430
+                      <?= $count_students ?>
                     </h5>
-                    <p class="mb-0">
+                    <p class="mb-0 d-none">
                       <span class="text-success text-sm font-weight-bolder">+5%</span> than last month
                     </p>
                   </div>
@@ -307,101 +307,43 @@
         <div class="col-lg-5">
           <div class="card">
             <div class="card-header pb-0 p-3">
-              <h6 class="mb-0">Categories</h6>
+              <h6 class="mb-0">Danh mục khóa học</h6>
             </div>
             <div class="card-body p-3">
-              <ul class="list-group">
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex align-items-center">
-                    <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                      <i class="ni ni-mobile-button text-white opacity-10"></i>
+                <div class="category_group">
+                    <?php foreach ($read_categories as $key => $values){ ?>
+                        <div class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg cate_item mb-4">
+                            <div class="d-flex align-items-center">
+                                <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
+                                    <i class="ni ni-mobile-button text-white opacity-10"></i>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h6 class="mb-1 text-dark text-sm"><?= $values['name_category'] ?></h6>
+                                    <span class="text-xs"><?= count_course_with_cate($values['id']) ?> khóa học <span class="font-weight-bold d-none">346+ sold</span></span>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <button onclick="window.location='<?= CATEGORIES.'?s='.$values['name_category'] ?>'" class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <div class="text-center">
+                        <a href="#" class="animate__animated animate__fadeInUp" id="loadMore">Xem thêm</a>
+                        <a href="#" class="d-none animate__animated animate__fadeInUp" id="loadLess">Ẩn bớt</a>
                     </div>
-                    <div class="d-flex flex-column">
-                      <h6 class="mb-1 text-dark text-sm">Devices</h6>
-                      <span class="text-xs">250 in stock, <span class="font-weight-bold">346+ sold</span></span>
-                    </div>
-                  </div>
-                  <div class="d-flex">
-                    <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button>
-                  </div>
-                </li>
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex align-items-center">
-                    <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                      <i class="ni ni-tag text-white opacity-10"></i>
-                    </div>
-                    <div class="d-flex flex-column">
-                      <h6 class="mb-1 text-dark text-sm">Tickets</h6>
-                      <span class="text-xs">123 closed, <span class="font-weight-bold">15 open</span></span>
-                    </div>
-                  </div>
-                  <div class="d-flex">
-                    <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button>
-                  </div>
-                </li>
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex align-items-center">
-                    <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                      <i class="ni ni-box-2 text-white opacity-10"></i>
-                    </div>
-                    <div class="d-flex flex-column">
-                      <h6 class="mb-1 text-dark text-sm">Error logs</h6>
-                      <span class="text-xs">1 is active, <span class="font-weight-bold">40 closed</span></span>
-                    </div>
-                  </div>
-                  <div class="d-flex">
-                    <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button>
-                  </div>
-                </li>
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
-                  <div class="d-flex align-items-center">
-                    <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                      <i class="ni ni-satisfied text-white opacity-10"></i>
-                    </div>
-                    <div class="d-flex flex-column">
-                      <h6 class="mb-1 text-dark text-sm">Happy users</h6>
-                      <span class="text-xs font-weight-bold">+ 430</span>
-                    </div>
-                  </div>
-                  <div class="d-flex">
-                    <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button>
-                  </div>
-                </li>
-              </ul>
+                </div>
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer pt-3  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+</div>
+<style>
+    .cate_item {
+        transition: 0.5s all ease-in-out;
+    }
+</style>
+<script>
+    var lenght = 4;
+    load_more(".cate_item", "#loadMore", "#loadLess", lenght);
+    load_less(".cate_item", "#loadLess", "#loadMore", lenght);
+</script>
