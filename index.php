@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <?php include 'global.php'?>
-=======
-<?php include_once 'global.php' ?>
->>>>>>> 5f65bb5aee7b07e9b0045555b4c58a5b17f11bdd
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -10,8 +10,8 @@
     require_once $dir_model.'sales.php';
     require_once $dir_model.'staffs.php';
 
-    $host                   =  'http://localhost/course_ddh/';
-    $admin                  =  'http://localhost/course_ddh/admin/';
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
+    $admin                  =  'http://localhost/coursesWeb/du_an_1/admin/';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -26,7 +26,6 @@
     // url site
     define("HOME",          $host);  
     define("LESSONS",        $host.'lessions'); 
-    define("DETAIL",        $host.'detail'); 
     define("ABOUT",         $host.'about'); 
     define("CONTACT",       $host.'contact');
 
@@ -155,8 +154,3 @@
     }
 
 ?>
-<script>
-    function return_page(){
-        history.back();
-    }
-</script>

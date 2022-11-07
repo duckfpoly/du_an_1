@@ -3,6 +3,6 @@
     if($id){
 
     }else{
-        include 'views/site/lessions/lessions.php';
+        include 'views/site/lession.php';
     }
 ?>
