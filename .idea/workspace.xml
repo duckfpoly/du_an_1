@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9be05a-b278-4d0c-bfbc-f82ad03dcec3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/preloader/pre.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/preloader/pre.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/admin/classesController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/classes/create.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/classes/detail" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/classes/read.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/classes/update.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/preloader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/js/items/courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/items/courses.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/global.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/code.sql" beforeDir="false" afterPath="$PROJECT_DIR$/other/code.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/courses/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/courses/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/layouts/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/layouts/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/route_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route_admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +35,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/admin.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/assets/preloader/pre.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/controllers/admin/categoriesController.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/controllers/admin/coursesController.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/controllers/admin/teachersController.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
@@ -112,7 +118,7 @@
       <workItem from="1667877503243" duration="7825000" />
       <workItem from="1667898792461" duration="2438000" />
       <workItem from="1667901501259" duration="3533000" />
-      <workItem from="1667908819543" duration="449000" />
+      <workItem from="1667908819543" duration="3965000" />
     </task>
     <servers />
   </component>

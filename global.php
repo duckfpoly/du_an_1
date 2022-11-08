@@ -19,7 +19,7 @@
     define("BILLS",         $host.'admin/bills');
     define("SALES",         $host.'admin/sales');
     define("RATES",         $host.'admin/rates');
-    define("CLASSES",       $host.'admin/clases');
+    define("CLASSES",       $host.'admin/classes');
 
     // url site
     define("HOME",          $host);  
