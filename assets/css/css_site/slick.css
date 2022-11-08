@@ -117,3 +117,7 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
+.bg-web{
+	background: linear-gradient(top, #c054ff 0%, #5274ff 100%);
+	
+}

@@ -10,8 +10,8 @@
     require_once $dir_model.'sales.php';
     require_once $dir_model.'staffs.php';
 
-    $host                   =  'http://localhost/course_ddh/';
-    $admin                  =  'http://localhost/course_ddh/admin/';
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
+    $admin                  =  'http://localhost/coursesWeb/du_an_1/admin/';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -25,9 +25,8 @@
 
     // url site
     define("HOME",          $host);  
-    define("LESSON",        $host.'lesson');
-    define("LESSONS",       $host.'lessions');
-    define("ABOUT",         $host.'about');
+    define("LESSONS",        $host.'lessions'); 
+    define("ABOUT",         $host.'about'); 
     define("CONTACT",       $host.'contact');
 
     function active_item($item){
@@ -154,6 +153,7 @@
         return chop($final,"@");
     }
 
+<<<<<<< HEAD
     function total($price,$discount){
         $price = $price;
         $discount = $discount;
@@ -168,4 +168,6 @@
         }
     }
 
+=======
+>>>>>>> 223d4cf499ef29ac40c6291d93fbaed5e136694c
 ?>

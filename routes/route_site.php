@@ -1,22 +1,26 @@
-<?php
-$v = isset($_GET['v']) ? $_GET['v'] : "";
-if($v){
-    switch ($v){
-        case "lessions":
-            include 'views/site/lessions/lessions.php';
-            break;
-        case "about":
-            include 'views/site/about/about.php';
-            break;
-        case "contact":
-            include 'views/site/contact/contact.php';
-            break;
-        default:
-            include 'views/site/home.php';
-            break;
-    }
+<?php 
+        $dir_ctrl   = 'controllers/site/';
+        $name_exten = 'Controller.php';
+        $v = isset($_GET['v']) ? $_GET['v'] : "";
+        if($v){
+            $urlClt = $dir_ctrl.$v.$name_exten;
+            switch ($v){
+                case "lessions":
+                    include  $urlClt;
+                    break;
+                case "about":
+                    include  $urlClt;
+                    break; 
+                case "contact":
+                    include  $urlClt;
+                    break;     
+                default:
+                location($host."page_not_found");
+                break;
+            }
 
-}else{
-    include_once 'views/site/home.php';
-}
+        }else{
+            include_once 'views/site/home.php';
+        }
 ?>
+
