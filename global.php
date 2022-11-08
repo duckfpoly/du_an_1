@@ -154,9 +154,18 @@
         return chop($final,"@");
     }
 
-?>
-<script>
-    function return_page(){
-        history.back();
+    function total($price,$discount){
+        $price = $price;
+        $discount = $discount;
+        if(empty($discount)){
+            $total = $price;
+            return number_format($total, 0, '', ',')."vnđ";
+        }
+        else {
+            $money = ($price * $discount) /100;
+            $total = $price - $money;
+            return number_format($total, 0, '', ',')."&nbsp;VNĐ" ;
+        }
     }
-</script>
+
+?>

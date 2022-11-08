@@ -18,12 +18,32 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="<?= $host ?>assets/admin/js/items/content_load.js"></script>
-    <link href="<?= $host ?>assets/admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+    <link href="<?= $host ?>assets/admin/css/argon-dashboard.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         form {
             margin-bottom: 0 !important;
         }
+        body::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #7A7FBA, #11C37C);
+            /* background: #B08EAD; */
+            border-radius: 10px;
+        }
+
+        body::-webkit-scrollbar-track {
+            /* background-color: #7A7FBA; */
+            background: transparent
+        }
     </style>
+    <script>
+        function return_page(){
+            history.back();
+        }
+    </script>
 </head>
 <body class="g-sidenav-show bg-gray-100"><!-- <body class="g-sidenav-show dark-version bg-gray-600"> -->
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
@@ -34,37 +54,38 @@
         <?php include_once 'views/admin/layouts/footer.php'; ?>
     </main>
     <div class="fixed-plugin">
-    <div class="card shadow-lg">
-      <div class="card-header pb-0 pt-3">
-        <div class="float-start">
-          <h5 class="mt-3 mb-0">DDH Configurator</h5>
-          <p>Change Theme</p>
+      <div class="card shadow-lg">
+        <div class="card-header pb-0 pt-3">
+          <div class="float-start">
+            <h5 class="mt-3 mb-0">DDH Configurator</h5>
+            <p>Change Theme</p>
+          </div>
+          <div class="float-end mt-4">
+            <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+              <i class="fa fa-close"></i>
+            </button>
+          </div>
+          <!-- End Toggle Button -->
         </div>
-        <div class="float-end mt-4">
-          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="fa fa-close"></i>
-          </button>
-        </div>
-        <!-- End Toggle Button -->
-      </div>
-      <div class="card-body overflow-auto">
-        <hr class="horizontal dark ">
-        <div class="mb-5 d-flex">
-          <h6 class="mb-0">Light / Dark</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
+        <div class="card-body overflow-auto">
+          <hr class="horizontal dark ">
+          <div class="mb-5 d-flex">
+            <h6 class="mb-0">Light / Dark</h6>
+            <div class="form-check form-switch ps-0 ms-auto my-auto">
+              <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
+            </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
+    <!-- <script src="<?= $host ?>assets/admin/dark-theme.js"></script> -->
     <script src="<?= $host ?>assets/admin/js/core/popper.min.js"></script>
     <script src="<?= $host ?>assets/admin/js/core/bootstrap.min.js"></script>
     <script src="<?= $host ?>assets/admin/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="<?= $host ?>assets/admin/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="<?= $host ?>assets/admin/js/plugins/chartjs.min.js"></script>
     <script src="<?= $host ?>assets/admin/js/plugins/validate.js"></script>
-    <script src="<?= $host ?>assets/admin/js/argon-dashboard.min.js?v=2.0.4"></script>
+    <script src="<?= $host ?>assets/admin/js/argon-dashboard.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
@@ -77,5 +98,5 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="<?= $host ?>assets/admin/js/items/main.js"></script>
+    <script src="<?= $host ?>assets/admin/js/items/mains.js"></script>
 </body>

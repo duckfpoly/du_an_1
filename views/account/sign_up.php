@@ -1,4 +1,5 @@
-<?php $host =  'http://localhost/coursesWeb/du_an_1/'; ?>
+<?php include_once 'url.php'?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,4 +1,24 @@
 <?php
+    $sort = COURSES;
+    $direct_teacher = '';
+    $direct_cate    = '';
+    $direct_teacher = '';
+    if(isset($_GET['teacher'])){
+        $teacher = $_GET['teacher'];
+        if(isset($_GET['cate'])){
+            $cate = $_GET['cate'];
+            $sort = "?teacher=".$teacher."&cate=".$cate;
+            if(isset($_GET['sort'])){
+                $sortt = $_GET['sort'];
+                $sort = "?teacher=".$teacher."&cate=".$cate."&sort=".$sortt;
+            }
+        }
+        elseif(isset($_GET['sort'])){
+            $sortt = $_GET['sort'];
+            $sort = "?teacher=".$teacher."&sort=".$sortt;
+        }
+    }
+
     $dir_ctrl   = 'controllers/admin/';
     $name_exten = 'Controller.php';
     if(isset($_GET['module'])) {
@@ -30,3 +50,4 @@
         include_once $dir_ctrl.'/dashboard.php';
     }
 ?>
+

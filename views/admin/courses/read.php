@@ -6,22 +6,65 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h6>Danh sách khóa học</h6>
                         <div class="d-flex justify-content-between align-items-center">
-                            <a class="btn btn-success m-0" href="<?= COURSES ?>/create">Thêm</a>
+                            <div class="btn-group">
+                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                    Lọc giảng viên
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
+                                    <?php foreach($teacher_read as $key => $values): ?>
+                                        <li><a class="dropdown-item" href="<?=$sort."?teachers=".$values['id']?>"><?= $values['name_teacher'] ?></a></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
                             &emsp;|&emsp;
-                            <form action="<?= COURSES ?>" class="d-flex justify-content-center align-items-center">
-                                <input type="search" name="s" class="form-control" placeholder="Tìm khóa học" value="<?= isset($_GET['s']) ? $_GET['s'] : "" ?>">
+                            <div class="btn-group">
+                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                    Lọc danh mục
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
+                                    <?php foreach($category_read as $key => $values): ?>
+                                        <li><a class="dropdown-item" href="<?=$sort."?cate=".$values['id']?>"><?= $values['name_category'] ?></a></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                            &emsp;|&emsp;
+                            <div class="btn-group">
+                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                    Lọc
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
+                                    <li><a class="dropdown-item" href="<?=$sort?>?sort=name_asc">Tên từ A - Z</a></li>
+                                    <li><a class="dropdown-item" href="<?=$sort?>?sort=name_desc">Tên từ Z - A</a></li>
+                                    <li><a class="dropdown-item" href="<?=$sort?>?sort=price_asc">Giá từ cao -> thấp</a></li>
+                                    <li><a class="dropdown-item" href="<?=$sort?>?sort=price_asc">Giá từ thấp -> cao</a></li>
+                                </ul>
+                            </div>
+                            &emsp;|&emsp;
+                            <form action="<?= COURSES ?>" class="d-flex justify-content-center align-items-center w-30">
+                                <input type="search" name="course" class="form-control" placeholder="Tìm khóa học" value="<?= isset($_GET['course']) ? $_GET['course'] : "" ?>">
+                                <?php
+                                    if(isset($_GET['course'])){
+                                        echo '&emsp;<a class="btn btn-outline-primary" href="'.COURSES.'">X</a>';
+                                    }else {
+                                        echo  '&emsp;<button class="btn btn-outline-primary">Tìm</button>';
+                                    }
+                                ?>
                             </form>
+                            &emsp;|&emsp;
+                            <a class="btn btn-success m-0" href="<?= COURSES ?>/create">Thêm</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body ">
                     <div class="table-responsive p-3">
-                        <table class="table align-items-center " id="example">
+                        <table class="table align-items-center " id="examplee">
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên khóa học</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Đơn giá</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Giảng viên</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá khóa học</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Danh mục</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Thao tác</th>
                                 </tr>
@@ -38,9 +81,11 @@
                                             </div>
                                         </td>
                                         <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_course'] ?></p></td>
+                                        <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_teacher'] ?></p></td>
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold"><?= number_format($values['price_course'], 0, '', ',') ?> VNĐ</span>
                                         </td>
+                                        <td><p class="text-xs font-weight-bold mb-0 text-center"><?= $values['name_category'] ?></p></td>
                                         <td class="align-middle text-center text-sm">
                                             <?= 
                                                 $values['status_course'] == 0 
@@ -74,3 +119,11 @@
         </div>
     </div>
 </section>
+<style>
+    .dropdown-menu {
+        border: 1px solid #cccccc;
+    }
+    .btn {
+        margin-bottom: 0 !important;
+    }
+</style>

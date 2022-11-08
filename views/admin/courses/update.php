@@ -63,7 +63,7 @@
                                 <div class="form-message text-danger mt-1"><br></div>
                             </div>
                             <div class="form-group ">
-                                <label for="quote" class="form-label">Danh mục</label>
+                                <label for="id_category" class="form-label">Danh mục</label>
                                 <select name="id_category" id="id_category" class="form-control">
                                     <?php foreach($category_read as $key => $values): ?>
                                         <option <?= $courses_update['id_category'] == $values['id'] ? "selected" : "" ?> value="<?= $values['id'] ?>"><?= $values['name_category'] ?></option>
@@ -72,7 +72,7 @@
                                 <div class="form-message text-danger mt-1"><br></div>
                             </div>
                             <div class="form-group ">
-                                <label for="quote" class="form-label">Giảng viên</label>
+                                <label for="id_teacher" class="form-label">Giảng viên</label>
                                 <select name="id_teacher" id="id_teacher" class="form-control">
                                     <?php foreach($teacher_read as $key => $values): ?>
                                         <option <?= $courses_update['id_teacher'] == $values['id'] ? "selected" : "" ?> value="<?= $values['id'] ?>"><?= $values['name_teacher'] ?> - MGV: <?= $values['id'] ?></option>

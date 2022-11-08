@@ -1,4 +1,4 @@
-<?php $host =  'http://localhost/course_ddh/'; ?>
+<?php include_once 'url.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
