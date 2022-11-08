@@ -83,17 +83,6 @@ CREATE TABLE `students` (
     `status_student`      tinyint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE `students_courses` (
-    `id`          bigint UNSIGNED NOT NULL,
-    `id_students` int DEFAULT NULL,
-    `id_course`   int DEFAULT NULL,
-    `id_teachers`   int DEFAULT NULL,
-    `status`      tinyint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-ALTER TABLE `students_courses` ADD CONSTRAINT FK_ID_COURSE_6 FOREIGN KEY (id_course)    REFERENCES `courses`    (id)
-ALTER TABLE `students_courses` ADD CONSTRAINT FK_ID_STUDENTS FOREIGN KEY (id_students)  REFERENCES `students`   (id)
-ALTER TABLE `students_courses` ADD CONSTRAINT FK_ID_TEACHERS FOREIGN KEY (id_teachers)  REFERENCES `teachers`   (id)
-
 
 CREATE TABLE `staff_manager` (
     `id`            bigint UNSIGNED NOT NULL,
@@ -101,4 +90,32 @@ CREATE TABLE `staff_manager` (
     `password`      varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `scope`         tinyint COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `status`        tinyint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE `classes` (
+    `id`                int NOT NULL,
+    `name_class`        VARCHAR(255) NOT NULL,
+    `id_students`       int DEFAULT NULL,
+    `id_course`         int DEFAULT NULL,
+    `slot`              int DEFAULT NULL,
+    `time_start`        timestamp DEFAULT NULL,
+    `time_end`          timestamp DEFAULT NULL,
+    `status_class`      tinyint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+ALTER TABLE `classes` ADD CONSTRAINT FK_ID_COURSE       FOREIGN KEY (id_course)    REFERENCES `courses`    (id)
+ALTER TABLE `classes` ADD CONSTRAINT FK_ID_STUDENTSS    FOREIGN KEY (id_students)  REFERENCES `students`   (id)
+ALTER TABLE `classes` ADD CONSTRAINT FK_ID_TEACHERSS    FOREIGN KEY (id_teachers)  REFERENCES `teachers`   (id)
+ALTER TABLE `classes` ADD CONSTRAINT check_slot_class   CHECK( slot <= 30 )
+
+
+CREATE TABLE `classes_archive` (
+       `id`                int NOT NULL,
+       `name_class`        VARCHAR(255) NOT NULL,
+       `id_students`       int DEFAULT NULL,
+       `id_course`         int DEFAULT NULL,
+       `slot`              int DEFAULT NULL,
+       `time_learn`        text DEFAULT NULL, 
+       `time_start`        timestamp DEFAULT NULL,
+       `time_end`          timestamp DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

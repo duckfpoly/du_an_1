@@ -1,6 +1,5 @@
 <?php
     $dir_model = 'models/';
-
     require_once $dir_model.'process_db.php';
     require_once $dir_model.'categories.php';
     require_once $dir_model.'courses.php';
@@ -9,19 +8,18 @@
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
     require_once $dir_model.'staffs.php';
-
-    $host                   =  'http://localhost/coursesWeb/du_an_1/';
-    $admin                  =  'http://localhost/coursesWeb/du_an_1/admin/';
-
+    $host                   =  'http://localhost/course_ddh/';
+    $admin                  =  $host.'admin/';
     // url admin
     define("DASHBOARD",     $host.'admin');
     define("CATEGORIES",    $host.'admin/categories'); 
     define("COURSES",       $host.'admin/courses'); 
     define("TEACHERS",      $host.'admin/teachers'); 
     define("STUDENTS",      $host.'admin/students');
-    define("SALES",         $host.'admin/sales');
     define("BILLS",         $host.'admin/bills');
-    define("STAFFS",        $host.'admin/staffs');
+    define("SALES",         $host.'admin/sales');
+    define("RATES",         $host.'admin/rates');
+    define("CLASSES",       $host.'admin/clases');
 
     // url site
     define("HOME",          $host);  
@@ -153,7 +151,6 @@
         return chop($final,"@");
     }
 
-<<<<<<< HEAD
     function total($price,$discount){
         $price = $price;
         $discount = $discount;
@@ -168,6 +165,41 @@
         }
     }
 
-=======
->>>>>>> 223d4cf499ef29ac40c6291d93fbaed5e136694c
+    function pagination_normal($id, $tbl){
+        $sql = "SELECT count($id) AS total FROM $tbl";
+        $row = query_one($sql);
+        $total_records = $row['total'];
+        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $limit = 10;
+        $total_page = ceil($total_records / $limit);
+        if ($current_page > $total_page) {
+            $current_page = $total_page;
+        } else if ($current_page < 1) {
+            $current_page = 1;
+        }
+        $start = ($current_page - 1) * $limit;
+        $data_pani = "SELECT * FROM $tbl LIMIT $start, $limit";
+        $row = query($data_pani);
+        $arr = [$row, $current_page, $total_page];
+        return $arr;
+    }
+
+    // current page: get page url
+    // total page: tổng số bản ghi của một table chia cho số bản ghi muốn hiện ra màn hình
+    function pagination($current_page, $total_page, $url){
+        if ($current_page > 1 && $total_page > 1) {
+            return '<a href="' . $url . '?page=' . ($current_page - 1) . '"><</a>';
+        }
+        for ($i = 1; $i <= $total_page; $i++) {
+            if ($i == $current_page) {
+                return '<span>' . $i . '</span> ';
+            } else {
+                return '<a href="' . $url . '?page=' . $i . '">' . $i . '</a> ';
+            }
+        }
+        if ($current_page < $total_page && $total_page > 1) {
+            return '<a href="shop?page=' . ($current_page + 1) . '">></a> ';
+        }
+    }
+
 ?>

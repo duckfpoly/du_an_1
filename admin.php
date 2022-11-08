@@ -99,4 +99,5 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="<?= $host ?>assets/admin/js/items/mains.js"></script>
+    <script src="<?= $host ?>assets/admin/js/items/courses.js"></script>
 </body>

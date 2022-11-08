@@ -51,6 +51,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" id="students" href="<?= CLASSES ?>">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Lớp</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" id="bills" href="<?= BILLS ?>">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
@@ -67,11 +75,11 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="staffs"  href="<?= STAFFS ?>">
+                <a class="nav-link" id="staffs"  href="<?= RATES ?>">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Nhân viên</span>
+                    <span class="nav-link-text ms-1">Đánh giá</span>
                 </a>
             </li>
         </ul>
