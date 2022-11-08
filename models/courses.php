@@ -1,4 +1,4 @@
-<?php 
+<?php
     function check_name_course($name_course,$id){
         $sql = " SELECT * FROM `courses` 
         INNER JOIN teachers ON courses.id_teacher = teachers.id
@@ -30,7 +30,11 @@
         query_sql($sql,$name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher);
     }
     function courses_read(){
-        $sql = "SELECT * FROM `courses`";
+        $sql = "SELECT courses.*,teachers.name_teacher,categories.name_category
+            FROM `courses`
+            INNER JOIN teachers ON teachers.id = courses.id_teacher
+            INNER JOIN categories ON courses.id_category = categories.id
+        ";
         return query($sql);
     }
     function courses_update($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id_teacher,$id){
@@ -44,7 +48,7 @@
                     `created_at`            =   ?,
                     `updated_at`            =   ?,
                     `id_category`           =   ?,
-                    `id_teacher`           =   ?
+                    `id_teacher`            =   ?
                 WHERE id = ?
         ";
         query_sql($sql,$name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id_teacher,$id);
@@ -55,11 +59,9 @@
     }
     function course_detail($id){
         $sql = "SELECT 
-                categories.id id_cate,
                 categories.name_category,
                 courses.*,
-                teachers.name_teacher,
-                teachers.id id_tchr
+                teachers.name_teacher
                 FROM courses 
                 INNER JOIN categories ON courses.id_category = categories.id
                 INNER JOIN teachers ON courses.id_teacher = teachers.id
@@ -67,7 +69,14 @@
         return query_one($sql,$id);
     }
     function course_search($key){
-        $sql = "SELECT * FROM courses WHERE name_course LIKE '%$key%'";
+        $sql = "SELECT 
+                categories.name_category,
+                courses.*,
+                teachers.name_teacher
+                FROM courses 
+                INNER JOIN categories ON courses.id_category = categories.id
+                INNER JOIN teachers ON courses.id_teacher = teachers.id
+                WHERE name_course LIKE '%$key%'";
         return query($sql);
     }
     function course_count(){
@@ -82,4 +91,23 @@
         ";
         return query_value($sql,$id);
     }
+    function course_sale(){
+        $sql = "SELECT 
+                courses.id,
+                courses.name_course,
+                courses.image_course,
+                courses.price_course,
+                courses.discount,
+                teachers.name_teacher
+                FROM courses 
+                INNER JOIN teachers ON courses.id_teacher = teachers.id
+                WHERE courses.discount  !=  0";
+        return query($sql);
+    }
+    function filter($prop, $ordinal){
+        $sql = "SELECT * FROM `courses` ORDER BY $prop $ordinal";
+        return query($sql);
+    }
+
+
 ?>

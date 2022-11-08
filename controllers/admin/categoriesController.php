@@ -21,7 +21,7 @@
                 $id = $_GET['id'];
                 check_empty($id,CATEGORIES);
                 $update_category = category_detail($id);
-                include_once $direct_act;
+                include_once $direct_act;   
                 break;
             case "edit":
                 // Lấy id từ trên url và kiểm tra

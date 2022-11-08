@@ -153,4 +153,21 @@
         return chop($final,"@");
     }
 
+<<<<<<< HEAD
+    function total($price,$discount){
+        $price = $price;
+        $discount = $discount;
+        if(empty($discount)){
+            $total = $price;
+            return number_format($total, 0, '', ',')."vnđ";
+        }
+        else {
+            $money = ($price * $discount) /100;
+            $total = $price - $money;
+            return number_format($total, 0, '', ',')."&nbsp;VNĐ" ;
+        }
+    }
+
+=======
+>>>>>>> 223d4cf499ef29ac40c6291d93fbaed5e136694c
 ?>

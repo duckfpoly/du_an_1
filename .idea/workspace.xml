@@ -2,8 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9be05a-b278-4d0c-bfbc-f82ad03dcec3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/admin/dark-theme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/uploads/courses/blog_4.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/route_site.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route_site.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/js/argon-dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/argon-dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/js/items/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/items/mains.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/categoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/categoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/coursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/coursesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/global.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/courses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/route_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/forgot_pass.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/forgot_pass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/reset_pass.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/reset_pass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/sign_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/sign_in.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/sign_up.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/courses/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/courses/read.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/courses/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/courses/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/error.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/url.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/layouts/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/layouts/footer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +54,7 @@
     <setting file="file://$PROJECT_DIR$/models/students.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/models/teachers.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/routes/route_admin.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/views/admin/courses/read.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/views/admin/dashboard.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/views/admin/layouts/navbar.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
@@ -41,7 +62,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2H6f0GYH06W9ExxLw33S4lVl00Q" />
   <component name="ProjectLevelVcsManager">
@@ -58,7 +79,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/laragon/www/course_ddh/assets/uploads/teachers&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/laragon/www/course_ddh&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -99,7 +120,12 @@
       <workItem from="1667610231139" duration="6299000" />
       <workItem from="1667617910223" duration="2266000" />
       <workItem from="1667622589785" duration="25325000" />
-      <workItem from="1667693164098" duration="18798000" />
+      <workItem from="1667693164098" duration="19016000" />
+      <workItem from="1667784555064" duration="14832000" />
+      <workItem from="1667829501657" duration="704000" />
+      <workItem from="1667835925830" duration="14000" />
+      <workItem from="1667877503243" duration="7825000" />
+      <workItem from="1667898792461" duration="838000" />
     </task>
     <servers />
   </component>

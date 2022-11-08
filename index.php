@@ -46,53 +46,59 @@
     <?php include './routes/route_site.php'?>
     <?php include './views/site/layout/footer.php'?>
 
-<script src="./assets/js/course/jquery-3.2.1.min.js"></script>
-<script src="./assets/js/course/course.js"></script>
+    <script src="./assets/js/course/jquery-3.2.1.min.js"></script>
+    <script src="./assets/js/course/course.js"></script>
 
-<!-- JS here -->
-<script src="./assets/js/js/vendor/modernizr-3.5.0.min.js"></script>
-<!-- Jquery, Popper, Bootstrap -->
-<script src="./assets/js/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="./assets/js/js/popper.min.js"></script>
-<script src="./assets/js/js/bootstrap.min.js"></script>
-<!-- Jquery Mobile Menu -->
-<script src="./assets/js/js/jquery.slicknav.min.js"></script>
+    <!-- JS here -->
+    <script src="./assets/js/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./assets/js/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./assets/js/js/popper.min.js"></script>
+    <script src="./assets/js/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./assets/js/js/jquery.slicknav.min.js"></script>
 
-<!-- Jquery Slick , Owl-Carousel Plugins -->
-<script src="./assets/js/js/owl.carousel.min.js"></script>
-<script src="./assets/js/js/slick.min.js"></script>
-<!-- One Page, Animated-HeadLin -->
-<script src="./assets/js/js/wow.min.js"></script>
-<script src="./assets/js/js/animated.headline.js"></script>
-<script src="./assets/js/js/jquery.magnific-popup.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./assets/js/js/owl.carousel.min.js"></script>
+    <script src="./assets/js/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./assets/js/js/wow.min.js"></script>
+    <script src="./assets/js/js/animated.headline.js"></script>
+    <script src="./assets/js/js/jquery.magnific-popup.js"></script>
 
-<!-- Date Picker -->
-<script src="./assets/js/js/gijgo.min.js"></script>
-<!-- Nice-select, sticky -->
-<script src="./assets/js/js/jquery.nice-select.min.js"></script>
-<script src="./assets/js/js/jquery.sticky.js"></script>
-<!-- Progress -->
-<script src="./assets/js/js/jquery.barfiller.js"></script>
+    <!-- Date Picker -->
+    <script src="./assets/js/js/gijgo.min.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="./assets/js/js/jquery.nice-select.min.js"></script>
+    <script src="./assets/js/js/jquery.sticky.js"></script>
+    <!-- Progress -->
+    <script src="./assets/js/js/jquery.barfiller.js"></script>
 
-<!-- counter , waypoint,Hover Direction -->
-<script src="./assets/js/js/jquery.counterup.min.js"></script>
-<script src="./assets/js/js/waypoints.min.js"></script>
-<script src="./assets/js/js/jquery.countdown.min.js"></script>
-<script src="./assets/js/js/hover-direction-snake.min.js"></script>
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="./assets/js/js/jquery.counterup.min.js"></script>
+    <script src="./assets/js/js/waypoints.min.js"></script>
+    <script src="./assets/js/js/jquery.countdown.min.js"></script>
+    <script src="./assets/js/js/hover-direction-snake.min.js"></script>
 
-<!-- contact js -->
-<script src="./assets/js/js/contact.js"></script>
-<script src="./assets/js/js/jquery.form.js"></script>
-<script src="./assets/js/js/jquery.validate.min.js"></script>
-<script src="./assets/js/js/mail-script.js"></script>
-<script src="./assets/js/js/jquery.ajaxchimp.min.js"></script>
+    <!-- contact js -->
+    <script src="./assets/js/js/contact.js"></script>
+    <script src="./assets/js/js/jquery.form.js"></script>
+    <script src="./assets/js/js/jquery.validate.min.js"></script>
+    <script src="./assets/js/js/mail-script.js"></script>
+    <script src="./assets/js/js/jquery.ajaxchimp.min.js"></script>
 
+<<<<<<< HEAD
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="./assets/js/js/plugins.js"></script>
+    <script src="./assets/js/js/main.js"></script>
+=======
 <!-- Jquery Plugins, main Jquery -->	
 <script src="./assets/js/js/plugins.js"></script>
 <script src="./assets/js/js/main.js"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+>>>>>>> 223d4cf499ef29ac40c6291d93fbaed5e136694c
 </body>
 </html>
 
