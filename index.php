@@ -16,7 +16,6 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/css_site/course_responsive.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/css_site/animate.css">
 
-
     <link rel="stylesheet" href="./assets/css/css_site/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/css_site/owl.carousel.min.css">
     <link rel="stylesheet" href="./assets/css/css_site/slicknav.css">

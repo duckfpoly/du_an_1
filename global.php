@@ -10,8 +10,8 @@
     require_once $dir_model.'sales.php';
     require_once $dir_model.'staffs.php';
 
-    $host                   =  'http://localhost/coursesWeb/du_an_1/';
-    $admin                  =  'http://localhost/coursesWeb/du_an_1/admin/';
+    $host                   =  'http://localhost/abc/du_an_1/';
+    $admin                  =  'http://localhost/abc/du_an_1/admin/';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -125,25 +125,25 @@
         }
     }
 
-    function send_mail($mail,$output,$title){
-        $mailer         = new PHPMailer(true);
-        $mailer->SMTPDebug = 0;
-        $mailer->isSMTP();
-        $mailer->Host       = 'smtp.gmail.com';
-        $mailer->SMTPAuth   = true;
-        $mailer->Username   = 'ndcake.store@gmail.com';
-        $mailer->Password   = 'mswwgrjitnohamff';
-        $mailer->SMTPSecure = 'tls';
-        $mailer->Port       = 587;
-        $mailer->setFrom('ndcake.store@gmail.com', 'DDH Manager');
-        $mailer->addAddress($mail);
-        $mailer->isHTML(true);
-        $mailer->AddReplyTo('ndcake.store@gmail.com', 'DDH Manager');
-        $body = $output;
-        $mailer->Subject = 'DDH Manager - '.$title;
-        $mailer->Body = $body;
-        $mailer->send();
-    }
+    // function send_mail($mail,$output,$title){
+    //     $mailer         = new PHPMailer(true);
+    //     $mailer->SMTPDebug = 0;
+    //     $mailer->isSMTP();
+    //     $mailer->Host       = 'smtp.gmail.com';
+    //     $mailer->SMTPAuth   = true;
+    //     $mailer->Username   = 'ndcake.store@gmail.com';
+    //     $mailer->Password   = 'mswwgrjitnohamff';
+    //     $mailer->SMTPSecure = 'tls';
+    //     $mailer->Port       = 587;
+    //     $mailer->setFrom('ndcake.store@gmail.com', 'DDH Manager');
+    //     $mailer->addAddress($mail);
+    //     $mailer->isHTML(true);
+    //     $mailer->AddReplyTo('ndcake.store@gmail.com', 'DDH Manager');
+    //     $body = $output;
+    //     $mailer->Subject = 'DDH Manager - '.$title;
+    //     $mailer->Body = $body;
+    //     $mailer->send();
+    // }
 
     function cut_email($email){
         $string = $email;
