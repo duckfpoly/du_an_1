@@ -1,8 +1,9 @@
 <?php
-    $host                   =  'http://localhost/course_ddh/';
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
     $admin                  =  $host.'admin/';
 
     $dir_model  = 'models/';
+    $dir_model_site = 'models/site/';
     $dir_config = 'config/';
 
     require_once $dir_config.'db.php';
@@ -17,6 +18,9 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
+    // client
+    require_once $dir_model_site.'courses.php';
+    require_once $dir_model_site.'categories.php';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -170,7 +174,7 @@
         else {
             $money = ($price * $discount) /100;
             $total = $price - $money;
-            return number_format($total, 0, '', ',')."&nbsp;VNĐ" ;
+            return number_format($total, 0, '', ',')." $" ;
         }
     }
 
