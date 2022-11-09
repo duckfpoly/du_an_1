@@ -153,7 +153,6 @@
         return chop($final,"@");
     }
 
-<<<<<<< HEAD
     function total($price,$discount){
         $price = $price;
         $discount = $discount;
@@ -168,6 +167,4 @@
         }
     }
 
-=======
->>>>>>> 223d4cf499ef29ac40c6291d93fbaed5e136694c
 ?>
