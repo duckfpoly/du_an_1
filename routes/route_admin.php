@@ -54,6 +54,10 @@
             case "rates":
                 include_once $objectt;
                 break;
+            case "logout":
+                unsetSession('scope');
+                location($host.'login');
+                break;
             default:
                 location($host."page_not_found");
                 break;

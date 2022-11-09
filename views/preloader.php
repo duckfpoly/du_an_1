@@ -1,6 +1,6 @@
 <div id="preloader">
     <section class="nav_preloader">
-        <h1>DDH COURSES</h1>
+        <h1>ADMIN MANAGER</h1>
         <h3 class="span_preloader pre_loader">
           <span class="m">L</span
           ><span class="m">O</span

@@ -1,4 +1,7 @@
-<?php include_once 'global.php'; ?>
+<?php
+    include_once 'global.php';
+    checkSessionAdmin();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +23,12 @@
     <script src="<?= $host ?>assets/admin/js/items/content_load.js"></script>
     <link href="<?= $host ?>assets/admin/css/argon-dashboard.css" rel="stylesheet" />
     <link href="<?= $host ?>assets/preloader/pre.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <style>
+        .btn {
+            margin-bottom: 0 !important;
+        }
+    </style>
     <script>
         function return_page(){
             history.back();

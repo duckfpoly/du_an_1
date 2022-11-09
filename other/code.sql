@@ -94,20 +94,25 @@ CREATE TABLE `staff_manager` (
 
 
 CREATE TABLE `classes` (
-    `id`                int NOT NULL,
-    `name_class`        VARCHAR(255) NOT NULL,
-    `id_students`       int DEFAULT NULL,
+    `id`                int DEFAULT NULL,
+    `name_class`        VARCHAR(255) DEFAULT NULL,
     `id_course`         int DEFAULT NULL,
     `slot`              int DEFAULT NULL,
-    `time_start`        timestamp DEFAULT NULL,
-    `time_end`          timestamp DEFAULT NULL,
+    `time_learn`        tinyint DEFAULT NULL,
+    `time_start`        datetime DEFAULT NULL,
+    `time_end`          datetime DEFAULT NULL,
     `status_class`      tinyint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ALTER TABLE `classes` ADD CONSTRAINT FK_ID_COURSE       FOREIGN KEY (id_course)    REFERENCES `courses`    (id)
-ALTER TABLE `classes` ADD CONSTRAINT FK_ID_STUDENTSS    FOREIGN KEY (id_students)  REFERENCES `students`   (id)
-ALTER TABLE `classes` ADD CONSTRAINT FK_ID_TEACHERSS    FOREIGN KEY (id_teachers)  REFERENCES `teachers`   (id)
 ALTER TABLE `classes` ADD CONSTRAINT check_slot_class   CHECK( slot <= 30 )
 
+CREATE TABLE `detail_classes` (
+   `id`                 int DEFAULT NULL,
+   `id_students`        int DEFAULT NULL,
+   `id_class`           int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+ALTER TABLE `detail_classes` ADD CONSTRAINT FK_ID_COURSE       FOREIGN KEY (id_class)       REFERENCES `classes`    (id)
+ALTER TABLE `detail_classes` ADD CONSTRAINT FK_ID_STUDENTSS    FOREIGN KEY (id_students)    REFERENCES `students`   (id)
 
 CREATE TABLE `classes_archive` (
        `id`                int NOT NULL,
@@ -115,7 +120,26 @@ CREATE TABLE `classes_archive` (
        `id_students`       int DEFAULT NULL,
        `id_course`         int DEFAULT NULL,
        `slot`              int DEFAULT NULL,
-       `time_learn`        text DEFAULT NULL, 
+       `time_learn`        tinyint DEFAULT NULL,
        `time_start`        timestamp DEFAULT NULL,
        `time_end`          timestamp DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE `orders` (
+       `id`                 int NOT NULL,
+       `order_date`         tinyint DEFAULT NULL,
+       `order_pay`          tinyint DEFAULT NULL,
+       `status`             tinyint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE `order_detail` (
+       `id`                int NOT NULL,
+       `id_students`       int DEFAULT NULL,
+       `id_course`         int DEFAULT NULL,
+       `id_order`          int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+ALTER TABLE `order_detail` ADD CONSTRAINT FK_ID_ORDERS    FOREIGN KEY (id_order)    REFERENCES `orders`   (id)
+ALTER TABLE `order_detail` ADD CONSTRAINT FK_ID_STD    FOREIGN KEY (id_students)    REFERENCES `students`   (id)
+ALTER TABLE `order_detail` ADD CONSTRAINT FK_ID_COUR    FOREIGN KEY (id_course)    REFERENCES `courses`   (id)

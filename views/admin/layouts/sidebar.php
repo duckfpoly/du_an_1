@@ -51,7 +51,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="students" href="<?= CLASSES ?>">
+                <a class="nav-link" id="classes" href="<?= CLASSES ?>">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                     </div>
@@ -67,7 +67,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="bills" href="<?= SALES ?>">
+                <a class="nav-link" id="sales" href="<?= SALES ?>">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                     </div>
@@ -75,7 +75,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="staffs"  href="<?= RATES ?>">
+                <a class="nav-link" id="rates"  href="<?= RATES ?>">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                     </div>

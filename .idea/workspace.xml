@@ -2,18 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9be05a-b278-4d0c-bfbc-f82ad03dcec3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/preloader/pre.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/preloader/pre.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/admin/classesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/classes/create.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/classes/detail" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/classes/read.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/classes/update.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/preloader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/admin/logout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/accounts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/classes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/classesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/classesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/global.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/courses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/process_db.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/process_db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/staffs.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/other/code.sql" beforeDir="false" afterPath="$PROJECT_DIR$/other/code.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/route_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template_admin/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template_admin/pages/billing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template_admin/pages/profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template_admin/pages/sign-in.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template_admin/pages/sign-up.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/classes/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/classes/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/classes/detail" beforeDir="false" afterPath="$PROJECT_DIR$/demo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/classes/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/classes/read.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/classes/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/classes/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/layouts/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/layouts/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/layouts/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/layouts/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/preloader.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/preloader.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,14 +52,18 @@
     <setting file="file://$PROJECT_DIR$/admin.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/assets/preloader/pre.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/controllers/admin/categoriesController.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/controllers/admin/classesController.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/controllers/admin/coursesController.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/controllers/admin/teachersController.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/global.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/models/accounts.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/models/categories.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/models/classes.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/models/courses.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/models/students.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/models/teachers.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/routes/route_admin.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/views/admin/classes/update.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/views/admin/courses/read.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/views/admin/dashboard.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/views/admin/layouts/navbar.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
@@ -85,17 +104,21 @@
       <recent name="D:\laragon\www\course_ddh\assets\uploads\teachers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\course_ddh\views\admin" />
       <recent name="D:\laragon\www\course_ddh\controllers\admin" />
+      <recent name="D:\laragon\www\course_ddh\views\admin" />
       <recent name="D:\laragon\www\course_ddh\assets\admin" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.billing.html">
+    <configuration name="billing.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/course_ddh/template_admin/pages/billing.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/course_ddh/template_site/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.billing.html" />
         <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
@@ -118,7 +141,9 @@
       <workItem from="1667877503243" duration="7825000" />
       <workItem from="1667898792461" duration="2438000" />
       <workItem from="1667901501259" duration="3533000" />
-      <workItem from="1667908819543" duration="3965000" />
+      <workItem from="1667908819543" duration="7805000" />
+      <workItem from="1667961618834" duration="7052000" />
+      <workItem from="1667971933077" duration="8877000" />
     </task>
     <servers />
   </component>
