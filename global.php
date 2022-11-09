@@ -1,5 +1,5 @@
 <?php
-    $host                   =  'http://localhost/course_ddh/';
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
     $admin                  =  $host.'admin/';
 
     $dir_model  = 'models/';
