@@ -40,4 +40,7 @@
         $sql = "SELECT * FROM categories WHERE name_category LIKE '%$key%'";
         return query($sql);
     }
+//    function pagination_category(){
+//        return pagination_normal('categories');
+//    }
 ?>

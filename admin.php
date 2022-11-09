@@ -22,7 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="<?= $host ?>assets/admin/js/items/content_load.js"></script>
     <link href="<?= $host ?>assets/admin/css/argon-dashboard.css" rel="stylesheet" />
-    <link href="<?= $host ?>assets/preloader/pre.css" rel="stylesheet" />
+    <link href="<?= $host ?>assets/preloader/prea.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <style>
         .btn {
@@ -33,18 +33,6 @@
         function return_page(){
             history.back();
         }
-        (function ($) {
-            'use strict';
-            $(window).on('load', function () {
-                Particles.init({
-                    selector: ".background_preloader",
-                });
-                $('#preloader').delay(1000).fadeOut('slow');
-                $('#preloader').delay(1000).css({
-                    'overflow': 'visible'
-                });
-            });
-        })(jQuery);
     </script>
 </head>
 <body class="g-sidenav-show bg-gray-100">
@@ -81,14 +69,6 @@
         </div>
       </div>
     </div>
-    <!-- <script src="<?= $host ?>assets/admin/dark-theme.js"></script> -->
-    <script src="<?= $host ?>assets/admin/js/core/popper.min.js"></script>
-    <script src="<?= $host ?>assets/admin/js/core/bootstrap.min.js"></script>
-    <script src="<?= $host ?>assets/admin/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="<?= $host ?>assets/admin/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="<?= $host ?>assets/admin/js/plugins/chartjs.min.js"></script>
-    <script src="<?= $host ?>assets/admin/js/plugins/validate.js"></script>
-    <script src="<?= $host ?>assets/admin/js/argon-dashboard.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
@@ -100,9 +80,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="<?= $host ?>assets/admin/js/items/mains.js"></script>
     <script src="<?= $host ?>assets/admin/js/items/courses.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
-    <script src="<?= $host ?>assets/preloader/pre.js"></script>
+    <script src="<?= $host ?>assets/preloader/pre_load.js"></script>
+    <script src="<?= $host ?>assets/admin/js/core/popper.min.js"></script>
+    <script src="<?= $host ?>assets/admin/js/core/bootstrap.min.js"></script>
+    <script src="<?= $host ?>assets/admin/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="<?= $host ?>assets/admin/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="<?= $host ?>assets/admin/js/plugins/chartjs.min.js"></script>
+    <script src="<?= $host ?>assets/admin/js/plugins/validate.js"></script>
+    <script src="<?= $host ?>assets/admin/js/argon-dashboard.js"></script>
 </body>

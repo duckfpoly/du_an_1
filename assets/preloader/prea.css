@@ -1,11 +1,6 @@
 form {
     margin-bottom: 0 !important;
 }
-
-body {
-    transition: 1s all;
-    animation: show_pre 100ms ease-in-out;
-}
 body::-webkit-scrollbar {
     width: 0px;
 }

@@ -174,12 +174,12 @@
         }
     }
 
-    function pagination_normal($id, $tbl){
-        $sql = "SELECT count($id) AS total FROM $tbl";
+    function pagination_normal($tbl,$limit_data){
+        $sql = "SELECT count(id) AS total FROM $tbl";
         $row = query_one($sql);
         $total_records = $row['total'];
         $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = 10;
+        $limit = $limit_data;
         $total_page = ceil($total_records / $limit);
         if ($current_page > $total_page) {
             $current_page = $total_page;
@@ -197,17 +197,17 @@
     // total page: tổng số bản ghi của một table chia cho số bản ghi muốn hiện ra màn hình
     function pagination($current_page, $total_page, $url){
         if ($current_page > 1 && $total_page > 1) {
-            return '<a href="' . $url . '?page=' . ($current_page - 1) . '"><</a>';
+            echo '<a href="' . $url . '?page=' . ($current_page - 1) . '"><</a>';
         }
         for ($i = 1; $i <= $total_page; $i++) {
             if ($i == $current_page) {
-                return '<span>' . $i . '</span> ';
+                echo '<span class="active">' . $i . '</span> ';
             } else {
-                return '<a href="' . $url . '?page=' . $i . '">' . $i . '</a> ';
+                echo '<a href="' . $url . '?page=' . $i . '">' . $i . '</a> ';
             }
         }
         if ($current_page < $total_page && $total_page > 1) {
-            return '<a href="shop?page=' . ($current_page + 1) . '">></a> ';
+            echo '<a href="' . $url . '?page=' . ($current_page + 1) . '">></a> ';
         }
     }
 
