@@ -16,7 +16,6 @@
         }
     }
     function courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher){
-//        die($name_course.' - '.$price_course.' - '.$image_course.' - '.$description_course.' - '.$quote.' - '.$created_at.' - '.$id_category.' - '.$id_teacher);
         $sql = "INSERT INTO `courses` SET 
                         `name_course`           =   ?,
                         `price_course`          =   ?,
@@ -108,6 +107,4 @@
         $sql = "SELECT * FROM `courses` ORDER BY $prop $ordinal";
         return query($sql);
     }
-
-
 ?>

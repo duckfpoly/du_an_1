@@ -1,32 +1,39 @@
 <?php
-    $dir_model = 'models/';
+    $host                   =  'http://localhost/course_ddh/';
+    $admin                  =  $host.'admin/';
+
+    $dir_model  = 'models/';
+    $dir_config = 'config/';
+
+    require_once $dir_config.'db.php';
+    include_once $dir_config.'session.php';
 
     require_once $dir_model.'process_db.php';
+    require_once $dir_model.'accounts.php';
     require_once $dir_model.'categories.php';
     require_once $dir_model.'courses.php';
     require_once $dir_model.'teachers.php';
     require_once $dir_model.'students.php';
+    require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
-    require_once $dir_model.'staffs.php';
-
-    $host                   =  'http://localhost/coursesWeb/du_an_1/';
-    $admin                  =  'http://localhost/coursesWeb/du_an_1/admin/';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
-    define("CATEGORIES",    $host.'admin/categories'); 
-    define("COURSES",       $host.'admin/courses'); 
-    define("TEACHERS",      $host.'admin/teachers'); 
-    define("STUDENTS",      $host.'admin/students');
-    define("SALES",         $host.'admin/sales');
-    define("BILLS",         $host.'admin/bills');
-    define("STAFFS",        $host.'admin/staffs');
+    define("CATEGORIES",    $admin.'categories');
+    define("COURSES",       $admin.'courses');
+    define("TEACHERS",      $admin.'teachers');
+    define("STUDENTS",      $admin.'students');
+    define("BILLS",         $admin.'bills');
+    define("SALES",         $admin.'sales');
+    define("RATES",         $admin.'rates');
+    define("CLASSES",       $admin.'classes');
+    define("LOGOUT",        $admin.'logout');
 
     // url site
     define("HOME",          $host);  
-    define("LESSONS",        $host.'lessions'); 
-    define("ABOUT",         $host.'about'); 
+    define("LESSONS",       $host.'lessions');
+    define("ABOUT",         $host.'about');
     define("CONTACT",       $host.'contact');
 
     function active_item($item){
@@ -167,4 +174,56 @@
         }
     }
 
+    function pagination_normal($id, $tbl){
+        $sql = "SELECT count($id) AS total FROM $tbl";
+        $row = query_one($sql);
+        $total_records = $row['total'];
+        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $limit = 10;
+        $total_page = ceil($total_records / $limit);
+        if ($current_page > $total_page) {
+            $current_page = $total_page;
+        } else if ($current_page < 1) {
+            $current_page = 1;
+        }
+        $start = ($current_page - 1) * $limit;
+        $data_pani = "SELECT * FROM $tbl LIMIT $start, $limit";
+        $row = query($data_pani);
+        $arr = [$row, $current_page, $total_page];
+        return $arr;
+    }
+
+    // current page: get page url
+    // total page: tổng số bản ghi của một table chia cho số bản ghi muốn hiện ra màn hình
+    function pagination($current_page, $total_page, $url){
+        if ($current_page > 1 && $total_page > 1) {
+            return '<a href="' . $url . '?page=' . ($current_page - 1) . '"><</a>';
+        }
+        for ($i = 1; $i <= $total_page; $i++) {
+            if ($i == $current_page) {
+                return '<span>' . $i . '</span> ';
+            } else {
+                return '<a href="' . $url . '?page=' . $i . '">' . $i . '</a> ';
+            }
+        }
+        if ($current_page < $total_page && $total_page > 1) {
+            return '<a href="shop?page=' . ($current_page + 1) . '">></a> ';
+        }
+    }
+
+    function check_time_end($date){
+        $time_end = strtotime ( '+6 month' , strtotime ( $date ) ) ;
+        $time_end = date ( 'Y-m-d' , $time_end );
+        return strtotime(date('Y-m-d')) == strtotime($time_end) ? "true" : "false";
+    }
+
+    function check_time_start($date){
+        $time_start =   strtotime ($date);
+        $time_now   =   strtotime(date('Y-m-d'));
+        return $time_start == $time_now ? "true" : "false";
+    }
+
+    function format_date($date){
+        return (new DateTimeImmutable($date))->format('d/m/Y');
+    }
 ?>
