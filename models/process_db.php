@@ -1,5 +1,4 @@
 <?php
-    require_once 'config/db.php';
     function connect(){
         $conn = null;
         try {

@@ -20,7 +20,7 @@
             }
 
         }else{
-            include_once 'views/site/home.php';
+            include_once 'controllers/site/homeController.php';
         }
 ?>
 

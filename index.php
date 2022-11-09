@@ -87,18 +87,12 @@
     <script src="./assets/js/js/mail-script.js"></script>
     <script src="./assets/js/js/jquery.ajaxchimp.min.js"></script>
 
-<<<<<<< HEAD
-    <!-- Jquery Plugins, main Jquery -->
-    <script src="./assets/js/js/plugins.js"></script>
-    <script src="./assets/js/js/main.js"></script>
-=======
 <!-- Jquery Plugins, main Jquery -->	
 <script src="./assets/js/js/plugins.js"></script>
 <script src="./assets/js/js/main.js"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
->>>>>>> 223d4cf499ef29ac40c6291d93fbaed5e136694c
 </body>
 </html>
 

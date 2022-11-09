@@ -39,6 +39,25 @@
             case "teachers":
                 include_once $objectt;
                 break;
+            case "students":
+                include_once $objectt;
+                break;
+            case "classes":
+                include_once $objectt;
+                break;
+            case "bills":
+                include_once $objectt;
+                break;
+            case "sales":
+                include_once $objectt;
+                break;
+            case "rates":
+                include_once $objectt;
+                break;
+            case "logout":
+                unsetSession('scope');
+                location($host.'login');
+                break;
             default:
                 location($host."page_not_found");
                 break;

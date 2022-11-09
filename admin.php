@@ -1,5 +1,8 @@
-<?php include_once 'global.php'; ?>
-    <!DOCTYPE html>
+<?php
+    include_once 'global.php';
+    checkSessionAdmin();
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,33 +22,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="<?= $host ?>assets/admin/js/items/content_load.js"></script>
     <link href="<?= $host ?>assets/admin/css/argon-dashboard.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="<?= $host ?>assets/preloader/pre.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <style>
-        form {
+        .btn {
             margin-bottom: 0 !important;
-        }
-        body::-webkit-scrollbar {
-            width: 0px;
-        }
-
-        body::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #7A7FBA, #11C37C);
-            /* background: #B08EAD; */
-            border-radius: 10px;
-        }
-
-        body::-webkit-scrollbar-track {
-            /* background-color: #7A7FBA; */
-            background: transparent
         }
     </style>
     <script>
         function return_page(){
             history.back();
         }
+        (function ($) {
+            'use strict';
+            $(window).on('load', function () {
+                Particles.init({
+                    selector: ".background_preloader",
+                });
+                $('#preloader').delay(1000).fadeOut('slow');
+                $('#preloader').delay(1000).css({
+                    'overflow': 'visible'
+                });
+            });
+        })(jQuery);
     </script>
 </head>
-<body class="g-sidenav-show bg-gray-100"><!-- <body class="g-sidenav-show dark-version bg-gray-600"> -->
+<body class="g-sidenav-show bg-gray-100">
+    <?php include_once 'views/preloader.php'; ?>
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
         <?php include_once 'views/admin/layouts/sidebar.php'; ?>
     <main class="main-content position-relative border-radius-lg ">
@@ -99,4 +102,7 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="<?= $host ?>assets/admin/js/items/mains.js"></script>
+    <script src="<?= $host ?>assets/admin/js/items/courses.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+    <script src="<?= $host ?>assets/preloader/pre.js"></script>
 </body>

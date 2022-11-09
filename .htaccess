@@ -10,7 +10,11 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f 
 
 RewriteRule ^sign_in$                                                   views/account/sign_in.php
-RewriteRule ^sign_up$                                                   views/account/sign_up.php
+RewriteRule ^sign_in$                                                   views/account/sign_in.php
+
+# admin login
+RewriteRule ^login$                                                      login.php
+#RewriteRule ^logout$                                                     controllers/admin/logout.php
 
 # admin
 RewriteRule ^admin$                                                     admin.php
