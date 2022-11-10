@@ -218,8 +218,7 @@
         return $arr;
     }
 
-    // current page: get page url
-    // total page: tổng số bản ghi của một table chia cho số bản ghi muốn hiện ra màn hình
+
     function pagination($current_page, $total_page, $url){
         if ($current_page > 1 && $total_page > 1) {
             echo '<a class="" href="' . $url . '?page=' . ($current_page - 1) . '"><</a>';

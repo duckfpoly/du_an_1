@@ -4,7 +4,7 @@ RewriteRule ^page_not_found$ views/404.php
 
 # Thay đổi trang báo lỗi 
 ErrorDocument 404 http://localhost/courseddh/page_not_found
-# DirectoryIndex index.php
+# DirectoryIndex template_admin/index.php
 
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteCond %{REQUEST_FILENAME} !-f 

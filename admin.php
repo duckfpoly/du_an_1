@@ -36,8 +36,10 @@
     </script>
 </head>
 <body class="g-sidenav-show bg-gray-100">
-    <?php include_once 'views/preloader.php'; ?>
-    <div class="d-none" id="course_app">
+    <?php
+//        include_once 'views/preloader.php';
+    ?>
+    <div id="course_app">
         <div class="min-height-300 bg-primary position-absolute w-100"></div>
             <?php include_once 'views/admin/layouts/sidebar.php'; ?>
         <main class="main-content position-relative border-radius-lg ">
@@ -90,7 +92,7 @@
     <script src="<?= $host ?>assets/admin/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="<?= $host ?>assets/admin/js/plugins/chartjs.min.js"></script>
     <script src="<?= $host ?>assets/admin/js/plugins/validate.js"></script>
-    <script src="<?= $host ?>assets/preloader/preloader.js"></script>
+<!--    <script src="--><?//= $host ?><!--assets/preloader/preloader.js"></script>-->
     <script src="<?= $host ?>assets/admin/js/argon-dashboard.js"></script>
     <script src="<?= $host ?>assets/admin/js/items/mains.js"></script>
     <script src="<?= $host ?>assets/admin/js/items/courses.js"></script>

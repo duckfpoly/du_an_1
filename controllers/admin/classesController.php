@@ -1,5 +1,4 @@
 <?php
-
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
         switch ($act) {
@@ -20,6 +19,9 @@
                 check_empty($id_course, CLASSES . "/create");
                 check_empty($time_learn,CLASSES . "/create");
                 check_empty($time_start,CLASSES . "/create");
+
+
+
                 // Gọi model để thêm dữ liệu vào database
                 class_create($name_class,$id_course,$time_learn,$time_start,$time_end);
                 // sau khi thêm hoàn thành sẽ điều hướng về trang read
@@ -30,6 +32,7 @@
                 check_empty($id, CLASSES);
                 $update_class   = class_detail($id);
                 $courses_read   = courses_read();
+                $studentClass   = read_students_class($id);
                 include_once $direct_act;
                 break;
             case "edit":
@@ -56,22 +59,33 @@
                 // nếu k tồn tại id thì trả lại view read
                 check_empty($id, CLASSES);
                 // Khi pass qua validate => gọi model thực hiện delete
-                category_delete($id);
+                class_delete($id);
                 // delete hoàn thành, điều hướng về trang danh sách
                 location(CLASSES);
                 break;
-            case "detail":
-                // Lấy id từ trên url và kiểm tra
+            case "addStudent":
                 $id = $_GET['id'];
-                // nếu k tồn tại id thì trả lại view read
-                check_empty($id, CLASSES);
-                // Khi pass qua validate => gọi model thực hiện delete
-                category_delete($id);
-                // delete hoàn thành, điều hướng về trang danh sách
+                check_empty($id,CLASSES);
+                if(count_slot($id) == 3){
+                    alert('Đã đủ sinh viên, Không thể thêm !',CLASSES);
+                }
+                $student_read  = read_student();
+                include_once $direct_act;
+                break;
+            case "storeStudent":
+                $id_class = $_GET['id'];
+                $id_student = $_POST['id_student'];
+                check_empty($id_student,CLASSES."/addStudent/".$id_class);
+                add_student_to_class($id_student,$id_class);
                 location(CLASSES);
+                break;
+            case "deleteStudent":
+                $id_student = $_POST['id_student'];
+                $id_class   = $_POST['id_class'];
+                delete_student_class($id_student,$id_class);
+                alert('Xóa thành công !',CLASSES.'/update/'.$id_class);
                 break;
             default:
-                // khi nhập linh tinh thì sẽ điều hướng về trang 404
                 location($host . "page_not_found");
                 break;
         }
