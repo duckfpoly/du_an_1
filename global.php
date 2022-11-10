@@ -1,22 +1,8 @@
 <?php
-    $host                   =  'http://localhost/courseddh/';
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
     $admin                  =  $host.'admin/';
 
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
-    require_once 'vendor/autoload.php';
-
-    $client         = new Google\Client();
-    $google_oauth   = new Google\Service\Oauth2($client);
-
-    $client->setClientId("860322000129-aa3jsl9jc2upei7jjitjeknhol9p552f.apps.googleusercontent.com");
-    $client->setClientSecret("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");
-    $client->addScope("email");
-    $client->addScope("profile");
-
     $dir_model  = 'models/';
-    $dir_model_site = 'models/site/';
     $dir_config = 'config/';
 
     require_once $dir_config.'db.php';
@@ -31,19 +17,10 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
-<<<<<<< HEAD
-<<<<<<< HEAD
     require_once $dir_model.'staffs.php';
 
     $host                   =  'http://localhost/abc/du_an_1/';
     $admin                  =  'http://localhost/abc/du_an_1/admin/';
-=======
->>>>>>> 35732e0a17ee6d2b9a361009f239dc6a78b9d26f
-=======
-    // client
-    require_once $dir_model_site.'courses.php';
-    require_once $dir_model_site.'categories.php';
->>>>>>> 83707c4d9745c5675b53488dfead117b773daacf
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -197,100 +174,8 @@
         else {
             $money = ($price * $discount) /100;
             $total = $price - $money;
-            return number_format($total, 0, '', ',')." $" ;
+            return number_format($total, 0, '', ',')."&nbsp;VNĐ" ;
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    function pagination_normal($id, $tbl){
-        $sql = "SELECT count($id) AS total FROM $tbl";
-=======
-    function pagination_normal($tbl,$limit_data){
-        $sql = "SELECT count(id) AS total FROM $tbl";
->>>>>>> 83707c4d9745c5675b53488dfead117b773daacf
-        $row = query_one($sql);
-        $total_records = $row['total'];
-        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = $limit_data;
-        $total_page = ceil($total_records / $limit);
-        if ($current_page > $total_page) {
-            $current_page = $total_page;
-        } else if ($current_page < 1) {
-            $current_page = 1;
-        }
-        $start = ($current_page - 1) * $limit;
-        $data_pani = "SELECT * FROM $tbl LIMIT $start, $limit";
-        $data = query($data_pani);
-        $arr = [$data, $current_page, $total_page];
-        return $arr;
-    }
-
-    // current page: get page url
-    // total page: tổng số bản ghi của một table chia cho số bản ghi muốn hiện ra màn hình
-    function pagination($current_page, $total_page, $url){
-        if ($current_page > 1 && $total_page > 1) {
-            echo '<a href="' . $url . '?page=' . ($current_page - 1) . '"><</a>';
-        }
-        for ($i = 1; $i <= $total_page; $i++) {
-            if ($i == $current_page) {
-                echo '<span class="active">' . $i . '</span> ';
-            } else {
-                echo '<a href="' . $url . '?page=' . $i . '">' . $i . '</a> ';
-            }
-        }
-        if ($current_page < $total_page && $total_page > 1) {
-            echo '<a href="' . $url . '?page=' . ($current_page + 1) . '">></a> ';
-        }
-    }
-
-    function check_time_end($date){
-        $time_end = strtotime ( '+6 month' , strtotime ( $date ) ) ;
-        $time_end = date ( 'Y-m-d' , $time_end );
-        return strtotime(date('Y-m-d')) == strtotime($time_end) ? "true" : "false";
-    }
-
-    function check_time_start($date){
-        $time_start =   strtotime ($date);
-        $time_now   =   strtotime(date('Y-m-d'));
-        return $time_start == $time_now ? "true" : "false";
-    }
-
-    function format_date($date){
-        return (new DateTimeImmutable($date))->format('d/m/Y');
-    }
-<<<<<<< HEAD
->>>>>>> 35732e0a17ee6d2b9a361009f239dc6a78b9d26f
-=======
-
-    function login_gg(){
-        $client->setRedirectUri("http://localhost/courseddh/sign_in");
-        if (isset($_GET['code'])) {
-            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-            $client->setAccessToken($token['access_token']);
-            $google_account_info = $google_oauth->userinfo->get();
-            $email =  $google_account_info->email;
-            $user_login = login_gg($email);
-        }
-//        include view sign in
-//        include 'view/site/account/sign_in.php';
-    }
-
-    function sign_up_gg(){
-        $client->setRedirectUri("http://localhost/courseddh/sign_up");
-        if (isset($_GET['code'])) {
-            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-            $client->setAccessToken($token['access_token']);
-            $google_account_info = $google_oauth->userinfo->get();
-            $email      =  $google_account_info->email;
-            $name_user  =  $google_account_info->name;
-            $username   =  cut_email($email);
-            $password   =  rand(0,9999990);
-            $create     =  sign_up_gg($username,$name_user,$email,$password);
-        }
-        //        include view sign up
-//        include 'view/site/account/sign_up.php';
-    }
->>>>>>> 83707c4d9745c5675b53488dfead117b773daacf
 ?>
