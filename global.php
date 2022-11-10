@@ -1,6 +1,11 @@
 <?php
-    $host                   =  'http://localhost/coursesWeb/du_an_1/';
+    $host                   =  'http://localhost/courseddh/';
     $admin                  =  $host.'admin/';
+
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    require_once 'vendor/autoload.php';
 
     $dir_model  = 'models/';
     $dir_config = 'config/';
@@ -17,10 +22,9 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
-    require_once $dir_model.'staffs.php';
 
-    $host                   =  'http://localhost/abc/du_an_1/';
-    $admin                  =  'http://localhost/abc/du_an_1/admin/';
+    $host                   =  'http://localhost/courseddh/';
+    $admin                  =  $host.'admin/';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -177,5 +181,8 @@
             return number_format($total, 0, '', ',')."&nbsp;VNĐ" ;
         }
     }
+
+
+
 
 ?>
