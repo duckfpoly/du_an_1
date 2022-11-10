@@ -5,7 +5,7 @@
         if($v){
             $urlClt = $dir_ctrl.$v.$name_exten;
             switch ($v){
-                case "lessions":
+                case "lessons":
                     include  $urlClt;
                     break;
                 case "about":

@@ -75,7 +75,7 @@
                         <div class="properties pb-20">
                             <div class="properties__card">
                                 <div class="properties__img overlay1">
-                                    <a href="#"><img src="assets/img/img_site/img/gallery/featured2.png" alt=""></a>
+                                    <a href="#"><img src="assets/uploads/courses/<?php echo $value['image_course']?>" alt=""></a>
                                 </div>
                                 <div class="properties__caption">
                                     <p>User Experience</p>
