@@ -40,7 +40,7 @@
 
     // url site
     define("HOME",          $host);  
-    define("LESSONS",       $host.'lessions');
+    define("LESSONS",       $host.'lessons');
     define("ABOUT",         $host.'about');
     define("CONTACT",       $host.'contact');
 
@@ -182,7 +182,11 @@
         }
     }
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> 0443e40e03466df0cd1438aa118870aafbce14b8
     function pagination_normal($tbl,$limit_data){
         $sql = "SELECT count(id) AS total FROM $tbl";
         $row = query_one($sql);
@@ -235,7 +239,12 @@
     function format_date($date){
         return (new DateTimeImmutable($date))->format('d/m/Y');
     }
+<<<<<<< HEAD
 
 
 
+=======
+=======
+>>>>>>> 3edcd1317e5eecca82023e64cfbf25736dbd2304
+>>>>>>> 0443e40e03466df0cd1438aa118870aafbce14b8
 ?>
