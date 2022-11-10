@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body ">
                     <div class="table-responsive p-3">
-                        <table class="table align-items-center " id="example">
+                        <table class="table align-items-center " id="examplee">
                             <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>

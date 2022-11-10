@@ -1,4 +1,3 @@
-<?php $host =  'http://localhost/course_ddh/'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="<?= $host ?>assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="<?= $host ?>assets/img/favicon.png">
     <title>DDH ADMIN - Đăng Nhập</title>
-    <link href="<?= $host ?>assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+    <link href="<?= $host ?>assets/admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
     <style>
         .form-group.invalid .form-control {
             border-color: #f33a58;
