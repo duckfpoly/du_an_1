@@ -22,18 +22,11 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
-<<<<<<< HEAD
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
-  
 
     $host                   =  'http://localhost/coursesWeb/du_an_1/';
-    $admin                  =  'http://localhost/coursesWeb/du_an_1/admin/';
-=======
-
-    $host                   =  'http://localhost/courseddh/';
     $admin                  =  $host.'admin/';
->>>>>>> 845a2ec112c07d0a8e09fa9d1369f6f9686cb92f
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -91,8 +84,7 @@
 
     function compare_data($data_post,$data_compare,$fn_check,$url){
         if($data_post != $data_compare) {
-            $check_data = $fn_check;
-            if (isset($check_data)) {
+            if (isset($fn_check)) {
                 die('<section class="container-fluid py-4">
                         <div class="row">
                             <div class="col-12">
@@ -105,7 +97,7 @@
                                     <div class="card-body px-0 pt-0 pb-2">
                                         <div class="p-3">
                                             <div class="form-group text-danger text-center">
-                                                <p>'.$check_data.'</p>
+                                                <p>'.$fn_check.'</p>
                                             </div>
                                             <div class="mt-5 text-center">
                                                 <button type="button" onclick="return_page()" class="btn btn-outline-secondary">Quay lại</button>
@@ -121,31 +113,30 @@
     }
 
     function check_data($data_check,$url){
-        $check_data = $data_check;
-        if(isset($check_data)){
+        if(isset($data_check)){
             die('<section class="container-fluid py-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card mb-4">
-                                    <div class="card-header pb-0">
-                                        <div class="text-center">
-                                            <h3>Lỗi xử lý dữ liệu !</h3>
-                                        </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card mb-4">
+                                <div class="card-header pb-0">
+                                    <div class="text-center">
+                                        <h3>Lỗi xử lý dữ liệu !</h3>
                                     </div>
-                                    <div class="card-body px-0 pt-0 pb-2">
-                                        <div class="p-3">
-                                            <div class="form-group text-danger text-center">
-                                                <p>'.$check_data.'</p>
-                                            </div>
-                                            <div class="mt-5 text-center">
-                                                <button type="button" onclick="return_page()" class="btn btn-outline-secondary">Quay lại</button>
-                                            </div>
+                                </div>
+                                <div class="card-body px-0 pt-0 pb-2">
+                                    <div class="p-3">
+                                        <div class="form-group text-danger text-center">
+                                            <p>'.$data_check.'</p>
+                                        </div>
+                                        <div class="mt-5 text-center">
+                                            <button type="button" onclick="return_page()" class="btn btn-outline-secondary">Quay lại</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </section>');
+                    </div>
+                </section>');
         }
     }
 
