@@ -15,7 +15,6 @@
     $client->addScope("email");
     $client->addScope("profile");
 
-
     $dir_model  = 'models/';
     $dir_config = 'config/';
 
