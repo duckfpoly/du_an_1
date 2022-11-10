@@ -4,7 +4,7 @@
 
     $dir_model  = 'models/';
     $dir_config = 'config/';
-
+    $dir_model_site = 'models/site/';
     require_once $dir_config.'db.php';
     include_once $dir_config.'session.php';
 
@@ -17,10 +17,12 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
-    require_once $dir_model.'staffs.php';
+    require_once $dir_model_site.'categories.php';
+    require_once $dir_model_site.'courses.php';
+  
 
-    $host                   =  'http://localhost/abc/du_an_1/';
-    $admin                  =  'http://localhost/abc/du_an_1/admin/';
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
+    $admin                  =  'http://localhost/coursesWeb/du_an_1/admin/';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -178,7 +180,6 @@
         }
     }
 
-<<<<<<< HEAD
     function pagination_normal($tbl,$limit_data){
         $sql = "SELECT count(id) AS total FROM $tbl";
         $row = query_one($sql);
@@ -231,6 +232,4 @@
     function format_date($date){
         return (new DateTimeImmutable($date))->format('d/m/Y');
     }
-=======
->>>>>>> 3edcd1317e5eecca82023e64cfbf25736dbd2304
 ?>
