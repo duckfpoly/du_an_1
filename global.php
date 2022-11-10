@@ -3,7 +3,6 @@
     $admin                  =  $host.'admin/';
 
     $dir_model  = 'models/';
-    $dir_model_site = 'models/site/';
     $dir_config = 'config/';
 
     require_once $dir_config.'db.php';
@@ -18,9 +17,10 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
-    // client
-    require_once $dir_model_site.'courses.php';
-    require_once $dir_model_site.'categories.php';
+    require_once $dir_model.'staffs.php';
+
+    $host                   =  'http://localhost/abc/du_an_1/';
+    $admin                  =  'http://localhost/abc/du_an_1/admin/';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -136,25 +136,25 @@
         }
     }
 
-    function send_mail($mail,$output,$title){
-        $mailer         = new PHPMailer(true);
-        $mailer->SMTPDebug = 0;
-        $mailer->isSMTP();
-        $mailer->Host       = 'smtp.gmail.com';
-        $mailer->SMTPAuth   = true;
-        $mailer->Username   = 'ndcake.store@gmail.com';
-        $mailer->Password   = 'mswwgrjitnohamff';
-        $mailer->SMTPSecure = 'tls';
-        $mailer->Port       = 587;
-        $mailer->setFrom('ndcake.store@gmail.com', 'DDH Manager');
-        $mailer->addAddress($mail);
-        $mailer->isHTML(true);
-        $mailer->AddReplyTo('ndcake.store@gmail.com', 'DDH Manager');
-        $body = $output;
-        $mailer->Subject = 'DDH Manager - '.$title;
-        $mailer->Body = $body;
-        $mailer->send();
-    }
+    // function send_mail($mail,$output,$title){
+    //     $mailer         = new PHPMailer(true);
+    //     $mailer->SMTPDebug = 0;
+    //     $mailer->isSMTP();
+    //     $mailer->Host       = 'smtp.gmail.com';
+    //     $mailer->SMTPAuth   = true;
+    //     $mailer->Username   = 'ndcake.store@gmail.com';
+    //     $mailer->Password   = 'mswwgrjitnohamff';
+    //     $mailer->SMTPSecure = 'tls';
+    //     $mailer->Port       = 587;
+    //     $mailer->setFrom('ndcake.store@gmail.com', 'DDH Manager');
+    //     $mailer->addAddress($mail);
+    //     $mailer->isHTML(true);
+    //     $mailer->AddReplyTo('ndcake.store@gmail.com', 'DDH Manager');
+    //     $body = $output;
+    //     $mailer->Subject = 'DDH Manager - '.$title;
+    //     $mailer->Body = $body;
+    //     $mailer->send();
+    // }
 
     function cut_email($email){
         $string = $email;
@@ -174,10 +174,11 @@
         else {
             $money = ($price * $discount) /100;
             $total = $price - $money;
-            return number_format($total, 0, '', ',')." $" ;
+            return number_format($total, 0, '', ',')."&nbsp;VNĐ" ;
         }
     }
 
+<<<<<<< HEAD
     function pagination_normal($tbl,$limit_data){
         $sql = "SELECT count(id) AS total FROM $tbl";
         $row = query_one($sql);
@@ -230,4 +231,6 @@
     function format_date($date){
         return (new DateTimeImmutable($date))->format('d/m/Y');
     }
+=======
+>>>>>>> 3edcd1317e5eecca82023e64cfbf25736dbd2304
 ?>
