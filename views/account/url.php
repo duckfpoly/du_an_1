@@ -1,3 +1,3 @@
 <?php
-    $host = 'http://localhost/coursesWeb/du_an_1/';
+    $host = 'http://courseddh.test/';
 ?>

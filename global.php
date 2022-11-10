@@ -1,6 +1,19 @@
 <?php
-    $host                   =  'http://localhost/coursesWeb/du_an_1/';
+    $host                   =  'http://localhost/courseddh/';
     $admin                  =  $host.'admin/';
+
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    require_once 'vendor/autoload.php';
+
+    $client         = new Google\Client();
+    $google_oauth   = new Google\Service\Oauth2($client);
+
+    $client->setClientId("860322000129-aa3jsl9jc2upei7jjitjeknhol9p552f.apps.googleusercontent.com");
+    $client->setClientSecret("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");
+    $client->addScope("email");
+    $client->addScope("profile");
 
     $dir_model  = 'models/';
     $dir_model_site = 'models/site/';
@@ -192,8 +205,8 @@
         }
         $start = ($current_page - 1) * $limit;
         $data_pani = "SELECT * FROM $tbl LIMIT $start, $limit";
-        $row = query($data_pani);
-        $arr = [$row, $current_page, $total_page];
+        $data = query($data_pani);
+        $arr = [$data, $current_page, $total_page];
         return $arr;
     }
 
@@ -229,5 +242,34 @@
 
     function format_date($date){
         return (new DateTimeImmutable($date))->format('d/m/Y');
+    }
+
+    function login_gg(){
+        $client->setRedirectUri("http://localhost/courseddh/sign_in");
+        if (isset($_GET['code'])) {
+            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+            $client->setAccessToken($token['access_token']);
+            $google_account_info = $google_oauth->userinfo->get();
+            $email =  $google_account_info->email;
+            $user_login = login_gg($email);
+        }
+//        include view sign in
+//        include 'view/site/account/sign_in.php';
+    }
+
+    function sign_up_gg(){
+        $client->setRedirectUri("http://localhost/courseddh/sign_up");
+        if (isset($_GET['code'])) {
+            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+            $client->setAccessToken($token['access_token']);
+            $google_account_info = $google_oauth->userinfo->get();
+            $email      =  $google_account_info->email;
+            $name_user  =  $google_account_info->name;
+            $username   =  cut_email($email);
+            $password   =  rand(0,9999990);
+            $create     =  sign_up_gg($username,$name_user,$email,$password);
+        }
+        //        include view sign up
+//        include 'view/site/account/sign_up.php';
     }
 ?>
