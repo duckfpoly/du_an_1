@@ -210,7 +210,7 @@ span.green {
 .viewFull {
   font-family:OCR-A;
   color:orange;
-  text-decoration:;
+  text-decoration:none;
 }
 @font-face {
     font-family: OCR-A;

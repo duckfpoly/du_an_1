@@ -23,7 +23,9 @@
     $name_exten = 'Controller.php';
     if(isset($_GET['module'])) {
         $module         = $_GET['module'];
+        // action k tồn tại
         $direct_read    = 'views/admin/'.$module.'/read.php';
+        // nếu mà action có tồn tại
         if(isset($_GET['act'])){
             $direct_act = 'views/admin/'.$module.'/'.$_GET['act'].'.php';
         }
