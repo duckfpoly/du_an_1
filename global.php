@@ -22,18 +22,11 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
-<<<<<<< HEAD
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
-  
 
-    $host                   =  'http://localhost/coursesWeb/du_an_1/';
-    $admin                  =  'http://localhost/coursesWeb/du_an_1/admin/';
-=======
-
-    $host                   =  'http://localhost/courseddh/';
+    $host                   =  'http://localhost/abc/du_an_1/';
     $admin                  =  $host.'admin/';
->>>>>>> 845a2ec112c07d0a8e09fa9d1369f6f9686cb92f
 
     // url admin
     define("DASHBOARD",     $host.'admin');
