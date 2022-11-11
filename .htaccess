@@ -27,6 +27,4 @@ RewriteRule ^forgot_pass$                                               views/ac
 RewriteRule ^reset_pass$                                                views/account/reset_pass.php
 RewriteRule ^home$                                                      index.php
 RewriteRule ^([a-zA-Z0-9_-]+)$                                          index.php?v=$1 [QSA,L]
-# RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                         index.php?v=$1&id=$2 [QSA,L] # lession/1
-
-RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$        index.php?v=$1&id=$3 [QSA,L] # lession/detail/1
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                         index.php?v=$1&id=$2 [QSA,L]
