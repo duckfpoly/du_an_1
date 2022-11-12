@@ -1,5 +1,5 @@
 <?php
-    $host                   =  'http://localhost/courseddh/';
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
     $admin                  =  $host.'admin/';
 
     use PHPMailer\PHPMailer\PHPMailer;
