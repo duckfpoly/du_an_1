@@ -25,7 +25,13 @@
 
     if(isset($_GET['module'])) {
         $module         = $_GET['module'];
+<<<<<<< HEAD
         $direct_read    = $dir_views.$module.'/read.php';
+=======
+        // action k tồn tại
+        $direct_read    = 'views/admin/'.$module.'/read.php';
+        // nếu mà action có tồn tại
+>>>>>>> 71f95df844d7de7de2e085d92a6812b244c0ae91
         if(isset($_GET['act'])){
             $direct_act = $dir_views.$module.'/'.$_GET['act'].'.php';
         }

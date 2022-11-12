@@ -18,7 +18,10 @@
     $dir_model  = 'models/';
     $dir_config = 'config/';
     $dir_model_site = 'models/site/';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 71f95df844d7de7de2e085d92a6812b244c0ae91
     require_once $dir_config.'db.php';
     include_once $dir_config.'session.php';
 
@@ -31,9 +34,16 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
-
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
+
+<<<<<<< HEAD
+    require_once $dir_model_site.'categories.php';
+    require_once $dir_model_site.'courses.php';
+=======
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
+    $admin                  =  $host.'admin/';
+>>>>>>> 71f95df844d7de7de2e085d92a6812b244c0ae91
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -98,8 +108,7 @@
 
     function compare_data($data_post,$data_compare,$fn_check,$url){
         if($data_post != $data_compare) {
-            $check_data = $fn_check;
-            if (isset($check_data)) {
+            if (isset($fn_check)) {
                 die('<section class="container-fluid py-4">
                         <div class="row">
                             <div class="col-12">
@@ -112,7 +121,7 @@
                                     <div class="card-body px-0 pt-0 pb-2">
                                         <div class="p-3">
                                             <div class="form-group text-danger text-center">
-                                                <p>'.$check_data.'</p>
+                                                <p>'.$fn_check.'</p>
                                             </div>
                                             <div class="mt-5 text-center">
                                                 <button type="button" onclick="return_page()" class="btn btn-outline-secondary">Quay lại</button>
@@ -127,8 +136,12 @@
         }
     }
 
+<<<<<<< HEAD
 
     function check_data($data_check){
+=======
+    function check_data($data_check,$url){
+>>>>>>> 71f95df844d7de7de2e085d92a6812b244c0ae91
         if(isset($data_check)){
             die('<section class="container-fluid py-4">
                     <div class="row">

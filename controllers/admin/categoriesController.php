@@ -32,7 +32,7 @@
                 $name_category = $_POST['name_category'];
                 // gọi fn chi tiết để kiểm tra dữ liệu ( email, phone )
                 $category_detail = category_detail($id);
-                // Nếu dữ liệu update == dữ liệu trên database thì sẽ update bình thường
+                // Nếu dữ liệu update == dữ liệu chính nó trên database thì sẽ update bình thường
                 // Nếu dữ liệu update != dữ liệu trên databse thì sẽ tiếp tục check ( k trùng thì update, ngược lại k update trả về 1 thông báo và về lại giao diện update )
                 compare_data($name_category,$category_detail['name_category'],check_name_category($name_category),CATEGORIES.'/update/'.$id);
                 // Sau khi pass qua validate => Thực hiện update lên database
@@ -56,6 +56,7 @@
                 break;
         }
     }else {
+<<<<<<< HEAD
         if(isset($_GET['s'])){
             if(empty($_GET['s'])){
                 location(CATEGORIES);
@@ -67,6 +68,22 @@
             $data_cate = pagination_normal('categories',5);
             $read_category = $data_cate[0];
         }
+//        if(isset($_GET['s'])){
+//            if(empty($_GET['s'])){
+//                location(CATEGORIES);
+//            }else {
+//                $read_category = category_search($_GET['s']);
+//            }
+//        }else {
+//            $read_category = category_read();
+//        }
+        $data_cate = pagination_normal('categories',6);
+        // [0] data in ra màn hình limit
+        // [1] page hiện tại
+        // [2] tổng số page
+        $read_category = $data_cate[0];
+       
+>>>>>>> 71f95df844d7de7de2e085d92a6812b244c0ae91
         include_once $direct_read;
     }
 ?>
