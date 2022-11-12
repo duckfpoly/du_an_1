@@ -1,11 +1,19 @@
 <?php
-    $host                   =  'http://localhost/courseddh/';
+    $host                   =  'http://localhost/abc/du_an_1/';
     $admin                  =  $host.'admin/';
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
     require_once 'vendor/autoload.php';
+
+    $client = new Google\Client();
+    $google_oauth = new Google\Service\Oauth2($client);
+
+    $client->setClientId("860322000129-aa3jsl9jc2upei7jjitjeknhol9p552f.apps.googleusercontent.com");
+    $client->setClientSecret("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");
+    $client->addScope("email");
+    $client->addScope("profile");
 
     $dir_model  = 'models/';
     $dir_config = 'config/';
@@ -24,9 +32,8 @@
     require_once $dir_model.'sales.php';
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
-
-    $host                   =  'http://localhost/abc/du_an_1/';
-    $admin                  =  $host.'admin/';
+    require_once $dir_model_site.'categories.php';
+    require_once $dir_model_site.'courses.php';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -46,17 +53,21 @@
     define("ABOUT",         $host.'about');
     define("CONTACT",       $host.'contact');
 
+    
     function active_item($item){
         echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';
     }
+
 
     function location($url){
         echo '<script>window.location="'.$url.'";</script>';
     }
 
+
     function alert($text,$url){
         echo '<script>alert("'.$text.'"); window.location="'.$url.'";</script>';
     }
+
 
     function save_file($fieldname, $name_dir){
         $target_dir = 'assets/uploads/'.$name_dir.'/';
@@ -67,6 +78,7 @@
         return $file_name;
     }
 
+
     function title_tab($data,$home){
         if(isset($_GET[$data])){
             echo strtoupper($_GET[$data]);
@@ -75,11 +87,15 @@
             echo strtoupper($home);
         }
     }
+
+
     function check_empty($data,$redirect){
         if(empty($data)){
-            location($redirect);
+            alert($data.' - dữ liệu rỗng! Vui lòng nhập lại.',$redirect);
         }
     }
+
+
     function compare_data($data_post,$data_compare,$fn_check,$url){
         if($data_post != $data_compare) {
             if (isset($fn_check)) {
@@ -110,7 +126,7 @@
         }
     }
 
-    function check_data($data_check,$url){
+    function check_data($data_check){
         if(isset($data_check)){
             die('<section class="container-fluid py-4">
                     <div class="row">
@@ -158,6 +174,7 @@
          $mailer->send();
      }
 
+
     function cut_email($email){
         $string = $email;
         $return = strrev($string);
@@ -165,6 +182,7 @@
         $final = strrev($string_confirm) ;
         return chop($final,"@");
     }
+
 
     function total($price,$discount){
         $price = $price;
@@ -201,7 +219,8 @@
 
     // current page: get page url
     // total page: tổng số bản ghi của một table chia cho số bản ghi muốn hiện ra màn hình
-    function pagination($current_page, $total_page, $url){
+    function pagination($current_page, $total_page, $url)
+    {
         if ($current_page > 1 && $total_page > 1) {
             echo '<a class="" href="' . $url . '?page=' . ($current_page - 1) . '"><</a>';
         }
@@ -223,6 +242,26 @@
         return strtotime(date('Y-m-d')) == strtotime($time_end) ? "true" : "false";
     }
 
+    function pagination_search($tbl,$values_search,$key,$limit_data){
+        $sql = "SELECT count(id) AS total FROM $tbl";
+        $row = query_one($sql);
+        $total_records = $row['total'];
+        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $limit = $limit_data;
+        $total_page = ceil($total_records / $limit);
+        if ($current_page > $total_page) {
+            $current_page = $total_page;
+        } else if ($current_page < 1) {
+            $current_page = 1;
+        }
+        $start = ($current_page - 1) * $limit;
+        $data_pani = "SELECT * FROM $tbl WHERE $values_search LIKE '%$key%' LIMIT $start, $limit";
+        $row = query($data_pani);
+        $arr = [$row, $current_page, $total_page];
+        return $arr;
+    }
+
+
     function check_time_start($date){
         $time_start =   strtotime ($date);
         $time_now   =   strtotime(date('Y-m-d'));
@@ -231,5 +270,33 @@
 
     function format_date($date){
         return (new DateTimeImmutable($date))->format('d/m/Y');
+    }
+
+    function signingg(){
+        $client->setRedirectUri("http://localhost/courseddh/sign_in");
+        if (isset($_GET['code'])) {
+            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+            $client->setAccessToken($token['access_token']);
+            $google_account_info = $google_oauth->userinfo->get();
+            $email =  $google_account_info->email;
+            $user_login = login_gg($email);
+        }
+        include 'view/site/account/sign_in.php';
+    }
+
+    
+    function signupgg(){
+        $client->setRedirectUri("http://localhost/courseddh/sign_up");
+        if (isset($_GET['code'])) {
+            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+            $client->setAccessToken($token['access_token']);
+            $google_account_info = $google_oauth->userinfo->get();
+            $email      =  $google_account_info->email;
+            $name_user  =  $google_account_info->name;
+            $username   =  cut_email($email);
+            $password   =  rand(0,999999);
+            $create     =  sign_up_gg($username,$name_user,$email,$password);
+        } 
+        include 'view/site/account/sign_up.php';
     }
 ?>

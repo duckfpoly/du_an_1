@@ -5,6 +5,13 @@
         if($check_image_student > 0) {
             return 'Ảnh đã được sử dụng !';
         }
+    function read_student(){
+        $sql = "SELECT * FROM students";
+        return query($sql);
+    }
+    function count_student(){
+        $sql = "SELECT COUNT(*) FROM students";
+        return query_value($sql);
     }
 
     function check_email_student($email_student){

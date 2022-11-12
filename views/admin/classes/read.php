@@ -62,6 +62,7 @@
                                             ?>
                                         </td>
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
+                                            <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASSES ?>/addStudent/<?= $values['id'] ?>">Thêm SV</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0"  href="<?= CLASSES ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold">
                                                 <form action="<?= CLASSES ?>/destroy/<?= $values['id'] ?>" method="post">

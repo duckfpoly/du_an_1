@@ -19,15 +19,18 @@
         }
     }
 
-    $dir_ctrl   = 'controllers/admin/';
-    $name_exten = 'Controller.php';
+    $dir_ctrl    = 'controllers/admin/';
+    $dir_views   = 'views/admin/';
+    $name_exten  = 'Controller.php';
+
     if(isset($_GET['module'])) {
         $module         = $_GET['module'];
+        $direct_read    = $dir_views.$module.'/read.php';
         // action k tồn tại
         $direct_read    = 'views/admin/'.$module.'/read.php';
         // nếu mà action có tồn tại
         if(isset($_GET['act'])){
-            $direct_act = 'views/admin/'.$module.'/'.$_GET['act'].'.php';
+            $direct_act = $dir_views.$module.'/'.$_GET['act'].'.php';
         }
         $dir_img        = $host.'assets/uploads/'.$module.'/';
         $objectt        = $dir_ctrl.$module.$name_exten;

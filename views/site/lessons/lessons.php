@@ -73,11 +73,11 @@
                     <div class="properties properties2 mb-30">
                         <div class="properties__card">
                             <div class="properties__img overlay1">
-                                <a href="#"><img src="assets/img/img_site/img/gallery/featured6.png" alt=""></a>
+                                <a href="<?= LESSONS?>/<?php echo $value['id']?>"><img src="assets/img/img_site/img/gallery/featured6.png" alt=""></a>
                             </div>
                             <div class="properties__caption">
                                 <p>User Experience</p>
-                                <h3><a href="#"><?php echo $value['name_course']?></a></h3>
+                                <h3><a href="<?= LESSONS?>/<?php echo $value['id']?>"><?php echo $value['name_course']?></a></h3>
                                 <p>
                                     <?php echo $value['description_course'] ?>
                                 </p>
@@ -99,7 +99,7 @@
                                             <span><?php echo $value['discount'] != 0 ? total($value['price_course'],$value['discount']) : '' ?></span>
                                         </div>
                                 </div>
-                                <a href="#" class="border-btn border-btn2">Find out more</a>
+                                <a href="<?= LESSONS?>/<?php echo $value['id']?>" class="border-btn border-btn2">Find out more</a>
                             </div>
                         </div>
                     </div>
