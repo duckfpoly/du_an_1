@@ -17,6 +17,7 @@
 
     $dir_model  = 'models/';
     $dir_config = 'config/';
+    $dir_model_site = 'models/site/';
 
     require_once $dir_config.'db.php';
     include_once $dir_config.'session.php';
@@ -30,6 +31,9 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
+
+    require_once $dir_model_site.'categories.php';
+    require_once $dir_model_site.'courses.php';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -87,7 +91,7 @@
 
     function check_empty($data,$redirect){
         if(empty($data)){
-            location($redirect);
+            alert($data.' - dữ liệu rỗng! Vui lòng nhập lại.',$redirect);
         }
     }
 
@@ -124,9 +128,8 @@
     }
 
 
-    function check_data($data_check,$url){
-        $check_data = $data_check;
-        if(isset($check_data)){
+    function check_data($data_check){
+        if(isset($data_check)){
             die('<section class="container-fluid py-4">
                     <div class="row">
                         <div class="col-12">
@@ -139,7 +142,7 @@
                                 <div class="card-body px-0 pt-0 pb-2">
                                     <div class="p-3">
                                         <div class="form-group text-danger text-center">
-                                            <p>'.$check_data.'</p>
+                                            <p>'.$data_check.'</p>
                                         </div>
                                         <div class="mt-5 text-center">
                                             <button type="button" onclick="return_page()" class="btn btn-outline-secondary">Quay lại</button>
@@ -219,21 +222,41 @@
     }
 
 
-    function pagination($current_page, $total_page, $url){
-        if ($current_page > 1 && $total_page > 1) {
-            echo '<a class="" href="' . $url . '?page=' . ($current_page - 1) . '"><</a>';
+    function pagination_search($tbl,$values_search,$key,$limit_data){
+        $sql = "SELECT count(id) AS total FROM $tbl";
+        $row = query_one($sql);
+        $total_records = $row['total'];
+        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $limit = $limit_data;
+        $total_page = ceil($total_records / $limit);
+        if ($current_page > $total_page) {
+            $current_page = $total_page;
+        } else if ($current_page < 1) {
+            $current_page = 1;
         }
-        for ($i = 1; $i <= $total_page; $i++) {
-            if ($i == $current_page) {
-                echo '<span class="active">' . $i . '</span> ';
-            } else {
-                echo '<a href="' . $url . '?page=' . $i . '">' . $i . '</a> ';
+        $start = ($current_page - 1) * $limit;
+        $data_pani = "SELECT * FROM $tbl WHERE $values_search LIKE '%$key%' LIMIT $start, $limit";
+        $row = query($data_pani);
+        $arr = [$row, $current_page, $total_page];
+        return $arr;
+    }
+
+
+    function pagination($current_page, $total_page, $url){
+            if ($current_page > 1 && $total_page > 1) {
+                echo '<a class="" href="' . $url . '?page=' . ($current_page - 1) . '"><</a>';
+            }
+            for ($i = 1; $i <= $total_page; $i++) {
+                if ($i == $current_page) {
+                    echo '<span class="active">' . $i . '</span> ';
+                } else {
+                    echo '<a href="' . $url . '?page=' . $i . '">' . $i . '</a> ';
+                }
+            }
+            if ($current_page < $total_page && $total_page > 1) {
+                echo '<a href="' . $url . '?page=' . ($current_page + 1) . '">></a> ';
             }
         }
-        if ($current_page < $total_page && $total_page > 1) {
-            echo '<a href="' . $url . '?page=' . ($current_page + 1) . '">></a> ';
-        }
-    }
 
 
     function check_time_end($date){

@@ -83,7 +83,7 @@
                                     </thead>
                                     <tbody>
                                     <?php foreach ($studentClass as $key => $values){?>
-                                        <tr>
+                                        <tr class="item_students">
                                             <td>
                                                 <?= $key+= 1 ?>
                                             </td>
@@ -105,6 +105,14 @@
                                             </td>
                                         </tr>
                                     <?php } ?>
+                                    <tr >
+                                        <td colspan="5">
+                                            <div class="text-center mt-3">
+                                                <a href="#" id="loadMoreStd">Xem thêm</a>
+                                                <a href="#" class="d-none" id="loadLessStd">Ẩn bớt</a>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -120,6 +128,9 @@
     </div>
 </section>
 <script>
+    var lenght = 1;
+    load_more(".item_students", "#loadMoreStd", "#loadLessStd", lenght);
+    load_less(".item_students", "#loadLessStd", "#loadMoreStd", lenght);
     document.addEventListener("DOMContentLoaded", function () {
         Validator({
             form: "#form-1",

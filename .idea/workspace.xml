@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9be05a-b278-4d0c-bfbc-f82ad03dcec3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/uploads/students/course_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/classes/addStudent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/toasts/toast.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/toasts/toast.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/course_ddh.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/course_ddh.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/categoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/categoriesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/admin/classesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/classesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/global.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/classes.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/classes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/students.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/students.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/classes/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/classes/read.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/categories/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/categories/read.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/admin/classes/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/classes/update.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +19,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -97,7 +98,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/laragon/www/courseddh/assets/uploads/students",
+    "last_opened_file_path": "D:/laragon/www/courseddh",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   },
@@ -159,6 +160,8 @@
       <workItem from="1668071909144" duration="2051000" />
       <workItem from="1668076353722" duration="931000" />
       <workItem from="1668086261001" duration="7284000" />
+      <workItem from="1668173390832" duration="2623000" />
+      <workItem from="1668216734338" duration="2131000" />
     </task>
     <servers />
   </component>

@@ -7,6 +7,7 @@
                 include_once $direct_act;
                 break;
             case "store":
+
                 // lấy dữ liệu từ form
                 $name_class = $_POST['name_class'];
                 $id_course  = $_POST['id_category'];
@@ -14,13 +15,14 @@
                 $time_start = $_POST['time_start'];
                 $time = strtotime ( '+6 month' , strtotime ( $time_start ) ) ;
                 $time_end = date ( 'Y-m-d' , $time );
+
                 // kiểm tra rỗng
                 check_empty($name_class,CLASSES . "/create");
                 check_empty($id_course, CLASSES . "/create");
                 check_empty($time_learn,CLASSES . "/create");
                 check_empty($time_start,CLASSES . "/create");
 
-
+                check_data(check_course_class($id_course));
 
                 // Gọi model để thêm dữ liệu vào database
                 class_create($name_class,$id_course,$time_learn,$time_start,$time_end);

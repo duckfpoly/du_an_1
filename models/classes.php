@@ -101,12 +101,11 @@
         query_sql($sql,$id_student,$id_class);
     }
 
-
     function check_course_class($id){
         $sql = "SELECT * FROM `classes` WHERE id_course = ?";
             $check_ID = query_one($sql, $id);
             if(isset($check_ID['id_course'])) {
-                return "Lớp sử dụng khóa học đã tồn tại !";
+                return "Lớp học sử dụng khóa học này đã tồn tại !";
             }
     }
 ?>
