@@ -32,7 +32,6 @@
     require_once $dir_model.'sales.php';
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
-
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
 
