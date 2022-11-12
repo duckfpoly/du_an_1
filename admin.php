@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<?= $host ?>assets/admin/css/nucleo-svg.css"                       />
     <link rel="stylesheet" href="<?= $host ?>assets/admin/css/nucleo-svg.css"                       />
     <link rel="stylesheet" href="<?= $host ?>assets/admin/css/argon-dashboard.css"                  />
-    <link rel="stylesheet" href="<?= $host ?>assets/preloader/prea.css"                             />
+<!--    <link rel="stylesheet" href="--><?//= $host ?><!--assets/preloader/prea.css"                             />-->
     <link rel="stylesheet" href="<?= $host ?>assets/toasts/toast.css"                               />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">

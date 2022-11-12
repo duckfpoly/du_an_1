@@ -35,8 +35,6 @@
 
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
-    $host                   =  'http://localhost/coursesWeb/du_an_1/';
-    $admin                  =  $host.'admin/';
 
     // url admin
     define("DASHBOARD",     $host.'admin');

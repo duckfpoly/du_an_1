@@ -67,21 +67,6 @@
             $data_cate = pagination_normal('categories',5);
             $read_category = $data_cate[0];
         }
-//        if(isset($_GET['s'])){
-//            if(empty($_GET['s'])){
-//                location(CATEGORIES);
-//            }else {
-//                $read_category = category_search($_GET['s']);
-//            }
-//        }else {
-//            $read_category = category_read();
-//        }
-        $data_cate = pagination_normal('categories',6);
-        // [0] data in ra màn hình limit
-        // [1] page hiện tại
-        // [2] tổng số page
-        $read_category = $data_cate[0];
-       
         include_once $direct_read;
     }
 ?>
