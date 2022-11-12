@@ -56,7 +56,6 @@
                 break;
         }
     }else {
-<<<<<<< HEAD
         if(isset($_GET['s'])){
             if(empty($_GET['s'])){
                 location(CATEGORIES);
@@ -83,7 +82,6 @@
         // [2] tổng số page
         $read_category = $data_cate[0];
        
->>>>>>> 71f95df844d7de7de2e085d92a6812b244c0ae91
         include_once $direct_read;
     }
 ?>
