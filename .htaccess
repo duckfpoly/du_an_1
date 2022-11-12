@@ -3,8 +3,8 @@ RewriteEngine On
 RewriteRule ^page_not_found$ views/404.php
 
 # Thay đổi trang báo lỗi 
-ErrorDocument 404 http://localhost/coursesWeb/du_an_1/page_not_found
-# DirectoryIndex newindex.html
+ErrorDocument 404 http://localhost/courseddh/page_not_found
+# DirectoryIndex template_admin/index.php
 
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteCond %{REQUEST_FILENAME} !-f 
@@ -12,11 +12,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^sign_in$                                                   views/account/sign_in.php
 RewriteRule ^sign_in$                                                   views/account/sign_in.php
 
-# admin login
-RewriteRule ^login$                                                      login.php
-#RewriteRule ^logout$                                                     controllers/admin/logout.php
-
 # admin
+RewriteRule ^login$                                                     login.php
 RewriteRule ^admin$                                                     admin.php
 RewriteRule ^admin/([a-zA-Z0-9_-]+)$                                    admin.php?module=$1 [QSA,L]
 RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                   admin.php?module=$1&act=$2 [QSA,L]

@@ -69,6 +69,53 @@
                                 <input type="date" name="time_start" id="time_start" class="form-control" value="<?= $update_class['time_start'] ?>" required>
                                 <div class="form-message text-danger mt-1"><br></div>
                             </div>
+                            <div class="form-group">
+                                <label for="student_in_class" class="form-label">Các học viên</label>
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Phone</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($studentClass as $key => $values){?>
+                                        <tr class="item_students">
+                                            <td>
+                                                <?= $key+= 1 ?>
+                                            </td>
+                                            <td>
+                                                <img src="<?= $host.'assets/uploads/students/'.$values['image_student'] ?>" alt="Country flag" width="50px" height="50px">
+                                            </td>
+                                            <td>
+                                                <?= $values['name_student'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $values['phone_student'] ?>
+                                            </td>
+                                            <td>
+                                                <form action="<?= CLASSES ?>/deleteStudent" method="post">
+                                                    <input type="hidden" name="id_student" value="<?= $values['id'] ?>">
+                                                    <input type="hidden" name="id_class"   value="<?= $_GET['id'] ?>">
+                                                    <button class="btn btn-danger" type="submit">Xóa</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                    <tr >
+                                        <td colspan="5">
+                                            <div class="text-center mt-3">
+                                                <a href="#" id="loadMoreStd">Xem thêm</a>
+                                                <a href="#" class="d-none" id="loadLessStd">Ẩn bớt</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                             <div class="mt-5">
                                 <a href="<?= CLASSES ?>" class="btn btn-secondary">Quay lại</a>
                                 <button class="btn btn-success" name="create_course" type="submit">Sửa</button>
@@ -81,6 +128,9 @@
     </div>
 </section>
 <script>
+    var lenght = 1;
+    load_more(".item_students", "#loadMoreStd", "#loadLessStd", lenght);
+    load_less(".item_students", "#loadLessStd", "#loadMoreStd", lenght);
     document.addEventListener("DOMContentLoaded", function () {
         Validator({
             form: "#form-1",

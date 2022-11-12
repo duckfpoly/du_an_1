@@ -84,7 +84,28 @@
         return query_value($sql,$id);
     }
 
+    function add_student_to_class($id_student,$id_class){
+        $sql = "INSERT INTO detail_classes SET id_students = ?, id_class = ?";
+        return query_sql($sql,$id_student,$id_class);
+    }
 
+    function read_students_class($id_class){
+        $sql ="SELECT * FROM detail_classes 
+         INNER JOIN students ON detail_classes.id_students = students.id
+         WHERE detail_classes.id_class = ? ";
+        return query($sql,$id_class);
+    }
 
+    function delete_student_class($id_student,$id_class){
+        $sql = "DELETE FROM detail_classes WHERE id_students = ? AND id_class = ?";
+        query_sql($sql,$id_student,$id_class);
+    }
 
+    function check_course_class($id){
+        $sql = "SELECT * FROM `classes` WHERE id_course = ?";
+            $check_ID = query_one($sql, $id);
+            if(isset($check_ID['id_course'])) {
+                return "Lớp học sử dụng khóa học này đã tồn tại !";
+            }
+    }
 ?>

@@ -41,9 +41,14 @@
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0" href="<?= CATEGORIES ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold">
-                                                <form action="<?= CATEGORIES ?>/destroy/<?= $values['id'] ?>" method="post">
-                                                    <button onclick="return confirm('Bạn muốn xóa khóa học <?= $values['name_category'] ?> ?')" class="btn btn-danger m-0">Xóa</button>
-                                                </form>
+                                                <?php if(count_course_with_cate($values['id']) > 0){ ?>
+                                                    <button onclick="showSuccessToast('Cảnh báo', 'Không thể xóa danh mục', 'error')" class="btn btn-danger">Xóa</button>
+                                                <?php }else { ?>
+                                                    <form action="<?= CATEGORIES ?>/destroy" method="post">
+                                                        <input type="hidden" name="id_cate" value="<?= $values['id'] ?>">
+                                                        <button onclick="return confirm('Bạn muốn xóa danh mục khóa học <?= $values['name_category'] ?> ?')" class="btn btn-danger m-0">Xóa</button>
+                                                    </form>
+                                                <?php } ?>
                                             </span>
                                         </td>
                                     </tr>
