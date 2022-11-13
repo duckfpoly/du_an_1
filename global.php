@@ -1,5 +1,5 @@
 <?php
-    $host                   =  'http://localhost/courseddh/';
+    $host                   =  'http://localhost/abc/du_an_1/';
     $admin                  =  $host.'admin/';
 
     use PHPMailer\PHPMailer\PHPMailer;
@@ -31,7 +31,12 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
+<<<<<<< HEAD
 
+=======
+    require_once $dir_model_site.'categories.php';
+    require_once $dir_model_site.'courses.php';
+>>>>>>> 18885b25203d614404da3bdee5453bda9ac6f59f
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
 
