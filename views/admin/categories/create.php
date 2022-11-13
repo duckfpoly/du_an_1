@@ -13,7 +13,7 @@
                             <div class="form-group ">
                                 <label for="" class="form-label">Tên danh mục</label>
                                 <input type="text" name="name_category" id="name_category" class="form-control">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="mt-5">
                                 <a href="<?= CATEGORIES ?>" class="btn btn-secondary">Quay lại</a>

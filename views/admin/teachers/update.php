@@ -40,37 +40,37 @@
                             <div class="form-group">
                                 <label for="name_teacher" class="form-label">Tên giảng viên</label>
                                 <input type="text" name="name_teacher" id="name_teacher" class="form-control" value="<?= $teacher_detail['name_teacher'] ?>">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="email_teacher" class="form-label">Email</label>
                                 <input type="email" name="email_teacher" id="email_teacher" class="form-control" value="<?= $teacher_detail['email_teacher'] ?>">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="phone_teacher" class="form-label">Số điện thoại</label>
                                 <input type="number" name="phone_teacher" id="phone_teacher" class="form-control" min="0" value="<?= $teacher_detail['phone_teacher'] ?>">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="password_teacher" class="form-label">Mật khẩu</label>
                                 <input type="password" name="password_teacher" id="password_teacher" class="form-control" value="<?= $teacher_detail['password_teacher'] ?>">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group">
                                 <label for="image_teacher" class="form-label">Ảnh</label>
                                 <input type="file" name="image_teacher" id="image_teacher" class="form-control" onchange="readURL(this);" >
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="about_teacher" class="form-label">Giới thiệu</label>
                                 <input type="text" name="about_teacher" id="about_teacher" class="form-control" value="<?= $teacher_detail['about_teacher'] ?>">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="scope_teacher" class="form-label">Kỹ năng</label>
                                 <input type="text" name="scope_teacher" id="scope_teacher" class="form-control" value="<?= $teacher_detail['scope_teacher'] ?>">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="mt-5">
                                 <a href="<?= TEACHERS ?>" class="btn btn-secondary">Quay lại</a>

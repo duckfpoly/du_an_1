@@ -1,23 +1,5 @@
 <?php
     $sort = COURSES;
-    $direct_teacher = '';
-    $direct_cate    = '';
-    $direct_teacher = '';
-    if(isset($_GET['teacher'])){
-        $teacher = $_GET['teacher'];
-        if(isset($_GET['cate'])){
-            $cate = $_GET['cate'];
-            $sort = "?teacher=".$teacher."&cate=".$cate;
-            if(isset($_GET['sort'])){
-                $sortt = $_GET['sort'];
-                $sort = "?teacher=".$teacher."&cate=".$cate."&sort=".$sortt;
-            }
-        }
-        elseif(isset($_GET['sort'])){
-            $sortt = $_GET['sort'];
-            $sort = "?teacher=".$teacher."&sort=".$sortt;
-        }
-    }
 
     $dir_ctrl    = 'controllers/admin/';
     $dir_views   = 'views/admin/';
@@ -25,13 +7,8 @@
 
     if(isset($_GET['module'])) {
         $module         = $_GET['module'];
-        $direct_read    = $dir_views.$module.'/read.php';
-        // action k tồn tại
         $direct_read    = 'views/admin/'.$module.'/read.php';
-        // nếu mà action có tồn tại
-        if(isset($_GET['act'])){
-            $direct_act = $dir_views.$module.'/'.$_GET['act'].'.php';
-        }
+        isset($_GET['act']) && $direct_act = $dir_views.$module.'/'.$_GET['act'].'.php';
         $dir_img        = $host.'assets/uploads/'.$module.'/';
         $objectt        = $dir_ctrl.$module.$name_exten;
         switch ($module) {

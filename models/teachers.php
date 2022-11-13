@@ -28,23 +28,23 @@
         }
     }
     function teachers_create($name_teacher,$email_teacher,$phone_teacher, $password_teacher,$image_teacher,$about_teacher,$scope_teacher,$created_at){
-//        $output     = '<p>Dear, '.$name_teacher.'</p>';
-//        $output .= '
-//                        <h1>Đăng ký tài khoản thành công</h1>
-//                        <p>DDH Teams xin được gửi tài khoản và mật khẩu của giảng viên:</p>
-//                        <ul>
-//                            <li><strong>Tài khoản: </strong>'.$email_teacher.'</li>
-//                            <li><strong>Mật khẩu: </strong>'.$password_teacher.'</li>
-//                        </ul>
-//                    ';
-//        $output .= '
-//                        <p>Nếu không phải bạn đăng ký <br>
-//                        Vui lòng nhấn <a href="mailto:ndcake.store@gmai.com">vào đây</a> để gửi email liên hệ lại với chúng tôi
-//                        hoặc có thể liên hệ trực tiếp qua số điện thoại: <a href="tel:+84823565831">+8482 3565 831</a></p>
-//                    ';
-//        $output .= '<p>Thanks,</p>';
-//        $output .= '<p>DDH Teams</p>';
-//        send_mail($email_teacher,$output,"SIGN UP ACCOUNT");
+        $output     = '<p>Dear, '.$name_teacher.'</p>';
+        $output .= '
+                        <h1>Đăng ký tài khoản thành công</h1>
+                        <p>DDH Teams xin được gửi tài khoản và mật khẩu của giảng viên:</p>
+                        <ul>
+                            <li><strong>Tài khoản: </strong>Email mà bạn đã đăng ký</li>
+                            <li><strong>Mật khẩu: </strong>'.$password_teacher.'</li>
+                        </ul>
+                    ';
+        $output .= '
+                        <p>Nếu không phải bạn đăng ký <br>
+                        Vui lòng nhấn <a href="mailto:ndcake.store@gmai.com">vào đây</a> để gửi email liên hệ lại với chúng tôi
+                        hoặc có thể liên hệ trực tiếp qua số điện thoại: <a href="tel:+84823565831">+8482 3565 831</a></p>
+                    ';
+        $output .= '<p>Thanks,</p>';
+        $output .= '<p>DDH Teams</p>';
+        send_mail($email_teacher,$output,"SIGN UP ACCOUNT");
         $password_teacher_hash = password_hash($password_teacher,PASSWORD_DEFAULT);
         $sql = "INSERT INTO `teachers` SET 
                 `name_teacher`          =   ?,

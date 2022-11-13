@@ -13,7 +13,7 @@
                             <div class="form-group ">
                                 <label for="name_class" class="form-label">Tên lớp học</label>
                                 <input type="text" name="name_class" id="name_class" class="form-control">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="id_category" class="form-label">Khóa học</label>
@@ -23,7 +23,7 @@
                                         <option value="<?= $values['id'] ?>"><?= $values['name_course'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group">
                                 <label for="time_learn" class="form-label">
@@ -48,7 +48,7 @@
                             <div class="form-group ">
                                 <label for="time_start" class="form-label">Thời gian bắt đầu</label>
                                 <input type="date" name="time_start" id="time_start" class="form-control" required>
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="mt-5">
                                 <a href="<?= CLASSES ?>" class="btn btn-secondary">Quay lại</a>

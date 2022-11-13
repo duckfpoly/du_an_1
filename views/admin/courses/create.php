@@ -18,27 +18,27 @@
                             <div class="form-group ">
                                 <label for="" class="form-label">Tên khóa học</label>
                                 <input type="text" name="name_course" id="name_course" class="form-control">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="price_course" class="form-label">Đơn giá</label>
                                 <input type="number" name="price_course" id="price_course" class="form-control" min="0">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="image_course" class="form-label">Ảnh</label>
                                 <input type="file" name="image_course" id="image_course" class="form-control" onchange="readURL(this);">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="description_course" class="form-label">Mô tả khóa học</label>
                                 <input type="text" name="description_course" id="description_course" class="form-control">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="quote" class="form-label">Trích dẫn</label>
                                 <input type="text" name="quote" id="quote" class="form-control">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="id_category" class="form-label">Danh mục</label>
@@ -48,7 +48,7 @@
                                         <option value="<?= $values['id'] ?>"><?= $values['name_category'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="id_teacher" class="form-label">Giảng viên</label>
@@ -58,7 +58,7 @@
                                         <option value="<?= $values['id'] ?>"><?= $values['name_teacher'] ?> - MGV: <?= $values['id'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="mt-5">
                                 <a href="<?= COURSES ?>" class="btn btn-secondary">Quay lại</a>

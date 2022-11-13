@@ -7,17 +7,18 @@
     use PHPMailer\PHPMailer\Exception;
     require_once 'vendor/autoload.php';
 
-    $client = new Google\Client();
-    $google_oauth = new Google\Service\Oauth2($client);
+    $client         = new Google\Client();
+    $google_oauth   = new Google\Service\Oauth2($client);
 
     $client->setClientId("860322000129-aa3jsl9jc2upei7jjitjeknhol9p552f.apps.googleusercontent.com");
     $client->setClientSecret("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");
     $client->addScope("email");
     $client->addScope("profile");
 
-    $dir_model  = 'models/';
     $dir_config = 'config/';
+    $dir_model  = 'models/';
     $dir_model_site = 'models/site/';
+    
     require_once $dir_config.'db.php';
     include_once $dir_config.'session.php';
 
@@ -30,8 +31,6 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
-    require_once $dir_model_site.'categories.php';
-    require_once $dir_model_site.'courses.php';
 
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
@@ -96,7 +95,6 @@
         }
     }
 
-
     function compare_data($data_post,$data_compare,$fn_check,$url){
         if($data_post != $data_compare) {
             if (isset($fn_check)) {
@@ -155,26 +153,25 @@
         }
     }
 
-     function send_mail($mail,$output,$title){
-         $mailer         = new PHPMailer(true);
-         $mailer->SMTPDebug = 0;
-         $mailer->isSMTP();
-         $mailer->Host       = 'smtp.gmail.com';
-         $mailer->SMTPAuth   = true;
-         $mailer->Username   = 'ndcake.store@gmail.com';
-         $mailer->Password   = 'mswwgrjitnohamff';
-         $mailer->SMTPSecure = 'tls';
-         $mailer->Port       = 587;
-         $mailer->setFrom('ndcake.store@gmail.com', 'DDH Manager');
-         $mailer->addAddress($mail);
-         $mailer->isHTML(true);
-         $mailer->AddReplyTo('ndcake.store@gmail.com', 'DDH Manager');
-         $body = $output;
-         $mailer->Subject = 'DDH Manager - '.$title;
-         $mailer->Body = $body;
-         $mailer->send();
-     }
-
+    function send_mail($mail,$output,$title){
+        $mailer         = new PHPMailer(true);
+        $mailer->SMTPDebug = 0;
+        $mailer->isSMTP();
+        $mailer->Host       = 'smtp.gmail.com';
+        $mailer->SMTPAuth   = true;
+        $mailer->Username   = 'ndcake.store@gmail.com';
+        $mailer->Password   = 'mswwgrjitnohamff';
+        $mailer->SMTPSecure = 'tls';
+        $mailer->Port       = 587;
+        $mailer->setFrom('ndcake.store@gmail.com', 'DDH Manager');
+        $mailer->addAddress($mail);
+        $mailer->isHTML(true);
+        $mailer->AddReplyTo('ndcake.store@gmail.com', 'DDH Manager');
+        $body = $output;
+        $mailer->Subject = 'DDH Manager - '.$title;
+        $mailer->Body = $body;
+        $mailer->send();
+    }
 
     function cut_email($email){
         $string = $email;
@@ -184,10 +181,7 @@
         return chop($final,"@");
     }
 
-
     function total($price,$discount){
-        $price = $price;
-        $discount = $discount;
         if(empty($discount)){
             $total = $price;
             return number_format($total, 0, '', ',')."vnđ";
@@ -218,10 +212,7 @@
         return $arr;
     }
 
-    // current page: get page url
-    // total page: tổng số bản ghi của một table chia cho số bản ghi muốn hiện ra màn hình
-    function pagination($current_page, $total_page, $url)
-    {
+    function pagination($current_page, $total_page, $url){
         if ($current_page > 1 && $total_page > 1) {
             echo '<a class="" href="' . $url . '?page=' . ($current_page - 1) . '"><</a>';
         }
@@ -262,7 +253,6 @@
         return $arr;
     }
 
-
     function check_time_start($date){
         $time_start =   strtotime ($date);
         $time_now   =   strtotime(date('Y-m-d'));
@@ -273,7 +263,7 @@
         return (new DateTimeImmutable($date))->format('d/m/Y');
     }
 
-    function signingg(){
+    function signingg($client,$google_oauth){
         $client->setRedirectUri("http://localhost/courseddh/sign_in");
         if (isset($_GET['code'])) {
             $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
@@ -286,7 +276,7 @@
     }
 
     
-    function signupgg(){
+    function signupgg($client,$google_oauth){
         $client->setRedirectUri("http://localhost/courseddh/sign_up");
         if (isset($_GET['code'])) {
             $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);

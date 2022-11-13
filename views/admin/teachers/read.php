@@ -20,8 +20,10 @@
                             <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ảnh</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên giảng viên</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số điện thoại</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Thao tác</th>
                             </tr>
@@ -37,9 +39,16 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        <td><p class="text-xs font-weight-bold mb-0">
+                                                $host.'assets/uploads/courses/'.$detail['image_course']
+                                                <img src="<?= $dir_img.$values['image_teacher'] ?>" alt="" width="50px" height="50px" class="rounded">
+                                        </td>
                                         <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_teacher'] ?></p></td>
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold"><?= $values['phone_teacher'] ?></span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary text-xs font-weight-bold"><?= $values['email_teacher'] ?></span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <?=
@@ -49,7 +58,7 @@
                                             ?>
                                         </td>
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
-                                            <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0" href="<?= TEACHERS ?>/detail/<?= $values['id'] ?>">Chi tiết</a></span>&emsp;
+<!--                                            <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0" href="--><?//= TEACHERS ?><!--/detail/--><?//= $values['id'] ?><!--">Chi tiết</a></span>&emsp;-->
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0" href="<?= TEACHERS ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold">
                                                 <form action="<?= TEACHERS ?>/destroy/<?= $values['id'] ?>" method="post">

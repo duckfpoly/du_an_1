@@ -20,4 +20,20 @@
             return "Tài khoản không tồn tại !";
         }
     }
+    function login_admin_gg($email){
+        $query = "SELECT * FROM account_manager WHERE email = '$email'";
+        $value = query_one($query);
+        if(isset($value['email'])){
+            if($value['status'] == 1) {
+                return "Tài khoản của bạn đã bị vô hiệu hóa !";
+            }
+            else {
+                setSession('scope',$value['scope']);
+                location('admin');
+            }
+        }
+        else {
+            return "Tài khoản chưa được đăng ký !";
+        }
+    }
 ?>

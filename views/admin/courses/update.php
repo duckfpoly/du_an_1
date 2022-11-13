@@ -40,27 +40,27 @@
                             <div class="form-group mb-3">
                                 <label for="name_course" class="form-label">Tên khóa học</label>
                                 <input type="text" name="name_course" id="name_course" class="form-control" value="<?= $courses_update['name_course'] ?>">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="price_course" class="form-label">Giá khóa học</label>
                                 <input type="text" name="price_course" id="price_course" class="form-control" value="<?= $courses_update['price_course'] ?>">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="image_course" class="form-label">Ảnh</label>
                                 <input type="file" name="image_course" id="image_course" class="form-control" onchange="readURL(this);">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="description_course" class="form-label">Mô tả khóa học</label>
                                 <input type="text" name="description_course" id="description_course" class="form-control" value="<?= $courses_update['description_course'] ?>">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="quote" class="form-label">Trích dẫn khóa học</label>
                                 <input type="text" name="quote" id="quote" class="form-control" value="<?= $courses_update['description_course'] ?>">
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="id_category" class="form-label">Danh mục</label>
@@ -69,7 +69,7 @@
                                         <option <?= $courses_update['id_category'] == $values['id'] ? "selected" : "" ?> value="<?= $values['id'] ?>"><?= $values['name_category'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">
                                 <label for="id_teacher" class="form-label">Giảng viên</label>
@@ -78,7 +78,7 @@
                                         <option <?= $courses_update['id_teacher'] == $values['id'] ? "selected" : "" ?> value="<?= $values['id'] ?>"><?= $values['name_teacher'] ?> - MGV: <?= $values['id'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="mt-5">
                                 <a href="<?= COURSES ?>" class="btn btn-secondary">Quay lại</a>
