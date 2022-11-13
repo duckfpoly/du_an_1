@@ -33,7 +33,6 @@
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
     require_once $dir_model_site.'categories.php';
-    require_once $dir_model_site.'courses.php';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -189,12 +188,12 @@
         $discount = $discount;
         if(empty($discount)){
             $total = $price;
-            return number_format($total, 0, '', ',')."vnđ";
+            return number_format($total, 0, '', ',')."$";
         }
         else {
             $money = ($price * $discount) /100;
             $total = $price - $money;
-            return number_format($total, 0, '', ',')."&nbsp;VNĐ" ;
+            return number_format($total, 0, '', ',')."$" ;
         }
     }
 
