@@ -1,9 +1,6 @@
 <?php
-<<<<<<< HEAD
     $host                   = 'http://localhost/courses/';
-=======
-    $host                   =  'http://localhost/coursesWeb/du_an_1/';
->>>>>>> 05f2d584f1baaa3dddb51ac236f80a0ea651b508
+//    $host                   =  'http://localhost/coursesWeb/du_an_1/';
     $admin                  =  $host.'admin/';
 
     use PHPMailer\PHPMailer\PHPMailer;
