@@ -1,6 +1,7 @@
-<?php
+<?php ob_start();
     include_once 'global.php';
-    checkSessionAdmin();
+    //    checkSessionAdmin();
+    checkScopeAdmin();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,5 +100,8 @@
     <script src="<?= $host ?>assets/admin/js/items/courses.js">                                 </script>
     <!--    <script src="--><?//= $host ?><!--assets/preloader/preloader.js">                   </script>-->
     <script src="<?= $host ?>assets/toasts/toast.js">                                           </script>
+    <script src="<?= $host ?>assets/admin/js/items/detec_connect.js">                           </script>
     <script async defer src="https://buttons.github.io/buttons.js">                             </script>
 </body>
+</html>
+<?php ob_end_flush(); ?>

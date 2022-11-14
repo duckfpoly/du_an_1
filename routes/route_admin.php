@@ -37,7 +37,8 @@
                 include_once $objectt;
                 break;
             case "logout":
-                unsetSession('scope');
+                delete_Cookie('scope');
+//                unsetSession('scope');
                 location($host.'login');
                 break;
             default:

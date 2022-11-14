@@ -18,7 +18,6 @@
                 location($host."page_not_found");
                 break;
             }
-
         }else{
             include_once 'controllers/site/homeController.php';
         }

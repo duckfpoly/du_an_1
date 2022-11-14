@@ -15,7 +15,6 @@
             location('login');
         }
     }
-
     function checkLogin(){
         if(getSession('scope') == 1){
             location('admin');

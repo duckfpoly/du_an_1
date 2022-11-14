@@ -1,5 +1,5 @@
 <?php
-    $host                   =  'http://localhost/abc/du_an_1/';
+    $host                   = 'http://localhost/courses/';
     $admin                  =  $host.'admin/';
 
     use PHPMailer\PHPMailer\PHPMailer;
@@ -15,12 +15,13 @@
     $client->addScope("email");
     $client->addScope("profile");
 
-    $dir_config = 'config/';
-    $dir_model  = 'models/';
+    $dir_config     = 'config/';
+    $dir_model      = 'models/';
     $dir_model_site = 'models/site/';
     
     require_once $dir_config.'db.php';
     include_once $dir_config.'session.php';
+    include_once $dir_config.'cookie.php';
 
     require_once $dir_model.'process_db.php';
     require_once $dir_model.'accounts.php';
@@ -31,12 +32,7 @@
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
     require_once $dir_model.'sales.php';
-<<<<<<< HEAD
 
-=======
-    require_once $dir_model_site.'categories.php';
-    require_once $dir_model_site.'courses.php';
->>>>>>> 18885b25203d614404da3bdee5453bda9ac6f59f
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
 
@@ -58,21 +54,17 @@
     define("ABOUT",         $host.'about');
     define("CONTACT",       $host.'contact');
 
-    
     function active_item($item){
         echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';
     }
-
 
     function location($url){
         echo '<script>window.location="'.$url.'";</script>';
     }
 
-
     function alert($text,$url){
         echo '<script>alert("'.$text.'"); window.location="'.$url.'";</script>';
     }
-
 
     function save_file($fieldname, $name_dir){
         $target_dir = 'assets/uploads/'.$name_dir.'/';
@@ -83,7 +75,6 @@
         return $file_name;
     }
 
-
     function title_tab($data,$home){
         if(isset($_GET[$data])){
             echo strtoupper($_GET[$data]);
@@ -92,7 +83,6 @@
             echo strtoupper($home);
         }
     }
-
 
     function check_empty($data,$redirect){
         if(empty($data)){
@@ -280,7 +270,6 @@
         include 'view/site/account/sign_in.php';
     }
 
-    
     function signupgg($client,$google_oauth){
         $client->setRedirectUri("http://localhost/courseddh/sign_up");
         if (isset($_GET['code'])) {
@@ -295,4 +284,5 @@
         } 
         include 'view/site/account/sign_up.php';
     }
+
 ?>

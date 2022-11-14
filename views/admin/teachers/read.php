@@ -40,7 +40,6 @@
                                             </div>
                                         </td>
                                         <td><p class="text-xs font-weight-bold mb-0">
-                                                $host.'assets/uploads/courses/'.$detail['image_course']
                                                 <img src="<?= $dir_img.$values['image_teacher'] ?>" alt="" width="50px" height="50px" class="rounded">
                                         </td>
                                         <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_teacher'] ?></p></td>

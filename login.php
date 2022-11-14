@@ -6,7 +6,7 @@
         $password = $_POST['password'];
         $login = login_admin($username,$password);
     }
-    $client->setRedirectUri("http://localhost/courseddh/login");
+    $client->setRedirectUri("http://localhost/courses/login");
     if (isset($_GET['code'])) {
         $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
         $client->setAccessToken($token['access_token']);
