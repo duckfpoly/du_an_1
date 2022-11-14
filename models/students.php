@@ -5,21 +5,12 @@
         $check_image_student = query_one($sql, $image_student);
         if ($check_image_student > 0) {
             return 'Ảnh đã được sử dụng !';
-<<<<<<< HEAD
         }
     }
-=======
-        }}
->>>>>>> 05f2d584f1baaa3dddb51ac236f80a0ea651b508
     function read_student(){
         $sql = "SELECT * FROM students";
         return query($sql);
     }
-    // function count_student(){
-    //     $sql = "SELECT COUNT(*) FROM students";
-    //     return query_value($sql);
-    // }
-
     function check_email_student($email_student){
         $sql = "SELECT * FROM `students` WHERE email_student = ?";
         $check_email_student = query_one($sql, $email_student);
@@ -27,7 +18,6 @@
             return 'Email đã được sử dụng !';
         }
     }
-
     function check_phone_student($phone_student){
         $sql = "SELECT * FROM `students` WHERE phone_student = ?";
         $check_phone_student = query_one($sql, $phone_student);
@@ -35,7 +25,6 @@
             return 'Số điện thoại đã được sử dụng !';
         }
     }
-
     function check_id_student($id){
         $sql = "SELECT * FROM `students` WHERE id = ?";
         $check_ID = query_one($sql, $id);
@@ -43,7 +32,6 @@
             return 'Học viên không tồn tại !';
         }
     }
-
     function students_create($name_student,$email_student,$phone_student, $password_student,$image_student,$created_at){
             $password_student_hash = password_hash($password_student,PASSWORD_DEFAULT);
             $sql = "INSERT INTO `students` SET 
@@ -56,11 +44,11 @@
             ";
             query_sql($sql,$name_student,$email_student,$phone_student,$password_student_hash,$image_student,$created_at);
         }
-        function student_read(){
-            $sql = "SELECT * FROM `students` ORDER BY id DESC";
-            return query($sql);
-        }
-        function students_update($name_student,$email_student,$phone_student,$password_student,$image_student,$created_at,$updated_at,$status_student,$id){
+    function student_read(){
+        $sql = "SELECT * FROM `students` ORDER BY id DESC";
+        return query($sql);
+    }
+    function students_update($name_student,$email_student,$phone_student,$password_student,$image_student,$created_at,$updated_at,$status_student,$id){
             $sql = "UPDATE `students` SET 
                         `name_student`          =   ?,
                         `email_student`         =   ?,
@@ -72,57 +60,22 @@
                         `status_student`        =   ?
                         WHERE id = ?
                 ";
-<<<<<<< HEAD
             query_sql($sql,$name_student,$email_student,$phone_student,$password_student,$image_student,$created_at,$updated_at,$status_student,$id);
         }
-        function student_delete($id){
+    function student_delete($id){
             $sql = "DELETE FROM students WHERE id = ?";
             query_sql($sql,$id);
         }
-        function student_detail($id){
+    function student_detail($id){
             $sql = "SELECT *  FROM students WHERE id = ?";
             return query_one($sql,$id);
         }
-        function student_search($key){
+    function student_search($key){
             $sql = "SELECT * FROM students WHERE name_student LIKE '%$key%'";
             return query($sql);
         }
-=======
-                query_sql($sql,$name_student,$email_student,$phone_student,$password_student_hash,$image_student,$created_at);
-            }
-            function student_read(){
-                $sql = "SELECT * FROM `students` ORDER BY id DESC";
-                return query($sql);
-            }
-            function students_update($name_student,$email_student,$phone_student,$password_student,$image_student,$created_at,$updated_at,$status_student,$id){
-                $sql = "UPDATE `students` SET 
-                            `name_student`          =   ?,
-                            `email_student`         =   ?,
-                            `phone_student`         =   ?,
-                            `password_student`      =   ?,
-                            `image_student`         =   ?,
-                            `created_at`            =   ?,
-                            `updated_at`            =   ?,
-                            `status_student`        =   ?
-                            WHERE id = ?
-                    ";
-                query_sql($sql,$name_student,$email_student,$phone_student,$password_student,$image_student,$created_at,$updated_at,$status_student,$id);
-            }
-            function student_delete($id){
-                $sql = "DELETE FROM students WHERE id = ?";
-                query_sql($sql,$id);
-            }
-            function student_detail($id){
-                $sql = "SELECT *  FROM students WHERE id = ?";
-                return query_one($sql,$id);
-            }
-            function student_search($key){
-                $sql = "SELECT * FROM students WHERE name_student LIKE '%$key%'";
-                return query($sql);
-            }
-            function count_student(){
-                $sql = "SELECT COUNT(*) FROM students";
-                return query_value($sql);
-            }   
->>>>>>> 05f2d584f1baaa3dddb51ac236f80a0ea651b508
+    function count_student(){
+        $sql = "SELECT COUNT(*) FROM students";
+        return query_value($sql);
+    }
 ?>

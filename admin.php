@@ -1,7 +1,6 @@
 <?php ob_start();
     include_once 'global.php';
-    //    checkSessionAdmin();
-    checkScopeAdmin();
+    checkSessionAdmin();
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -35,6 +35,7 @@
     require_once $dir_model.'sales.php';
 
     require_once $dir_model_site.'categories.php';
+    require_once $dir_model_site.'courses.php';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -86,7 +87,7 @@
 
     function check_empty($data,$redirect){
         if(empty($data)){
-            alert($data.' - dữ liệu rỗng! Vui lòng nhập lại.',$redirect);
+            alert('Dữ liệu '. $data.' rỗng!',$redirect);
         }
     }
 

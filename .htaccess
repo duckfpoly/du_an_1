@@ -1,7 +1,7 @@
 Order Deny,Allow
 #Deny from all
 #Allow from 171.224.177.225
-ErrorDocument 404 http://courseddh.test/page_not_found
+ErrorDocument 404 http://localhost/courses/page_not_found
 #DirectoryIndex admin.php
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d

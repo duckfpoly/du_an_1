@@ -9,8 +9,8 @@
             else {
                 $checkPass = password_verify($password, $value['password']);
                 if ($checkPass > 0) {
-//                    setSession('scope',$value['scope']);
-                    set_Cookie('scope', $value['scope'], 999);
+                    setSession('scope',$value['scope']);
+//                    set_Cookie('scope', $value['scope'], 999);
                     return '<script>window.location="admin";</script>';
                 } else {
                     return "Sai mật khẩu !";
@@ -29,8 +29,8 @@
                 return "Tài khoản của bạn đã bị vô hiệu hóa !";
             }
             else {
-//              setSession('scope',$value['scope']);
-                set_Cookie('scope', $value['scope'], 999);
+              setSession('scope',$value['scope']);
+//                set_Cookie('scope', $value['scope'], 999);
                 location('admin');
             }
         }

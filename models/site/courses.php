@@ -28,6 +28,35 @@
 
         }
         return query($sql);
-    } 
+    }
+
+    function get_rate_course($id){
+        $sql = "SELECT * FROM rate_courses 
+                INNER JOIN students ON rate_courses.id_student  = students.id
+                INNER JOIN courses  ON rate_courses.id_course   = courses.id
+                WHERE rate_courses.id_course = ?
+                ORDER BY rate_courses.id DESC 
+        ";
+        return query($sql,$id);
+    }
+
+    function add_rate_course($rate,$content_rate,$id_course,$id_student){
+        $sql = "INSERT INTO rate_courses SET 
+                `rate`          = ?,
+                `content_rate`  = ?,
+                `id_course`     = ?,
+                `id_student`    = ?
+        ";
+        query_sql($sql,$rate,$content_rate,$id_course,$id_student);
+    }
+
+    function get_lesson_course($id){
+        $sql = "SELECT * FROM lesson_courses WHERE lesson_courses.id_course = ? ";
+        return query($sql,$id);
+    }
+    function get_detail_lesson_course($id){
+        $sql = "SELECT * FROM detail_lesson WHERE detail_lesson.id_lesson  = ?";
+    return query($sql,$id);
+}
 
 ?>
