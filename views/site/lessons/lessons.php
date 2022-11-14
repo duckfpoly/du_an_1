@@ -39,10 +39,10 @@
                 <button class="p-3 px-4 ml-4  bg-primary border-0 rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                     <i class="fa-solid fa-filter"></i>
                 </button>
-                <form class="d-flex gap-2">
-                    <input class="px-3 rounded border-light py-2 me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex gap-2" method="post" action='<?= LESSONS?>'>
+                    <input name='input_search' class="px-3 rounded border-light py-2 me-2" type="search" placeholder="Search" aria-label="Search">
                     <div>
-                        <button class="p-3 rounded  border-0 bg-primary" type="submit">Search</button>
+                        <button name='search_btn' class="p-3 rounded  border-0 bg-primary" type="submit">Search</button>
                     </div>                  
                 </form>
             </div>
@@ -58,9 +58,9 @@
                 </li> 
                 <div class="offcanvas-body">
                     <ul class='gap-5 row ml-3'>
-                        <li><a href="">Tất cả</a></li>
+                        <li><a href="<?= LESSONS?>?cate=all">Tất cả</a></li>
                         <?php foreach($categories as $value):?>
-                        <li><a href=""><?php echo $value['name_category']?></a></li>
+                        <li><a href="<?= LESSONS?>?cate=<?php echo $value['id']?>"><?php echo $value['name_category']?></a></li>
 
                         <?php endforeach?>
 
@@ -90,9 +90,10 @@
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star-half"></i>
                                         </div>
-                                        <p><span>(4.5)</span> based on 120</p>
+                                        <p><span>(4.5)</span></p> 
+                                        
                                     </div>
-                                    <div class="price gap-4">
+                                    <div class="price">
 
                                             <span class="<?php echo $value['discount'] != 0 ? 'text-decoration-line-through textPrice colorOldPrice' : '' ?>"><?php echo number_format($value['price_course'])?> $</span>
 

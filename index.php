@@ -32,16 +32,7 @@
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/style.css">
 </head>
 <body>
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="<?= $host ?>assets/img/img_site/img/logo/loder.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
+   
     <?php include 'views/site/layout/navbar.php'?>
     <?php include 'routes/route_site.php'?>
     <?php include 'views/site/layout/footer.php'?>

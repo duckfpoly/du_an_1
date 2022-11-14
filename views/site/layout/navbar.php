@@ -8,7 +8,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo">
-                                <a href="home"><img src="assets/img/img_site/img/logo/logo.png" alt=""></a>
+                                <a href="home"><img src="<?php echo $host?>/assets/img/img_site/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10">

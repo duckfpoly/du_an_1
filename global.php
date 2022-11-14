@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
     $host                   = 'http://localhost/courses/';
+=======
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
+>>>>>>> 05f2d584f1baaa3dddb51ac236f80a0ea651b508
     $admin                  =  $host.'admin/';
 
     use PHPMailer\PHPMailer\PHPMailer;
@@ -34,7 +38,6 @@
     require_once $dir_model.'sales.php';
 
     require_once $dir_model_site.'categories.php';
-    require_once $dir_model_site.'courses.php';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -179,12 +182,12 @@
     function total($price,$discount){
         if(empty($discount)){
             $total = $price;
-            return number_format($total, 0, '', ',')."vnđ";
+            return number_format($total, 0, '', ',')."$";
         }
         else {
             $money = ($price * $discount) /100;
             $total = $price - $money;
-            return number_format($total, 0, '', ',')."&nbsp;VNĐ" ;
+            return number_format($total, 0, '', ',')."$" ;
         }
     }
 
