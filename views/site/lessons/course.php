@@ -134,7 +134,7 @@
 
                                 <!-- Comments -->
                                 <div class="comments_container">
-                                    <li>
+                                    <!-- <li>
                                         <div class="comment_item d-flex flex-row align-items-start jutify-content-start">
                                             <div class="comment_image"><div><img src="images/comment_3.jpg" alt=""></div></div>
                                             <div class="comment_content">
@@ -152,7 +152,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> -->
                                     <ul class="comments_list" id="rate_list"></ul>
                                     <ul class="comments_list pb-5">
                                         <?php if(!empty($rate_course)){ ?>
@@ -262,7 +262,7 @@
                                             <textarea name="content_rate" cols="30" rows="5" id="content_rate" class="form-control mt-2" placeholder="Viết đánh giá ..."></textarea>
                                             <button class="btn btn-secondary mt-3" onclick="save()">Gửi</button>
                                         </form>
-                                        <div class="add_comment_text">You must be <a href="#">logged</a> in to post a comment.</div>-->
+                                        <div class="add_comment_text">You must be <a href="#">logged</a> in to post a comment.</div>
                                     </div>
                                 </div>
                             </div>
