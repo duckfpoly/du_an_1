@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> App landing</title>
+    <title><?= title_site() ?></title>
     <meta name="description" content="App Course">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="<?= $host ?>assets/img/img_site/img/favicon.ico">
@@ -31,9 +31,12 @@
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/nice-select.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/style.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/rating_star.css">
+    <!-- <link rel="stylesheet" href="<?= $host ?>assets/toasts/toast.css"                               /> -->
+
 </head>
 <body>
-   
+    <div id="toastt"></div>
+
     <?php include 'views/site/layout/navbar.php'?>
     <?php include 'routes/route_site.php'?>
     <?php include 'views/site/layout/footer.php'?>
@@ -42,6 +45,7 @@
     <script src="<?= $host ?>assets/js/course/course.js"></script>
     <!-- JS here -->
     <script src="<?= $host ?>assets/js/js/vendor/modernizr-3.5.0.min.js"></script>
+
     <!-- Jquery, Popper, Bootstrap -->
     <script src="<?= $host ?>assets/js/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="<?= $host ?>assets/js/js/popper.min.js"></script>
@@ -52,6 +56,7 @@
     <!-- Jquery Slick , Owl-Carousel Plugins -->
     <script src="<?= $host ?>assets/js/js/owl.carousel.min.js"></script>
     <script src="<?= $host ?>assets/js/js/slick.min.js"></script>
+
     <!-- One Page, Animated-HeadLin -->
     <script src="<?= $host ?>assets/js/js/wow.min.js"></script>
     <script src="<?= $host ?>assets/js/js/animated.headline.js"></script>
@@ -82,8 +87,15 @@
     <script src="<?= $host ?>assets/js/js/plugins.js"></script>
     <script src="<?= $host ?>assets/js/js/main.js"></script>
 
+    <!-- Tạo thông báo   -->
+    <script src="<?= $host ?>assets/toasts/toast.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Đánh giá khóa học   -->
+    <script> var host = "http://localhost/courses/";</script>
+    <script src="<?= $host ?>assets/js/course/comment.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
 

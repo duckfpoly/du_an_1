@@ -3,14 +3,15 @@
         $sql = "SELECT * FROM courses ORDER BY id DESC LIMIT 5";
         return query($sql);
     }
-
     function get_all_courses(){
         $sql = "SELECT * FROM courses";
         return query($sql);
     }
     function get_course($id){
         $sql = "SELECT * FROM courses 
-        INNER JOIN teachers ON courses.id_teacher = teachers.id WHERE courses.id = ?";
+        INNER JOIN teachers ON courses.id_teacher = teachers.id 
+        INNER JOIN categories ON courses.id_category = categories.id 
+        WHERE courses.id = ?";
         return query_one($sql,$id);
     }
 
@@ -28,6 +29,55 @@
 
         }
         return query($sql);
-    } 
+    }
+
+    function get_rate_course($id){
+        $sql = "SELECT * FROM rate_courses 
+                INNER JOIN students ON rate_courses.id_student  = students.id
+                INNER JOIN courses  ON rate_courses.id_course   = courses.id
+                WHERE rate_courses.id_course = ?
+                ORDER BY rate_courses.id DESC 
+        ";
+        return query($sql,$id);
+    }
+
+    function add_rate_course($rate,$content_rate,$id_course,$id_student){
+        $sql = "INSERT INTO rate_courses SET 
+                `rate`          = ?,
+                `content_rate`  = ?,
+                `id_course`     = ?,
+                `id_student`    = ?
+        ";
+        query_sql($sql,$rate,$content_rate,$id_course,$id_student);
+    }
+
+    function get_lesson_course($id){
+        $sql = "SELECT * FROM lesson_courses WHERE lesson_courses.id_course = ? ";
+        return query($sql,$id);
+    }
+
+    function get_detail_lesson_course($id){
+        $sql = "SELECT * FROM detail_lesson WHERE detail_lesson.id_lesson  = ?";
+        return query($sql,$id);
+    }
+
+    function get_avg_rate_course($id){
+        $sql = "SELECT AVG(rate) FROM rate_courses WHERE rate_courses.id_course  = ?";
+        return query_value($sql,$id);
+    }
+
+    function get_count_rate_course($id){
+        $sql = "SELECT COUNT(rate) FROM rate_courses WHERE rate_courses.id_course  = ?";
+        return query_value($sql,$id);
+    }
+
+    function get_percent_rate($id){
+        $sql = "SELECT rate,(COUNT(rate) * 100 / (SELECT COUNT(rate) FROM rate_courses)) AS rate_percent
+                FROM rate_courses
+                WHERE rate_courses.id_course  = ?
+                GROUP BY rate
+                ";
+        return query($sql,$id);
+    }
 
 ?>

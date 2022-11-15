@@ -18,7 +18,7 @@
                                         <option value="<?= $values['id'] ?>">MHV: <?= $values['id'] ?>&emsp;|&emsp;<?= $values['name_student'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <div class="form-message text-danger mt-1"><br></div>
+                                <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="mt-5">
                                 <a href="<?= CLASSES ?>" class="btn btn-secondary">Quay lại</a>
