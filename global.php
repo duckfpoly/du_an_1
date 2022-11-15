@@ -180,12 +180,12 @@
     function total($price,$discount){
         if(empty($discount)){
             $total = $price;
-            return number_format($total, 0, '', ',')."$";
+            return number_format($total, 0, '', ',')." $";
         }
         else {
             $money = ($price * $discount) /100;
             $total = $price - $money;
-            return number_format($total, 0, '', ',')."$" ;
+            return number_format($total, 0, '', ',')." $" ;
         }
     }
 

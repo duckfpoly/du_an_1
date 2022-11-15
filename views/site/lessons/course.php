@@ -40,18 +40,14 @@
 
                             </div>
                         </div>
-
                         <!-- Course Info Item -->
                         <div class="course_info_item">
                             <div class="course_info_title">Danh mục:</div>
                             <div class="course_info_text"><a href="#"><?= $detail['name_category'] ?></a></div>
                         </div>
-
                     </div>
-
                     <!-- Course Image -->
                     <div class="course_image"><img src="<?php echo $host?>/assets/uploads/courses/<?php echo $detail['image_course']?>" alt=""></div>
-
                     <!-- Course Tabs -->
                     <div class="course_tabs_container">
                         <div class="tabs d-flex flex-row align-items-center justify-content-start">
@@ -60,7 +56,6 @@
                             <div class="tab">Đánh giá</div>
                         </div>
                         <div class="tab_panels">
-
                             <!-- Mô tả -->
                             <div class="tab_panel active">
                                 <div class="tab_panel_title">Software Training</div>
@@ -124,10 +119,13 @@
                                     </div>
                                     <div class="review_rating_bars">
                                         <ul>
-                                            <?php foreach ($percent_rate as $key => $values){ ?>
+                                            <?php foreach ($percent_rate as $key => $values){ $rate_per = (int)$values['rate_percent']?>
                                                 <li>
-                                                    <span><?= $values['rate'] ?> Star</span>
-                                                    <div class="review_rating_bar"><div style="width:<?= $values['rate_percent'] ?>%;"></div></div>
+                                                    <span><?= $values['rate'] ?> <i class="fa fa-star" style="color: orange;"></i></span>
+                                                    <div class="review_rating_bar" style="border-radius: 20px; margin-left: 5px;margin-right: 5px;">
+                                                        <div style="border-radius: 20px; width:<?= $rate_per ?>%;"></div>
+                                                    </div>
+                                                    <span><?= $rate_per ?>%</span>
                                                 </li>
                                             <?php } ?>
                                         </ul>
@@ -205,7 +203,7 @@
                     <div class="sidebar_section">
                         <div class="sidebar_section_title">Course Feature</div>
                         <div class="sidebar_feature">
-                            <div class="course_price">$180</div>
+                            <div class="course_price"><?= total($detail['price_course'],$detail['discount'])?></div>
 
                             <!-- Features -->
                             <div class="feature_list">
@@ -236,10 +234,15 @@
 
                                 <!-- Feature -->
                                 <div class="feature d-flex flex-row align-items-center justify-content-start">
-                                    <div class="feature_title"><i class="fa fa-users" aria-hidden="true"></i><span>Lectures:</span></div>
+                                    <div class="feature_title"><i class="fa fa-users" aria-hidden="true"></i><span>Học viên:</span></div>
                                     <div class="feature_text ml-auto">35</div>
                                 </div>
 
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center mt-5">
+                                <form action="#" method="post" onsubmit="return false">
+                                    <button class="btn" type="submit">Đăng ký ngay</button>
+                                </form>
                             </div>
                         </div>
                     </div>
