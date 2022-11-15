@@ -17,14 +17,14 @@
     }
     function courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher){
         $sql = "INSERT INTO `courses` SET 
-                        `name_course`           =   ?,
-                        `price_course`          =   ?,
-                        `image_course`          =   ?,
-                        `description_course`    =   ?,
-                        `quote`                 =   ?,
-                        `created_at`            =   ?,
-                        `id_category`           =   ?,
-                        `id_teacher`             =   ?
+            `name_course`           =   ?,
+            `price_course`          =   ?,
+            `image_course`          =   ?,
+            `description_course`    =   ?,
+            `quote`                 =   ?,
+            `created_at`            =   ?,
+            `id_category`           =   ?,
+            `id_teacher`            =   ?
             ";
         query_sql($sql,$name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher);
     }

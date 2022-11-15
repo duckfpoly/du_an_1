@@ -85,6 +85,15 @@
         }
     }
 
+    function title_site(){
+        if(isset($_GET['id'])){
+            return strtoupper($_GET['v']).' - '.course_detail($_GET['id'])['name_course'];
+        }
+        else {
+            return isset($_GET['v']) == true ? strtoupper($_GET['v']) : "Courses App" ;
+        }
+    }
+
     function check_empty($data,$redirect){
         if(empty($data)){
             alert('Dữ liệu '. $data.' rỗng!',$redirect);
