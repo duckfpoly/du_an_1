@@ -775,6 +775,7 @@ section
 {
 	display: inline-block;
 	position: relative;
+	color: #fff;
 }
 .breadcrumbs ul li:not(:last-child)::after
 {
@@ -783,13 +784,13 @@ section
 	content: '\f105';
 	margin-left: 7px;
 	margin-right: 4px;
-	color: #384158;
+	color: #fff;
 }
 .breadcrumbs ul li a
 {
 	font-size: 14px;
 	font-weight: 400;
-	color: #384158;
+	color: #fff;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -882,7 +883,7 @@ section
 	font-style: normal;
 	font-size: 14px;
 	margin-right: 4px;
-	color: #14bdee;
+	color: #ff7b2e;
 }
 .rating_r_1 i:first-child::before{content: "\f005";}
 .rating_r_2 i:first-child::before{content: "\f005";}

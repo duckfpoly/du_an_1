@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/slick.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/nice-select.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/style.css">
+    <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/rating_star.css">
 </head>
 <body>
    
@@ -39,7 +40,6 @@
 
     <script src="<?= $host ?>assets/js/course/jquery-3.2.1.min.js"></script>
     <script src="<?= $host ?>assets/js/course/course.js"></script>
-
     <!-- JS here -->
     <script src="<?= $host ?>assets/js/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
