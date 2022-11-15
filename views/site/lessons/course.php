@@ -34,21 +34,17 @@
 
                         <!-- Course Info Item -->
                         <div class="course_info_item">
-                            <div class="course_info_title">Reviews:</div>
+                            <div class="course_info_title">Đánh giá:</div>
                             <div class="rating_r rating_r_4">
-                                <i></i>
-                                <i></i>
-                                <i></i>
-                                <i></i>
-                                <i></i>
-<!--                                <i></i>-->
+                                <div class="Stars" style="--rating: <?= $avg_rate ?>;"></div>
+
                             </div>
                         </div>
 
                         <!-- Course Info Item -->
                         <div class="course_info_item">
-                            <div class="course_info_title">Categories:</div>
-                            <div class="course_info_text"><a href="#">Languages</a></div>
+                            <div class="course_info_title">Danh mục:</div>
+                            <div class="course_info_text"><a href="#"><?= $detail['name_category'] ?></a></div>
                         </div>
 
                     </div>
@@ -117,20 +113,23 @@
 
                                 <!-- Rating -->
                                 <div class="review_rating_container">
-                                    <div class="review_rating">
-                                        <div class="review_rating_num">4.5</div>
+                                    <div class="review_rating" >
+                                        <div class="review_rating_num"><?= $avg_rate ?></div>
                                         <div class="review_rating_stars">
-                                            <div class="rating_r rating_r_4"><i></i><i></i><i></i><i></i><i></i></div>
+                                            <div class="rating_r rating_r_4">
+                                                <div class="Stars" style="--rating: <?= $avg_rate ?>;"></div>
+                                            </div>
                                         </div>
-                                        <div class="review_rating_text">(28 Ratings)</div>
+                                        <div class="review_rating_text">(<?= $count_rate ?> Ratings)</div>
                                     </div>
                                     <div class="review_rating_bars">
                                         <ul>
-                                            <li><span>5 Star</span><div class="review_rating_bar"><div style="width:90%;"></div></div></li>
-                                            <li><span>4 Star</span><div class="review_rating_bar"><div style="width:75%;"></div></div></li>
-                                            <li><span>3 Star</span><div class="review_rating_bar"><div style="width:32%;"></div></div></li>
-                                            <li><span>2 Star</span><div class="review_rating_bar"><div style="width:10%;"></div></div></li>
-                                            <li><span>1 Star</span><div class="review_rating_bar"><div style="width:3%;"></div></div></li>
+                                            <?php foreach ($percent_rate as $key => $values){ ?>
+                                                <li>
+                                                    <span><?= $values['rate'] ?> Star</span>
+                                                    <div class="review_rating_bar"><div style="width:<?= $values['rate_percent'] ?>%;"></div></div>
+                                                </li>
+                                            <?php } ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -138,7 +137,7 @@
                                 <!-- Comments -->
                                 <div class="comments_container">
                                     <ul class="comments_list" id="rate_list"></ul>
-                                    <ul class="comments_list">
+                                    <ul class="comments_list pb-5">
                                         <?php if(!empty($rate_course)){ ?>
                                         <?php foreach ($rate_course as $key => $values): ?>
                                             <li>
@@ -168,7 +167,7 @@
                                              <div class="add_comment_text" id="no_review"><h3>Chưa có đánh giá về khóa học !</h3></div>
                                         <?php } ?>
                                     </ul>
-                                    <div class="add_comment_container">
+                                    <div class="add_comment_container pt-5">
                                         <div class="add_comment_title">Đánh giá của bạn về khóa học</div>
                                         <form action="<?= LESSONS.'/'.$id ?>" method="post" onsubmit="return false">
                                             <input type="hidden" name="image_student"   id="image_student"      value="course_4.jpg">

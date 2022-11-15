@@ -4,6 +4,12 @@
         $detail = get_course($id);
         // lấy các đánh giá về khóa học
         $rate_course = get_rate_course($id);
+        // đánh giá sao trung bình
+        $avg_rate = get_avg_rate_course($id);
+        // số đánh giá
+        $count_rate = get_count_rate_course($id);
+        // lấy phần trăm từng đánh giá sao
+        $percent_rate = get_percent_rate($id);
         // đánh giá khóa học
         if(isset($_POST['send_cmt'])){
             $rate           = $_POST['rate'];
