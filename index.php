@@ -30,8 +30,7 @@
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/slick.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/nice-select.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/style.css">
-    <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/rating_star.css">
-    <!-- <link rel="stylesheet" href="<?= $host ?>assets/toasts/toast.css"                               /> -->
+    <link rel="stylesheet" href="<?= $host ?>assets/toasts/toast.css"                               />
 
 </head>
 <body>
@@ -91,7 +90,7 @@
     <script src="<?= $host ?>assets/toasts/toast.js"></script>
 
     <!-- Đánh giá khóa học   -->
-    <script> var host = "http://localhost/courses/";</script>
+    <script> var host = "http://localhost/coursesWeb/du_an_1/";</script>
     <script src="<?= $host ?>assets/js/course/comment.js"></script>
 
 
