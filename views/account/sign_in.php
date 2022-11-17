@@ -8,11 +8,11 @@
   <link rel="icon" type="image/png" href="<?= $host ?>assets/img/favicon.png">
   <title>DDH COURSES - Đăng Nhập</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <link href="<?= $host ?>assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="<?= $host ?>assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="<?= $host ?>assets/admin/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="<?= $host ?>assets/admin/css/nucleo-svg.css" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="<?= $host ?>assets/css/nucleo-svg.css" rel="stylesheet" />
-  <link id="pagestyle" href="<?= $host ?>assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link id="pagestyle" href="<?= $host ?>assets/admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
   <style>
     .form-group.invalid .form-control {
       border-color: #f33a58;
@@ -199,24 +199,13 @@
   </footer>
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <!--   Core JS Files   -->
-  <script src="<?= $host ?>assets/js/core/popper.min.js"></script>
-  <script src="<?= $host ?>assets/js/core/bootstrap.min.js"></script>
-  <script src="<?= $host ?>assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="<?= $host ?>assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
+  <script src="<?= $host ?>assets/admin/js/core/popper.min.js"></script>
+  <script src="<?= $host ?>assets/admin/js/core/bootstrap.min.js"></script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?= $host ?>assets/js/argon-dashboard.min.js?v=2.0.4"></script>
-  <script src="<?= $host ?>assets/js/plugins/validate.js"></script>
+  <script src="<?= $host ?>assets/admin/js/argon-dashboard.min.js"></script>
+  <script src="<?= $host ?>assets/admin/js/plugins/validate.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       Validator({
@@ -234,5 +223,4 @@
     });
   </script>
 </body>
-
 </html>
