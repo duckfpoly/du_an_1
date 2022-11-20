@@ -38,17 +38,14 @@
 </head>
 <body class="g-sidenav-show bg-gray-100">
     <div id="toastt"></div>
-
-    <?php
-//        include_once 'views/preloader.php';
-    ?>
+    <?php //include_once 'views/preloader.php'; ?>
     <div id="course_app">
-        <div class="min-height-300 bg-primary position-absolute w-100"></div>
-            <?php include_once 'views/admin/layouts/sidebar.php'; ?>
+<!--        <div class="min-height-300 bg-primary position-absolute w-100"></div>-->
+            <?php include_once 'views/admin/layouts/sidebar.php';   ?>
         <main class="main-content position-relative border-radius-lg ">
-            <?php include_once 'views/admin/layouts/navbar.php'; ?>
-            <?php include_once 'routes/route_admin.php'; ?>
-            <?php include_once 'views/admin/layouts/footer.php'; ?>
+            <?php include_once 'views/admin/layouts/navbar.php';    ?>
+            <?php include_once 'routes/route_admin.php';            ?>
+            <?php include_once 'views/admin/layouts/footer.php';    ?>
         </main>
     </div>
     <div class="fixed-plugin">

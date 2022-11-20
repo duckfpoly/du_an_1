@@ -24,7 +24,6 @@
         }
         // nội dung chương trình khóa học
         $lesson_course = get_lesson_course($id);
-
         include 'views/site/lessons/course.php';
     }
     else {

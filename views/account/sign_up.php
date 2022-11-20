@@ -145,7 +145,7 @@
                     <div class="form-message text-danger mt-1"></div>
                 </div>
                 <div class="form-check form-check-info text-start">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                  <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" required>
                   <label class="form-check-label" for="flexCheckDefault">
                     Tôi đồng ý với<a href="#" class="text-dark font-weight-bolder">&nbsp;Điều khoản và điều kiện</a>
                   </label>
@@ -210,23 +210,13 @@
   </footer>
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <!--   Core JS Files   -->
-  <script src="<?= $host ?>assets/js/core/popper.min.js"></script>
-  <script src="<?= $host ?>assets/js/core/bootstrap.min.js"></script>
-  <script src="<?= $host ?>assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="<?= $host ?>assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
+  <script src="<?= $host ?>assets/admin/js/core/popper.min.js"></script>
+  <script src="<?= $host ?>assets/admin/js/core/bootstrap.min.js"></script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="<?= $host ?>assets/admin/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="<?= $host ?>assets/admin/js/argon-dashboard.min.js"></script>
   <script src="<?= $host ?>assets/admin/js/plugins/validate.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -239,7 +229,7 @@
             Validator.isRequired("#email", "Vui lòng nhập email"),
             Validator.isEmail('#email'),
             Validator.isRequired("#password", "Vui lòng nhập password"),
-            Validator.isRequired("#confirm_password", "Vui lòng nhập password"),
+            Validator.isRequired("#confirm_password", "Vui lòng nhập lại password"),
             Validator.minLength('#password', 8),
             Validator.minLength('#confirm_password', 8),
             Validator.isConfirmed('#confirm_password', function() {

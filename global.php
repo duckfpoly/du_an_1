@@ -1,6 +1,6 @@
 <?php
-    // $host                   = 'http://localhost/courses/';
-   $host                   =  'http://localhost/coursesWeb/du_an_1/';
+     $host                   = 'http://localhost/courses/';
+//   $host                   =  'http://localhost/coursesWeb/du_an_1/';
     $admin                  =  $host.'admin/';
 
     use PHPMailer\PHPMailer\PHPMailer;
@@ -23,6 +23,7 @@
     require_once $dir_config.'db.php';
     include_once $dir_config.'session.php';
     include_once $dir_config.'cookie.php';
+    include_once $dir_config.'vnpay.php';
 
     require_once $dir_model.'process_db.php';
     require_once $dir_model.'accounts.php';
