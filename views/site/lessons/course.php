@@ -51,13 +51,23 @@
                     <!-- Course Tabs -->
                     <div class="course_tabs_container">
                         <div class="tabs d-flex flex-row align-items-center justify-content-start">
-                            <div class="tab active">Mô tả</div>
+                            <div class="tab active">Lớp học</div>
+                            <div class="tab ">Mô tả</div>
                             <div class="tab">Chương trình học</div>
                             <div class="tab">Đánh giá</div>
                         </div>
                         <div class="tab_panels">
-                            <!-- Mô tả -->
+                            <!-- Lớp -->
                             <div class="tab_panel active">
+                                <div class="tab_panel_title">Software Training</div>
+                                <div class="tab_panel_content">
+                                    <div class="tab_panel_text">
+                                        <p><?php echo $detail['description_course']?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Mô tả -->
+                            <div class="tab_panel">
                                 <div class="tab_panel_title">Software Training</div>
                                 <div class="tab_panel_content">
                                     <div class="tab_panel_text">

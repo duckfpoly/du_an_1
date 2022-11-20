@@ -1,18 +1,17 @@
-<?php include_once 'url.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="<?= $host ?>assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="<?= $host ?>assets/img/favicon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="<?= $host ?>assets/img/img_site/img/favicon.ico">
   <title>DDH COURSES - Đăng Nhập</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <link href="<?= $host ?>assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="<?= $host ?>assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="<?= $host ?>assets/admin/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="<?= $host ?>assets/admin/css/nucleo-svg.css" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="<?= $host ?>assets/css/nucleo-svg.css" rel="stylesheet" />
-  <link id="pagestyle" href="<?= $host ?>assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link href="<?= $host ?>assets/admin/css/nucleo-svg.css" rel="stylesheet" />
+  <link id="pagestyle" href="<?= $host ?>assets/admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
   <style>
     .form-group.invalid .form-control {
       border-color: #f33a58;
@@ -127,22 +126,28 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form" method="post" action="" id="form-1">
+              <form role="form" method="post" action="<?= SIGIN?>" id="form-1">
                 <div class="mb-3 form-group">
-                  <input type="email" class="form-control" id="email" placeholder="Địa chỉ email" >
-                    <div class="form-message text-danger mt-1"></div>
+                  <input type="email" name='email' class="form-control" id="email" placeholder="Địa chỉ email" >
+                    <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="mb-3 form-group">
-                  <input type="password" class="form-control" id="password" placeholder="Mật khẩu">
-                  <div class="form-message text-danger mt-1"></div>
+                  <input type="password" name='password' class="form-control" id="password" placeholder="Mật khẩu">
+                  <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="mb-3 form-group d-flex justify-content-end">
                   <p class="text-sm mt-3 mb-0"><a href="<?= $host ?>forgot_pass" class="text-dark font-weight-bolder">Quên mật khẩu?</a></p>
                 </div>
+                <?php echo isset($err) && $err !='' ? '
+                  <small class="alert fst-italic mt-3 d-flex justify-content-center alert-danger text-white" role="alert">
+                    '.$err.'
+                  </small>
+
+                ' : ''?>
                 <div class="text-center">
-                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Đăng nhập</button>
+                  <button type="submit" name='btn_submit' class="btn bg-gradient-dark w-100 my-3 mb-2">Đăng nhập</button>
                 </div>
-                <p class="text-sm mt-3 mb-0">Bạn chưa có tài khoản?<a href="<?= $host ?>sign_up" class="text-dark font-weight-bolder"> Đăng ký ngay</a></p>
+                <p class="text-sm mt-3 mb-0">Bạn chưa có tài khoản?<a href="<?= $host ?>account/sign_up" class="text-dark font-weight-bolder"> Đăng ký ngay</a></p>
               </form>
             </div>
           </div>
@@ -215,8 +220,8 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?= $host ?>assets/js/argon-dashboard.min.js?v=2.0.4"></script>
-  <script src="<?= $host ?>assets/js/plugins/validate.js"></script>
+  <script src="<?= $host ?>assets/admin/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="<?= $host ?>assets/admin/js/plugins/validate.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       Validator({

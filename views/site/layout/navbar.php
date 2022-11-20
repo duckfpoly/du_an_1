@@ -29,8 +29,8 @@
                                             </li>
                                             <li><a href="<?= CONTACT?>">Contact</a></li>
                                             <!-- Button -->
-                                            <li class="button-header margin-left "><a href="#" class="btn">Join</a></li>
-                                            <li class="button-header"><a href="login.html" class="btn btn3">Log in</a></li>
+                                            <li class="button-header margin-left "><a href="<?= SIGIN?>" class="btn">Join</a></li>
+                                            <li class="button-header"><a href="<?= SIGIN?>" class="btn btn3">Log in</a></li>
                                         </ul>
                                     </nav>
                                 </div>

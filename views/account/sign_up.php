@@ -1,4 +1,3 @@
-<?php include_once 'url.php'?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,14 +5,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="<?= $host ?>assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="<?= $host ?>assets/img/favicon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="<?= $host ?>assets/img/img_site/img/favicon.ico">
   <title>DDH COURSES - Đăng Ký</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <link href="<?= $host ?>assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="<?= $host ?>assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="<?= $host ?>assets/admin/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="<?= $host ?>assets/admin/css/nucleo-svg.css" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="<?= $host ?>assets/css/nucleo-svg.css" rel="stylesheet" />
-  <link id="pagestyle" href="<?= $host ?>assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link href="<?= $host ?>assets/admin/css/nucleo-svg.css" rel="stylesheet" />
+  <link id="pagestyle" href="<?= $host ?>assets/admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
   <style>
     .form-group.invalid .form-control {
       border-color: #f33a58;
@@ -227,8 +226,8 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?= $host ?>assets/js/argon-dashboard.min.js?v=2.0.4"></script>
-  <script src="<?= $host ?>assets/js/plugins/validate.js"></script>
+  <script src="<?= $host ?>assets/admin/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="<?= $host ?>assets/admin/js/plugins/validate.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       Validator({
