@@ -108,7 +108,8 @@
                                                     <div class="form-message text-danger mt-1"></div>
                                                 </div>  
                                             </div>
-                                            <a href="">
+                                            
+                                            <a href="<?php echo isset($_SESSION['user']) ? '' : '/home'?>">
                                                 <input class="btn" name='btn_submit_course' type="submit" value='Đăng ký ngay'/>
 
                                             </a>
