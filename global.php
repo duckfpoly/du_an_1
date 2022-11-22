@@ -1,6 +1,7 @@
 <?php
-    //  $host                   = 'http://localhost/courses/';
-    $host                   =  'http://localhost/coursesWeb/du_an_1/';
+    $host                   = 'http://localhost/courses/';
+    //   $host                   =  'http://localhost/coursesWeb/du_an_1/';
+    //    $host                   = 'http://localhost/hangdtph27628/';
     $admin                  =  $host.'admin/';
 
     use PHPMailer\PHPMailer\PHPMailer;
@@ -36,7 +37,6 @@
     require_once $dir_model.'sales.php';
 
     require_once $dir_model_site.'categories.php';
-    // require_once $dir_model_site.'payment.php';
     require_once $dir_model_site.'courses.php';
     require_once $dir_model_site.'sign_in.php';
     require_once $dir_model_site.'sign_up.php';
@@ -51,6 +51,7 @@
     define("SALES",         $admin.'sales');
     define("RATES",         $admin.'rates');
     define("CLASSES",       $admin.'classes');
+    define("SIGNOUT",        $admin.'logout');
 
     // url site
     define("HOME",          $host);  
@@ -58,9 +59,9 @@
     define("ABOUT",         $host.'about');
     define("CONTACT",       $host.'contact');
     define("PAYMENT",       $host.'payment');
-    define("SIGUP",       $host.'account/sign_up');
-    define("SIGIN",       $host.'account/sign_in');
-    define("LOGOUT",       $host.'account/log_out');
+    define("SIGUP",         $host.'account/sign_up');
+    define("SIGIN",         $host.'account/sign_in');
+    define("LOGOUT",         $host.'account/log_out');
 
     function active_item($item){
         echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';
@@ -324,13 +325,12 @@
             $username   =  cut_email($email);
             $password   =  rand(0,999999);
             $create     =  sign_up_gg($username,$name_user,$email,$password);
-        } 
+        }
         include 'view/site/account/sign_up.php';
     }
 
     function cal_percent($obj,$sum){
         return round(($obj / $sum) * 100);
     }
-
 
 ?>

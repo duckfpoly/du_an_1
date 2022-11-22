@@ -15,7 +15,7 @@
     $sql = "SELECT COUNT(*) FROM orders";
     return query_value($sql);
     }
-    function bill_update($order_date,$order_pay,$status,$id){
+    function bill_update($status,$id){
         $sql = "UPDATE `orders` SET `status` = ? WHERE id = ? ";
         query_sql($sql,$status,$id);
     }

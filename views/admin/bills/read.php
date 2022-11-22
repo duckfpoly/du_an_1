@@ -23,6 +23,7 @@
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên học viên đặt</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tổng tiền</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái ( test )</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Thao tác</th>
                             </tr>
                             </thead>
@@ -47,12 +48,18 @@
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold"><?= $values['order_pay'] ?></span>
                                         </td>
-                                        <td class="align-middle text-center text-sm">
+                                        <td class="align-middle text-center text-sm" id="status_payy">
                                             <?=
                                             $values['status'] == 0
                                                 ? '<span class="badge badge-sm bg-gradient-success">Đã thanh toán</span>'
                                                 : '<span class="badge badge-sm bg-gradient-danger">Chưa thanh toán</span>'
                                             ?>
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <select name="status_order" id="status_order" class="form-control" data-item="<?= $values['id'] ?>"  onchange="change_qtyy(this)">
+                                                <option value="0" <?= $values['status'] == 0 ? 'selected' : "" ?>>Đã thanh toán</option>
+                                                <option value="1" <?= $values['status'] == 1 ? 'selected' : "" ?>>Chưa thanh toán</option>
+                                            </select>
                                         </td>
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0" href="<?= BILLS ?>/detail/<?= $values['id_dh'] ?>">Chi tiết</a></span>&emsp;
@@ -87,3 +94,21 @@
         border-radius: 20px;
     }
 </style>
+
+<script>
+    let change_qtyy = element => {
+        var id = element.getAttribute('data-item');
+        var status           =  document.getElementById('status_order').value
+        var dataString =
+            'id='                 + id +
+            '&status='            + status;
+        $.ajax({
+            type: "POST",
+            url: '<?= BILLS ?>/edit/'+id,
+            data: dataString,
+            success: function () {
+                showSuccessToast('Success','Cập nhật thành công !' + status,'success')
+            }
+        });
+    }
+</script>

@@ -10,6 +10,7 @@
                 <div class="card-body px-0 pt-0 pb-2 d-flex justify-content-around flex-wrap">
                     <div class="p-3 col-8 ">
                         <form action="<?= BILLS ?>/edit/<?= $bill_detail['id'] ?>" method="post" id="form-1" enctype="multipart/form-data">
+                            <input type="hidden" name="id_bill" id="id_bill" value="<?= $bill_detail['id'] ?>">
                             <div class="form-group">
                                 <label for="statuscourse" class="form-label">
                                     Trạng thái

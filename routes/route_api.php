@@ -1,45 +1,44 @@
 <?php
-    // tạo jwt
-    $payload = array (
-        'name'  => 'Nguyen Duc',
-        'phone' => '0823565831',
-        'email' => 'nguyenduc10603@gmail.com',
-        'admin' => true,
-        'exp'   => time() + (86400 * 10)
-    );
-    $jwt = generate_jwt($payload);
-    $bearer_token = get_bearer_token();
-    if(empty($bearer_token)){
-        echo json_encode(array(
-            'error' => 'Access denied !',
-        ));
-    }else {
-        $is_jwt_valid = is_jwt_valid($bearer_token);
-        if($is_jwt_valid == true) {
-            $auth = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTmd1eWVuIER1YyIsInBob25lIjoiMDgyMzU2NTgzMSIsImVtYWlsIjoibmd1eWVuZHVjMTA2MDNAZ21haWwuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTY2OTgwNTQ4Nn0.PByr6NO_lYgDSnT-KkW0bLBgsNzfIySHO_IofdxiHsw';
-            if($bearer_token == $auth) {
-                if (isset($_GET['module'])) {
-                    $module = $_GET['module'];
-                    switch ($module){
-                        case 'categories':
-                            include_once 'api/module/'.$module.'.php';
-                            include_once 'api/component/'.$module.'.php';
-                            break;
-                        case 'courses':
-                            include_once 'api/module/'.$module.'.php';
-                            include_once 'api/component/'.$module.'.php';
-                            break;
-                    }
+    function route_method($module){
+        $method = $_SERVER['REQUEST_METHOD'];
+        switch ($method) {
+            case 'PUT':
+                echo (new $module())->update();
+                break;
+            case 'POST':
+                echo (new $module())->create();
+                break;
+            case 'GET':
+                if(isset($_GET['id'])){
+                    echo (new $module())->detail();
                 }
-            } else {
-                echo json_encode(array(
-                    'error' => 'Access denied !'
-                ));
-            }
-        } else {
-            echo json_encode(array(
-                'error' => 'Access denied !'
-            ));
+                elseif (isset($_GET['q'])){
+                    print_r((new $module())->search());
+                }
+                else {
+                    echo (new $module())->read();
+                }
+                break;
+            case 'DELETE':
+                echo (new $module())->delete();
+                break;
+            default:
+                echo json_encode(array('message' => 'error'));
+                break;
+        }
+    }
+    if (isset($_GET['module'])) {
+        $module = $_GET['module'];
+        $dir    = $dir_api.$module.'.php';
+        switch ($module){
+            case 'categories':
+                require_once $dir;
+                route_method($module);
+                break;
+            case 'courses':
+                require_once $dir;
+                route_method($module);
+                break;
         }
     }
 ?>

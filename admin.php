@@ -1,6 +1,7 @@
 <?php ob_start();
     include_once 'global.php';
     checkSessionAdmin();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +36,7 @@
         function return_page(){
             history.back();
         }
+        var admin = "http://localhost/courses/admin/";
     </script>
 </head>
 <body class="g-sidenav-show bg-gray-100">

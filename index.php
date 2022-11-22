@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?= title_site() ?></title>
+<!--    <title>--><?//= title_site() ?><!--</title>-->
     <meta name="description" content="App Course">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="<?= $host ?>assets/img/img_site/img/favicon.ico">
@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="<?= $host ?>assets/css/css_site/course_responsive.css">
     <link rel="stylesheet" type="text/css" href="<?= $host ?>assets/css/css_site/animate.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/setup.css">
+    <link rel="stylesheet" href="css/mains.css">
 
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/bootstrap.min.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/owl.carousel.min.css">
@@ -32,8 +33,7 @@
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/style.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/customRadio.css">
     <link rel="stylesheet" href="<?= $host ?>assets/toasts/toast.css"                               />
-    <link rel="stylesheet" href="css/mains.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js">     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js">            </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
     <script src="<?= $host ?>assets/admin/js/items/load_div.js">                            </script>
 </head>
@@ -94,7 +94,7 @@
     <script src="<?= $host ?>assets/toasts/toast.js"></script>
     <script src="<?= $host ?>assets/admin/js/plugins/validate.js"></script>
     <!-- Đánh giá khóa học   -->
-    <script> var host = "http://localhost/coursesWeb/du_an_1/";</script>
+    <script> var host = "http://localhost/courses/";</script>
     <script src="<?= $host ?>assets/js/course/comment.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

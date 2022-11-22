@@ -123,34 +123,35 @@
     var auth = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTmd1eWVuIER1YyIsInBob25lIjoiMDgyMzU2NTgzMSIsImVtYWlsIjoibmd1eWVuZHVjMTA2MDNAZ21haWwuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTY2OTgwNTQ4Nn0.PByr6NO_lYgDSnT-KkW0bLBgsNzfIySHO_IofdxiHsw';
     function filterData(search) {
         axios
-            .get("api/courses/search", {
+            .get("api/courses", {
                 headers: {
                     Authorization: 'Bearer ' + auth
                 },
                 params: {
-                    name: search.toLowerCase()
+                    q: search.toLowerCase()
                 }
             })
             .then((res) => {
                 var results = res.data
+                document.querySelector('#show_course').innerHTML = ""
                 if(results.error){
                     console.log(results.error)
                 }
                 else {
                     if(results.message){
-                        document.querySelector('#show_course').innerHTML = 'Không có dữ liệu !'
+                        document.querySelector('#show_course').innerHTML = ""
                     }
                     else {
-                        results.forEach((product) => {
-                            document.querySelector('#show_course').innerHTML = `
-                                <div class="product d-flex justify-content-start align-items-center m-2">
-                                    <img id="image_course" src="assets/uploads/courses/${product.image_course}" width="50px" height="50px" alt="Image Course" style="border-radius: 5px">
-                                    <div class="product-detail d-flex flex-column" style="margin-left: 10px">
-                                        <span id="name_course">${product.name_course.slice(0, 30)}</span>
-                                        <span id="price_course">$${product.price_course}</span>
+                        results.forEach((items) => {
+                            document.querySelector('#show_course').innerHTML += `
+                                 <div class="product d-flex justify-content-start align-items-center m-2">
+                                        <img id="image_course" src="assets/uploads/courses/${items.image_course}" width="50px" height="50px" alt="Image Course" style="border-radius: 5px">
+                                        <div class="product-detail d-flex flex-column" style="margin-left: 10px">
+                                            <span id="name_course">${items.name_course.slice(0, 30)}</span>
+                                            <span id="price_course">$${items.price_course}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            `
+                               `
                         })
                     }
                 }

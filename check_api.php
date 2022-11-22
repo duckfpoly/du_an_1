@@ -17,32 +17,30 @@
         var auth = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTmd1eWVuIER1YyIsInBob25lIjoiMDgyMzU2NTgzMSIsImVtYWlsIjoibmd1eWVuZHVjMTA2MDNAZ21haWwuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTY2OTgwNTQ4Nn0.PByr6NO_lYgDSnT-KkW0bLBgsNzfIySHO_IofdxiHsw';
         function filterData(search) {
             axios
-                .get("api/courses/search", {
+                .get("api/courses", {
                     headers: {
                         Authorization: 'Bearer ' + auth
                     },
                     params: {
-                        name: search.toLowerCase()
+                        q: search.toLowerCase()
                     }
                 })
                 .then((res) => {
                     var results = res.data
+                    document.querySelector('#show').innerHTML = ""
                     if(results.error){
                         console.log(results.error)
-                        return
                     }
                     else {
                         if(results.message){
-                            document.querySelector('#show').innerHTML = ''
+                            document.querySelector('#show').innerHTML = results.message
                         }
                         else {
-                            results.forEach((product) => {
-                                document.querySelector('#show').innerHTML = `
+                            results.forEach((items) => {
+                                document.querySelector('#show').innerHTML += `
                                     <div class="product">
-                                        <img src="assets/uploads/courses/${product.image_course}" width="50px" height="50px" alt="">
                                         <div class="product-detail">
-                                            <h4>${product.name_course.slice(0, 30)}</h4>
-                                            <p>$${product.price_course}</p>
+                                            <h4>${items.name_course}</h4>
                                         </div>
                                     </div>
                                `
@@ -55,3 +53,5 @@
                 });
         }
     </script>
+
+

@@ -28,13 +28,11 @@
                 // nếu k tồn tại id thì trả lại view read
                 check_empty($id,BILLS);
                 // nếu tồn tại thì nhận dữ liệu từ form
-                $status         = $_POST['status'];
+                $status               = $_POST['status'];
                 // gọi fn chi tiết để kiểm tra dữ liệu ( email, phone )
                 $bill_detail         = bill_detail($id);
-                $order_pay = $bill_detail['order_pay'];
-                $order_date = $bill_detail['order_date'];
                 // Sau khi pass qua validate => Thực hiện update lên database
-                bill_update($order_date,$order_pay,$status,$id);
+                bill_update($status,$id);
                 // update hoàn thành, điều hướng về trang danh sách
                 location(BILLS);
                 break;

@@ -13,8 +13,11 @@ function save() {
     var id_course   = document.getElementById('id_course').value
     var id_student  = document.getElementById('id_student').value
 
-    if(image == '' || name == '' || rate == '' || content == '' || id_course == '' || id_student == ''){
-        showSuccessToast('Cảnh báo', 'Vui lòng viết đánh giá và chọn sao!', 'warning')
+    if(rate == ''){
+        showSuccessToast('Cảnh báo', 'Vui lòng đánh giá sao!', 'warning')
+    }
+    else if(content == ''){
+        showSuccessToast('Cảnh báo', 'Vui lòng viết đánh giá của bạn!', 'warning')
     }
     else{
         var send_cmt    = 'send_cmt';
@@ -69,7 +72,7 @@ function show() {
                                 </div>
                                 <div class="comment_time" id="stt_cmt">Đang đăng</div>
                             </div>
-                        </div>
+                        </div> 
                         <div class="comment_text"><p>${list[i].content}</p></div>
                         <div class="comment_extras d-flex flex-row align-items-center justify-content-start">
                             <div class="comment_extra comment_likes"><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span>0</span></a></div>&emsp;

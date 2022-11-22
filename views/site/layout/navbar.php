@@ -32,8 +32,8 @@
                                             <?php if(isset($_SESSION['user'])){?>
                                                 <li><a href="#">account</a>
                                                     <ul class="submenu">
-                                                        <li><a href="blog.html">Thông tin</a></li>
-                                                        <li><a href="blog_details.html">Đổi mật khẩu</a></li>
+                                                        <li><a href="#">Thông tin</a></li>
+                                                        <li><a href="#">Đổi mật khẩu</a></li>
                                                         <li><a href="<?= LOGOUT?>">Đăng xuất</a></li>
                                                     </ul>
                                             </li>
