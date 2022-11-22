@@ -1,7 +1,6 @@
 <?php
     //  $host                   = 'http://localhost/courses/';
-    //   $host                   =  'http://localhost/coursesWeb/du_an_1/';
-    $host                   = 'http://localhost/hangdtph27628/';
+    $host                   =  'http://localhost/coursesWeb/du_an_1/';
     $admin                  =  $host.'admin/';
 
     use PHPMailer\PHPMailer\PHPMailer;
@@ -52,7 +51,6 @@
     define("SALES",         $admin.'sales');
     define("RATES",         $admin.'rates');
     define("CLASSES",       $admin.'classes');
-    define("LOGOUT",        $admin.'logout');
 
     // url site
     define("HOME",          $host);  
@@ -62,6 +60,7 @@
     define("PAYMENT",       $host.'payment');
     define("SIGUP",       $host.'account/sign_up');
     define("SIGIN",       $host.'account/sign_in');
+    define("LOGOUT",       $host.'account/log_out');
 
     function active_item($item){
         echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';

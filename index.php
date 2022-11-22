@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/customRadio.css">
     <link rel="stylesheet" href="<?= $host ?>assets/toasts/toast.css"                               />
     <link rel="stylesheet" href="css/mains.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js">            </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js">     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
     <script src="<?= $host ?>assets/admin/js/items/load_div.js">                            </script>
 </head>

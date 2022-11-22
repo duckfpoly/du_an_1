@@ -7,7 +7,7 @@
         if(is_array($check)){
             setSession('user',$check);
           
-            // location($host);
+            location($host);
         }else{
             $err = 'Tài khoản hoặc mật khẩu không đúng';
         }

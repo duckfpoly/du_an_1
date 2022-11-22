@@ -36,4 +36,4 @@
         INNER JOIN students ON order_detail.id_students = students.id";
         return query($sql);
     }
-?>:
+?>

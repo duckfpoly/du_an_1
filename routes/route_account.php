@@ -10,7 +10,10 @@
                 break; 
             case 'sign_in':
                 include $urlAcc;
-                break;      
+                break;  
+            case 'log_out':
+                include $urlAcc;
+                break;    
             default:
                 location($host."page_not_found");
                 break;

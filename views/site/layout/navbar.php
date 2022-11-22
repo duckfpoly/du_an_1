@@ -33,8 +33,8 @@
                                                 <li><a href="#">account</a>
                                                     <ul class="submenu">
                                                         <li><a href="blog.html">Thông tin</a></li>
-                                                        <li><a href="blog_details.html">Đổi mật khau</a></li>
-                                                        <li><a href="elements.html">Đăng xuất</a></li>
+                                                        <li><a href="blog_details.html">Đổi mật khẩu</a></li>
+                                                        <li><a href="<?= LOGOUT?>">Đăng xuất</a></li>
                                                     </ul>
                                             </li>
                                             <?php }else{?>
