@@ -7,7 +7,6 @@
                 include_once $direct_act;
                 break;
             case "store":
-
                 // lấy dữ liệu từ form
                 $name_class = $_POST['name_class'];
                 $id_course  = $_POST['id_category'];
@@ -15,7 +14,6 @@
                 $time_start = $_POST['time_start'];
                 $time = strtotime ( '+6 month' , strtotime ( $time_start ) ) ;
                 $time_end = date ( 'Y-m-d' , $time );
-
                 // kiểm tra rỗng
                 check_empty($name_class,CLASSES . "/create");
                 check_empty($id_course, CLASSES . "/create");
@@ -23,7 +21,6 @@
                 check_empty($time_start,CLASSES . "/create");
 
                 check_data(check_course_class($id_course));
-
                 // Gọi model để thêm dữ liệu vào database
                 class_create($name_class,$id_course,$time_learn,$time_start,$time_end);
                 // sau khi thêm hoàn thành sẽ điều hướng về trang read
@@ -34,7 +31,6 @@
                 check_empty($id, CLASSES);
                 $update_class   = class_detail($id);
                 $courses_read   = courses_read();
-                $studentClass   = read_students_class($id);
                 include_once $direct_act;
                 break;
             case "edit":
@@ -65,19 +61,31 @@
                 // delete hoàn thành, điều hướng về trang danh sách
                 location(CLASSES);
                 break;
+            case "showStudent":
+                // id lớp
+                $id = $_GET['id'];
+                check_empty($id,CLASSES);
+                $update_class   = class_detail($id);
+                $studentClass   = read_students_class($id);
+                include_once $direct_act;
+                break;
             case "addStudent":
                 $id = $_GET['id'];
                 check_empty($id,CLASSES);
-                if(count_slot($id) == 3){
-                    alert('Đã đủ sinh viên, Không thể thêm !',CLASSES);
-                }
                 $student_read  = read_student();
                 include_once $direct_act;
                 break;
             case "storeStudent":
-                $id_class = $_GET['id'];
+                $id_class   = $_GET['id'];
                 $id_student = $_POST['id_student'];
+                $date       = $_POST['date_sub'];
+                $time       = $_POST['time_sub'];
                 check_empty($id_student,CLASSES."/addStudent/".$id_class);
+                $count = count_slot_class($id_class,$date,$time);
+                check_data(check_std_class($id_class,$id_student));
+                if($count == slot_class($id_class)){
+                    show_error('Lớp đã đủ học viên !');
+                }
                 add_student_to_class($id_student,$id_class);
                 location(CLASSES);
                 break;
@@ -103,7 +111,6 @@
         }
         include_once $direct_read;
     }
-
 ?>
 
 

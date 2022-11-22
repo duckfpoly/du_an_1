@@ -4,10 +4,10 @@
         $email = $_POST['email'];
         $pass = $_POST['password'];
         $check = check_user($email,$pass);
-        var_dump($check);
         if(is_array($check)){
             setSession('user',$check);
-            location($host);
+          
+            // location($host);
         }else{
             $err = 'Tài khoản hoặc mật khẩu không đúng';
         }

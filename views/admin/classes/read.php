@@ -31,7 +31,7 @@
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Giảng viên</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Khóa học</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số học viên</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày học</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Khai giảng</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Thao tác</th>
                             </tr>
@@ -52,7 +52,7 @@
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold"><?= $values['name_course'] ?></span>
                                         </td>
-                                        <td><p class="text-xs font-weight-bold mb-0 text-center"><?= count_slot($values['id']) ?>/<?= $values['slot'] ?></p></td>
+                                        <td><p class="text-xs font-weight-bold mb-0 text-center"><?= $values['slot'] ?></p></td>
                                         <td><p class="text-xs font-weight-bold mb-0 text-center"><?= format_date($values['time_start']) ?></p></td>
                                         <td class="align-middle text-center text-sm">
                                             <?=
@@ -62,7 +62,8 @@
                                             ?>
                                         </td>
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
-                                            <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASSES ?>/addStudent/<?= $values['id'] ?>">Thêm SV</a></span>&emsp;
+                                            <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASSES ?>/addStudent/<?= $values['id'] ?>">Thêm HV</a></span>&emsp;
+                                            <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASSES ?>/showStudent/<?= $values['id'] ?>">DSHV</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0"  href="<?= CLASSES ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold">
                                                 <form action="<?= CLASSES ?>/destroy/<?= $values['id'] ?>" method="post">

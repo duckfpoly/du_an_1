@@ -1,14 +1,19 @@
 <?php 
-    if(isset($_POST['btn_submit'])){
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $name = $_POST['name'];
         $email = $_POST['email'];
-        $pass = $_POST['password'];
-        $check = checkUser($email,$pass);
+        $pass = $_POST['pass'];
+        $date = $_POST['date_time'];
+        $check = checkEmail($email);
 
         if(is_array($check)){
-            location($host."sign_in");
+            $err ='Tài khoản đã tồn tại';
         }else{
-            $err = 'Tài khoản hoặc mật khẩu không đúng';
-            return $err;
+            addUser($name,$email,$pass,$date);
+            location($host.'account/sign_in');
         }
     }
+    include "views/account/sign_up.php";
+
 ?>

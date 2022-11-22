@@ -22,6 +22,9 @@
                 case "contact":
                     include  $urlClt;
                     break;
+                case "payment":
+                    include  $urlClt;
+                    break;      
                 default:
                 location($host."page_not_found");
                 break;

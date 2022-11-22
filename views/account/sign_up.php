@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,20 +128,21 @@
             <div class="card-body">
               <form role="form" method="post" action="" id="form-1">
                 <div class="mb-3 form-group">
-                  <input type="text" class="form-control" id="name" placeholder="Họ Tên" >
-                    <div class="form-message text-danger mt-1"></div>
+                  <input type="text" class="form-control" name='name' id="name" placeholder="Họ Tên" >
+                    <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="mb-3 form-group">
-                  <input type="email" class="form-control" id="email" placeholder="Địa chỉ email">
-                    <div class="form-message text-danger mt-1"></div>
+                  <input type="email" class="form-control" id="email" name='email' placeholder="Địa chỉ email">
+                    <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="mb-3 form-group">
-                  <input type="password" class="form-control" id="password" placeholder="Mật khẩu">
-                    <div class="form-message text-danger mt-1"></div>
+                  <input type="password" class="form-control" id="password" name='pass' placeholder="Mật khẩu">
+                    <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="mb-3 form-group">
+                  <input type="text" hidden name='date_time' value='<?php echo date('d-m-y h:i:s')?>'>
                   <input type="password" class="form-control" id="confirm_password" placeholder="Nhập lại mật khẩu">
-                    <div class="form-message text-danger mt-1"></div>
+                    <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="form-check form-check-info text-start">
                   <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" required>
@@ -150,8 +150,14 @@
                     Tôi đồng ý với<a href="#" class="text-dark font-weight-bolder">&nbsp;Điều khoản và điều kiện</a>
                   </label>
                 </div>
+                <?php echo isset($err) && $err !='' ? '
+                  <small class="alert fst-italic mt-3 d-flex justify-content-center alert-danger text-white" role="alert">
+                    '.$err.'
+                  </small>
+
+                ' : ''?>
                 <div class="text-center">
-                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Đăng ký</button>
+                  <button type="submit" name ='btn_sigup' class="btn bg-gradient-dark w-100 my-4 mb-2">Đăng ký</button>
                 </div>
                 <p class="text-sm mt-3 mb-0">Bạn đã có tài khoản?<a href="<?= $host ?>sign_in" class="text-dark font-weight-bolder"> Đăng nhập</a></p>
               </form>

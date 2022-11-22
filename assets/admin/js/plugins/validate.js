@@ -105,7 +105,7 @@ function Validator(options) {
 
         // Lặp qua mỗi rule và xử lý (lắng nghe sự kiện blur, input, ...)
         options.rules.forEach(function (rule) {
-
+            console.log(rule.selector)
             // Lưu lại các rules cho mỗi input
             if (Array.isArray(selectorRules[rule.selector])) {
                 selectorRules[rule.selector].push(rule.test);
@@ -116,9 +116,11 @@ function Validator(options) {
             var inputElements = formElement.querySelectorAll(rule.selector);
 
             Array.from(inputElements).forEach(function (inputElement) {
+                
                 // Xử lý trường hợp blur khỏi input
                 inputElement.onblur = function () {
                     validate(inputElement, rule);
+                    console.log('dasd')
                 }
 
                 // Xử lý mỗi khi người dùng nhập vào input

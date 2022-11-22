@@ -734,7 +734,6 @@ ul {
 
 /* line 157, /Applications/MAMP/htdocs/old/palash/cl/shop_html/sass/_button.scss */
 .button-header:hover {
-    background: #b8024c;
     color: #fff;
 }
 
@@ -8429,7 +8428,7 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #B08EAD;
+    background: linear-gradient(to bottom, #c054ff 0%, #5274ff 100%);
 }
 
 /* line 8, /Applications/MAMP/htdocs/old/palash/cl/shop_html/sass/_breadcrumb.scss */

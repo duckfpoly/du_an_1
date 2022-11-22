@@ -1,12 +1,8 @@
 <?php
-//      $host                   = 'http://localhost/courses/';
-// //   $host                   =  'http://localhost/coursesWeb/du_an_1/';
-//      $admin                  =  $host.'admin/';
-
-        $host                   = 'http://localhost/hangdtph27628/';
-        $host                   =  'http://localhost/hangdtph27628/du_an_1/';
-        $admin                  =  $host.'admin/';
-
+    //  $host                   = 'http://localhost/courses/';
+    //   $host                   =  'http://localhost/coursesWeb/du_an_1/';
+    $host                   = 'http://localhost/hangdtph27628/';
+    $admin                  =  $host.'admin/';
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
@@ -41,6 +37,7 @@
     require_once $dir_model.'sales.php';
 
     require_once $dir_model_site.'categories.php';
+    // require_once $dir_model_site.'payment.php';
     require_once $dir_model_site.'courses.php';
     require_once $dir_model_site.'sign_in.php';
     require_once $dir_model_site.'sign_up.php';
@@ -62,6 +59,7 @@
     define("LESSONS",       $host.'lessons');
     define("ABOUT",         $host.'about');
     define("CONTACT",       $host.'contact');
+    define("PAYMENT",       $host.'payment');
     define("SIGUP",       $host.'account/sign_up');
     define("SIGIN",       $host.'account/sign_in');
 
@@ -75,6 +73,32 @@
 
     function alert($text,$url){
         echo '<script>alert("'.$text.'"); window.location="'.$url.'";</script>';
+    }
+
+    function show_error($message){
+        die('<section class="container-fluid py-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-4">
+                        <div class="card-header pb-0">
+                            <div class="text-center">
+                                <h3>Lỗi xử lý dữ liệu !</h3>
+                            </div>
+                        </div>
+                        <div class="card-body px-0 pt-0 pb-2">
+                            <div class="p-3">
+                                <div class="form-group text-danger text-center">
+                                    <p>'.$message.'</p>
+                                </div>
+                                <div class="mt-5 text-center">
+                                    <button type="button" onclick="return_page()" class="btn btn-outline-secondary">Quay lại</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>');
     }
 
     function save_file($fieldname, $name_dir){
@@ -110,7 +134,7 @@
         }
     }
 
-    function compare_data($data_post,$data_compare,$fn_check,$url){
+    function compare_data($data_post,$data_compare,$fn_check){
         if($data_post != $data_compare) {
             if (isset($fn_check)) {
                 die('<section class="container-fluid py-4">
@@ -304,5 +328,10 @@
         } 
         include 'view/site/account/sign_up.php';
     }
+
+    function cal_percent($obj,$sum){
+        return round(($obj / $sum) * 100);
+    }
+
 
 ?>

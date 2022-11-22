@@ -20,6 +20,36 @@
                                 </select>
                                 <div class="form-message text-danger mt-1"></div>
                             </div>
+                            <div class="form-group">
+                                <label for="date_sub" class="form-label">
+                                    Ngày học
+                                </label>
+                                <div class="d-flex">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="date_sub" id="statusCourse1" value="0" required>
+                                        <label class="form-check-label" for="statusCourse1">
+                                            2 - 4 - 6
+                                        </label>
+                                    </div>
+                                    &emsp;&emsp;
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="date_sub" id="statusCourse2" value="1" required >
+                                        <label class="form-check-label" for="statusCourse2">
+                                            3 - 5 - 7
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="time_sub" class="form-label">Ca học</label>
+                                <select name="time_sub" id="time_sub" class="form-control">
+                                    <option value="" disabled selected>Chọn ca học</option>
+                                    <?php for ($i = 1; $i <= 6; $i++){?>
+                                        <option value="<?= $i ?>">Ca <?= $i?></option>
+                                    <?php } ?>
+                                </select>
+                                <div class="form-message text-danger mt-1"></div>
+                            </div>
                             <div class="mt-5">
                                 <a href="<?= CLASSES ?>" class="btn btn-secondary">Quay lại</a>
                                 <button class="btn btn-success" type="submit">Thêm</button>
@@ -39,6 +69,7 @@
             errorSelector: ".form-message",
             rules: [
                 Validator.isRequired("#id_student", "Vui lòng chọn học viên"),
+                Validator.isRequired("#time_sub", "Vui lòng chọn ca học"),
             ],
         });
     });

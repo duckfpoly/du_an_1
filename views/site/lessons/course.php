@@ -59,10 +59,60 @@
                         <div class="tab_panels">
                             <!-- Lớp -->
                             <div class="tab_panel active">
-                                <div class="tab_panel_title">Software Training</div>
+                                <div class="tab_panel_title">Danh sách</div>
                                 <div class="tab_panel_content">
                                     <div class="tab_panel_text">
                                         <p><?php echo $detail['description_course']?></p>
+                                    </div>
+                                    
+                                    <div class="d-flex flex-column justify-content-center align-items-start mt-5">
+                                        <form action="<?= PAYMENT?>" id='form_choise_course' method="POST">
+                                            <input type="text" hidden value='<?= $id?>' name ='id_course'>
+                                            <div class='mb-4 d-flex  flex-wrap'>
+                                                <div class="form-check">
+                                                    <div class='d-flex align-item-center '>
+                                                        <input class="form-check-input" id='check_day1' hidden  type="radio" value='1' name="check_day" checked>
+                                                        <label class="form-check-label label_custom" for="check_day1">
+                                                            Thứ 2 - 4 - 6 
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-message text-danger mt-1"></div>
+                                                </div>  
+                                                <div class="form-check">
+                                                    <div class='d-flex align-item-center '>
+                                                        <input class="form-check-input" id='check_day2' hidden  type="radio" value='1' name="check_day" >
+                                                        <label class="form-check-label label_custom" for="check_day2">
+                                                            Thứ 3 - 5 - 7 
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-message text-danger mt-1"></div>
+                                                </div>  
+                                            </div>
+                                            <div class='mb-4 d-flex  flex-wrap'>
+                                                <div class="form-check">
+                                                    <div class='d-flex align-item-center'>
+                                                        <input class="form-check-input" value='1' id='check_time1' hidden type="radio" name="check_time" checked>
+                                                        <label class="form-check-label label_custom" for="check_time1">
+                                                            Ca 1 (7-9h)
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-message text-danger mt-1"></div>
+                                                </div>
+                                                <div class="form-check">
+                                                    <div class='d-flex align-item-center'>
+                                                        <input class="form-check-input" value='2' id='check_time2' hidden type="radio" name="check_time"  >
+                                                        <label class="form-check-label label_custom" for="check_time2">
+                                                            Ca 2 (9h15-11h15)
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-message text-danger mt-1"></div>
+                                                </div>  
+                                            </div>
+                                            <a href="">
+                                                <input class="btn" name='btn_submit_course' type="submit" value='Đăng ký ngay'/>
+
+                                            </a>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -119,6 +169,7 @@
                                 <!-- Rating -->
                                 <div class="review_rating_container flex justify-content-center algin-items-center flex-wrap">
                                     <div class="review_rating " >
+                                        <div class="review_rating_num"><?= round($avg_rate) ?> </div>
                                         <div class="review_rating_stars">
                                             <div class="rating_r rating_r_4">
                                                 <div class="Stars" style="--rating: <?= $avg_rate ?>;"></div>
@@ -128,26 +179,25 @@
                                     </div>
                                     <div class="review_rating_bars">
                                         <ul>
-                                            <?php foreach ($percent_rate as $key => $values){ $rate_per = (int)$values['rate_percent']?>
+                                            <?php for ($i = 1 ; $i <= 5; $i++){  ?>
                                                 <li>
-                                                    <span><?= $values['rate'] ?> <i class="fa fa-star" style="color: orange;"></i></span>
+                                                    <span><?= $i ?> <i class="fa fa-star" style="color: orange;"></i></span>
                                                     <div class="review_rating_bar" style="border-radius: 20px; margin-left: 5px;margin-right: 5px;">
-                                                        <div style="border-radius: 20px; width:<?= $rate_per ?>%;"></div>
+                                                        <div style="border-radius: 20px; width:<?= empty(get_count_rate($id,$i)['count_rate']) ? cal_percent(0,$count_rate) : cal_percent(get_count_rate($id,$i)['count_rate'],$count_rate) ?>%;"></div>
                                                     </div>
-                                                    <span><?= $rate_per ?>%</span>
+                                                    <span><?= empty(get_count_rate($id,$i)['count_rate']) ? cal_percent(0,$count_rate) : cal_percent(get_count_rate($id,$i)['count_rate'],$count_rate) ?>%</span>
                                                 </li>
                                             <?php } ?>
                                         </ul>
                                     </div>
                                 </div>
-
                                 <!-- Comments -->
                                 <div class="comments_container">
                                     <ul class="comments_list" id="rate_list"></ul>
                                     <ul class="comments_list pb-5">
                                         <?php if(!empty($rate_course)){ ?>
                                         <?php foreach ($rate_course as $key => $values): ?>
-                                            <li>
+                                            <li class="cmt-item">
                                                 <div class="comment_item d-flex flex-row align-items-start jutify-content-start">
                                                     <div class="comment_image">
                                                         <img src="<?= $host ?>assets/uploads/students/<?= $values['image_student'] ?>" alt="Image User">
@@ -174,6 +224,10 @@
                                              <div class="add_comment_text" id="no_review"><h3>Chưa có đánh giá về khóa học !</h3></div>
                                         <?php } ?>
                                     </ul>
+                                    <div class="text-center ">
+                                        <a href="#" class="text-dark" id="loadMore">Xem thêm</a>
+                                        <a href="#" class="d-none text-dark" id="loadLess">Ẩn bớt</a>
+                                    </div>
                                     <div class="add_comment_container pt-5">
                                         <div class="add_comment_title">Đánh giá của bạn về khóa học</div>
                                         <form action="<?= LESSONS.'/'.$id ?>" method="post" onsubmit="return false">
@@ -248,11 +302,7 @@
                                 </div>
 
                             </div>
-                            <div class="d-flex justify-content-center align-items-center mt-5">
-                                <form action="#" method="post" onsubmit="return false">
-                                    <button class="btn" type="submit">Đăng ký ngay</button>
-                                </form>
-                            </div>
+                           
                         </div>
                     </div>
 
@@ -294,9 +344,11 @@
         </div>
     </div>
 </div>
-
-<!-- Newsletter -->
-
+<script>
+    var lenght = 2;
+    load_more_2(".cmt-item", "#loadMore", "#loadLess", lenght);
+    load_less_scroll(".cmt-item", "#loadLess", "#loadMore", lenght, 900);
+</script>
 <style>
     .comment_image img {
         width: 70px;
@@ -363,3 +415,18 @@
     }
 
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        Validator({
+            form: "#form_choise_course",
+            formGroupSelector: ".form-check",
+            errorSelector: ".form-message",
+            rules: [
+                Validator.isRequired("input[name='check_day']", "Vui lòng chọn buổi học"),
+                Validator.isRequired("input[name='check_time']", "Vui lòng chọn thời gian học"),
+            ],
+        });
+    });
+    
+</script>
