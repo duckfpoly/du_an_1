@@ -1,7 +1,12 @@
 <?php
-     $host                   = 'http://localhost/courses/';
-//   $host                   =  'http://localhost/coursesWeb/du_an_1/';
-    $admin                  =  $host.'admin/';
+//      $host                   = 'http://localhost/courses/';
+// //   $host                   =  'http://localhost/coursesWeb/du_an_1/';
+//      $admin                  =  $host.'admin/';
+
+        $host                   = 'http://localhost/hangdtph27628/';
+        $host                   =  'http://localhost/hangdtph27628/du_an_1/';
+        $admin                  =  $host.'admin/';
+
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
