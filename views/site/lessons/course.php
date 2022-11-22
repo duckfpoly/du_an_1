@@ -229,27 +229,30 @@
                                     </div>
                                     <div class="add_comment_container pt-5">
                                         <div class="add_comment_title">Đánh giá của bạn về khóa học</div>
-                                        <form action="<?= LESSONS.'/'.$id ?>" method="post" onsubmit="return false">
-                                            <input type="hidden" name="image_student"   id="image_student"      value="course_4.jpg">
-                                            <input type="hidden" name="name_student"    id="name_student"       value="Test">
-                                            <input type="hidden" name="id_course"       id="id_course"          value="<?= $_GET['id'] ?>">
-                                            <input type="hidden" name="id_student"      id="id_student"         value="1">
-                                            <div class="rate">
-                                                <input type="radio" id="star5" name="rate" value="5">
-                                                <label for="star5">5 stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4">
-                                                <label for="star4">4 stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3">
-                                                <label for="star3">3 stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2">
-                                                <label for="star2">2 stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1">
-                                                <label for="star1">1 star</label>
-                                            </div>
-                                            <textarea name="content_rate" cols="30" rows="5" id="content_rate" class="form-control mt-2 fs-3" placeholder="Viết đánh giá ..."></textarea>
-                                            <button class="btn btn-secondary mt-3" onclick="save()">Gửi</button>
-                                        </form>
-                                        <div class="add_comment_text">You must be <a href="#">logged</a> in to post a comment.</div>
+                                        <?php if(isset($_SESSION['user'])){?>
+                                            <form action="<?= LESSONS.'/'.$id ?>" method="post" onsubmit="return false">
+                                                <input type="hidden" name="image_student"   id="image_student"      value="course_4.jpg">
+                                                <input type="hidden" name="name_student"    id="name_student"       value="Test">
+                                                <input type="hidden" name="id_course"       id="id_course"          value="<?= $_GET['id'] ?>">
+                                                <input type="hidden" name="id_student"      id="id_student"         value="1">
+                                                <div class="rate">
+                                                    <input type="radio" id="star5" name="rate" value="5">
+                                                    <label for="star5">5 stars</label>
+                                                    <input type="radio" id="star4" name="rate" value="4">
+                                                    <label for="star4">4 stars</label>
+                                                    <input type="radio" id="star3" name="rate" value="3">
+                                                    <label for="star3">3 stars</label>
+                                                    <input type="radio" id="star2" name="rate" value="2">
+                                                    <label for="star2">2 stars</label>
+                                                    <input type="radio" id="star1" name="rate" value="1">
+                                                    <label for="star1">1 star</label>
+                                                </div>
+                                                <textarea name="content_rate" cols="30" rows="5" id="content_rate" class="form-control mt-2 fs-3" placeholder="Viết đánh giá ..."></textarea>
+                                                <button class="btn btn-secondary mt-3" onclick="save()">Gửi</button>
+                                            </form>
+                                        <?php }else{?>
+                                            <div class="add_comment_text">You must be <a href="#">logged</a> in to post a comment.</div>
+                                        <?php }?>
                                     </div>
                                 </div>
                             </div>
