@@ -1,0 +1,13 @@
+.label_custom{
+    color:rgb(122, 122, 243);
+    padding: 10px 15px;
+    border-radius: 5px;
+    min-width: 150px;
+    text-align: center;
+    border: 1px solid #14bdee;
+}
+
+input[type="radio"]:checked + label{
+    background-color: #14bdee;
+    color:white;
+}

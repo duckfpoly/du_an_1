@@ -1,6 +1,6 @@
 <?php
-     $host                   = 'http://localhost/courses/';
-//   $host                   =  'http://localhost/coursesWeb/du_an_1/';
+    //  $host                   = 'http://localhost/courses/';
+  $host                   =  'http://localhost/coursesWeb/du_an_1/';
     $admin                  =  $host.'admin/';
 
     use PHPMailer\PHPMailer\PHPMailer;
@@ -36,6 +36,7 @@
     require_once $dir_model.'sales.php';
 
     require_once $dir_model_site.'categories.php';
+    // require_once $dir_model_site.'payment.php';
     require_once $dir_model_site.'courses.php';
     require_once $dir_model_site.'sign_in.php';
     require_once $dir_model_site.'sign_up.php';
@@ -57,6 +58,7 @@
     define("LESSONS",       $host.'lessons');
     define("ABOUT",         $host.'about');
     define("CONTACT",       $host.'contact');
+    define("PAYMENT",       $host.'payment');
     define("SIGUP",       $host.'account/sign_up');
     define("SIGIN",       $host.'account/sign_in');
 

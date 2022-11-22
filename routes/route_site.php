@@ -16,18 +16,18 @@
                 case "contact":
                     include  $urlClt;
                     break;         
+                case "about":
+                    include  $urlClt;
+                    break;
+                case "contact":
+                    include  $urlClt;
+                    break;
+                case "payment":
+                    include  $urlClt;
+                    break;      
                 default:
                 location($host."page_not_found");
                 break;
-            case "about":
-                include  $urlClt;
-                break;
-            case "contact":
-                include  $urlClt;
-                break;
-            default:
-            location($host."page_not_found");
-            break;
         }
     }else{
         include_once 'controllers/site/homeController.php';

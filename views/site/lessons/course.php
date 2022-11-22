@@ -59,10 +59,60 @@
                         <div class="tab_panels">
                             <!-- Lớp -->
                             <div class="tab_panel active">
-                                <div class="tab_panel_title">Software Training</div>
+                                <div class="tab_panel_title">Danh sách</div>
                                 <div class="tab_panel_content">
                                     <div class="tab_panel_text">
                                         <p><?php echo $detail['description_course']?></p>
+                                    </div>
+                                    
+                                    <div class="d-flex flex-column justify-content-center align-items-start mt-5">
+                                        <form action="<?= PAYMENT?>" id='form_choise_course' method="POST">
+                                            <input type="text" hidden value='<?= $id?>' name ='id_course'>
+                                            <div class='mb-4 d-flex  flex-wrap'>
+                                                <div class="form-check">
+                                                    <div class='d-flex align-item-center '>
+                                                        <input class="form-check-input" id='check_day1' hidden  type="radio" value='1' name="check_day" checked>
+                                                        <label class="form-check-label label_custom" for="check_day1">
+                                                            Thứ 2 - 4 - 6 
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-message text-danger mt-1"></div>
+                                                </div>  
+                                                <div class="form-check">
+                                                    <div class='d-flex align-item-center '>
+                                                        <input class="form-check-input" id='check_day2' hidden  type="radio" value='1' name="check_day" >
+                                                        <label class="form-check-label label_custom" for="check_day2">
+                                                            Thứ 3 - 5 - 7 
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-message text-danger mt-1"></div>
+                                                </div>  
+                                            </div>
+                                            <div class='mb-4 d-flex  flex-wrap'>
+                                                <div class="form-check">
+                                                    <div class='d-flex align-item-center'>
+                                                        <input class="form-check-input" value='1' id='check_time1' hidden type="radio" name="check_time" checked>
+                                                        <label class="form-check-label label_custom" for="check_time1">
+                                                            Ca 1 (7-9h)
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-message text-danger mt-1"></div>
+                                                </div>
+                                                <div class="form-check">
+                                                    <div class='d-flex align-item-center'>
+                                                        <input class="form-check-input" value='2' id='check_time2' hidden type="radio" name="check_time"  >
+                                                        <label class="form-check-label label_custom" for="check_time2">
+                                                            Ca 2 (9h15-11h15)
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-message text-danger mt-1"></div>
+                                                </div>  
+                                            </div>
+                                            <a href="">
+                                                <input class="btn" name='btn_submit_course' type="submit" value='Đăng ký ngay'/>
+
+                                            </a>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -248,11 +298,7 @@
                                 </div>
 
                             </div>
-                            <div class="d-flex justify-content-center align-items-center mt-5">
-                                <form action="#" method="post" onsubmit="return false">
-                                    <button class="btn" type="submit">Đăng ký ngay</button>
-                                </form>
-                            </div>
+                           
                         </div>
                     </div>
 
@@ -363,3 +409,18 @@
     }
 
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        Validator({
+            form: "#form_choise_course",
+            formGroupSelector: ".form-check",
+            errorSelector: ".form-message",
+            rules: [
+                Validator.isRequired("input[name='check_day']", "Vui lòng chọn buổi học"),
+                Validator.isRequired("input[name='check_time']", "Vui lòng chọn thời gian học"),
+            ],
+        });
+    });
+    
+</script>
