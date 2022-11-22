@@ -10,11 +10,6 @@
   <link href="<?= $host ?>assets/admin/css/nucleo-icons.css" rel="stylesheet" />
   <link href="<?= $host ?>assets/admin/css/nucleo-svg.css" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-<<<<<<< HEAD
-  <link href="<?= $host ?>assets/admin/css/nucleo-svg.css" rel="stylesheet" />
-=======
-  <link href="<?= $host ?>assets/css/nucleo-svg.css" rel="stylesheet" />
->>>>>>> 74c2ba16defc0bb4dbc0aca29ff05a57b4a2fb93
   <link id="pagestyle" href="<?= $host ?>assets/admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
   <style>
     .form-group.invalid .form-control {

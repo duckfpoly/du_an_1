@@ -23,8 +23,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous">            </script>
-    <script src="<?= $host ?>assets/admin/js/items/content_load.js">                            </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js">            </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
+    <script src="<?= $host ?>assets/admin/js/items/load_div.js">                            </script>
     <style>
         .btn {
             margin-bottom: 0 !important;

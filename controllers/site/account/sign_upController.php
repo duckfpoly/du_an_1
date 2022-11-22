@@ -11,4 +11,5 @@
             return $err;
         }
     }
+    include "views/account/sign_up.php";
 ?>

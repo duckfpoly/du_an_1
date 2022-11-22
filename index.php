@@ -1,4 +1,4 @@
-<?php include 'global.php'?>
+<?php include 'global.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +31,9 @@
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/nice-select.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/style.css">
     <link rel="stylesheet" href="<?= $host ?>assets/toasts/toast.css"                               />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js">            </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
+    <script src="<?= $host ?>assets/admin/js/items/load_div.js">                            </script>
 </head>
 <body>
     <div id="toastt"></div>

@@ -119,6 +119,7 @@
                                 <!-- Rating -->
                                 <div class="review_rating_container flex justify-content-center algin-items-center flex-wrap">
                                     <div class="review_rating " >
+                                        <div class="review_rating_num"><?= round($avg_rate) ?> </div>
                                         <div class="review_rating_stars">
                                             <div class="rating_r rating_r_4">
                                                 <div class="Stars" style="--rating: <?= $avg_rate ?>;"></div>
@@ -128,26 +129,25 @@
                                     </div>
                                     <div class="review_rating_bars">
                                         <ul>
-                                            <?php foreach ($percent_rate as $key => $values){ $rate_per = (int)$values['rate_percent']?>
+                                            <?php for ($i = 1 ; $i <= 5; $i++){  ?>
                                                 <li>
-                                                    <span><?= $values['rate'] ?> <i class="fa fa-star" style="color: orange;"></i></span>
+                                                    <span><?= $i ?> <i class="fa fa-star" style="color: orange;"></i></span>
                                                     <div class="review_rating_bar" style="border-radius: 20px; margin-left: 5px;margin-right: 5px;">
-                                                        <div style="border-radius: 20px; width:<?= $rate_per ?>%;"></div>
+                                                        <div style="border-radius: 20px; width:<?= empty(get_count_rate($id,$i)['count_rate']) ? cal_percent(0,$count_rate) : cal_percent(get_count_rate($id,$i)['count_rate'],$count_rate) ?>%;"></div>
                                                     </div>
-                                                    <span><?= $rate_per ?>%</span>
+                                                    <span><?= empty(get_count_rate($id,$i)['count_rate']) ? cal_percent(0,$count_rate) : cal_percent(get_count_rate($id,$i)['count_rate'],$count_rate) ?>%</span>
                                                 </li>
                                             <?php } ?>
                                         </ul>
                                     </div>
                                 </div>
-
                                 <!-- Comments -->
                                 <div class="comments_container">
                                     <ul class="comments_list" id="rate_list"></ul>
                                     <ul class="comments_list pb-5">
                                         <?php if(!empty($rate_course)){ ?>
                                         <?php foreach ($rate_course as $key => $values): ?>
-                                            <li>
+                                            <li class="cmt-item">
                                                 <div class="comment_item d-flex flex-row align-items-start jutify-content-start">
                                                     <div class="comment_image">
                                                         <img src="<?= $host ?>assets/uploads/students/<?= $values['image_student'] ?>" alt="Image User">
@@ -174,6 +174,10 @@
                                              <div class="add_comment_text" id="no_review"><h3>Chưa có đánh giá về khóa học !</h3></div>
                                         <?php } ?>
                                     </ul>
+                                    <div class="text-center ">
+                                        <a href="#" class="text-dark" id="loadMore">Xem thêm</a>
+                                        <a href="#" class="d-none text-dark" id="loadLess">Ẩn bớt</a>
+                                    </div>
                                     <div class="add_comment_container pt-5">
                                         <div class="add_comment_title">Đánh giá của bạn về khóa học</div>
                                         <form action="<?= LESSONS.'/'.$id ?>" method="post" onsubmit="return false">
@@ -294,9 +298,11 @@
         </div>
     </div>
 </div>
-
-<!-- Newsletter -->
-
+<script>
+    var lenght = 2;
+    load_more_2(".cmt-item", "#loadMore", "#loadLess", lenght);
+    load_less_scroll(".cmt-item", "#loadLess", "#loadMore", lenght, 900);
+</script>
 <style>
     .comment_image img {
         width: 70px;

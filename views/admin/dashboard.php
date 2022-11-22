@@ -254,6 +254,7 @@
     var lenght = 4;
     load_more(".cate_item", "#loadMore", "#loadLess", lenght);
     load_less(".cate_item", "#loadLess", "#loadMore", lenght);
+
     load_more(".course-item-sale", "#loadMoreCourse", "#loadLessCourse", lenght);
     load_less(".course-item-sale", "#loadLessCourse", "#loadMoreCourse", lenght);
 </script>

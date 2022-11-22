@@ -71,13 +71,13 @@
         return query_value($sql,$id);
     }
 
-    function get_percent_rate($id){
-        $sql = "SELECT rate,(COUNT(rate) * 100 / (SELECT COUNT(rate) FROM rate_courses)) AS rate_percent
+    function get_count_rate($id,$rate){
+        $sql = "SELECT COUNT(rate) AS count_rate
                 FROM rate_courses
-                WHERE rate_courses.id_course  = ?
+                WHERE id_course  = ? AND rate = ?
                 GROUP BY rate
                 ";
-        return query($sql,$id);
+        return query_one($sql,$id,$rate);
     }
 
 ?>

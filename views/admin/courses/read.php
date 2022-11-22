@@ -6,41 +6,41 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h6>Danh sách khóa học</h6>
                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                    Lọc giảng viên
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
-                                    <?php foreach($teacher_read as $key => $values): ?>
-                                        <li><a class="dropdown-item" href="<?=$sort."?teachers=".$values['id']?>"><?= $values['name_teacher'] ?></a></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
-                            &emsp;|&emsp;
-                            <div class="btn-group">
-                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                    Lọc danh mục
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
-                                    <?php foreach($category_read as $key => $values): ?>
-                                        <li><a class="dropdown-item" href="<?=$sort."?cate=".$values['id']?>"><?= $values['name_category'] ?></a></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
-                            &emsp;|&emsp;
-                            <div class="btn-group">
-                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                    Lọc
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
-                                    <li><a class="dropdown-item" href="<?=$sort?>?sort=name_asc">Tên từ A - Z</a></li>
-                                    <li><a class="dropdown-item" href="<?=$sort?>?sort=name_desc">Tên từ Z - A</a></li>
-                                    <li><a class="dropdown-item" href="<?=$sort?>?sort=price_asc">Giá từ cao -> thấp</a></li>
-                                    <li><a class="dropdown-item" href="<?=$sort?>?sort=price_asc">Giá từ thấp -> cao</a></li>
-                                </ul>
-                            </div>
-                            &emsp;|&emsp;
-                            <form action="<?= COURSES ?>" class="d-flex justify-content-center align-items-center w-30">
+<!--                            <div class="btn-group">-->
+<!--                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">-->
+<!--                                    Lọc giảng viên-->
+<!--                                </button>-->
+<!--                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">-->
+<!--                                    --><?php //foreach($teacher_read as $key => $values): ?>
+<!--                                        <li><a class="dropdown-item" href="--><?//=$sort."?teachers=".$values['id']?><!--">--><?//= $values['name_teacher'] ?><!--</a></li>-->
+<!--                                    --><?php //endforeach; ?>
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                            &emsp;|&emsp;-->
+<!--                            <div class="btn-group">-->
+<!--                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">-->
+<!--                                    Lọc danh mục-->
+<!--                                </button>-->
+<!--                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">-->
+<!--                                    --><?php //foreach($category_read as $key => $values): ?>
+<!--                                        <li><a class="dropdown-item" href="--><?//=$sort."?cate=".$values['id']?><!--">--><?//= $values['name_category'] ?><!--</a></li>-->
+<!--                                    --><?php //endforeach; ?>
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                            &emsp;|&emsp;-->
+<!--                            <div class="btn-group">-->
+<!--                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">-->
+<!--                                    Lọc-->
+<!--                                </button>-->
+<!--                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">-->
+<!--                                    <li><a class="dropdown-item" href="--><?//=$sort?><!--?sort=name_asc">Tên từ A - Z</a></li>-->
+<!--                                    <li><a class="dropdown-item" href="--><?//=$sort?><!--?sort=name_desc">Tên từ Z - A</a></li>-->
+<!--                                    <li><a class="dropdown-item" href="--><?//=$sort?><!--?sort=price_asc">Giá từ cao -> thấp</a></li>-->
+<!--                                    <li><a class="dropdown-item" href="--><?//=$sort?><!--?sort=price_asc">Giá từ thấp -> cao</a></li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                            &emsp;|&emsp;-->
+                            <form action="<?= COURSES ?>" class="d-flex justify-content-center align-items-center">
                                 <input type="search" name="course" class="form-control" placeholder="Tìm khóa học" value="<?= isset($_GET['course']) ? $_GET['course'] : "" ?>">
                                 <?php
                                     if(isset($_GET['course'])){
