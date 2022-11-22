@@ -1,3 +1,7 @@
+<?php if(!isset($_SESSION['user'])){
+    location($host.'account/sign_in');
+}
+?>
 <section class="breadcrumb_part">
     <div class="container">
         <div class="row">
