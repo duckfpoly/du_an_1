@@ -29,8 +29,18 @@
                                             </li>
                                             <li><a href="<?= CONTACT?>">Contact</a></li>
                                             <!-- Button -->
-                                            <li class="button-header margin-left "><a href="<?= SIGIN?>" class="btn">Join</a></li>
-                                            <li class="button-header"><a href="<?= SIGIN?>" class="btn btn3">Log in</a></li>
+                                            <?php if(isset($_SESSION['user'])){?>
+                                                <li><a href="#">account</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="blog.html">Thông tin</a></li>
+                                                        <li><a href="blog_details.html">Đổi mật khau</a></li>
+                                                        <li><a href="elements.html">Đăng xuất</a></li>
+                                                    </ul>
+                                            </li>
+                                            <?php }else{?>
+                                                <li class="button-header margin-left "><a href="<?= SIGIN?>" class="btn">Join</a></li>
+                                                <li class="button-header"><a href="<?= SIGIN?>" class="btn btn3">Log in</a></li>
+                                            <?php }?>
                                         </ul>
                                     </nav>
                                 </div>
