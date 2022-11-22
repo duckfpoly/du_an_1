@@ -228,8 +228,8 @@
                                         <a href="#" class="d-none text-dark" id="loadLess">Ẩn bớt</a>
                                     </div>
                                     <div class="add_comment_container pt-5">
+                                     
                                         <div class="add_comment_title">Đánh giá của bạn về khóa học</div>
-                                        <?php if(isset($_SESSION['user'])){?>
                                             <form action="<?= LESSONS.'/'.$id ?>" method="post" onsubmit="return false">
                                                 <input type="hidden" name="image_student"   id="image_student"      value="course_4.jpg">
                                                 <input type="hidden" name="name_student"    id="name_student"       value="Test">
@@ -250,9 +250,6 @@
                                                 <textarea name="content_rate" cols="30" rows="5" id="content_rate" class="form-control mt-2 fs-3" placeholder="Viết đánh giá ..."></textarea>
                                                 <button class="btn btn-secondary mt-3" onclick="save()">Gửi</button>
                                             </form>
-                                        <?php }else{?>
-                                            <div class="add_comment_text">You must be <a href="#">logged</a> in to post a comment.</div>
-                                        <?php }?>
                                     </div>
                                 </div>
                             </div>
