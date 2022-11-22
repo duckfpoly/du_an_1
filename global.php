@@ -38,6 +38,7 @@
 
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
+    require_once $dir_model_site.'payment.php';
     require_once $dir_model_site.'sign_in.php';
     require_once $dir_model_site.'sign_up.php';
 
@@ -220,15 +221,25 @@
         return chop($final,"@");
     }
 
+    function total_no_fomat($price,$discount){
+        if(empty($discount)){
+            return $price;
+        }
+        else {
+            $money = ($price * $discount) /100;
+            return $price - $money;
+        }
+    }
+
     function total($price,$discount){
         if(empty($discount)){
             $total = $price;
-            return number_format($total, 0, '', ',')." $";
+            return number_format($total, 0, '', ',')." VNĐ";
         }
         else {
             $money = ($price * $discount) /100;
             $total = $price - $money;
-            return number_format($total, 0, '', ',')." $" ;
+            return number_format($total, 0, '', ',')." VNĐ" ;
         }
     }
 

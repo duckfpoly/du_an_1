@@ -1,19 +1,14 @@
 <?php
-//    if(isset($_POST['btn_submit_course'])){
-        $id = $_POST['id_course'];
-        $course = get_course($id);
-        $day = $_POST['check_day'];
-        $time = $_POST['check_time'];
-        if(isset($_POST['process_pay'])){
-            $id_course = $_POST['id_course'];
-            $date = $_POST['date_time'];
-            $phone = $_POST['phone'];
-            $name = $_POST['name'];
-            $email = $_POST['phone'];
-            $pay_option = $_POST['pay_option'];
-            add_order($date,$pay_option);
-            header("location: /lession");
-        }
-//    }
-    include 'views/site/payment/payment.php';
+    if(empty($_POST['id_course'])){
+        location($host);
+    }else {
+        $id         = $_POST['id_course'];
+        $id_class   = $_POST['class'];
+        $course     = get_course($id);
+        $class      = get_classes($id_class);
+        $day        = $_POST['check_day'];
+        $time       = $_POST['check_time'];
+        $order_code = time();
+        include 'views/site/payment/payment.php';
+    }
 ?>

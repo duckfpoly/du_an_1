@@ -107,7 +107,7 @@
                 </a>
               </div> -->
               <div class="col-3 me-auto px-1">
-                <a class="btn btn-outline-light w-100" href="javascript:;">
+                <a class="btn btn-outline-light w-100" href="<?= $client->createAuthUrl() ?>">
                   <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                       <g transform="translate(3.000000, 2.000000)" fill-rule="nonzero">
@@ -143,7 +143,6 @@
                   <small class="alert fst-italic mt-3 d-flex justify-content-center alert-danger text-white" role="alert">
                     '.$err.'
                   </small>
-
                 ' : ''?>
                 <div class="text-center">
                   <button type="submit" name='btn_submit' class="btn bg-gradient-dark w-100 my-3 mb-2">Đăng nhập</button>

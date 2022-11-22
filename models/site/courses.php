@@ -15,6 +15,11 @@
         return query_one($sql,$id);
     }
 
+    function get_classes($id){
+        $sql = "SELECT * FROM classes WHERE id = ?";
+        return query_one($sql,$id);
+    }
+
     function filter_cate($id){
         $sql = "SELECT * FROM courses WHERE id_category = $id";
         return query($sql);
@@ -80,4 +85,8 @@
         return query_one($sql,$id,$rate);
     }
 
+    function get_class_by_course($id_course){
+        $sql = "SELECT * FROM classes WHERE id_course = ?";
+        return query($sql,$id_course);
+    }
 ?>

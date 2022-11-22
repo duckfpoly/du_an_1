@@ -13,7 +13,8 @@
                                     <div class="f-modal-fix"></div>
                                 </div>
                             ';
-                        } else {
+                        }
+                        else {
                             echo '
                                 <div class="f-modal-icon f-modal-error animate">
                                     <span class="f-modal-x-mark">
@@ -41,7 +42,7 @@
                         if ($_GET['vnp_ResponseCode'] == '00') {
                             echo "<span class='text-success'>Thanh toán thành công</span>";
                         } else {
-                            echo "<span class='text-danger'>Giao dịch thất bại</span>";
+                            echo "<span class='text-danger'>Thanh toán thất bại</span>";
                         }
                     } else {
                         echo "<span class='text-warning'>Giao dịch không hợp lệ</span>";
@@ -68,6 +69,19 @@
                     </tbody>
                 </table>
             </div>
+            <p class="text-center pt-3">
+                <?php
+                if ($secureHash == $vnp_SecureHash) {
+                    if ($_GET['vnp_ResponseCode'] == '00') {
+                        echo "<span class='text-success'>Chúc mừng bạn đã đăng ký học thành công ! Vui lòng theo dõi email để nhận lịch học nhé.</span>";
+                    } else {
+                        echo "<span class='text-danger'>Giao dịch thất bại. Vui lòng đăng ký lại !</span>";
+                    }
+                } else {
+                    echo "<span class='text-warning'>Giao dịch không hợp lệ. Vui lòng đăng ký lại !</span>";
+                }
+                ?>
+            </p>
             <p class="text-center pt-3">Chúc bạn một ngày tốt lành !</p>
             <center>
                 <div class="mt-5">

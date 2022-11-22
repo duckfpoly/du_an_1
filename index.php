@@ -15,24 +15,24 @@
     <link rel="stylesheet" type="text/css" href="<?= $host ?>assets/css/css_site/course_responsive.css">
     <link rel="stylesheet" type="text/css" href="<?= $host ?>assets/css/css_site/animate.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/setup.css">
-    <link rel="stylesheet" href="css/mains.css">
-
-    <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="--><?//= $host ?><!--assets/css/css_site/bootstrap.min.css">-->
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/slicknav.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/flaticon.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/progressbar_barfiller.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/gijgo.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/animate.min.css">
-    <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/animated-headline.css">
+<!--    <link rel="stylesheet" href="--><?//= $host ?><!--assets/css/css_site/animated-headline.css">-->
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/magnific-popup.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/themify-icons.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/slick.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/nice-select.css">
     <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/style.css">
-    <link rel="stylesheet" href="<?= $host ?>assets/css/css_site/customRadio.css">
-    <link rel="stylesheet" href="<?= $host ?>assets/toasts/toast.css"                               />
+    <link rel="stylesheet" href="<?= $host ?>assets/toasts/toast.css"/>
+    <link rel="stylesheet" href="css/mains.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js">            </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
     <script src="<?= $host ?>assets/admin/js/items/load_div.js">                            </script>

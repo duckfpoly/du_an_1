@@ -1,8 +1,8 @@
 <?php
-    $vnp_TxnRef                     = '893187732'; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+    $vnp_TxnRef                     = $order_code;
     $vnp_OrderInfo                  = 'Thanh toán hóa đơn khóa học';
     $vnp_OrderType                  = 'billpayment';
-    $vnp_Amount                     = 25000 * 100;
+    $vnp_Amount                     = $price_course  * 100;
     $vnp_Locale                     = 'vn';
     $vnp_BankCode                   = isset($_POST['bank_code']) ? $_POST['bank_code'] : '';
     $vnp_IpAddr                     = $_SERVER['REMOTE_ADDR'];
@@ -47,11 +47,13 @@
     $returnData = array('code' => '00'
     , 'message' => 'success'
     , 'data' => $vnp_Url);
-    if (isset($_POST['redirect'])) {
-        header('Location: ' . $vnp_Url);
-        die();
-    } else {
-        location($host);
-    //            echo json_encode($returnData);
-    }
+    header('Location: ' . $vnp_Url);
+    die();
+    //    if (isset($_POST['redirect'])) {
+    //        header('Location: ' . $vnp_Url);
+    //        die();
+    //    } else {
+    ////        location($host);
+    //                echo json_encode($returnData);
+    //    }
 ?>

@@ -4,9 +4,21 @@
 <head>
     <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
     <title>COURSES APP - Thanh toán</title>
-    <link rel="stylesheet" href="../assets/admin/css/argon-dashboard.css"/>
-    <link rel="stylesheet" href="../css/alert_pay.css">
+    <link rel="stylesheet" href="<?= $host ?>assets/admin/css/argon-dashboard.css"/>
+    <link rel="stylesheet" href="<?= $host ?>css/alert_pay.css">
 </head>
-<body> <?php include 'routes/route_pay.php'; ?></body>
+<body>
+<?php
+    if(isset($_GET['req_pay'])){
+        $req_pay = $_GET['req_pay'];
+        if($req_pay == 'status'){
+            include 'controllers/pay/status.php';
+        }
+    }
+    else {
+        include 'routes/route_pay.php';
+    }
+?>
+</body>
 </html>
 

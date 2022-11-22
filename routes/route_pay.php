@@ -1,10 +1,32 @@
 <?php
-    if(isset($_GET['req_pay'])){
-        $req_pay = $_GET['req_pay'];
-        if($req_pay == 'status'){
-            include 'controllers/pay/status.php';
+    if(isset($_POST['order_code'])){
+        $order_code     = $_POST['order_code'];
+        $order_date     = date("Y-m-d H:i:s");
+        $order_pay      = $_POST['pay_option'];
+        $id_student     = $_POST['id_student'];
+        $id_class       = $_POST['id_class'];
+        $day_sub        = $_POST['check_day'];
+        $time_sub       = $_POST['check_time'];
+        $price_course   = $_POST['price_course'];
+//        add_orders($order_code,$order_date,$order_pay,$id_student,$id_class,$day_sub,$time_sub,$price_course);
+        switch ($order_pay){
+            case 0:
+                $order_code     = $_POST['order_code'];
+                $order_date     = date("Y-m-d H:i:s");
+                $price_course   = $_POST['price_course'];
+                include 'controllers/pay/process_pay_off.php';
+                break;
+            case 1:
+                echo 'Hình thức thanh toán chuyển khoản ngân hàng';
+                include 'controllers/pay/process_vietqr.php';
+                break;
+            case 2:
+                $order_code     = $_POST['order_code'];
+                $price_course   = $_POST['price_course'];
+                include 'controllers/pay/process_vnpay.php';
+                break;
         }
     }else {
-        include 'controllers/pay/process.php';
+        location($host);
     }
 ?>

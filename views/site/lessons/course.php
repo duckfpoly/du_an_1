@@ -1,4 +1,6 @@
 <!-- Home -->
+<link rel="stylesheet" href="<?= $host ?>assets/css/css_site/customRadio.css">
+
 <div class="home">
     <div class="breadcrumbs_container">
         <div class="container">
@@ -64,14 +66,27 @@
                                     <div class="tab_panel_text">
                                         <p><?php echo $detail['description_course']?></p>
                                     </div>
-                                    
                                     <div class="d-flex flex-column justify-content-center align-items-start mt-5">
                                         <form action="<?= PAYMENT?>" id='form_choise_course' method="POST">
-                                            <input type="text" hidden value='<?= $id?>' name ='id_course'>
+                                            <input type="text" hidden value='<?= $id ?>' name ='id_course'>
+                                            <label for="" class="form-label">Lớp học</label>
+                                            <?php foreach ($class as $key => $values) ?>
+                                                <div class='mb-4 d-flex  flex-wrap'>
+                                                    <div class="form-check">
+                                                        <div class='d-flex align-item-center '>
+                                                            <input class="form-check-input" id='check_class_1' hidden type="radio" value='<?= $values['id'] ?>' name="class" checked>
+                                                            <label class="form-check-label label_custom" for="check_class_1">
+                                                                <?= $values['name_class'] ?>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php ?>
+                                            <label for="" class="form-label">Ngày học</label>
                                             <div class='mb-4 d-flex  flex-wrap'>
                                                 <div class="form-check">
                                                     <div class='d-flex align-item-center '>
-                                                        <input class="form-check-input" id='check_day1' hidden  type="radio" value='1' name="check_day" checked>
+                                                        <input class="form-check-input" id='check_day1' hidden  type="radio" value='0' name="check_day" checked>
                                                         <label class="form-check-label label_custom" for="check_day1">
                                                             Thứ 2 - 4 - 6 
                                                         </label>
@@ -88,6 +103,7 @@
                                                     <div class="form-message text-danger mt-1"></div>
                                                 </div>  
                                             </div>
+                                            <label for="" class="form-label">Ca học</label>
                                             <div class='mb-4 d-flex  flex-wrap'>
                                                 <div class="form-check">
                                                     <div class='d-flex align-item-center'>
@@ -108,7 +124,7 @@
                                                     <div class="form-message text-danger mt-1"></div>
                                                 </div>  
                                             </div>
-                                            <a href="">
+                                            <a href="#">
                                                 <input class="btn" name='btn_submit_course' type="submit" value='Đăng ký ngay'/>
                                             </a>
                                         </form>

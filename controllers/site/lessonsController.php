@@ -8,6 +8,8 @@
         $avg_rate = get_avg_rate_course($id);
         // số đánh giá
         $count_rate = get_count_rate_course($id);
+        // lớp học theo khóa học
+        $class = get_class_by_course($id);
         // đánh giá khóa học
         if(isset($_POST['send_cmt'])){
             $rate           = $_POST['rate'];

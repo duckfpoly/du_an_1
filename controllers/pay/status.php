@@ -20,16 +20,27 @@
             }
         }
         $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
-        $order_id = $_GET['vnp_TxnRef'];
-        $order_amount = $_GET['vnp_Amount'];
-        $order_bank = $_GET['vnp_BankCode'];
-        $pay_time = $_GET['vnp_PayDate'];
-        // gửi mail
-
-
+        $order_id       = $_GET['vnp_TxnRef'];
+        $order_amount   = $_GET['vnp_Amount'];
+        $order_bank     = $_GET['vnp_BankCode'];
+        $pay_time       = $_GET['vnp_PayDate'];
+        // gửi mail ( đang phát triển )
         // cập nhật trạng thái lên db
-
-
+        if ($secureHash == $vnp_SecureHash) {
+            if ($_GET['vnp_ResponseCode'] == '00') {
+                // giao dịch thành công
+                $status = 2;
+                update_status_orders($status,$order_id);
+            } else {
+                // giao dịch hủy
+                $status = 1;
+                update_status_orders($status,$order_id);
+            }
+        } else {
+            // chưa thanh toán
+            $status = 0;
+            update_status_orders($status,$order_id);
+        }
         include 'views/status_pay.php';
     }
     else {
