@@ -120,5 +120,21 @@
                 </div>
             </form>
         </section>
+        <script type="text/javascript">
+            var pay_option = document.getElementsByName("pay_option");
+            for (var i = 0; i < pay_option.length; i++){
+                pay_option[i].addEventListener('change', function() {
+                    // (prev) ? console.log(prev.value): null;
+                    // if (this !== prev) {
+                    //     prev = this;
+                    // }
+                    console.log(this.value)
+                });
+                // if (pay_option[i].checked === true){
+                //     console.log(pay_option[i].value)
+                //     console.log(1)
+                // }
+            }
+        </script>
 </body>
 </html>

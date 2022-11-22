@@ -24,7 +24,6 @@
             </div>
         </div>
     </section>
-    <!-- Courses area start -->
     <div class="courses-area section-padding40 fix">
         <div class="container">
             <div class="row justify-content-center">
@@ -34,16 +33,20 @@
                     </div>
                 </div>
             </div>
-<!-- filter -->
             <div class='mb-5 d-flex justify-content-between align-items-center'>
                 <button class="p-3 px-4 ml-4  bg-primary border-0 rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                     <i class="fa-solid fa-filter"></i>
                 </button>
-                <form class="d-flex gap-2" method="post" action='<?= LESSONS?>'>
-                    <input name='input_search' class="px-3 rounded border-light py-2 me-2" type="search" placeholder="Search" aria-label="Search">
-                    <div>
-                        <button name='search_btn' class="p-3 rounded  border-0 bg-primary" type="submit">Search</button>
-                    </div>                  
+                <form class="gap-2" method="post" action='<?= LESSONS?>'>
+                    <div class="d-flex">
+                        <input id="filter" name='input_search' class="px-3 rounded border-light py-2 me-2" type="search" placeholder="Search" aria-label="Search">
+                        <div>
+                            <button name='search_btn' class="p-3 rounded  border-0 bg-primary" type="submit">Search</button>
+                        </div>
+                    </div>
+                    <div id="show_course" class="position-absolute w-25">
+
+                    </div>
                 </form>
             </div>
             <div class="offcanvas offcanvas-start bg-secondary bg-gradient" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -113,3 +116,47 @@
         </div>
     </div>
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    document.querySelector('#filter').addEventListener('input', (e) => filterData(e.target.value))
+    var auth = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTmd1eWVuIER1YyIsInBob25lIjoiMDgyMzU2NTgzMSIsImVtYWlsIjoibmd1eWVuZHVjMTA2MDNAZ21haWwuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTY2OTgwNTQ4Nn0.PByr6NO_lYgDSnT-KkW0bLBgsNzfIySHO_IofdxiHsw';
+    function filterData(search) {
+        axios
+            .get("api/courses/search", {
+                headers: {
+                    Authorization: 'Bearer ' + auth
+                },
+                params: {
+                    name: search.toLowerCase()
+                }
+            })
+            .then((res) => {
+                var results = res.data
+                if(results.error){
+                    console.log(results.error)
+                }
+                else {
+                    if(results.message){
+                        document.querySelector('#show_course').innerHTML = 'Không có dữ liệu !'
+                    }
+                    else {
+                        results.forEach((product) => {
+                            document.querySelector('#show_course').innerHTML = `
+                                <div class="product d-flex justify-content-start align-items-center m-2">
+                                    <img id="image_course" src="assets/uploads/courses/${product.image_course}" width="50px" height="50px" alt="Image Course" style="border-radius: 5px">
+                                    <div class="product-detail d-flex flex-column" style="margin-left: 10px">
+                                        <span id="name_course">${product.name_course.slice(0, 30)}</span>
+                                        <span id="price_course">$${product.price_course}</span>
+                                    </div>
+                                </div>
+                            `
+                        })
+                    }
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+</script>

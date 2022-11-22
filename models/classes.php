@@ -84,8 +84,16 @@
         return query_value($sql,$id);
     }
 
+    function slot_class($id){
+        $sql = "SELECT slot FROM classes WHERE classes.id = ? ";
+        return query_value($sql,$id);
+    }
+
     function add_student_to_class($id_student,$id_class){
-        $sql = "INSERT INTO detail_classes SET id_students = ?, id_class = ?";
+        $sql = "INSERT INTO detail_classes SET 
+                id_students = ?, 
+                id_class = ?
+       ";
         return query_sql($sql,$id_student,$id_class);
     }
 
@@ -107,5 +115,35 @@
             if(isset($check_ID['id_course'])) {
                 return "Lớp học sử dụng khóa học này đã tồn tại !";
             }
+    }
+
+    function read_std($id_class,$date,$time){
+        $sql = "SELECT * FROM detail_classes 
+            INNER JOIN students ON detail_classes.id_students = students.id
+            WHERE detail_classes.id_class = ?
+            AND detail_classes.date_sub = ?
+            AND detail_classes.time_sub = ?
+        ";
+        return query($sql,$id_class,$date,$time);
+    }
+
+    function count_slot_class($id_class,$date,$time){
+        $sql = "SELECT COUNT(*) FROM detail_classes 
+                WHERE detail_classes.id_class = ?
+                AND detail_classes.date_sub = ?
+                AND detail_classes.time_sub = ?
+        ";
+        return query_value($sql,$id_class,$date,$time);
+    }
+
+    function check_std_class($id_class,$id_students){
+        $sql = "SELECT * FROM `detail_classes` 
+                WHERE detail_classes.id_class = ?
+                AND detail_classes.id_students = ?
+        ";
+        $check_std = query_value($sql,$id_class,$id_students);
+        if($check_std > 0) {
+            return "Học viên đã có trong lớp học !";
+        }
     }
 ?>

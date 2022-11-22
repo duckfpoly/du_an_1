@@ -120,11 +120,6 @@
         }else {
             $courses_read   = courses_read();
         }
-
-
-
-
-
         $category_read  = category_read();
         $teacher_read   = teacher_read();
         include_once $direct_read;
