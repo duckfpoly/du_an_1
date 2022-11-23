@@ -6,11 +6,19 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h6>Danh sách học viên</h6>
                         <div class="d-flex justify-content-between align-items-center">
-                            <a class="btn btn-success m-0" href="<?= STUDENTS ?>/create">Thêm</a>
-                            &emsp;|&emsp;
+
                             <form action="<?= STUDENTS ?>" class="d-flex justify-content-center align-items-center">
                                 <input type="search" name="s" class="form-control" placeholder="Tìm học viên" value="<?= isset($_GET['s']) ? $_GET['s'] : "" ?>">
+                                <?php
+                                    if(isset($_GET['s'])){
+                                        echo '&emsp;<a class="btn btn-outline-primary" href="'.STUDENTS.'">X</a>';
+                                    }else {
+                                        echo '&emsp;<button class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass"></i></button>';
+                                    }
+                                ?>
                             </form>
+                            &emsp;|&emsp;
+                            <a class="btn btn-success m-0" href="<?= STUDENTS ?>/create">Thêm</a>
                         </div>
                     </div>
                 </div>

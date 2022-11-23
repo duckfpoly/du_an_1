@@ -76,24 +76,24 @@
                 include_once $direct_act;
                 break;
             case "storeStudent":
-                $id_class   = $_GET['id'];
-                $id_student = $_POST['id_student'];
-                $date       = $_POST['date_sub'];
-                $time       = $_POST['time_sub'];
+                $id_class       = $_POST['id_class'];
+                $id_student     = $_POST['id_student'];
+                $day_sub        = $_POST['date_sub'];
+                $time_sub       = $_POST['time_sub'];
                 check_empty($id_student,CLASSES."/addStudent/".$id_class);
-                $count = count_slot_class($id_class,$date,$time);
-                check_data(check_std_class($id_class,$id_student));
+                $count = count_slot_class($id_class,$day_sub,$time_sub);
                 if($count == slot_class($id_class)){
                     show_error('Lớp đã đủ học viên !');
                 }
-                add_student_to_class($id_student,$id_class);
-                location(CLASSES);
+                check_data(check_std_class($id_class,$id_student));
+                add_student_to_class($id_student,$day_sub,$time_sub,$id_class);
+                location(CLASSES.'/showStudent/'.$id_class);
                 break;
             case "deleteStudent":
                 $id_student = $_POST['id_student'];
                 $id_class   = $_POST['id_class'];
                 delete_student_class($id_student,$id_class);
-                alert('Xóa thành công !',CLASSES.'/update/'.$id_class);
+                alert('Xóa thành công !',CLASSES);
                 break;
             default:
                 location($host . "page_not_found");

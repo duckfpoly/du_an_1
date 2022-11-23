@@ -74,7 +74,7 @@
                                 <?php endforeach; ?>
                             <?php } else { ?>
                                 <tr>
-                                    <td colspan="5" class="text-center">
+                                    <td colspan="8" class="text-center">
                                         <h3 class="mb-0 text-center">Chưa có hoá đơn</h3>
                                     </td>
                                 </tr>

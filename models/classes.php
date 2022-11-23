@@ -1,5 +1,4 @@
 <?php
-
     function check_id_class($id){
         $sql = "SELECT * FROM `classes` WHERE id = ?";
         $check_ID = query_one($sql, $id);
@@ -62,11 +61,21 @@
 
     function class_detail($id){
         $sql = "SELECT * FROM courses 
-                    INNER JOIN teachers ON courses.id_teacher = teachers.id
-                    INNER JOIN classes ON courses.id = classes.id_course
-                    WHERE classes.id = ?
+                INNER JOIN teachers ON courses.id_teacher = teachers.id
+                INNER JOIN classes ON courses.id = classes.id_course
+                WHERE classes.id = ?
              ";
         return query_one($sql,$id);
+    }
+
+    function add_student_to_class($id_student,$day_sub,$time_sub,$id_class){
+        $sql = "INSERT INTO detail_classes SET 
+                id_students = ?, 
+                date_sub    = ?, 
+                time_sub    = ?, 
+                id_class    = ?
+       ";
+        return query_sql($sql,$id_student,$day_sub,$time_sub,$id_class);
     }
 
     function class_search($key){
@@ -87,14 +96,6 @@
     function slot_class($id){
         $sql = "SELECT slot FROM classes WHERE classes.id = ? ";
         return query_value($sql,$id);
-    }
-
-    function add_student_to_class($id_student,$id_class){
-        $sql = "INSERT INTO detail_classes SET 
-                id_students = ?, 
-                id_class = ?
-       ";
-        return query_sql($sql,$id_student,$id_class);
     }
 
     function read_students_class($id_class){
@@ -141,7 +142,7 @@
                 WHERE detail_classes.id_class = ?
                 AND detail_classes.id_students = ?
         ";
-        $check_std = query_value($sql,$id_class,$id_students);
+        $check_std = query_one($sql,$id_class,$id_students);
         if($check_std > 0) {
             return "Học viên đã có trong lớp học !";
         }

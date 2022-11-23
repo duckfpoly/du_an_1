@@ -78,4 +78,27 @@
         $sql = "SELECT COUNT(*) FROM students";
         return query_value($sql);
     }
+    function count_with_month($month){
+        $date = getdate();
+        $year = $date['year'];
+        $sql = "SELECT COUNT(MONTH(created_at)) AS total 
+                FROM students 
+                WHERE MONTH(created_at) = ?
+                AND YEAR(created_at) = $year
+                ";
+        return query_value($sql,$month);
+    }
+    function now_year(){
+        $date = getdate();
+        $year = $date['year'];
+        $sql = "SELECT COUNT(YEAR(created_at)) FROM students WHERE YEAR(created_at) = $year";
+        return query_value($sql);
+    }
+    function old_year(){
+        $date = getdate();
+        $year = $date['year'] - 1;
+        $sql = "SELECT COUNT(YEAR(created_at)) FROM students WHERE YEAR(created_at) = $year";
+        return query_value($sql);
+    }
+
 ?>

@@ -31,6 +31,9 @@
         .btn {
             margin-bottom: 0 !important;
         }
+        body::-webkit-scrollbar {
+            width: 0px;
+        }
     </style>
     <script>
         function return_page(){
@@ -43,7 +46,7 @@
     <div id="toastt"></div>
     <?php //include_once 'views/preloader.php'; ?>
     <div id="course_app">
-<!--        <div class="min-height-300 bg-primary position-absolute w-100"></div>-->
+        <div class="min-height-300 bg-secondary position-absolute w-100"></div>
             <?php include_once 'views/admin/layouts/sidebar.php';   ?>
         <main class="main-content position-relative border-radius-lg ">
             <?php include_once 'views/admin/layouts/navbar.php';    ?>
@@ -95,12 +98,104 @@
     <script src="<?= $host ?>assets/admin/js/plugins/chartjs.min.js">                           </script>
     <script src="<?= $host ?>assets/admin/js/plugins/validate.js">                              </script>
     <script src="<?= $host ?>assets/admin/js/argon-dashboard.js">                               </script>
-    <script src="<?= $host ?>assets/admin/js/items/mains.js">                                   </script>
+
+    <script src="<?= $host ?>assets/admin/js/items/mainss.js">                                   </script>
     <script src="<?= $host ?>assets/admin/js/items/courses.js">                                 </script>
     <!--    <script src="--><?//= $host ?><!--assets/preloader/preloader.js">                   </script>-->
     <script src="<?= $host ?>assets/toasts/toast.js">                                           </script>
     <script src="<?= $host ?>assets/admin/js/items/detec_connect.js">                           </script>
     <script async defer src="https://buttons.github.io/buttons.js">                             </script>
+    <script>
+        if (document.getElementById("chart-line")) {
+            var ctx1 = document.getElementById("chart-line").getContext("2d");
+            var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+            gradientStroke1.addColorStop(1, "rgba(94, 114, 228, 0.2)");
+            gradientStroke1.addColorStop(0.2, "rgba(94, 114, 228, 0.0)");
+            gradientStroke1.addColorStop(0, "rgba(94, 114, 228, 0)");
+            new Chart(ctx1, {
+                type: "line",
+                data: {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    datasets: [
+                        {
+                            // Tên để thống kê
+                            label: "Students",
+                            tension: 0.4,
+                            borderWidth: 0,
+                            pointRadius: 0,
+                            borderColor: "#5e72e4",
+                            backgroundColor: gradientStroke1,
+                            borderWidth: 3,
+                            fill: true,
+                            // giá trị thống kê
+                            data: [
+                                <?php for($i = 1; $i<=12; $i++){
+                                    echo count_with_month($i).',';
+                                } ?>
+                            ],
+                            maxBarThickness: 6,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: "index",
+                    },
+                    scales: {
+                        y: {
+                            grid: {
+                                drawBorder: false,
+                                display: true,
+                                drawOnChartArea: true,
+                                drawTicks: false,
+                                borderDash: [5, 5],
+                            },
+                            ticks: {
+                                display: true,
+                                padding: 10,
+                                color: "#fbfbfb",
+                                font: {
+                                    size: 11,
+                                    family: "Open Sans",
+                                    style: "normal",
+                                    lineHeight: 2,
+                                },
+                            },
+                        },
+                        x: {
+                            grid: {
+                                drawBorder: false,
+                                display: false,
+                                drawOnChartArea: false,
+                                drawTicks: false,
+                                borderDash: [5, 5],
+                            },
+                            ticks: {
+                                display: true,
+                                color: "#ccc",
+                                padding: 20,
+                                font: {
+                                    size: 11,
+                                    family: "Open Sans",
+                                    style: "normal",
+                                    lineHeight: 2,
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+        }
+
+    </script>
 </body>
 </html>
 <?php ob_end_flush(); ?>

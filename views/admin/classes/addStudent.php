@@ -9,7 +9,8 @@
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="p-3">
-                        <form action="<?= CLASSES ?>/storeStudent/<?= $_GET['id'] ?>" method="post" id="form-1" enctype="multipart/form-data">
+                        <form action="<?= CLASSES ?>/storeStudent" method="post" id="form-1" enctype="multipart/form-data">
+                            <input type="hidden" name="id_class" value="<?= $_GET['id'] ?>">
                             <div class="form-group ">
                                 <label for="id_student" class="form-label">Học viên</label>
                                 <select name="id_student" id="id_student" class="form-control">

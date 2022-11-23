@@ -34,7 +34,7 @@
     require_once $dir_model.'students.php';
     require_once $dir_model.'classes.php';
     require_once $dir_model.'bills.php';
-    require_once $dir_model.'sales.php';
+    require_once $dir_model.'orders.php';
 
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
@@ -49,7 +49,7 @@
     define("TEACHERS",      $admin.'teachers');
     define("STUDENTS",      $admin.'students');
     define("BILLS",         $admin.'bills');
-    define("SALES",         $admin.'sales');
+    define("ORDERS",         $admin.'orders');
     define("RATES",         $admin.'rates');
     define("CLASSES",       $admin.'classes');
     define("SIGNOUT",        $admin.'logout');
@@ -278,12 +278,6 @@
         }
     }
 
-    function check_time_end($date){
-        $time_end = strtotime ( '+6 month' , strtotime ( $date ) ) ;
-        $time_end = date ( 'Y-m-d' , $time_end );
-        return strtotime(date('Y-m-d')) == strtotime($time_end) ? "true" : "false";
-    }
-
     function pagination_search($tbl,$values_search,$key,$limit_data){
         $sql = "SELECT count(id) AS total FROM $tbl";
         $row = query_one($sql);
@@ -301,6 +295,12 @@
         $row = query($data_pani);
         $arr = [$row, $current_page, $total_page];
         return $arr;
+    }
+
+    function check_time_end($date){
+        $time_end = strtotime ( '+6 month' , strtotime ( $date ) ) ;
+        $time_end = date ( 'Y-m-d' , $time_end );
+        return strtotime(date('Y-m-d')) == strtotime($time_end) ? "true" : "false";
     }
 
     function check_time_start($date){

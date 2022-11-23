@@ -6,11 +6,18 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h6>Danh sách giảng viên</h6>
                         <div class="d-flex justify-content-between align-items-center">
-                            <a class="btn btn-success m-0" href="<?= TEACHERS ?>/create">Thêm</a>
-                            &emsp;|&emsp;
                             <form action="<?= TEACHERS ?>" class="d-flex justify-content-center align-items-center">
                                 <input type="search" name="s" class="form-control" placeholder="Tìm giảng viên" value="<?= isset($_GET['s']) ? $_GET['s'] : "" ?>">
+                                <?php
+                                if(isset($_GET['s'])){
+                                    echo '&emsp;<a class="btn btn-outline-primary" href="'.TEACHERS.'">X</a>';
+                                }else {
+                                    echo '&emsp;<button class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass"></i></button>';
+                                }
+                                ?>
                             </form>
+                            &emsp;|&emsp;
+                            <a class="btn btn-success m-0" href="<?= TEACHERS ?>/create">Thêm</a>
                         </div>
                     </div>
                 </div>
@@ -69,7 +76,7 @@
                                 <?php endforeach; ?>
                             <?php } else { ?>
                                 <tr>
-                                    <td colspan="5" class="text-center">
+                                    <td colspan="7" class="text-center">
                                         <h3 class="mb-0 text-center">Chưa có giảng viên</h3>
                                     </td>
                                 </tr>

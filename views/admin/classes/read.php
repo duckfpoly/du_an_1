@@ -12,7 +12,7 @@
                                 if(isset($_GET['classes'])){
                                     echo '&emsp;<a class="btn btn-outline-primary" href="'.CLASSES.'">X</a>';
                                 }else {
-                                    echo  '&emsp;<button class="btn btn-outline-primary">Tìm</button>';
+                                    echo  '&emsp;<button class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass"></i></button>';
                                 }
                                 ?>
                             </form>
@@ -75,7 +75,7 @@
                                 <?php endforeach; ?>
                             <?php } else { ?>
                                 <tr>
-                                    <td colspan="5" class="text-center">
+                                    <td colspan="8" class="text-center">
                                         <h3 class="mb-0 text-center">Chưa có lớp học</h3>
                                     </td>
                                 </tr>

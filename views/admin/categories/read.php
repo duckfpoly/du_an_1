@@ -6,11 +6,18 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h6>Danh sách danh mục</h6>
                         <div class="d-flex justify-content-between align-items-center">
-                            <a class="btn btn-success m-0" href="<?= CATEGORIES ?>/create">Thêm</a>
-                            &emsp;|&emsp;
                             <form action="<?= CATEGORIES ?>" class="d-flex justify-content-center align-items-center">
                                 <input type="search" name="s" class="form-control" placeholder="Tìm danh mục" value="<?= isset($_GET['s']) ? $_GET['s'] : "" ?>">
+                                <?php
+                                if(isset($_GET['s'])){
+                                    echo '&emsp;<a class="btn btn-outline-primary" href="'.CATEGORIES.'">X</a>';
+                                }else {
+                                    echo '&emsp;<button class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass"></i></button>';
+                                }
+                                ?>
                             </form>
+                            &emsp;|&emsp;
+                            <a class="btn btn-success m-0" href="<?= CATEGORIES ?>/create">Thêm</a>
                         </div>
                     </div>
                 </div>
@@ -55,7 +62,7 @@
                                     <?php endforeach; ?>
                                 <?php } else { ?>
                                     <tr>
-                                        <td colspan="3" class="text-center">
+                                        <td colspan="4" class="text-center">
                                             <h3 class="mb-0 text-center">Chưa có danh mục</h3>
                                         </td>
                                     </tr>

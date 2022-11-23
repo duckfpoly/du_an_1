@@ -30,7 +30,7 @@
             case "bills":
                 include_once $objectt;
                 break;
-            case "sales":
+            case "orders":
                 include_once $objectt;
                 break;
             case "rates":
