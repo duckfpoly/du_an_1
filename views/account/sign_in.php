@@ -136,6 +136,22 @@
                   <input type="password" name='password' class="form-control" id="password" placeholder="Mật khẩu">
                   <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
+                
+                <div class="form-group d-flex justify-content-start align-items-center gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" value='students' type="radio" checked name="role" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Học sinh
+                    </label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" value='teachers' type="radio" name="role" id="flexRadioDefault2" >
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Giáo viên
+                    </label>
+                  </div>
+                </div>
                 <div class="mb-3 form-group d-flex justify-content-end">
                   <p class="text-sm mt-3 mb-0"><a href="<?= $host ?>forgot_pass" class="text-dark font-weight-bolder">Quên mật khẩu?</a></p>
                 </div>
@@ -144,6 +160,7 @@
                     '.$err.'
                   </small>
                 ' : ''?>
+
                 <div class="text-center">
                   <button type="submit" name='btn_submit' class="btn bg-gradient-dark w-100 my-3 mb-2">Đăng nhập</button>
                 </div>

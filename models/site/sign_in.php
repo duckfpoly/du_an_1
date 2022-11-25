@@ -1,6 +1,11 @@
 <?php
     function check_user($email,$pass){
         $sql = "SELECT * FROM students WHERE email_student = '$email' AND password_student = '$pass'";
+
+        return query_one($sql);
+    }
+    function check_teacher($email, $pass){
+        $sql = "SELECT * FROM teachers WHERE email_teacher = '$email' AND password_teacher = '$pass'";
         return query_one($sql);
     }
 

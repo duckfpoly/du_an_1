@@ -3,12 +3,25 @@
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $email = $_POST['email'];
         $pass = $_POST['password'];
-        $check = check_user($email,$pass);
-        if(is_array($check)){
-            setSession('user',$check);
-            location($host);
+        $role = $_POST['role'];
+        if($role == 'students' ){
+            $check = check_user($email,$pass);
+            if(is_array($check)){
+                setSession('user',$check);
+                location($host);
+            }else{
+                $err = 'Tài khoản hoặc mật khẩu không đúng';
+            }
+
         }else{
-            $err = 'Tài khoản hoặc mật khẩu không đúng';
+            $check = check_teacher($email,$pass);
+            if(is_array($check)){
+                setSession('user',$check);
+                location($host);
+            }else{
+                $err = 'Tài khoản hoặc mật khẩu không đúng';
+            }
+
         }
     }
     $client->setRedirectUri("http://localhost/courses/account/sign_in");
