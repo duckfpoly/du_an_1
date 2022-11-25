@@ -21,7 +21,7 @@
                                             <li><a href="<?= LESSONS?>">Lessons</a></li>
                                             <li><a href="<?= ABOUT?>">About</a></li>
                                             <li><a href="#">Blog</a>
-                                                <ul class="submenu">
+                                                <ul class="submenu ">
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li><a href="blog_details.html">Blog Details</a></li>
                                                     <li><a href="elements.html">Element</a></li>
@@ -30,13 +30,19 @@
                                             <li><a href="<?= CONTACT?>">Contact</a></li>
                                             <!-- Button -->
                                             <?php if(isset($_SESSION['user'])){?>
-                                                <li><a href="#">account</a>
-                                                    <ul class="submenu">
+                                                <li><a href="#">
+                                                    <div>
+                                                        <img class='avatar_user rounded-circle' src="assets/uploads/students/<?= $_SESSION['user']['image_student']?>" alt="">
+
+                                                    </div>
+                                                </a>
+                                                    <ul class="submenu start">
                                                         <li><a href="#">Thông tin</a></li>
                                                         <li><a href="#">Đổi mật khẩu</a></li>
                                                         <li><a href="<?= LOGOUT?>">Đăng xuất</a></li>
                                                     </ul>
                                             </li>
+                                            
                                             <?php }else{?>
                                                 <li class="button-header margin-left "><a href="<?= SIGIN?>" class="btn">Join</a></li>
                                                 <li class="button-header"><a href="<?= SIGIN?>" class="btn btn3">Log in</a></li>

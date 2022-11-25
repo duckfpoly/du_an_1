@@ -4,3 +4,8 @@
 .textPrice{
     font-size:17px !important;
 }
+
+.avatar_user{
+    max-width: 40px;
+    object-fit: cover;
+}
