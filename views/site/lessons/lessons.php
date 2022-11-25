@@ -132,6 +132,10 @@
                 }
             })
             .then((res) => {
+                if(res){
+                    console.log(res)
+
+                }
                 var results = res.data
                 document.querySelector('#show_course').innerHTML = ""
                 if(results.error){
@@ -145,9 +149,13 @@
                         results.forEach((items) => {
                             document.querySelector('#show_course').innerHTML += `
                                  <div class="product d-flex justify-content-start align-items-center m-2">
-                                        <img id="image_course" src="assets/uploads/courses/${items.image_course}" width="50px" height="50px" alt="Image Course" style="border-radius: 5px">
+                                        <a href="<?= LESSONS?>/${items.id}">
+                                            <img id="image_course" src="assets/uploads/courses/${items.image_course}" width="50px" height="50px" alt="Image Course" style="border-radius: 5px">
+                                        </a>
                                         <div class="product-detail d-flex flex-column" style="margin-left: 10px">
-                                            <span id="name_course">${items.name_course.slice(0, 30)}</span>
+                                            <a href="<?= LESSONS?>/${items.id}">
+                                                <span id="name_course" style='color:black'>${items.name_course.slice(0, 30)}</span>
+                                            </a>
                                             <span id="price_course">$${items.price_course}</span>
                                         </div>
                                     </div>
