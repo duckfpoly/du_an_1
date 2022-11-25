@@ -32,9 +32,14 @@
                                             <?php if(isset($_SESSION['user'])){?>
                                                 <li><a href="#">account</a>
                                                     <ul class="submenu">
+                                                        <?php
+                                                            if(getSession('user')['role'] == 0){ ?>
+                                                                <li><a href="<?= $host?>teacher_manager">Trang quản trị</a></li>
+                                                           <?php }
+                                                        ?>
                                                         <li><a href="#">Thông tin</a></li>
                                                         <li><a href="#">Đổi mật khẩu</a></li>
-                                                        <li><a href="<?= LOGOUT?>">Đăng xuất</a></li>
+                                                        <li><a href="<?= LOGOUT ?>">Đăng xuất</a></li>
                                                     </ul>
                                             </li>
                                             <?php }else{?>

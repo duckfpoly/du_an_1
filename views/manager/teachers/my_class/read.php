@@ -15,18 +15,18 @@
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <h6>Danh sách lớp học</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <form action="<?= CLASSES ?>" class="d-flex justify-content-center align-items-center">
+                                                    <form action="<?= CLASS_TEACHER ?>" class="d-flex justify-content-center align-items-center">
                                                         <input type="search" name="classes" class="form-control" placeholder="Tìm lớp học" value="<?= isset($_GET['classes']) ? $_GET['classes'] : "" ?>">
                                                             <?php
                                                                 if(isset($_GET['classes'])){
-                                                                    echo '&emsp;<a class="btn btn-outline-primary" href="'.CLASSES.'">X</a>';
+                                                                    echo '&emsp;<a class="btn btn-outline-primary" href="'.CLASS_TEACHER.'">X</a>';
                                                                 }else {
                                                                     echo  '&emsp;<button class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass"></i></button>';
                                                                 }
                                                             ?>
                                                     </form>
                                                     &emsp;|&emsp;
-                                                    <a class="btn btn-success m-0" href="<?= CLASSES ?>/create">Thêm</a>
+                                                    <a class="btn btn-success m-0" href="<?= CLASS_TEACHER ?>/create">Thêm</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -57,7 +57,7 @@
                                                                     </div>
                                                                 </td>
                                                                 <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_class'] ?></p></td>
-                                                                <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_teacher'] ?></p></td>
+                                                                <td><p class="text-xs font-weight-bold mb-0"><?= getSession('user')['name_teacher'] ?></p></td>
                                                                 <td class="align-middle text-center">
                                                                     <span class="text-secondary text-xs font-weight-bold"><?= $values['name_course'] ?></span>
                                                                 </td>
@@ -71,14 +71,14 @@
                                                                     ?>
                                                                 </td>
                                                                 <td class="align-middle text-center d-flex justify-content-center align-items-center">
-                                                                    <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASSES ?>/addStudent/<?= $values['id'] ?>">Thêm HV</a></span>&emsp;
-                                                                    <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASSES ?>/showStudent/<?= $values['id'] ?>">DSHV</a></span>&emsp;
-                                                                    <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0"  href="<?= CLASSES ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
+                                                                    <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASS_TEACHER ?>/addStudent/<?= $values['id'] ?>">Thêm HV</a></span>&emsp;
+                                                                    <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASS_TEACHER ?>/showStudent/<?= $values['id'] ?>">DSHV</a></span>&emsp;
+                                                                    <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0"  href="<?= CLASS_TEACHER ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
                                                                     <span class="text-secondary text-xs font-weight-bold">
-                                                <form action="<?= CLASSES ?>/destroy/<?= $values['id'] ?>" method="post">
-                                                    <button onclick="return confirm('Bạn muốn xóa lớp học <?= $values['name_class'] ?> do giảng viên <?= $values['name_teacher'] ?> dạy ?')" class="btn btn-danger m-0">Xóa</button>
-                                                </form>
-                                            </span>
+                                                                    <form action="<?= CLASS_TEACHER ?>/destroy/<?= $values['id'] ?>" method="post">
+                                                                        <button onclick="return confirm('Bạn muốn xóa lớp học <?= $values['name_class'] ?> do giảng viên <?= $values['name_teacher'] ?> dạy ?')" class="btn btn-danger m-0">Xóa</button>
+                                                                    </form>
+                                                                </span>
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach; ?>

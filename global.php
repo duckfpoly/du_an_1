@@ -376,7 +376,11 @@
     }
 
     function cal_percent($obj,$sum){
-        return round(($obj / $sum) * 100);
+        if(empty($sum)){
+            return 0;
+        }else {
+            return round(($obj / $sum) * 100);
+        }
     }
     function rand_code($length) {
         $chars = "abcdefghijklmnopqrstuvwxyz";

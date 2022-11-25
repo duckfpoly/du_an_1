@@ -7,7 +7,7 @@
         if (isset($_SESSION[$key])) {
             return $_SESSION[$key];
         } else {
-            return false;
+            location('http://localhost/courses/');
         }
     }
     function checkSessionAdmin(){
@@ -16,6 +16,7 @@
         }
     }
     function checkSessionTeacher(){
+        getSession('user');
         if(getSession('user')['role'] != 0){
             location('http://localhost/courses/');
         }

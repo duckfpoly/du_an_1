@@ -8,6 +8,12 @@
         return query($sql,$id);
     }
 
-    function create_course(){
-
+    function get_class_teacher($id){
+        $sql = "SELECT 
+             classes.*,
+             courses.name_course
+             FROM classes 
+             INNER JOIN courses ON classes.id_course  = courses.id
+             WHERE courses.id_teacher = ?";
+        return query($sql,$id);
     }

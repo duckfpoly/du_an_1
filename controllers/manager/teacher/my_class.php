@@ -1,6 +1,6 @@
 <?php
-if (isset($_GET['act'])) {
-    $act = $_GET['act'];
+if (isset($_GET['action'])) {
+    $act = $_GET['action'];
     switch ($act) {
         case "create":
             $courses_read   = courses_read();
@@ -100,6 +100,15 @@ if (isset($_GET['act'])) {
             break;
     }
 } else {
+    if (isset($_GET['classes'])) {
+        if (empty($_GET['classes'])) {
+            location(CLASSES);
+        } else {
+            $read_class = class_search($_GET['classes']);
+        }
+    } else {
+        $read_class = get_class_teacher($id_teacher);
+    }
     include_once $direct_read;
 }
 ?>

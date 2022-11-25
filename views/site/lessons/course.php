@@ -70,7 +70,8 @@
                                         <form action="<?= PAYMENT?>" id='form_choise_course' method="POST">
                                             <input type="text" hidden value='<?= $id ?>' name ='id_course'>
                                             <label for="" class="form-label">Lớp học</label>
-                                            <?php foreach ($class as $key => $values) ?>
+                                            <?php if(!empty($class)) { ?>
+                                            <?php foreach ($class as $key => $values){ ?>
                                                 <div class='mb-4 d-flex  flex-wrap'>
                                                     <div class="form-check">
                                                         <div class='d-flex align-item-center '>
@@ -81,52 +82,63 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            <?php ?>
-                                            <label for="" class="form-label">Ngày học</label>
-                                            <div class='mb-4 d-flex  flex-wrap'>
-                                                <div class="form-check">
-                                                    <div class='d-flex align-item-center '>
-                                                        <input class="form-check-input" id='check_day1' hidden  type="radio" value='0' name="check_day" checked>
-                                                        <label class="form-check-label label_custom" for="check_day1">
-                                                            Thứ 2 - 4 - 6 
-                                                        </label>
+                                                    <label for="" class="form-label">Ngày học</label>
+                                                    <div class='mb-4 d-flex  flex-wrap'>
+                                                        <div class="form-check">
+                                                            <div class='d-flex align-item-center '>
+                                                                <input class="form-check-input" id='check_day1' hidden  type="radio" value='0' name="check_day" checked>
+                                                                <label class="form-check-label label_custom" for="check_day1">
+                                                                    Thứ 2 - 4 - 6
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-message text-danger mt-1"></div>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <div class='d-flex align-item-center '>
+                                                                <input class="form-check-input" id='check_day2' hidden  type="radio" value='1' name="check_day" >
+                                                                <label class="form-check-label label_custom" for="check_day2">
+                                                                    Thứ 3 - 5 - 7
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-message text-danger mt-1"></div>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-message text-danger mt-1"></div>
-                                                </div>  
-                                                <div class="form-check">
-                                                    <div class='d-flex align-item-center '>
-                                                        <input class="form-check-input" id='check_day2' hidden  type="radio" value='1' name="check_day" >
-                                                        <label class="form-check-label label_custom" for="check_day2">
-                                                            Thứ 3 - 5 - 7 
-                                                        </label>
+                                                    <label for="" class="form-label">Ca học</label>
+                                                    <div class='mb-4 d-flex  flex-wrap'>
+                                                        <div class="form-check">
+                                                            <div class='d-flex align-item-center'>
+                                                                <input class="form-check-input" value='1' id='check_time1' hidden type="radio" name="check_time" checked>
+                                                                <label class="form-check-label label_custom" for="check_time1">
+                                                                    Ca 1 (7-9h)
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-message text-danger mt-1"></div>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <div class='d-flex align-item-center'>
+                                                                <input class="form-check-input" value='2' id='check_time2' hidden type="radio" name="check_time"  >
+                                                                <label class="form-check-label label_custom" for="check_time2">
+                                                                    Ca 2 (9h15-11h15)
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-message text-danger mt-1"></div>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-message text-danger mt-1"></div>
-                                                </div>  
-                                            </div>
-                                            <label for="" class="form-label">Ca học</label>
-                                            <div class='mb-4 d-flex  flex-wrap'>
-                                                <div class="form-check">
-                                                    <div class='d-flex align-item-center'>
-                                                        <input class="form-check-input" value='1' id='check_time1' hidden type="radio" name="check_time" checked>
-                                                        <label class="form-check-label label_custom" for="check_time1">
-                                                            Ca 1 (7-9h)
-                                                        </label>
+                                                    <a href="#">
+                                                        <input class="btn" name='btn_submit_course' type="submit" value='Đăng ký ngay'/>
+                                                    </a>
+                                            <?php } } else { ?>
+                                                <div class='mb-4 d-flex  flex-wrap'>
+                                                    <div class="form-check">
+                                                        <div class='d-flex align-item-center '>
+                                                            <input class="form-check-input" disabled id='check_class_1' hidden type="radio" value='<?= $values['id'] ?>' name="class" checked>
+                                                            <label class="form-check-label label_custom" for="check_class_1">
+                                                                Chưa có lớp học
+                                                            </label>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-message text-danger mt-1"></div>
                                                 </div>
-                                                <div class="form-check">
-                                                    <div class='d-flex align-item-center'>
-                                                        <input class="form-check-input" value='2' id='check_time2' hidden type="radio" name="check_time"  >
-                                                        <label class="form-check-label label_custom" for="check_time2">
-                                                            Ca 2 (9h15-11h15)
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-message text-danger mt-1"></div>
-                                                </div>  
-                                            </div>
-                                            <a href="#">
-                                                <input class="btn" name='btn_submit_course' type="submit" value='Đăng ký ngay'/>
-                                            </a>
+                                            <?php } ?>
                                         </form>
                                     </div>
                                 </div>
@@ -180,7 +192,6 @@
                             <!-- Đánh giá -->
                             <div class="tab_panel tab_panel_3">
                                 <div class="tab_panel_title">Đánh giá khóa học</div>
-
                                 <!-- Rating -->
                                 <div class="review_rating_container flex justify-content-center algin-items-center flex-wrap">
                                     <div class="review_rating " >
@@ -244,7 +255,6 @@
                                         <a href="#" class="d-none text-dark" id="loadLess">Ẩn bớt</a>
                                     </div>
                                     <div class="add_comment_container pt-5">
-                                     
                                         <div class="add_comment_title">Đánh giá của bạn về khóa học</div>
                                             <form action="<?= LESSONS.'/'.$id ?>" method="post" onsubmit="return false">
                                                 <input type="hidden" name="image_student"   id="image_student"      value="course_4.jpg">

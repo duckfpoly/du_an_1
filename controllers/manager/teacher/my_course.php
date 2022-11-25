@@ -1,5 +1,4 @@
 <?php
-    $id_teacher = 2;
     if (isset($_GET['action'])) {
         $act = $_GET['action'];
         switch ($act) {
