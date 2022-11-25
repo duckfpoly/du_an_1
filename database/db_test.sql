@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 23, 2022 at 05:39 AM
+-- Generation Time: Nov 25, 2022 at 02:41 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -137,8 +137,9 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `name_course`, `price_course`, `image_course`, `status_course`, `description_course`, `quote`, `discount`, `created_at`, `updated_at`, `id_category`, `id_teacher`) VALUES
-                                                                                                                                                                                                     (193, 'NodeJs', 200000, 'course_4.jpg', 0, 'Khóa học lập trình C++ cơ bản dành cho người mới', 'Khóa học lập trình C++ cơ bản dành cho người mới', 50, '2022-11-04 20:00:37', '2022-11-10 08:31:07', 4, 2),
-                                                                                                                                                                                                     (195, 'ReactJs', 520000, 'course_4.jpg', 0, 'Khóa học lập trình PHP cơ bản dành cho người mới', 'Khóa học lập trình PHP cơ bản dành cho người mới', 50, '2022-11-06 04:11:34', '2022-11-10 07:58:01', 3, 2);
+                                                                                                                                                                                                     (193, 'NodeJs', 200000, 'course_4.jpg', 0, 'Khóa học lập trình C++ cơ bản dành cho người mới', 'Khóa học lập trình C++ cơ bản dành cho người mới', 50, '2022-11-04 20:00:37', '2022-11-25 14:26:42', 4, 2),
+                                                                                                                                                                                                     (195, 'ReactJs', 520000, 'course_4.jpg', 0, 'Khóa học lập trình PHP cơ bản dành cho người mới', 'Khóa học lập trình PHP cơ bản dành cho người mới', 50, '2022-11-06 04:11:34', '2022-11-10 07:58:01', 3, 5),
+                                                                                                                                                                                                     (197, 'Java Spring', 60000000, 'bg.png', 0, 'Lập trình java', 'Lập trình java', 0, '2022-11-25 14:13:52', '2022-11-25 14:32:31', 4, 2);
 
 -- --------------------------------------------------------
 
@@ -159,9 +160,9 @@ CREATE TABLE `detail_classes` (
 --
 
 INSERT INTO `detail_classes` (`id`, `id_students`, `date_sub`, `time_sub`, `id_class`) VALUES
-                                                                                           (1, 1, 0, 1, 1),
-                                                                                           (7, 2, 0, 1, 1),
-                                                                                           (8, 3, 0, 1, 1);
+                                                                                           (16, 1, 0, 1, 1),
+                                                                                           (17, 2, 0, 1, 1),
+                                                                                           (18, 3, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -226,7 +227,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `order_date`, `order_pay`, `status`) VALUES
-    (1, '2022-11-11 19:00:00', 0, 0);
+    (1, '2022-11-11 19:00:00', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -281,6 +282,27 @@ INSERT INTO `rate_courses` (`id`, `rate`, `content_rate`, `id_course`, `id_stude
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sales`
+--
+
+CREATE TABLE `sales` (
+                         `id` int NOT NULL,
+                         `sale_code` varchar(255) DEFAULT NULL,
+                         `percent_discount` int DEFAULT NULL,
+                         `time` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`id`, `sale_code`, `percent_discount`, `time`) VALUES
+                                                                        (4, 'fzepcz99', 99, '2022-12-03'),
+                                                                        (5, 'nzfozk50', 50, '2022-12-01');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
@@ -302,9 +324,9 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name_student`, `email_student`, `phone_student`, `password_student`, `image_student`, `role`, `created_at`, `updated_at`, `status_student`) VALUES
-                                                                                                                                                                               (1, 'Nguyễn Đức', 'duc@gmail.com', '0823565831', 'nguyenduc', 'course_4.jpg', 1, '2022-11-03 05:56:00', '2022-11-21 04:14:18', 0),
+                                                                                                                                                                               (1, 'Nguyễn Đức', 'duc@gmail.com', '0823565831', 'nguyenduc', 'course_4.jpg', 1, '2022-10-03 05:56:00', '2022-04-20 04:14:18', 0),
                                                                                                                                                                                (2, 'Nguyễn Đức 2', 'duc2@gmail.com', '0823565832', '123456', 'course_4.jpg', 1, '2022-11-02 22:56:00', '2022-11-02 22:58:00', 0),
-                                                                                                                                                                               (3, 'Nguyễn Đức 3', 'duc3@gmail.com', '0823565833', '12345678', 'course_4.jpg', 1, '2022-11-02 22:56:00', '2022-11-02 22:58:00', 0);
+                                                                                                                                                                               (3, 'Nguyễn Đức 3', 'duc3@gmail.com', '0823565833', '12345678', 'course_4.jpg', 1, '2021-04-02 22:56:00', '2022-06-02 22:58:00', 0);
 
 -- --------------------------------------------------------
 
@@ -330,8 +352,10 @@ CREATE TABLE `tbl_orders` (
 --
 
 INSERT INTO `tbl_orders` (`id`, `order_code`, `order_date`, `order_pay`, `id_students`, `id_class`, `day_sub`, `time_sub`, `amount`, `status`) VALUES
-                                                                                                                                                   (1, 1669132640, '2022-11-22 22:57:23', 2, 3, 2, 0, 1, 2000000, 0),
-                                                                                                                                                   (3, 1234353454, '2022-11-11 11:11:11', 1, 1, 1, 1, 6, 3000, 0);
+                                                                                                                                                   (1, 1669132640, '2022-11-22 22:57:23', 2, 1, 2, 0, 1, 2000000, 1),
+                                                                                                                                                   (5, 1669193066, '2022-11-23 15:44:30', 0, 2, 1, 0, 3, 2000000, 1),
+                                                                                                                                                   (6, 1669283550, '2022-10-24 16:52:34', 2, 3, 1, 0, 1, 2000000, 2),
+                                                                                                                                                   (7, 1669345253, '2021-11-25 10:00:54', 0, 3, 1, 0, 1, 2000000, 0);
 
 -- --------------------------------------------------------
 
@@ -359,8 +383,8 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`id`, `name_teacher`, `email_teacher`, `phone_teacher`, `password_teacher`, `image_teacher`, `about_teacher`, `scope_teacher`, `role`, `created_at`, `updated_at`, `status_teacher`) VALUES
-                                                                                                                                                                                                                 (2, 'Nguyễn Đức', 'duc@gmail.com', '0823565831', '0823565831', 'blog_4.jpg', 'backend dev', 'intern', 0, '2022-11-05 03:52:30', '2022-11-12 02:21:22', 0),
-                                                                                                                                                                                                                 (5, 'Bùi huy', 'huy@gmail.com', '0868400973', 'buihuy2000', 'blog_4.jpg', 'fontend dev', 'Junior', 0, '2022-11-05 08:39:00', '2022-11-05 09:17:36', 0);
+                                                                                                                                                                                                                 (2, 'Nguyễn Đức', 'duc@gmail.com', '0823565831', '12345678', 'blog_4.jpg', 'backend dev', 'intern', 0, '2022-11-05 03:52:30', '2022-11-12 02:21:22', 0),
+                                                                                                                                                                                                                 (5, 'Bùi huy', 'huy@gmail.com', '0868400973', '12345678', 'blog_4.jpg', 'fontend dev', 'Junior', 0, '2022-11-05 08:39:00', '2022-11-05 09:17:36', 0);
 
 --
 -- Indexes for dumped tables
@@ -445,6 +469,12 @@ ALTER TABLE `rate_courses`
     ADD KEY `fk_id_stdss` (`id_student`);
 
 --
+-- Indexes for table `sales`
+--
+ALTER TABLE `sales`
+    ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -496,13 +526,13 @@ ALTER TABLE `classes_archive`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
 
 --
 -- AUTO_INCREMENT for table `detail_classes`
 --
 ALTER TABLE `detail_classes`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `detail_lesson`
@@ -535,6 +565,12 @@ ALTER TABLE `rate_courses`
     MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT for table `sales`
+--
+ALTER TABLE `sales`
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
@@ -544,7 +580,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `teachers`
