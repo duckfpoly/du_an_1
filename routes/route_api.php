@@ -39,6 +39,10 @@
                 require_once $dir;
                 route_method($module);
                 break;
+            case 'sales':
+                require_once $dir;
+                route_method($module);
+                break;
         }
     }
 ?>

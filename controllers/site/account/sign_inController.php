@@ -12,16 +12,16 @@
             }else{
                 $err = 'Tài khoản hoặc mật khẩu không đúng';
             }
-
-        }else{
+        }
+        else{
             $check = check_teacher($email,$pass);
             if(is_array($check)){
                 setSession('user',$check);
                 location($host);
-            }else{
+            }
+            else{
                 $err = 'Tài khoản hoặc mật khẩu không đúng';
             }
-
         }
     }
     $client->setRedirectUri("http://localhost/courses/account/sign_in");
@@ -33,6 +33,5 @@
         $login_client = login_client_gg($email);
         $err = $login_client;
     }
-
     include "views/account/sign_in.php";
 ?>

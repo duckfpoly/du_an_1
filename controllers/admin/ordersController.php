@@ -32,7 +32,7 @@ if(isset($_GET['act'])){
         }
     }
     elseif(isset($_GET['status'])){
-        if($_GET['status'] == 'return'){
+        if($_GET['status'] == ''){
             location(ORDERS);
         }else {
             $read_order = order_filter($_GET['status']);

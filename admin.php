@@ -1,7 +1,6 @@
 <?php ob_start();
     include_once 'global.php';
     checkSessionAdmin();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +53,7 @@
             <?php include_once 'views/admin/layouts/footer.php';    ?>
         </main>
     </div>
-    <div class="fixed-plugin">
+    <div class="fixed-plugin d-none">
         <div class="card shadow-lg">
             <div class="card-header pb-0 pt-3">
                 <div class="float-start">
@@ -98,7 +97,6 @@
     <script src="<?= $host ?>assets/admin/js/plugins/chartjs.min.js">                           </script>
     <script src="<?= $host ?>assets/admin/js/plugins/validate.js">                              </script>
     <script src="<?= $host ?>assets/admin/js/argon-dashboard.js">                               </script>
-
     <script src="<?= $host ?>assets/admin/js/items/mainss.js">                                   </script>
     <script src="<?= $host ?>assets/admin/js/items/courses.js">                                 </script>
     <!--    <script src="--><?//= $host ?><!--assets/preloader/preloader.js">                   </script>-->
@@ -194,7 +192,6 @@
                 },
             });
         }
-
     </script>
 </body>
 </html>

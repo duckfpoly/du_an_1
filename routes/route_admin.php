@@ -36,6 +36,12 @@
             case "rates":
                 include_once $objectt;
                 break;
+            case "sales":
+                include_once $objectt;
+                break;
+            case "statistical":
+                include_once $objectt;
+                break;
             case "logout":
 //                delete_Cookie('scope');
                 unsetSession('scope');

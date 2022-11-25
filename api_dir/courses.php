@@ -1,5 +1,6 @@
 <?php
-
+header('Content-Type: application/json');
+header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods.Authorization,X-Requested-With');
 class courses {
     public function __construct(){
         $this->conn = (new db())->connect();

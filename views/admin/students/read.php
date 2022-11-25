@@ -6,7 +6,6 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h6>Danh sách học viên</h6>
                         <div class="d-flex justify-content-between align-items-center">
-
                             <form action="<?= STUDENTS ?>" class="d-flex justify-content-center align-items-center">
                                 <input type="search" name="s" class="form-control" placeholder="Tìm học viên" value="<?= isset($_GET['s']) ? $_GET['s'] : "" ?>">
                                 <?php

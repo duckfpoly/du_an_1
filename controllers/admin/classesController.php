@@ -82,10 +82,10 @@
                 $time_sub       = $_POST['time_sub'];
                 check_empty($id_student,CLASSES."/addStudent/".$id_class);
                 $count = count_slot_class($id_class,$day_sub,$time_sub);
+                check_data(check_std_class($id_class,$id_student));
                 if($count == slot_class($id_class)){
                     show_error('Lớp đã đủ học viên !');
                 }
-                check_data(check_std_class($id_class,$id_student));
                 add_student_to_class($id_student,$day_sub,$time_sub,$id_class);
                 location(CLASSES.'/showStudent/'.$id_class);
                 break;
