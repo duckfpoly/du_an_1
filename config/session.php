@@ -7,23 +7,26 @@
         if (isset($_SESSION[$key])) {
             return $_SESSION[$key];
         } else {
-            location('http://localhost/courses/');
+            return false;
         }
     }
     function checkSessionAdmin(){
         if(getSession('scope') != 1){
-            location('http://localhost/courses/login');
+            location( 'login');
         }
     }
     function checkSessionTeacher(){
-        getSession('user');
-        if(getSession('user')['role'] != 0){
-            location('http://localhost/courses/');
+        if(getSession('user')){
+            if(getSession('user')['role'] != 0){
+                location( HOME );
+            }
+        }else {
+            location( HOME );
         }
     }
     function checkLogin(){
         if(getSession('scope') == 1){
-            location('admin');
+            location(DASHBOARD);
         }
     }
     function destroySession(){

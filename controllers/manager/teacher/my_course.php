@@ -40,14 +40,19 @@
                 break;
             case "update":
                 $id = $_GET['id'];
+                $courses_update = course_detail($id);
+                check_id_teacher_login(getSession('user')['id'],$courses_update['id_teacherr'],COURSE_TEACHER);
                 check_empty($id,COURSE_TEACHER);
                 $courses_update = course_detail($id);
+                check_id_teacher_login(getSession('user')['id'],$courses_update['id_teacherr'],COURSE_TEACHER);
                 $category_read  = category_read();
                 include_once $direct_act;
                 break;
             case "edit":
                 // Lấy id từ trên url và kiểm tra
                 $id = $_GET['id'];
+                $courses_update = course_detail($id);
+                check_id_teacher_login(getSession('user')['id'],$courses_update['id_teacherr'],COURSE_TEACHER);
                 // nếu k tồn tại id thì trả lại view read
                 check_empty($id,COURSE_TEACHER);
                 // nếu tồn tại thì nhận dữ liệu từ form
@@ -86,6 +91,8 @@
             case "destroy":
                 // Lấy id từ trên url và kiểm tra
                 $id = $_GET['id'];
+                $courses_update = course_detail($id);
+                check_id_teacher_login(getSession('user')['id'],$courses_update['id_teacherr'],COURSE_TEACHER);
                 // nếu k tồn tại id thì trả lại view read
                 check_empty($id,COURSE_TEACHER);
                 // Khi pass qua validate => gọi model thực hiện delete
@@ -96,6 +103,8 @@
             case "detail":
                 // Lấy id từ trên url và kiểm tra
                 $id = $_GET['id'];
+                $courses_update = course_detail($id);
+                check_id_teacher_login(getSession('user')['id'],$courses_update['id_teacherr'],COURSE_TEACHER);
                 // nếu k tồn tại id thì trả lại view read
                 check_empty($id,COURSE_TEACHER);
                 // Nếu tồn tại thì gọi model chi tiết để lấy thông tin và trả về giao diện chi tiết

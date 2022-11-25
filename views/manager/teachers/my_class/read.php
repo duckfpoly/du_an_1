@@ -71,12 +71,11 @@
                                                                     ?>
                                                                 </td>
                                                                 <td class="align-middle text-center d-flex justify-content-center align-items-center">
-                                                                    <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASS_TEACHER ?>/addStudent/<?= $values['id'] ?>">Thêm HV</a></span>&emsp;
                                                                     <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASS_TEACHER ?>/showStudent/<?= $values['id'] ?>">DSHV</a></span>&emsp;
                                                                     <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0"  href="<?= CLASS_TEACHER ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
                                                                     <span class="text-secondary text-xs font-weight-bold">
                                                                     <form action="<?= CLASS_TEACHER ?>/destroy/<?= $values['id'] ?>" method="post">
-                                                                        <button onclick="return confirm('Bạn muốn xóa lớp học <?= $values['name_class'] ?> do giảng viên <?= $values['name_teacher'] ?> dạy ?')" class="btn btn-danger m-0">Xóa</button>
+                                                                        <button onclick="return confirm('Bạn muốn xóa lớp học <?= $values['name_class'] ?> do giảng viên <?= getSession('user')['name_teacher'] ?> dạy ?')" class="btn btn-danger m-0">Xóa</button>
                                                                     </form>
                                                                 </span>
                                                                 </td>

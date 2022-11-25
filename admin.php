@@ -8,16 +8,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>DDH Manager - <?php title_tab('module', 'dashboard'); ?></title>
-    <link rel="apple-touch-icon" sizes="76x76" href="<?= $host ?>assets/img/apple-icon.png"         />
-    <link rel="icon" type="image/png" href="<?= $host ?>assets/img/favicon.png"                     />
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= BASE_URL ?>assets/img/apple-icon.png"         />
+    <link rel="icon" type="image/png" href="<?= BASE_URL ?>assets/img/favicon.png"                     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" />
-    <link rel="stylesheet" href="<?= $host ?>assets/admin/css/items/styles.css"                     />
-    <link rel="stylesheet" href="<?= $host ?>assets/admin/css/nucleo-icons.css"                     />
-    <link rel="stylesheet" href="<?= $host ?>assets/admin/css/nucleo-svg.css"                       />
-    <link rel="stylesheet" href="<?= $host ?>assets/admin/css/nucleo-svg.css"                       />
-    <link rel="stylesheet" href="<?= $host ?>assets/admin/css/argon-dashboard.css"                  />
-<!--    <link rel="stylesheet" href="--><?//= $host ?><!--assets/preloader/prea.css"                             />-->
-    <link rel="stylesheet" href="<?= $host ?>assets/toasts/toast.css"                               />
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/admin/css/items/styles.css"                     />
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/admin/css/nucleo-icons.css"                     />
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/admin/css/nucleo-svg.css"                       />
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/admin/css/nucleo-svg.css"                       />
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/admin/css/argon-dashboard.css"                  />
+<!--    <link rel="stylesheet" href="--><?//= BASE_URL ?><!--assets/preloader/prea.css"                             />-->
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/toasts/toast.css"                               />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.css">
@@ -25,7 +25,7 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous">            </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js">            </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
-    <script src="<?= $host ?>assets/admin/js/items/load_div.js">                            </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/items/load_div.js">                            </script>
     <style>
         .btn {
             margin-bottom: 0 !important;
@@ -38,7 +38,7 @@
         function return_page(){
             history.back();
         }
-        var admin = "http://localhost/courses/admin/";
+        var admin = "http://locaBASE_URL/courses/admin/";
     </script>
 </head>
 <body class="g-sidenav-show bg-gray-100">
@@ -90,18 +90,18 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js">             </script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js">             </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js">    </script>
-    <script src="<?= $host ?>assets/admin/js/core/popper.min.js">                               </script>
-    <script src="<?= $host ?>assets/admin/js/core/bootstrap.min.js">                            </script>
-    <script src="<?= $host ?>assets/admin/js/plugins/perfect-scrollbar.min.js">                 </script>
-    <script src="<?= $host ?>assets/admin/js/plugins/smooth-scrollbar.min.js">                  </script>
-    <script src="<?= $host ?>assets/admin/js/plugins/chartjs.min.js">                           </script>
-    <script src="<?= $host ?>assets/admin/js/plugins/validate.js">                              </script>
-    <script src="<?= $host ?>assets/admin/js/argon-dashboard.js">                               </script>
-    <script src="<?= $host ?>assets/admin/js/items/mainss.js">                                   </script>
-    <script src="<?= $host ?>assets/admin/js/items/courses.js">                                 </script>
-    <!--    <script src="--><?//= $host ?><!--assets/preloader/preloader.js">                   </script>-->
-    <script src="<?= $host ?>assets/toasts/toast.js">                                           </script>
-    <script src="<?= $host ?>assets/admin/js/items/detec_connect.js">                           </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/core/popper.min.js">                               </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/core/bootstrap.min.js">                            </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/plugins/perfect-scrollbar.min.js">                 </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/plugins/smooth-scrollbar.min.js">                  </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/plugins/chartjs.min.js">                           </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/plugins/validate.js">                              </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/argon-dashboard.js">                               </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/items/mainss.js">                                   </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/items/courses.js">                                 </script>
+    <!--    <script src="--><?//= BASE_URL ?><!--assets/preloader/preloader.js">                   </script>-->
+    <script src="<?= BASE_URL ?>assets/toasts/toast.js">                                           </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/items/detec_connect.js">                           </script>
     <script async defer src="https://buttons.github.io/buttons.js">                             </script>
     <script>
         if (document.getElementById("chart-line")) {

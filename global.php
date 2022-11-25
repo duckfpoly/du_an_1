@@ -4,9 +4,12 @@
     //    $host                   = 'http://localhost/hangdtph27628/';
     $admin                  =  $host.'admin/';
 
+    define("BASE_URL",     $host);
+    define("ADMIN",        $host.'admin');
+
     use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
+        use PHPMailer\PHPMailer\SMTP;
+        use PHPMailer\PHPMailer\Exception;
     require_once 'vendor/autoload.php';
 
     $client         = new Google\Client();
@@ -18,7 +21,7 @@
     $client->addScope("profile");
 
     $dir_config                 = 'config/';
-    $dir_model           = 'models/';
+    $dir_model                  = 'models/';
     $dir_model_admin            = 'models/admin/';
     $dir_model_site             = 'models/site/';
     $dir_model_teacher_manager  = 'models/manager/teacher/';
@@ -390,5 +393,45 @@
             $str .= $chars[ rand( 0, $size - 1 ) ];
         }
         return $str;
+    }
+
+    function check_id_teacher_login($id_account_login_teacher,$id_teacher_course,$url){
+        if($id_account_login_teacher != $id_teacher_course){
+            die('
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body ">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card mb-4">
+                                                <div class="card-header pb-0">
+                                                    <div class="text-center">
+                                                        <h3 class="text-danger">Cảnh báo !</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body px-0 pt-0 pb-2">
+                                                    <div class="p-3">
+                                                        <div class="form-group text-danger text-center">
+                                                            <p>Khóa học giảng viên truy cập không thuộc quản lý của giảng viên. Giảng viên có thể bị cấm dạy nếu còn truy cập trái phép khóa học mà không phải giảng viên tạo !</p>
+                                                        </div>
+                                                        <div class="mt-5 text-center">
+                                                            <a href="'.$url.'" class="btn btn-outline-secondary">
+                                                                Quay lại
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ');
+        }
     }
 ?>

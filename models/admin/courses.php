@@ -60,7 +60,8 @@
         $sql = "SELECT 
                 categories.name_category,
                 courses.*,
-                teachers.name_teacher
+                teachers.name_teacher,
+                teachers.id id_teacherr
                 FROM courses 
                 INNER JOIN categories ON courses.id_category = categories.id
                 INNER JOIN teachers ON courses.id_teacher = teachers.id

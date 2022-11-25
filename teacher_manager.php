@@ -47,6 +47,10 @@
 <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="<?= $host ?>manager/assets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
 <script src="<?= $host ?>manager/assets/demo/demo.js"></script>
+
+<script src="<?= $host ?>assets/admin/js/core/popper.min.js">                               </script>
+<script src="<?= $host ?>assets/admin/js/core/bootstrap.min.js">                            </script>
+
 <script>
     $(document).ready(function() {
         $().ready(function() {
