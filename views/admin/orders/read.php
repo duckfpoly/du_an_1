@@ -8,7 +8,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <form action="<?= ORDERS ?>">
                                 <select onchange="this.form.submit()" class="form-control" name="status">
-                                    <option value="return" <?= isset($_GET['status']) ? "" : "disabled" ?> selected>Lọc</option>
+                                    <option value="" <?= isset($_GET['status']) ? "" : "disabled" ?> selected>Lọc</option>
                                     <?php $status = isset($_GET['status']) ? $_GET['status'] : "" ?>
                                     <option value="0" <?= $status == 0 ? 'selected' : "" ?>>Chưa thanh toán</option>
                                     <option value="1" <?= $status == 1 ? 'selected' : "" ?>>Thanh toán lỗi</option>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="card-body ">
                     <div class="table-responsive p-3">
-                        <table class="table align-items-center " id="example">
+                        <table class="table align-items-center " id="examplee">
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã hóa đơn</th>

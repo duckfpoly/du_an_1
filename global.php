@@ -1,6 +1,6 @@
 <?php
-    // $host                   = 'http://localhost/courses/';
-      $host                   =  'http://localhost/coursesWeb/du_an_1/';
+     $host                   = 'http://localhost/courses/';
+//      $host                   =  'http://localhost/coursesWeb/du_an_1/';
     //    $host                   = 'http://localhost/hangdtph27628/';
     $admin                  =  $host.'admin/';
 
@@ -17,24 +17,31 @@
     $client->addScope("email");
     $client->addScope("profile");
 
-    $dir_config     = 'config/';
-    $dir_model      = 'models/';
-    $dir_model_site = 'models/site/';
-    
+    $dir_config                 = 'config/';
+    $dir_model           = 'models/';
+    $dir_model_admin            = 'models/admin/';
+    $dir_model_site             = 'models/site/';
+    $dir_model_teacher_manager  = 'models/manager/teacher/';
+
     require_once $dir_config.'db.php';
-    include_once $dir_config.'session.php';
-    include_once $dir_config.'cookie.php';
-    include_once $dir_config.'vnpay.php';
+    require_once $dir_config.'session.php';
+    require_once $dir_config.'cookie.php';
+    require_once $dir_config.'vnpay.php';
 
     require_once $dir_model.'process_db.php';
-    require_once $dir_model.'accounts.php';
-    require_once $dir_model.'categories.php';
-    require_once $dir_model.'courses.php';
-    require_once $dir_model.'teachers.php';
-    require_once $dir_model.'students.php';
-    require_once $dir_model.'classes.php';
-    require_once $dir_model.'bills.php';
-    require_once $dir_model.'orders.php';
+
+    require_once $dir_model_teacher_manager.'teacher_course.php';
+
+    require_once $dir_model_admin.'accounts.php';
+    require_once $dir_model_admin.'categories.php';
+    require_once $dir_model_admin.'courses.php';
+    require_once $dir_model_admin.'teachers.php';
+    require_once $dir_model_admin.'students.php';
+    require_once $dir_model_admin.'classes.php';
+    require_once $dir_model_admin.'bills.php';
+    require_once $dir_model_admin.'orders.php';
+    require_once $dir_model_admin.'sales.php';
+    require_once $dir_model_admin.'statistical.php';
 
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
@@ -49,10 +56,12 @@
     define("TEACHERS",      $admin.'teachers');
     define("STUDENTS",      $admin.'students');
     define("BILLS",         $admin.'bills');
-    define("ORDERS",         $admin.'orders');
+    define("ORDERS",        $admin.'orders');
     define("RATES",         $admin.'rates');
     define("CLASSES",       $admin.'classes');
-    define("SIGNOUT",        $admin.'logout');
+    define("SALES",         $admin.'sales');
+    define("SIGNOUT",       $admin.'logout');
+    define("STATISTICAL",   $admin.'statistical');
 
     // url site
     define("HOME",          $host);  
@@ -62,7 +71,12 @@
     define("PAYMENT",       $host.'payment');
     define("SIGUP",         $host.'account/sign_up');
     define("SIGIN",         $host.'account/sign_in');
-    define("LOGOUT",         $host.'account/log_out');
+    define("LOGOUT",        $host.'account/log_out');
+
+    // teacher manager
+    define("DASHBOARD_TEACHER",        $host.'teacher_manager');
+    define("COURSE_TEACHER",           $host.'teacher_manager/my_course');
+    define("CLASS_TEACHER",            $host.'teacher_manager/my_class');
 
     function active_item($item){
         echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';
@@ -70,6 +84,15 @@
 
     function location($url){
         echo '<script>window.location="'.$url.'";</script>';
+    }
+
+    function return_empty_data($data){
+        if(empty($data) || $data == '' ){
+            return 0;
+        }
+        else {
+            return $data;
+        }
     }
 
     function alert($text,$url){
@@ -247,19 +270,25 @@
         $sql = "SELECT count(id) AS total FROM $tbl";
         $row = query_one($sql);
         $total_records = $row['total'];
-        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = $limit_data;
-        $total_page = ceil($total_records / $limit);
-        if ($current_page > $total_page) {
-            $current_page = $total_page;
-        } else if ($current_page < 1) {
-            $current_page = 1;
+        if($total_records != 0){
+            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+            $limit = $limit_data;
+            $total_page = ceil($total_records / $limit);
+            if ($current_page > $total_page) {
+                $current_page = $total_page;
+            } else if ($current_page < 1) {
+                $current_page = 1;
+            }
+            $start = ($current_page - 1) * $limit;
+            $data_pani = "SELECT * FROM $tbl LIMIT $start, $limit";
+            $row = query($data_pani);
+            $arr = [$row, $current_page, $total_page];
+            return $arr;
         }
-        $start = ($current_page - 1) * $limit;
-        $data_pani = "SELECT * FROM $tbl LIMIT $start, $limit";
-        $row = query($data_pani);
-        $arr = [$row, $current_page, $total_page];
-        return $arr;
+        else {
+            $data_pani = "SELECT * FROM $tbl";
+            return [query($data_pani), 0, 0];
+        }
     }
 
     function pagination($current_page, $total_page, $url){
@@ -282,19 +311,25 @@
         $sql = "SELECT count(id) AS total FROM $tbl";
         $row = query_one($sql);
         $total_records = $row['total'];
-        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = $limit_data;
-        $total_page = ceil($total_records / $limit);
-        if ($current_page > $total_page) {
-            $current_page = $total_page;
-        } else if ($current_page < 1) {
-            $current_page = 1;
+        if($total_records != 0){
+            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+            $limit = $limit_data;
+            $total_page = ceil($total_records / $limit);
+            if ($current_page > $total_page) {
+                $current_page = $total_page;
+            } else if ($current_page < 1) {
+                $current_page = 1;
+            }
+            $start = ($current_page - 1) * $limit;
+            $data_pani = "SELECT * FROM $tbl WHERE $values_search LIKE '%$key%' LIMIT $start, $limit";
+            $row = query($data_pani);
+            $arr = [$row, $current_page, $total_page];
+            return $arr;
         }
-        $start = ($current_page - 1) * $limit;
-        $data_pani = "SELECT * FROM $tbl WHERE $values_search LIKE '%$key%' LIMIT $start, $limit";
-        $row = query($data_pani);
-        $arr = [$row, $current_page, $total_page];
-        return $arr;
+        else {
+            $data_pani = "SELECT * FROM $tbl WHERE $values_search LIKE '%$key%'";
+            return [query($data_pani), 0, 0];
+        }
     }
 
     function check_time_end($date){
@@ -343,5 +378,13 @@
     function cal_percent($obj,$sum){
         return round(($obj / $sum) * 100);
     }
-
+    function rand_code($length) {
+        $chars = "abcdefghijklmnopqrstuvwxyz";
+        $size = strlen( $chars );
+        $str = '';
+        for( $i = 0; $i < $length; $i++ ) {
+            $str .= $chars[ rand( 0, $size - 1 ) ];
+        }
+        return $str;
+    }
 ?>

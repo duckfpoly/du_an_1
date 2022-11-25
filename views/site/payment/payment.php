@@ -19,7 +19,6 @@
         <input type="hidden" name="check_day"       value="<?= isset( $_POST['check_day']) ?  $_POST['check_day'] : ''?>" >
         <input type="hidden" name="check_time"      value="<?= isset($_POST['check_time']) ? $_POST['check_time'] : ''?>" >
         <input type="hidden" name="order_code"      value="<?= $order_code ?>" >
-        <input type="hidden" name="price_course"    value="<?=  total_no_fomat($course['price_course'],$course['discount']) ?>" >
         <div class="d-flex flex-wrap justify-content-between align-items-start" id="main_content">
             <div class="col-lg-3 col-md-12 col-sm-12">
                 <h3>Thông tin người đăng ký</h3>
@@ -80,14 +79,14 @@
                     <h2>Thông tin đơn hàng - <?= $order_code ?></h2>
                     <table class="table" id="example">
                         <thead>
-                        <tr>
-                            <th>Ảnh</th>
-                            <th>Khóa học</th>
-                            <td>Lớp</td>
-                            <th>Thời gian</th>
-                            <th>Ca học</th>
-                            <th>Giá</th>
-                        </tr>
+                            <tr>
+                                <th>Ảnh</th>
+                                <th>Khóa học</th>
+                                <td>Lớp</td>
+                                <th>Thời gian</th>
+                                <th>Ca học</th>
+                                <th>Giá</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
@@ -105,19 +104,33 @@
                                 </td>
                                 <td><?= $day == 0 ? '2-4-6' : '3-5-7'?></td>
                                 <td><?= $time ?></td>
-                                <td><?= total($course['price_course'],$course['discount'])?></td>
+                                <td>
+                                    <input type="text" readonly class="form-control" id="price_course" data-price="<?= total_no_fomat($course['price_course'],$course['discount']) ?>" value="<?= total($course['price_course'],$course['discount'])?>" style="background: none; border: none">
+                                </td>
                             </tr>
                         </tbody>
                     </table>
+                    <div class="cupon_areaa d-flex mb-3">
+                        <form>
+                            <input type="text" class="form-control w-50" placeholder="Nhập mã giảm giá ..." id="input_coupon"/>
+                            <button type="button" class="btn btn-outline-secondary" id="apply_id_coupon" style="margin-left: 20px;">Apply</button>
+                        </form>
+                    </div>
+                    <div id="show_message"></div>
                     <ul class="list list_2">
                         <li>
                             <a href="#" class="fw-bold">Tổng tiền thanh toán
-                                <span><span id="total_order"><?= total($course['price_course'],$course['discount'])?></span></span>
+                                <input type="hidden" id="price_total" name="price_total" value="<?= total_no_fomat($course['price_course'],$course['discount']) ?>" >
+                                <span>
+                                    <span id="total_order">
+                                        <?= total($course['price_course'],$course['discount'])?>
+                                    </span>
+                                </span>
                             </a>
                         </li>
                     </ul>
                     <div class="mt-4 text-center">
-                        <button  name="redirect" id="redirect" class="btn_1" type="submit">Đăng ký</button>
+                        <button name="redirect" id="redirect" class="btn_1" type="submit">Đăng ký</button>
                     </div>
                     <div>
                         <a href="#"><i class="fa-solid fa-arrow-left"></i>Quay lại</a>
@@ -127,20 +140,4 @@
         </div>
     </form>
 </section>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    Validator({
-        form: "#forms_payment",
-        formGroupSelector: ".form-group",
-        errorSelector: ".form-message",
-        rules: [
-            Validator.isRequired("#name", "Vui lòng nhập tên"),
-            Validator.isRequired("#email", "Vui lòng nhập email"),
-            Validator.isEmail('#email', "Email không tồn tại"),
-            Validator.isRequired("#phone", "Vui lòng nhập số điện thoại"),
-            Validator.isPhone("#phone", "Số điện thoại không tồn tại"),
-            
-        ],
-    });
-    });
-</script>   
+<script src="<?= $host ?>assets/js/checkout/app.js"></script>

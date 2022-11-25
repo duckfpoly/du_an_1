@@ -12,7 +12,12 @@
     }
     function checkSessionAdmin(){
         if(getSession('scope') != 1){
-            location('login');
+            location('http://localhost/courses/login');
+        }
+    }
+    function checkSessionTeacher(){
+        if(getSession('user')['role'] != 0){
+            location('http://localhost/courses/');
         }
     }
     function checkLogin(){
