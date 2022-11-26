@@ -8,9 +8,9 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-7 col-md-12">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Online learning<br> platform</h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.4s">Build skills with courses, certificates, and degrees online from world-class universities and companies</p>
-                                    <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Join for Free</a>
+                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Courses Learning</h1>
+                                    <p data-animation="fadeInLeft" data-delay="0.4s">Xây dựng kỹ năng với các khóa học, chứng chỉ và bằng cấp trực tuyến từ các trường đại học và công ty đẳng cấp thế giới</p>
+                                    <a href="<?= SIGUP?>" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Join Now</a>
                                 </div>
                             </div>
                         </div>
@@ -28,8 +28,9 @@
                                 <img src="assets/img/img_site/img/icon/icon1.svg" alt="">
                             </div>
                             <div class="features-caption">
-                                <h3>60+ UX courses</h3>
-                                <p>The automated process all your website tasks.</p>
+                                <h3>Học từ con số 0</h3>
+                                <p>Học bài bản cho người bắt đầu.
+                                    Bất kì ai cũng có thể tham gia học tập</p>
                             </div>
                         </div>
                     </div>
@@ -39,8 +40,8 @@
                                 <img src="assets/img/img_site/img/icon/icon2.svg" alt="">
                             </div>
                             <div class="features-caption">
-                                <h3>Expert instructors</h3>
-                                <p>The automated process all your website tasks.</p>
+                                <h3>Tận tâm từng giờ học</h3>
+                                <p>Giảng viên nhiệt tình, theo sát học viên suốt quá trình. Giải đáp vướng mắc cho học viên 1-1, 24/7</p>
                             </div>
                         </div>
                     </div>
@@ -50,8 +51,8 @@
                                 <img src="assets/img/img_site/img/icon/icon3.svg" alt="">
                             </div>
                             <div class="features-caption">
-                                <h3>Life time access</h3>
-                                <p>The automated process all your website tasks.</p>
+                                <h3>Cam kết việc làm</h3>
+                                <p>Hướng dẫn học viên viết CV, kĩ năng phỏng vấn. Cam kết 100% công việc tại các công ty đối tác sau tốt nghiệp</p>
                             </div>
                         </div>
                     </div>
@@ -64,7 +65,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8">
                         <div class="section-tittle text-center mb-55">
-                            <h2>Our featured courses</h2>
+                            <h2>Các khóa học nổi bật</h2>
                         </div>
                     </div>
                 </div>
@@ -75,35 +76,44 @@
                         <div class="properties pb-20">
                             <div class="properties__card">
                                 <div class="properties__img overlay1">
-                                <a href="<?= LESSONS?>/<?php echo $value['id']?>"><img src="assets/img/img_site/img/gallery/featured6.png" alt=""></a>
+                                    <a href="<?= LESSONS?>/<?php echo $value['id']?>">
+                                        <img src="assets/uploads/courses/<?php echo $value['image_course']?>" class="card-image" alt="">
+                                    </a>
                                 </div>
                                 <div class="properties__caption">
-                                    <p>User Experience</p>
-                                    <h3><a href="<?= LESSONS?>/<?php echo $value['id']?>"><?php echo $value['name_course']?></a></h3>
-                                    <p>
+                                    <h3 class="card-title mb-2">
+                                        <a href="<?= LESSONS?>/<?php echo $value['id']?>">
+                                            <?php echo $value['name_course']?>
+                                        </a>
+                                    </h3>
+                                    <p class="mb-3"><?= $value['name_teacher'] ?></p>
+                                    <p class="card-title mb-3">
                                         <?php echo $value['description_course']?>
                                     </p>
-                                    <div class="properties__footer d-flex justify-content-between align-items-center">
+                                    <div class="card-bottomm  properties__footer d-flex justify-content-between align-items-center">
+                                        <?php
+                                            $id = $value['id'];
+                                            // đánh giá sao trung bình
+                                            if(empty(get_avg_rate_course($id))){
+                                                $avg_rate = 0;
+                                            }
+                                            else {
+                                                $avg_rate = get_avg_rate_course($id);
+                                            }
+                                            // số đánh giá
+                                            $count_rate = get_count_rate_course($id);
+                                        ?>
                                         <div class="restaurant-name">
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half"></i>
-                                            </div>
-                                            <p><span>(4.5)</span> based on 120</p>
+                                            <div class="Stars" style="--rating: <?= $avg_rate ?>"></div>
+                                            <p><span><?= $avg_rate ?></span>&nbsp;(<?= $count_rate ?>)</p>
                                         </div>
                                         <div class="price gap-4">
-
                                             <span class="<?php echo $value['discount'] != 0 ? 'text-decoration-line-through textPrice colorOldPrice' : '' ?>"><?php echo number_format($value['price_course'])?> $</span>
-
                                             <span><?php echo $value['discount'] != 0 ? total($value['price_course'],$value['discount']) : '' ?></span>
                                         </div>
                                     </div>
-                                    <a href="<?= LESSONS?>/<?php echo $value['id']?>" class="border-btn border-btn2">Find out more</a>
+                                    <a href="<?= LESSONS?>/<?php echo $value['id']?>" class="border-btn border-btn2">Tìm hiểu thêm</a>
                                 </div>
-
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -112,8 +122,12 @@
             </div>
         </div>
         <!-- Courses area End -->
+
+
+
+
         <!--? About Area-1 Start -->
-        <section class="about-area1 fix pt-10">
+        <section class="about-area1 fix pt-10 mb-5 d-none">
             <div class="support-wrapper align-items-center">
                 <div class="left-content1">
                     <div class="about-icon">
@@ -122,10 +136,10 @@
                     <!-- section tittle -->
                     <div class="section-tittle section-tittle2 mb-55">
                         <div class="front-text">
-                            <h2 class="">Learn new skills online with top educators</h2>
-                            <p>The automated process all your website tasks. Discover tools and 
-                                techniques to engage effectively with vulnerable children and young 
-                            people.</p>
+                            <h2 class="">Những điều đặc biệt tại Courses App giúp bạn thành công</h2>
+<!--                            <p>The automated process all your website tasks. Discover tools and -->
+<!--                                techniques to engage effectively with vulnerable children and young -->
+<!--                            people.</p>-->
                         </div>
                     </div>
                     <div class="single-features">
@@ -133,7 +147,7 @@
                             <img src="assets/img/img_site/img/icon/right-icon.svg" alt="">
                         </div>
                         <div class="features-caption">
-                            <p>Techniques to engage effectively with vulnerable children and young people.</p>
+                            <p>Thời gian đào tạo nhanh</p>
                         </div>
                     </div>
                     <div class="single-features">
@@ -141,16 +155,39 @@
                             <img src="assets/img/img_site/img/icon/right-icon.svg" alt="">
                         </div>
                         <div class="features-caption">
-                            <p>Join millions of people from around the world  learning together.</p>
+                            <p>Học thực chiến dự án</p>
                         </div>
                     </div>
-
                     <div class="single-features">
                         <div class="features-icon">
                             <img src="assets/img/img_site/img/icon/right-icon.svg" alt="">
                         </div>
                         <div class="features-caption">
-                            <p>Join millions of people from around the world learning together. Online learning is as easy and natural.</p>
+                            <p>Hỗ trợ học phí tối đa</p>
+                        </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="assets/img/img_site/img/icon/right-icon.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Hỗ trợ học phí tối đa</p>
+                        </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="assets/img/img_site/img/icon/right-icon.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Cam kết công việc</p>
+                        </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="assets/img/img_site/img/icon/right-icon.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Học 1-1 vs giảng viên</p>
                         </div>
                     </div>
                 </div>
@@ -158,7 +195,6 @@
                     <!-- img -->
                     <div class="right-img">
                         <img src="assets/img/img_site/img/gallery/about.png" alt="">
-
                         <div class="video-icon" >
                             <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a>
                         </div>
@@ -168,7 +204,7 @@
         </section>
         <!-- About Area End -->
         <!--? top subjects Area Start -->
-        <div class="topic-area section-padding40">
+        <div class="topic-area section-padding40 d-none">
             <div class="container ">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8">
@@ -216,7 +252,7 @@
                     <!-- section tittle -->
                     <div class="section-tittle section-tittle2 mb-20">
                         <div class="front-text">
-                            <h2 class="">Learner outcomes on courses you will take</h2>
+                            <h2 class="">Những điều đặc biệt tại ... giúp bạn thành công</h2>
                         </div>
                     </div>
                     <div class="single-features">
@@ -224,7 +260,7 @@
                             <img src="assets/img/img_site/img/icon/right-icon.svg" alt="">
                         </div>
                         <div class="features-caption">
-                            <p>Techniques to engage effectively with vulnerable children and young people.</p>
+                            <p>Thời gian đào tạo nhanh</p>
                         </div>
                     </div>
                     <div class="single-features">
@@ -232,8 +268,7 @@
                             <img src="assets/img/img_site/img/icon/right-icon.svg" alt="">
                         </div>
                         <div class="features-caption">
-                            <p>Join millions of people from around the world
-                            learning together.</p>
+                            <p>Hỗ trợ học phí tối đa</p>
                         </div>
                     </div>
                     <div class="single-features">
@@ -241,8 +276,7 @@
                             <img src="assets/img/img_site/img/icon/right-icon.svg" alt="">
                         </div>
                         <div class="features-caption">
-                            <p>Join millions of people from around the world learning together.
-                            Online learning is as easy and natural.</p>
+                            <p>Cam kết công việc</p>
                         </div>
                     </div>
                 </div>
@@ -250,7 +284,7 @@
         </section>
         <!-- About Area End -->
         <!--? Team -->
-        <section class="team-area section-padding40 fix">
+        <section class="team-area section-padding40 fix d-none">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8">
@@ -260,6 +294,7 @@
                     </div>
                 </div>
                 <div class="team-active">
+
                     <div class="single-cat text-center">
                         <div class="cat-icon">
                             <img src="assets/img/img_site/img/gallery/team1.png" alt="">
@@ -269,48 +304,11 @@
                             <p>The automated process all your website tasks.</p>
                         </div>
                     </div>
-                    <div class="single-cat text-center">
-                        <div class="cat-icon">
-                            <img src="assets/img/img_site/img/gallery/team2.png" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Mr. Uttom</a></h5>
-                            <p>The automated process all your website tasks.</p>
-                        </div>
-                    </div>
-                    <div class="single-cat text-center">
-                        <div class="cat-icon">
-                            <img src="assets/img/img_site/img/gallery/team3.png" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Mr. Shakil</a></h5>
-                            <p>The automated process all your website tasks.</p>
-                        </div>
-                    </div>
-                    <div class="single-cat text-center">
-                        <div class="cat-icon">
-                            <img src="assets/img/img_site/img/gallery/team4.png" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Mr. Arafat</a></h5>
-                            <p>The automated process all your website tasks.</p>
-                        </div>
-                    </div>
-                    <div class="single-cat text-center">
-                        <div class="cat-icon">
-                            <img src="assets/img/img_site/img/gallery/team3.png" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Mr. saiful</a></h5>
-                            <p>The automated process all your website tasks.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
         <!-- Services End -->
         <!--? About Area-2 Start -->
-        <section class="about-area2 fix pb-padding">
+        <section class="about-area2 fix pb-padding d-none">
             <div class="support-wrapper align-items-center">
                 <div class="right-content2">
                     <!-- img -->
@@ -335,3 +333,25 @@
         </section>
         <!-- About Area End -->
     </main>
+
+<style>
+    :root {
+        --star-size: 30px;
+        --star-color: #fff;
+        --star-background: #fc0;
+    }
+    .Stars {
+        --percent: calc(var(--rating) / 5 * 100%);
+        display: inline-block;
+        font-size: var(--star-size);
+        font-family: Times;
+        line-height: 1;
+    }
+    .Stars::before {
+        content: "★★★★★";
+        letter-spacing: 3px;
+        background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>

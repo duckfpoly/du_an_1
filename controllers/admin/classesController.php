@@ -20,7 +20,7 @@
                 check_empty($time_learn,CLASSES . "/create");
                 check_empty($time_start,CLASSES . "/create");
 
-                check_data(check_course_class($id_course));
+                check_data(check_course_class($id_course),CLASSES . "/create");
                 // Gọi model để thêm dữ liệu vào database
                 class_create($name_class,$id_course,$time_learn,$time_start,$time_end);
                 // sau khi thêm hoàn thành sẽ điều hướng về trang read
@@ -82,9 +82,9 @@
                 $time_sub       = $_POST['time_sub'];
                 check_empty($id_student,CLASSES."/addStudent/".$id_class);
                 $count = count_slot_class($id_class,$day_sub,$time_sub);
-                check_data(check_std_class($id_class,$id_student));
+                check_data(check_std_class($id_class,$id_student),CLASSES."/addStudent/".$id_class);
                 if($count == slot_class($id_class)){
-                    show_error('Lớp đã đủ học viên !');
+                    show_error('Lớp đã đủ học viên !',CLASSES."/addStudent/".$id_class);
                 }
                 add_student_to_class($id_student,$day_sub,$time_sub,$id_class);
                 location(CLASSES.'/showStudent/'.$id_class);

@@ -8,6 +8,7 @@
         $day_sub        = $_POST['check_day'];
         $time_sub       = $_POST['check_time'];
         $price_course   = $_POST['price_total'];
+
         add_orders($order_code,$order_date,$order_pay,$id_student,$id_class,$day_sub,$time_sub,$price_course);
         switch ($order_pay){
             case 0:
@@ -22,6 +23,6 @@
         }
     }
     else {
-        location($host);
+        location(BASE_URL);
     }
 ?>

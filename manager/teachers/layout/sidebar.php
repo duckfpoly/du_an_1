@@ -1,33 +1,48 @@
 <div class="sidebar">
-    <!--
-      Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-  -->
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="<?= DASHBOARD_TEACHER ?>" class="simple-text logo-mini">
                 CT
             </a>
             <a href="<?= DASHBOARD_TEACHER ?>" class="simple-text logo-normal">
-                Creative Tim
+                <?= getSession('user')['name_teacher'] ?>
             </a>
         </div>
         <ul class="nav">
-            <li class="active ">
+            <li id="dashboard">
                 <a href="<?= DASHBOARD_TEACHER ?>">
                     <i class="tim-icons icon-chart-pie-36"></i>
                     <p>Trang chủ</p>
                 </a>
             </li>
-            <li>
+            <li id="my_course">
                 <a href="<?= COURSE_TEACHER ?>">
                     <i class="tim-icons icon-atom"></i>
                     <p>Quản lý khóa học</p>
                 </a>
             </li>
-            <li>
+            <li id="my_class">
                 <a href="<?= CLASS_TEACHER ?>">
                     <i class="tim-icons icon-atom"></i>
                     <p>Quản lý lớp</p>
+                </a>
+            </li>
+            <li id="teaching_schedule">
+                <a href="<?= TEACHING_SCHEDULE ?>">
+                    <i class="tim-icons icon-atom"></i>
+                    <p>Lịch dạy</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="tim-icons icon-atom"></i>
+                    <p>Điểm danh</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="tim-icons icon-atom"></i>
+                    <p>Nhập điểm</p>
                 </a>
             </li>
     </div>

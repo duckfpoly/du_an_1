@@ -64,7 +64,7 @@
                                                                                     <?= $values['phone_student'] ?>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <form action="<?= CLASSES ?>/deleteStudent" method="post">
+                                                                                    <form action="<?= CLASS_TEACHER ?>/deleteStudent" method="post">
                                                                                         <input type="hidden" name="id_student" value="<?= $values['id'] ?>">
                                                                                         <input type="hidden" name="id_class"   value="<?= $_GET['id'] ?>">
                                                                                         <button class="btn btn-danger" type="submit">Xóa</button>
@@ -108,7 +108,7 @@
                                                                                         <?= $values['phone_student'] ?>
                                                                                     </td>
                                                                                     <td>
-                                                                                        <form action="<?= CLASSES ?>/deleteStudent" method="post">
+                                                                                        <form action="<?= CLASS_TEACHER ?>/deleteStudent" method="post">
                                                                                             <input type="hidden" name="id_student" value="<?= $values['id'] ?>">
                                                                                             <input type="hidden" name="id_class"   value="<?= $_GET['id'] ?>">
                                                                                             <button class="btn btn-danger" type="submit">Xóa</button>

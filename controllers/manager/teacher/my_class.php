@@ -19,8 +19,7 @@
                 check_empty($id_course, CLASS_TEACHER . "/create");
                 check_empty($time_learn,CLASS_TEACHER . "/create");
                 check_empty($time_start,CLASS_TEACHER . "/create");
-
-                check_data(check_course_class($id_course));
+                check_data(check_course_class($id_course),CLASS_TEACHER . "/create");
                 // Gọi model để thêm dữ liệu vào database
                 class_create($name_class,$id_course,$time_learn,$time_start,$time_end);
                 // sau khi thêm hoàn thành sẽ điều hướng về trang read
@@ -88,7 +87,15 @@
                 break;
         }
     } else {
-        $read_class = get_class_teacher($id_teacher);
+        if (isset($_GET['classes'])) {
+            if (empty($_GET['classes'])) {
+                location(CLASS_TEACHER);
+            } else {
+                $read_class = teacher_class_search($_GET['classes'],$id_teacher);
+            }
+        } else {
+            $read_class = get_class_teacher($id_teacher);
+        }
         include_once $direct_read;
     }
 ?>

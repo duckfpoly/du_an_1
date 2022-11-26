@@ -17,7 +17,7 @@
         query_sql($sql,$name_category);
     }
     function category_read(){
-        $sql = "SELECT * FROM categories ORDER BY id DESC ";
+        $sql = "SELECT * FROM categories";
         return query($sql);
     }
     function category_update($name_category,$id){

@@ -11,7 +11,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card mb-4">
-                                        <div class="card-header border-bottom pb-4">
+                                        <div class="card-header ">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <h6>Danh sách lớp học</h6>
                                                 <div class="d-flex justify-content-between align-items-center">

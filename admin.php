@@ -38,7 +38,7 @@
         function return_page(){
             history.back();
         }
-        var admin = "http://locaBASE_URL/courses/admin/";
+        var admin = "<?= ADMIN ?>";
     </script>
 </head>
 <body class="g-sidenav-show bg-gray-100">
@@ -90,8 +90,8 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js">             </script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js">             </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js">    </script>
-    <script src="<?= BASE_URL ?>assets/admin/js/core/popper.min.js">                               </script>
-    <script src="<?= BASE_URL ?>assets/admin/js/core/bootstrap.min.js">                            </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/core/popper.min.js">                            </script>
+    <script src="<?= BASE_URL ?>assets/admin/js/core/bootstrap.min.js">                         </script>
     <script src="<?= BASE_URL ?>assets/admin/js/plugins/perfect-scrollbar.min.js">                 </script>
     <script src="<?= BASE_URL ?>assets/admin/js/plugins/smooth-scrollbar.min.js">                  </script>
     <script src="<?= BASE_URL ?>assets/admin/js/plugins/chartjs.min.js">                           </script>

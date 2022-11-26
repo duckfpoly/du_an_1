@@ -36,12 +36,20 @@ function apply_coupon(){
                 var results = res.data;
                 results.forEach((items) => {
                     if(items.sale_code == document.getElementById("input_coupon").value){
-                        var price = document.getElementById("price_course").getAttribute('data-price');
-                        document.getElementById("input_coupon").value = items.sale_code
-                        document.getElementById("input_coupon").setAttribute('disabled',true)
-                        document.getElementById("apply_id_coupon").setAttribute('disabled',true)
-                        document.getElementById("total_order").innerText =new Intl.NumberFormat('it-IT',{style:'currency',currency:'VND'}).format((Number(price) * Number(items.percent_discount)) / 100)
-                        document.getElementById("price_total").value = (Number(price) * Number(items.percent_discount)) / 100
+                        if(Number(new Date()) > Number(new Date(items.time))){
+                            document.getElementById("show_message").innerHTML = `
+                                     <div class="alert alert-danger" >
+                                        Mã giảm giá đã hết hạn !
+                                    </div>
+                                `
+                        } else {
+                            var price = document.getElementById("price_course").getAttribute('data-price');
+                            document.getElementById("input_coupon").value = items.sale_code
+                            document.getElementById("input_coupon").setAttribute('disabled',true)
+                            document.getElementById("apply_id_coupon").setAttribute('disabled',true)
+                            document.getElementById("total_order").innerText =new Intl.NumberFormat('it-IT',{style:'currency',currency:'VND'}).format((Number(price) * Number(items.percent_discount)) / 100)
+                            document.getElementById("price_total").value = (Number(price) * Number(items.percent_discount)) / 100
+                        }
                     }
                     // else {
                     //     document.getElementById("show_message").innerHTML = `

@@ -1,6 +1,6 @@
 <?php
     function login_admin($username,$password) {
-        $query = "SELECT * FROM account_manager WHERE username = '$username' ";
+        $query = "SELECT * FROM account_manager WHERE username = '$username'";
         $value = query_one($query);
         if(isset($value['username'])){
             if($value['status'] == 1 ){
