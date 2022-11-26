@@ -6,6 +6,7 @@
 
     define("BASE_URL",     $host);
     define("ADMIN",        $host.'admin');
+    define("ADMIN_URL",    $host.'admin/');
 
     use PHPMailer\PHPMailer\PHPMailer;
         use PHPMailer\PHPMailer\SMTP;
@@ -24,7 +25,7 @@
     $dir_model                  = 'models/';
     $dir_model_admin            = 'models/admin/';
     $dir_model_site             = 'models/site/';
-    $dir_model_teacher_manager  = 'models/manager/teacher/';
+    $dir_model_manager  = 'models/manager/';
 
     require_once $dir_config.'db.php';
     require_once $dir_config.'session.php';
@@ -33,7 +34,7 @@
 
     require_once $dir_model.'process_db.php';
 
-    require_once $dir_model_teacher_manager.'teacher_course.php';
+    require_once $dir_model_manager.'teacher.php';
 
     require_once $dir_model_admin.'accounts.php';
     require_once $dir_model_admin.'categories.php';
@@ -80,6 +81,7 @@
     define("DASHBOARD_TEACHER",        $host.'teacher_manager');
     define("COURSE_TEACHER",           $host.'teacher_manager/my_course');
     define("CLASS_TEACHER",            $host.'teacher_manager/my_class');
+    define("TEACHING_SCHEDULE",        $host.'teacher_manager/teaching_schedule');
 
     function active_item($item){
         echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';

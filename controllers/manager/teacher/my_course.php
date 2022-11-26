@@ -120,7 +120,7 @@
         $teacher_read   = teacher_detail($id_teacher);
         if(isset($_GET['course'])){
             check_empty($_GET['course'],COURSE_TEACHER);
-            $courses_read   = course_search($_GET['course']);
+            $courses_read = teacher_course_search($_GET['course'],$id_teacher);
         }else {
             $courses_read   = get_course_teacher($id_teacher);
         }

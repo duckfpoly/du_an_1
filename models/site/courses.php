@@ -1,6 +1,13 @@
 <?php
     function get_new_courses(){
-        $sql = "SELECT * FROM courses ORDER BY id DESC LIMIT 5";
+        $sql = "SELECT 
+                courses.*,
+                categories.name_category,
+                teachers.name_teacher
+         FROM courses
+         INNER JOIN categories ON courses.id_category = categories.id
+         INNER JOIN teachers ON courses.id_teacher = teachers.id
+         ORDER BY courses.id DESC LIMIT 5";
         return query($sql);
     }
     function get_all_courses(){
@@ -87,6 +94,14 @@
 
     function get_class_by_course($id_course){
         $sql = "SELECT * FROM classes WHERE id_course = ?";
-        return query($sql,$id_course);
+        return query_one($sql,$id_course);
+    }
+
+    function count_std_coursee($id_course){
+        $sql = "SELECT COUNT(detail_classes.id_students) AS total FROM detail_classes
+                INNER JOIN classes ON detail_classes.id_class = classes.id
+                WHERE classes.id_course = ?
+        ";
+        return query_value($sql,$id_course);
     }
 ?>

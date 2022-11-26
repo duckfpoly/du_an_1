@@ -4,13 +4,9 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="title">Danh sách khóa học</h5>
-
-                    <?php print_r(getSession('user')['role']);
-                    ?>
                 </div>
                 <div class="card-body ">
                     <div class="row">
-
                         <section class="container-fluid py-4">
                             <div class="row">
                                 <div class="col-12">

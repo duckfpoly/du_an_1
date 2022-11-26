@@ -88,7 +88,15 @@
                 break;
         }
     } else {
-        $read_class = get_class_teacher($id_teacher);
+        if (isset($_GET['classes'])) {
+            if (empty($_GET['classes'])) {
+                location(CLASS_TEACHER);
+            } else {
+                $read_class = teacher_class_search($_GET['classes'],$id_teacher);
+            }
+        } else {
+            $read_class = get_class_teacher($id_teacher);
+        }
         include_once $direct_read;
     }
 ?>

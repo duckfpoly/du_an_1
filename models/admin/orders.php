@@ -9,7 +9,7 @@
             FROM `tbl_orders`
             INNER JOIN students ON `tbl_orders`.id_students = students.id
             INNER JOIN classes  ON `tbl_orders`.id_class = classes.id
-        ORDER BY tbl_orders.status ASC
+            ORDER BY tbl_orders.status ASC
         ";
         return query($sql);
     }

@@ -4,41 +4,37 @@ Order Deny,Allow
 ErrorDocument 404 http://localhost/courses/page_not_found
 #DirectoryIndex admin.php
 RewriteEngine On
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
+
 RewriteRule ^page_not_found$ views/404.php
-RewriteRule ^account/([a-zA-Z0-9_-]+)$                                    account.php?a=$1
-# RewriteRule ^sign_up$                                                   views/account/sign_up.php
-# RewriteRule ^forgot_pass$                                               views/account/forgot_pass.php
-# RewriteRule ^reset_pass$                                                views/account/reset_pass.php
-#RewriteRule ^sign_in$                                                   views/account/sign_in.php
-#RewriteRule ^sign_up$                                                   views/account/sign_up.php
-#RewriteRule ^forgot_pass$                                               views/account/forgot_pass.php
-#RewriteRule ^reset_pass$                                                views/account/reset_pass.php
+
+RewriteRule ^account/([a-zA-Z0-9_-]+)$                                              account.php?a=$1
+
+RewriteRule ^login$                                                                 login.php
+
+RewriteRule ^apis$                                                                  api.php
+RewriteRule ^api/([a-zA-Z0-9_-]+)$                                                  api.php?module=$1                                   [QSA,L]
+RewriteRule ^api/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                                 api.php?module=$1&act=$2                            [QSA,L]
+RewriteRule ^api/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                api.php?module=$1&act=$2&id=$3                      [QSA,L]
+
+RewriteRule ^pay$                                                                   pay.php                                             [QSA,L]
+RewriteRule ^pay/status$                                                            pay.php?req_pay=status                              [QSA,L]
+RewriteRule ^account/([a-zA-Z0-9_-]+)$                                              account.php?act_acc=$1                              [QSA,L]
 
 
-RewriteRule ^apis$                                                      api.php
-RewriteRule ^api/([a-zA-Z0-9_-]+)$                                      api.php?module=$1               [QSA,L]
-RewriteRule ^api/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                     api.php?module=$1&act=$2        [QSA,L]
-RewriteRule ^api/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$    api.php?module=$1&act=$2&id=$3  [QSA,L]
+RewriteRule ^admin$                                                                 admin.php
+RewriteRule ^admin/([a-zA-Z0-9_-]+)$                                                admin.php?module=$1                                 [QSA,L]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                               admin.php?module=$1&act=$2                          [QSA,L]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$              admin.php?module=$1&act=$2&id=$3                    [QSA,L]
 
-RewriteRule ^pay$                                                       pay.php [QSA,L]
-RewriteRule ^pay/status$                                                pay.php?req_pay=status [QSA,L]
-RewriteRule ^account/([a-zA-Z0-9_-]+)$                                  account.php?act_acc=$1 [QSA,L]
+RewriteRule ^teacher_manager$                                                       teacher_manager.php
+RewriteRule ^teacher_manager/([a-zA-Z0-9_-]+)$                                      teacher_manager.php?view=$1                         [QSA,L]
+RewriteRule ^teacher_manager/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                     teacher_manager.php?view=$1&action=$2               [QSA,L]
+RewriteRule ^teacher_manager/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$    teacher_manager.php?view=$1&action=$2&id=$3         [QSA,L]
 
-RewriteRule ^login$                                                     login.php
-
-RewriteRule ^admin$                                                     admin.php
-RewriteRule ^admin/([a-zA-Z0-9_-]+)$                                    admin.php?module=$1 [QSA,L]
-RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                   admin.php?module=$1&act=$2 [QSA,L]
-RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$  admin.php?module=$1&act=$2&id=$3 [QSA,L]
-
-RewriteRule ^teacher_manager$                                                     teacher_manager.php
-RewriteRule ^teacher_manager/([a-zA-Z0-9_-]+)$                                    teacher_manager.php?view=$1 [QSA,L]
-RewriteRule ^teacher_manager/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                   teacher_manager.php?view=$1&action=$2 [QSA,L]
-RewriteRule ^teacher_manager/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$  teacher_manager.php?view=$1&action=$2&id=$3 [QSA,L]
-
-RewriteRule ^home$                                                      index.php
-RewriteRule ^([a-zA-Z0-9_-]+)$                                          index.php?v=$1 [QSA,L]
-RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                         index.php?v=$1&id=$2 [QSA,L]
+RewriteRule ^home$                                                                  index.php
+RewriteRule ^([a-zA-Z0-9_-]+)$                                                      index.php?v=$1                                      [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                                     index.php?v=$1&id=$2                                [QSA,L]
 

@@ -15,14 +15,12 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/css/css_site/course_responsive.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/css/css_site/animate.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/setup.css">
-<!--    <link rel="stylesheet" href="--><?//= BASE_URL ?><!--assets/css/css_site/bootstrap.min.css">-->
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/slicknav.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/flaticon.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/progressbar_barfiller.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/gijgo.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/animate.min.css">
-<!--    <link rel="stylesheet" href="--><?//= BASE_URL ?><!--assets/css/css_site/animated-headline.css">-->
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/magnific-popup.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/themify-icons.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/slick.css">
@@ -30,6 +28,7 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/style.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/toasts/toast.css"/>
     <link rel="stylesheet" href="css/mains.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/flex.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 

@@ -2,7 +2,6 @@
     $dir_ctrl    = 'controllers/manager/teacher/';
     $dir_views   = 'views/manager/teachers/';
     $name_exten  = '.php';
-
     if(isset($_GET['view'])) {
         $view           = $_GET['view'];
         $direct_read    = 'views/manager/teachers/'.$view.'/read.php';
@@ -16,13 +15,17 @@
             case "my_class":
                 include_once $objectt;
                 break;
+            case "teaching_schedule":
+                include_once $objectt;
+                break;
             default:
                 location($host."page_not_found");
                 break;
         }
+        active_item($view);
     }
     else {
-//        echo '<script>document.getElementById("dashboard").classList.add("active");</script>';
+        echo '<script>document.getElementById("dashboard").classList.add("active");</script>';
         include_once $dir_ctrl.'dashboard.php';
     }
 ?>
