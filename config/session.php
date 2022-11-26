@@ -1,4 +1,5 @@
 <?php
+    include 'url.php';
     session_start();
     function setSession($key, $val){
         $_SESSION[$key] = $val;
@@ -7,17 +8,18 @@
         if (isset($_SESSION[$key])) {
             return $_SESSION[$key];
         } else {
-            return false;
+            location( $host );
         }
     }
     function checkSessionAdmin(){
         if(getSession('scope') != 1){
-            location('http://localhost/courses/login');
+            location( $host .'login');
         }
     }
     function checkSessionTeacher(){
+        getSession('user');
         if(getSession('user')['role'] != 0){
-            location('http://localhost/courses/');
+            location( $host );
         }
     }
     function checkLogin(){

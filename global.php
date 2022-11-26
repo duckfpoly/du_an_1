@@ -1,6 +1,6 @@
 <?php
-     $host                   = 'http://localhost/courses/';
-//      $host                   =  'http://localhost/coursesWeb/du_an_1/';
+    //  $host                   = 'http://localhost/courses/';
+     $host                   =  'http://localhost/coursesWeb/du_an_1/';
     //    $host                   = 'http://localhost/hangdtph27628/';
     $admin                  =  $host.'admin/';
 
