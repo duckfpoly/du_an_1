@@ -1,4 +1,5 @@
 <?php
+    include 'url.php';
     session_start();
     function setSession($key, $val){
         $_SESSION[$key] = $val;
@@ -7,7 +8,7 @@
         if (isset($_SESSION[$key])) {
             return $_SESSION[$key];
         } else {
-            return false;
+            location( HOME );
         }
     }
     function checkSessionAdmin(){
@@ -20,7 +21,7 @@
             if(getSession('user')['role'] != 0){
                 location( HOME );
             }
-        }else {
+        }else { 
             location( HOME );
         }
     }

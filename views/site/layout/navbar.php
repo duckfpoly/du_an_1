@@ -52,6 +52,7 @@
                                                         <li><a href="<?= LOGOUT ?>">Đăng xuất</a></li>
                                                     </ul>
                                             </li>
+                                            
                                             <?php }else{?>
                                                 <li class="button-header margin-left "><a href="<?= SIGUP ?>" class="btn">Đăng ký</a></li>
                                                 <li class="button-header"><a href="<?= SIGIN?>" class="btn btn3">Đăng nhập</a></li>
