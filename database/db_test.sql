@@ -595,8 +595,7 @@ ALTER TABLE `teachers`
 --
 -- Constraints for table `classes`
 --
-ALTER TABLE `classes`
-    ADD CONSTRAINT `FK_ID_COURSEEE` FOREIGN KEY (`id_course`) REFERENCES `courses` (`id`);
+ALTER TABLE `classes` ADD CONSTRAINT `FK_ID_COURSEEE` FOREIGN KEY (`id_course`) REFERENCES `courses` (`id`);
 
 --
 -- Constraints for table `courses`

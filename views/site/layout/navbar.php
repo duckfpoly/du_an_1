@@ -8,7 +8,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo">
-                                <a href="home"><img src="<?= BASE_URL ?>/assets/img/img_site/img/logo/logo.png" alt=""></a>
+                                <a href="<?= BASE_URL ?>"><img src="<?= BASE_URL ?>/assets/img/img_site/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10">
@@ -29,11 +29,26 @@
                                             <li><a href="<?= CONTACT?>">Liên hệ</a></li>
                                             <!-- Button -->
                                             <?php if(isset($_SESSION['user'])){?>
+<<<<<<< HEAD
                                                 <li><a href="#">Tài khoản</a>
                                                 <!-- <div>
                                                         <img class='avatar_user rounded-circle' src="assets/uploads/students/<?= $_SESSION['user']['image_student']?>" alt="">
 
                                                     </div> -->
+=======
+
+                                                <li><a href="#">
+                                                        Xin chào,
+                                                        <?php
+                                                            if(isset(getSession('user')['name_teacher'])){
+                                                                echo getSession('user')['name_teacher'];
+                                                            }
+                                                            else {
+                                                                echo getSession('user')['name_student'];
+                                                            }
+                                                        ?>
+                                                    </a>
+>>>>>>> 907df46a46aa975621b9e31ebcfbd68f7df171e3
                                                     <ul class="submenu">
                                                         <?php
                                                             if(getSession('user')['role'] == 0){ ?>

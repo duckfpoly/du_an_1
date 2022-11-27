@@ -1,6 +1,10 @@
 <?php
     if(isset($_GET['id'])){
         $id = $_GET['id'];
+        $check = check_id_course($id);
+        if(isset($check)){
+            alert('Khóa học không tồn tại',LESSONS);
+        }
         $detail = get_course($id);
         // lấy các đánh giá về khóa học
         $rate_course = get_rate_course($id);

@@ -2,19 +2,19 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mb-4 mx-auto text-center">
-                <a href="<?= $host ?>" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                <a href="<?= BASE_URL ?>" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                     Trang chủ
                 </a>
-                <a href="<?= $host ?>about_us" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                <a href="<?= BASE_URL ?>about_us" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                     Giới thiệu về chúng tôi
                 </a>
-                <a href="<?= $host ?>courses" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                <a href="<?= BASE_URL ?>courses" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                     Khóa học
                 </a>
-                <a href="<?= $host ?>blogs" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                <a href="<?= BASE_URL ?>blogs" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                     Blog
                 </a>
-                <a href="<?= $host ?>contact" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                <a href="<?= BASE_URL ?>contact" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                     Liên hệ
                 </a>
             </div>

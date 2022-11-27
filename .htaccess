@@ -10,7 +10,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^page_not_found$ views/404.php
 
-RewriteRule ^account/([a-zA-Z0-9_-]+)$                                              account.php?a=$1
+RewriteRule ^account/([a-zA-Z0-9_-]+)$                                              account.php?a=$1                                    [QSA,L]
 
 RewriteRule ^login$                                                                 login.php
 

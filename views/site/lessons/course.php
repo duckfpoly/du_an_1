@@ -137,7 +137,7 @@
                                                     </div>
                                                 </div>
                                                 <a href="#">
-                                                    <input class="btn" onclick="ValidateForm(this.form)" name='btn_submit_course' type="btn" value='Đăng ký ngay'/>
+                                                    <input class="btn" onclick="ValidateForm(this.form)" name='btn_submit_course' type="button" value='Đăng ký ngay'/>
                                                 </a>
                                             <?php } else { ?>
                                                 <div class='mb-4 d-flex  flex-wrap'>
