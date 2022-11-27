@@ -20,4 +20,5 @@
         $sql = "DELETE FROM `rate_courses` WHERE id = '$id'";
         query_sql($sql);
     }
+
 ?>

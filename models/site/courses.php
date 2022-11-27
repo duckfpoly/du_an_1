@@ -21,7 +21,15 @@
         WHERE courses.id = ?";
         return query_one($sql,$id);
     }
-
+    function detail_mycourse($id_user,$id_course){
+        $sql = "SELECT * FROM tbl_orders INNER JOIN classes ON tbl_orders.id_class = classes.id INNER
+        JOIN students ON tbl_orders.id_students = students.id 
+        INNER JOIN courses ON courses.id = classes.id_course INNER JOIN teachers ON 
+        teachers.id = courses.id_teacher
+        WHERE tbl_orders.id_students = '$id_user' AND 
+        classes.id_course = '$id_course'";
+        return query_one($sql);
+    }
     function get_classes($id){
         $sql = "SELECT * FROM classes WHERE id = ?";
         return query_one($sql,$id);

@@ -28,7 +28,10 @@
                 // account
                 case "mycourses":
                     include  $urlClt;
-                    break;         
+                    break;   
+                case "mycourse":
+                    include  $urlClt;
+                    break;            
                 default:
                 location($host."page_not_found");
                 break;
