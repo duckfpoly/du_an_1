@@ -21,7 +21,7 @@
             if(getSession('user')['role'] != 0){
                 location( HOME );
             }
-        }else {
+        }else { 
             location( HOME );
         }
     }
