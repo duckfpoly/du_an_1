@@ -1,6 +1,6 @@
 <?php
-    //  $host                   = 'http://localhost/courses/';
-     $host                   =  'http://localhost/coursesWeb/du_an_1/';
+      $host                   = 'http://localhost/courses/';
+//     $host                   =  'http://localhost/coursesWeb/du_an_1/';
     //    $host                   = 'http://localhost/hangdtph27628/';
     $admin                  =  $host.'admin/';
 
@@ -53,6 +53,7 @@
     require_once $dir_model_site.'payment.php';
     require_once $dir_model_site.'sign_in.php';
     require_once $dir_model_site.'sign_up.php';
+    require_once $dir_model_site.'pass_handle.php';
 
     // url admin
     define("DASHBOARD",     $host.'admin');
@@ -340,6 +341,31 @@
         }
     }
 
+    function pagination_filter($tbl,$values_search,$key,$limit_data){
+        $sql = "SELECT count(id) AS total FROM $tbl";
+        $row = query_one($sql);
+        $total_records = $row['total'];
+        if($total_records != 0){
+            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+            $limit = $limit_data;
+            $total_page = ceil($total_records / $limit);
+            if ($current_page > $total_page) {
+                $current_page = $total_page;
+            } else if ($current_page < 1) {
+                $current_page = 1;
+            }
+            $start = ($current_page - 1) * $limit;
+            $data_pani = "SELECT * FROM $tbl WHERE $values_search = $key LIMIT $start, $limit";
+            $row = query($data_pani);
+            $arr = [$row, $current_page, $total_page];
+            return $arr;
+        }
+        else {
+            $data_pani = "SELECT * FROM $tbl WHERE $values_search = $key";
+            return [query($data_pani), 0, 0];
+        }
+    }
+
     function check_time_end($date){
         $time_end = strtotime ( '+6 month' , strtotime ( $date ) ) ;
         $time_end = date ( 'Y-m-d' , $time_end );
@@ -348,8 +374,8 @@
 
     function check_time_start($date){
         $time_start =   strtotime ($date);
-        $time_now   =   strtotime(date('Y-m-d'));
-        return $time_start == $time_now ? "true" : "false";
+        $time_now   =   strtotime(date("Y-m-d H:i:s"));
+        return $time_start == $time_now ? true : false;
     }
 
     function format_date($date){

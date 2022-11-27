@@ -16,10 +16,10 @@
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-lg-block">
                                     <nav>
-                                        <ul id="navigation">                                                                                          
+                                        <ul id="navigation" >
                                             <li class="active" ><a href="<?= HOME ?>">Trang chủ</a></li>
                                             <li><a href="<?= LESSONS ?>">Khóa học</a>
-                                                <ul class="submenu">
+                                                <ul class="submenu text-center" style="border-radius: 10px;">
                                                     <?php foreach (category_read() as $item => $value): ?>
                                                     <li><a href="<?= LESSONS ?>?cate=<?= $value['id'] ?>"><?= $value['name_category'] ?></a></li>
                                                     <?php endforeach; ?>
@@ -29,7 +29,6 @@
                                             <li><a href="<?= CONTACT?>">Liên hệ</a></li>
                                             <!-- Button -->
                                             <?php if(isset($_SESSION['user'])){?>
-
                                                 <li><a href="#">
                                                         Xin chào,
                                                         <?php
@@ -41,7 +40,7 @@
                                                             }
                                                         ?>
                                                     </a>
-                                                    <ul class="submenu">
+                                                    <ul class="submenu " style="border-radius: 10px;">
                                                         <?php
                                                             if(getSession('user')['role'] == 0){ ?>
                                                                 <li><a href="<?= $host?>teacher_manager">Trang quản trị</a></li>
@@ -53,7 +52,6 @@
                                                         <li><a href="<?= LOGOUT ?>">Đăng xuất</a></li>
                                                     </ul>
                                             </li>
-                                            
                                             <?php }else{?>
                                                 <li class="button-header margin-left "><a href="<?= SIGUP ?>" class="btn">Đăng ký</a></li>
                                                 <li class="button-header"><a href="<?= SIGIN?>" class="btn btn3">Đăng nhập</a></li>

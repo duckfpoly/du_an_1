@@ -9,7 +9,7 @@
                             <div class="col-xl-6 col-lg-7 col-md-12">
                                 <div class="hero__caption">
                                     <h1 data-animation="fadeInLeft" data-delay="0.2s">Courses Learning</h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.4s">Xây dựng kỹ năng với các khóa học, chứng chỉ và bằng cấp trực tuyến từ các trường đại học và công ty đẳng cấp thế giới</p>
+                                    <p data-animation="fadeInLeft" data-delay="0.4s">Xây dựng kỹ năng lập trình với các khóa học</p>
                                     <a href="<?= SIGUP?>" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Join Now</a>
                                 </div>
                             </div>
@@ -22,7 +22,7 @@
         <div class="services-area">
             <div class="container">
                 <div class="row justify-content-sm-center">
-                    <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="col-lg-4 col-md-6 col-sm-8" data-aos="flip-up">
                         <div class="single-services mb-30">
                             <div class="features-icon">
                                 <img src="assets/img/img_site/img/icon/icon1.svg" alt="">
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="col-lg-4 col-md-6 col-sm-8" data-aos="zoom-in">
                         <div class="single-services mb-30">
                             <div class="features-icon">
                                 <img src="assets/img/img_site/img/icon/icon2.svg" alt="">
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="col-lg-4 col-md-6 col-sm-8" data-aos="flip-down">
                         <div class="single-services mb-30">
                             <div class="features-icon">
                                 <img src="assets/img/img_site/img/icon/icon3.svg" alt="">
@@ -244,11 +244,11 @@
             <div class="support-wrapper align-items-center">
                 <div class="right-content3">
                     <!-- img -->
-                    <div class="right-img">
+                    <div class="right-img" data-aos="fade-up">
                         <img src="assets/img/img_site/img/gallery/about3.png" alt="">
                     </div>
                 </div>
-                <div class="left-content3">
+                <div class="left-content3" data-aos="fade-left">
                     <!-- section tittle -->
                     <div class="section-tittle section-tittle2 mb-20">
                         <div class="front-text">

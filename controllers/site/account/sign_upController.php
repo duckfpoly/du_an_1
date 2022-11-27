@@ -10,19 +10,20 @@
         }
         else{
             addUser($name,$email,$pass,$date);
-            location($host.'account/sign_in');
+            location(BASE_URL.'account/sign_in');
         }
     }
     $client->setRedirectUri(BASE_URL."account/sign_up");
     if (isset($_GET['code'])) {
-        $token = $this->client->fetchAccessTokenWithAuthCode($_GET['code']);
-        $this->client->setAccessToken($token['access_token']);
-        $google_account_info = $this->google_oauth->userinfo->get();
+        $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+        $client->setAccessToken($token['access_token']);
+        $google_account_info = $google_oauth->userinfo->get();
         $email      =  $google_account_info->email;
         $name_user  =  $google_account_info->name;
-        $username   =  cut_email($email);
-        $password   =  rand(0,9999990);
-        $create     =  sign_up_gg($username,$name_user,$email,$password);
+        $password   =  rand(0,99999999);
+        $created_at = date("Y-m-d H:i:s");
+
+        $create     =  sign_up_gg($name_user,$email,$password,$created_at);
     }
     include "views/account/sign_up.php";
 ?>

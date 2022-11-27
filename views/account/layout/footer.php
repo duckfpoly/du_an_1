@@ -5,16 +5,13 @@
                 <a href="<?= BASE_URL ?>" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                     Trang chủ
                 </a>
-                <a href="<?= BASE_URL ?>about_us" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                <a href="<?= ABOUT ?>" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                     Giới thiệu về chúng tôi
                 </a>
-                <a href="<?= BASE_URL ?>courses" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                <a href="<?= LESSONS ?>" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                     Khóa học
                 </a>
-                <a href="<?= BASE_URL ?>blogs" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                    Blog
-                </a>
-                <a href="<?= BASE_URL ?>contact" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                <a href="<?= CONTACT ?>" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                     Liên hệ
                 </a>
             </div>
@@ -38,7 +35,7 @@
                 <p class="mb-0 text-secondary">
                     Copyright © <script>
                         document.write(new Date().getFullYear())
-                    </script> Soft by NDD Team.
+                    </script> Build by NDD Team.
                 </p>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <?php if(!isset($_SESSION['user'])){
-    location($host.'account/sign_in');
+    location(BASE_URL.'account/sign_in');
 } ?>
 <section class="breadcrumb_part">
     <div class="container">

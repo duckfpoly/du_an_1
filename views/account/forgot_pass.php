@@ -20,14 +20,15 @@
             <div class="card-body">
               <form role="form" method="post" action="" id="form-1">
                 <div class="mb-3 form-group">
-                  <input type="email" class="form-control" id="email" placeholder="Địa chỉ email" >
+                  <input type="email" name="email" class="form-control" id="email" placeholder="Địa chỉ email" >
                     <div class="form-message text-danger mt-1"></div>
                 </div>
-                <div class="text-center">
+                  <h5 class="text-danger text-center mb-4"><br><?= isset($check_email) ? $check_email : "" ?></h5>
+                  <div class="text-center">
                   <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Lấy lại mật khẩu</button>
                 </div>
                 <div class="mb-3 form-group d-flex justify-content-end">
-                  <p class="text-sm mt-3 mb-0">Quay lại trang&nbsp;<a href="<?= $host ?>sign_in" class="text-dark font-weight-bolder">Đăng nhập</a></p>
+                  <p class="text-sm mt-3 mb-0">Quay lại trang&nbsp;<a href="<?= BASE_URL ?>account/sign_in" class="text-dark font-weight-bolder">Đăng nhập</a></p>
                 </div>
               </form>
             </div>

@@ -10,7 +10,13 @@
                 break; 
             case 'sign_in':
                 include $urlAcc;
-                break;  
+                break;
+            case 'forgot_pass':
+                include $urlAcc;
+                break;
+            case 'reset_pass':
+                include $urlAcc;
+                break;
             case 'log_out':
                 include $urlAcc;
                 break;

@@ -64,9 +64,7 @@
                         <li><a href="<?= LESSONS ?>">Tất cả</a></li>
                         <?php foreach($categories as $value):?>
                             <li><a href="<?= LESSONS ?>?cate=<?php echo $value['id']?>"><?php echo $value['name_category']?></a></li>
-
                         <?php endforeach?>
-
                     </ul>
                 </div>
             </div>
@@ -79,7 +77,7 @@
                                     <a href="<?= LESSONS?>/<?php echo $value['id']?>"><img src="assets/img/img_site/img/gallery/featured6.png" alt=""></a>
                                 </div>
                                 <div class="properties__caption">
-                                    <p>User Experience</p>
+<!--                                    <p>User Experience</p>-->
                                     <h3><a href="<?= LESSONS?>/<?php echo $value['id']?>"><?php echo $value['name_course']?></a></h3>
                                     <p>
                                         <?php echo $value['description_course'] ?>
@@ -94,16 +92,13 @@
                                                 <i class="fas fa-star-half"></i>
                                             </div>
                                             <p><span>(4.5)</span></p>
-
                                         </div>
                                         <div class="price">
-
                                             <span class="<?php echo $value['discount'] != 0 ? 'text-decoration-line-through textPrice colorOldPrice' : '' ?>"><?php echo number_format($value['price_course'])?> $</span>
-
                                             <span><?php echo $value['discount'] != 0 ? total($value['price_course'],$value['discount']) : '' ?></span>
                                         </div>
                                     </div>
-                                    <a href="<?= LESSONS ?>/<?php echo $value['id']?>" class="border-btn border-btn2">Find out more</a>
+                                    <a href="<?= LESSONS ?>/<?php echo $value['id']?>" class="border-btn border-btn2">Tìm hiểu thêm</a>
                                 </div>
                             </div>
                         </div>

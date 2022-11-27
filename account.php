@@ -19,6 +19,8 @@
         }
     </style>
     <script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 <body>
     <?php

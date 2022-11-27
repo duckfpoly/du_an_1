@@ -45,10 +45,10 @@
             case "logout":
 //                delete_Cookie('scope');
                 unsetSession('scope');
-                location($host.'login');
+                location(BASE_URL.'login');
                 break;
             default:
-                location($host."page_not_found");
+                location(BASE_URL."page_not_found");
                 break;
         }
         active_item($module);
