@@ -9,7 +9,7 @@
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="<?= DASHBOARD_TEACHER ?>">Dashboard</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -31,18 +31,18 @@
                             Notifications
                         </p>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                        <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a></li>
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a></li>
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a></li>
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a></li>
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
-                    </ul>
+<!--                    <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">-->
+<!--                        <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a></li>-->
+<!--                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a></li>-->
+<!--                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a></li>-->
+<!--                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a></li>-->
+<!--                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>-->
+<!--                    </ul>-->
                 </li>
                 <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                    <a href="<?= LOGOUT ?>" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="photo">
-                            <img src="../assets/img/anime3.png" alt="Profile Photo">
+                            <img src="<?= $host ?>assets/uploads/teachers/<?= getSession('user')['image_teacher'] ?>" alt="Profile Photo">
                         </div>
                         <b class="caret d-none d-lg-block d-xl-block"></b>
                         <p class="d-lg-none">
@@ -50,10 +50,10 @@
                         </p>
                     </a>
                     <ul class="dropdown-menu dropdown-navbar">
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
-                        <li class="dropdown-divider"></li>
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
+<!--                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>-->
+<!--                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>-->
+<!--                        <li class="dropdown-divider"></li>-->
+                        <li class="nav-link"><a href="<?= LOGOUT ?>" class="nav-item dropdown-item">Log out</a></li>
                     </ul>
                 </li>
                 <li class="separator d-lg-none"></li>

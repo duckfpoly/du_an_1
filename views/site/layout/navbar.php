@@ -8,7 +8,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo">
-                                <a href="home"><img src="<?php echo $host?>/assets/img/img_site/img/logo/logo.png" alt=""></a>
+                                <a href="home"><img src="<?= BASE_URL ?>/assets/img/img_site/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10">
@@ -17,35 +17,38 @@
                                 <div class="main-menu d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">                                                                                          
-                                            <li class="active" ><a href="<?= HOME?>">Home</a></li>
-                                            <li><a href="<?= LESSONS?>">Lessons</a></li>
-                                            <li><a href="<?= ABOUT?>">About</a></li>
-                                            <li><a href="#">Blog</a>
-                                                <ul class="submenu ">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="blog_details.html">Blog Details</a></li>
-                                                    <li><a href="elements.html">Element</a></li>
+                                            <li class="active" ><a href="<?= HOME ?>">Trang chủ</a></li>
+                                            <li><a href="<?= LESSONS ?>">Khóa học</a>
+                                                <ul class="submenu">
+                                                    <?php foreach (category_read() as $item => $value): ?>
+                                                    <li><a href="<?= LESSONS ?>?cate=<?= $value['id'] ?>"><?= $value['name_category'] ?></a></li>
+                                                    <?php endforeach; ?>
                                                 </ul>
                                             </li>
-                                            <li><a href="<?= CONTACT?>">Contact</a></li>
+                                            <li><a href="<?= ABOUT ?>">Giới thiệu</a></li>
+                                            <li><a href="<?= CONTACT?>">Liên hệ</a></li>
                                             <!-- Button -->
                                             <?php if(isset($_SESSION['user'])){?>
-                                                <li><a href="#">
-                                                    <div>
+                                                <li><a href="#">Tài khoản</a>
+                                                <!-- <div>
                                                         <img class='avatar_user rounded-circle' src="assets/uploads/students/<?= $_SESSION['user']['image_student']?>" alt="">
 
-                                                    </div>
-                                                </a>
-                                                    <ul class="submenu start">
+                                                    </div> -->
+                                                    <ul class="submenu">
+                                                        <?php
+                                                            if(getSession('user')['role'] == 0){ ?>
+                                                                <li><a href="<?= $host?>teacher_manager">Trang quản trị</a></li>
+                                                           <?php }
+                                                        ?>
                                                         <li><a href="#">Thông tin</a></li>
                                                         <li><a href="#">Đổi mật khẩu</a></li>
-                                                        <li><a href="<?= LOGOUT?>">Đăng xuất</a></li>
+                                                        <li><a href="<?= LOGOUT ?>">Đăng xuất</a></li>
                                                     </ul>
                                             </li>
                                             
                                             <?php }else{?>
-                                                <li class="button-header margin-left "><a href="<?= SIGIN?>" class="btn">Join</a></li>
-                                                <li class="button-header"><a href="<?= SIGIN?>" class="btn btn3">Log in</a></li>
+                                                <li class="button-header margin-left "><a href="<?= SIGUP ?>" class="btn">Đăng ký</a></li>
+                                                <li class="button-header"><a href="<?= SIGIN?>" class="btn btn3">Đăng nhập</a></li>
                                             <?php }?>
                                         </ul>
                                     </nav>

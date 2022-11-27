@@ -8,23 +8,26 @@
         if (isset($_SESSION[$key])) {
             return $_SESSION[$key];
         } else {
-            location( $host );
+            location( HOME );
         }
     }
     function checkSessionAdmin(){
         if(getSession('scope') != 1){
-            location( $host .'login');
+            location( 'login');
         }
     }
     function checkSessionTeacher(){
-        getSession('user');
-        if(getSession('user')['role'] != 0){
-            location( $host );
+        if(getSession('user')){
+            if(getSession('user')['role'] != 0){
+                location( HOME );
+            }
+        }else {
+            location( HOME );
         }
     }
     function checkLogin(){
         if(getSession('scope') == 1){
-            location('admin');
+            location(DASHBOARD);
         }
     }
     function destroySession(){

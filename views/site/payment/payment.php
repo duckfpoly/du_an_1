@@ -45,7 +45,7 @@
                     <div class="mb-3">
                         <h3>Thanh toán</h3>
                     </div>
-                    <input  type="radio" name="pay_option" value="0" id="offline" checked>
+                    <input  type="radio" name="pay_option" value="0" id="offline">
                     <label class="item" for="offline">
                         <div class="title d-flex justify-content-between align-items-center">
                             Thanh toán tại trung tâm
@@ -90,15 +90,18 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a class="text-dark" href="#">
+                                <td>
+                                    <a class="text-dark" href="#">
                                         <img style="width: 65px; height: 65px;" class="rounded" src="<?php echo $host?>/assets/uploads/courses/<?php echo $course['image_course']?>" alt="">
                                     </a>
                                 </td>
-                                <td><a class="text-dark" href="#">
-                                    <span class="d-inline-block text-truncate" style="max-width: 150px;">
-                                        <?= $course['name_course']?>
-                                    </span>
-                                </a></td>
+                                <td>
+                                    <a class="text-dark" href="#">
+                                        <span class="d-inline-block text-truncate" style="max-width: 150px;">
+                                            <?= $course['name_course']?>
+                                        </span>
+                                    </a>
+                                </td>
                                 <td>
                                     <?= $class['name_class']?>
                                 </td>
@@ -130,7 +133,7 @@
                         </li>
                     </ul>
                     <div class="mt-4 text-center">
-                        <button name="redirect" id="redirect" class="btn_1" type="submit">Đăng ký</button>
+                        <button onclick="ValidateForm(this.form)" name="redirect" id="redirect" class="btn_1" type="button">Đăng ký</button>
                     </div>
                     <div>
                         <a href="#"><i class="fa-solid fa-arrow-left"></i>Quay lại</a>
@@ -141,3 +144,13 @@
     </form>
 </section>
 <script src="<?= $host ?>assets/js/checkout/app.js"></script>
+<script LANGUAGE="JavaScript">
+    function ValidateForm(form){
+        if ( ( form.pay_option[0].checked == false ) && ( form.pay_option[1].checked == false ) && ( form.pay_option[2].checked == false ) ) {
+            showSuccessToast('Warning','Vui lòng chọn hình thức thanh toán','warning')
+            return false;
+        }else {
+            form.submit()
+        }
+    }
+</script>

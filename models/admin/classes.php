@@ -60,7 +60,9 @@
     }
 
     function class_detail($id){
-        $sql = "SELECT * FROM courses 
+        $sql = "SELECT 
+                *
+                FROM courses 
                 INNER JOIN teachers ON courses.id_teacher = teachers.id
                 INNER JOIN classes ON courses.id = classes.id_course
                 WHERE classes.id = ?

@@ -7,6 +7,7 @@
                 </div>
                 <div class="card-body ">
                     <div class="row">
+
                         <section class="container-fluid py-4">
                             <div class="row">
                                 <div class="col-12">
@@ -104,6 +105,7 @@
                                 }
                             }
                         </script>
+
                     </div>
                 </div>
             </div>

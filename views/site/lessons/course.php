@@ -8,9 +8,9 @@
                 <div class="col">
                     <div class="breadcrumbs">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="courses.html">Courses</a></li>
-                            <li>Course Details</li>
+                            <li><a href="<?= BASE_URL ?>">Trang chủ</a></li>
+                            <li><a href="<?= LESSONS ?>">Khóa học</a></li>
+                            <li><?php echo $detail['name_course'] ?></li>
                         </ul>
                     </div>
                 </div>
@@ -25,12 +25,12 @@
             <!-- Course -->
             <div class="col-lg-8">
                 <div class="course_container">
-                    <div class="course_title"><?php echo $detail['name_course']?></div>
+                    <div class="course_title"><?php echo $detail['name_course'] ?></div>
                     <div class="course_info d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
 
                         <!-- Course Info Item -->
                         <div class="course_info_item">
-                            <div class="course_info_title">Teacher:</div>
+                            <div class="course_info_title">Giảng viên:</div>
                             <div class="course_info_text"><a href="#"><?php echo $detail['name_teacher']?></a></div>
                         </div>
 
@@ -39,7 +39,6 @@
                             <div class="course_info_title">Đánh giá:</div>
                             <div class="rating_r rating_r_4">
                                 <div class="Stars" style="--rating: <?= $avg_rate ?>;"></div>
-
                             </div>
                         </div>
                         <!-- Course Info Item -->
@@ -49,7 +48,7 @@
                         </div>
                     </div>
                     <!-- Course Image -->
-                    <div class="course_image"><img src="<?php echo $host?>/assets/uploads/courses/<?php echo $detail['image_course']?>" alt=""></div>
+                    <div class="course_image"><img src="<?php echo $host?>/assets/uploads/courses/<?php echo $detail['image_course']?>" alt="image course" width="100%" height="100%"></div>
                     <!-- Course Tabs -->
                     <div class="course_tabs_container">
                         <div class="tabs d-flex flex-row align-items-center justify-content-start">
@@ -61,86 +60,110 @@
                         <div class="tab_panels">
                             <!-- Lớp -->
                             <div class="tab_panel active">
-                                <div class="tab_panel_title">Danh sách</div>
+                                <div class="tab_panel_title">Chi tiết lớp thuộc khóa học</div>
                                 <div class="tab_panel_content">
                                     <div class="tab_panel_text">
-                                        <p><?php echo $detail['description_course']?></p>
+                                        <table class="table text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tên lớp</th>
+                                                    <th>Ngày học</th>
+                                                    <th>Địa chỉ học</th>
+                                                </tr>
+                                            </thead>
+                                           <tbody>
+                                                <tr>
+                                                    <td><?= $class['name_class'] ?></td>
+                                                    <td><?= $class['time_start'] ?></td>
+                                                    <td>120, Hoàng Quốc Việt</td>
+                                                </tr>
+                                           </tbody>
+                                        </table>
                                     </div>
                                     <div class="d-flex flex-column justify-content-center align-items-start mt-5">
-                                        <form action="<?= PAYMENT?>" id='form_choise_course' method="POST">
-                                            <input type="text" hidden value='<?= $id ?>' name ='id_course'>
-                                            <label for="" class="form-label">Lớp học</label>
-                                            <?php foreach ($class as $key => $values) ?>
+                                        <form action="<?= PAYMENT ?>" id='form_choise_course' method="POST">
+                                            <?php if(!empty($class['name_class'])) { ?>
+                                                <input type="hidden" value="<?= $class['id'] ?>" name="id_class">
+                                                <input type="hidden" value="<?= $_GET['id'] ?>" name="id_course">
+                                                <label for="" class="form-label">Ngày học</label>
                                                 <div class='mb-4 d-flex  flex-wrap'>
                                                     <div class="form-check">
                                                         <div class='d-flex align-item-center '>
-                                                            <input class="form-check-input" id='check_class_1' hidden type="radio" value='<?= $values['id'] ?>' name="class" checked>
+                                                            <input class="form-check-input" id='check_day1' hidden  type="radio" value='0' name="check_day" >
+                                                            <label class="form-check-label label_custom" for="check_day1">
+                                                                Thứ 2 - 4 - 6
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-message text-danger mt-1"></div>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <div class='d-flex align-item-center '>
+                                                            <input class="form-check-input" id='check_day2' hidden  type="radio" value='1' name="check_day" >
+                                                            <label class="form-check-label label_custom" for="check_day2">
+                                                                Thứ 3 - 5 - 7
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-message text-danger mt-1"></div>
+                                                    </div>
+                                                </div>
+                                                <label for="" class="form-label">Ca học</label>
+                                                <div class='mb-4 d-flex  flex-wrap'>
+                                                    <div class="form-check">
+                                                        <div class='d-flex align-item-center'>
+                                                            <input class="form-check-input" value='1' id='check_time1' hidden type="radio" name="check_time" >
+                                                            <label class="form-check-label label_custom" for="check_time1">
+                                                                Ca 1 (7h - 9h)
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-message text-danger mt-1"></div>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <div class='d-flex align-item-center'>
+                                                            <input class="form-check-input" value='2' id='check_time2' hidden type="radio" name="check_time"  >
+                                                            <label class="form-check-label label_custom" for="check_time2">
+                                                                Ca 2 (9h15 - 11h15)
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-message text-danger mt-1"></div>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <div class='d-flex align-item-center'>
+                                                            <input class="form-check-input" value='3' id='check_time3' hidden type="radio" name="check_time"  >
+                                                            <label class="form-check-label label_custom" for="check_time3">
+                                                                Ca 3 (12h - 14h)
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-message text-danger mt-1"></div>
+                                                    </div>
+                                                </div>
+                                                <a href="#">
+                                                    <input class="btn" onclick="ValidateForm(this.form)" name='btn_submit_course' type="btn" value='Đăng ký ngay'/>
+                                                </a>
+                                            <?php } else { ?>
+                                                <div class='mb-4 d-flex  flex-wrap'>
+                                                    <div class="form-check">
+                                                        <div class='d-flex align-item-center '>
+                                                            <input class="form-check-input" disabled id='check_class_1' hidden type="radio" value='<?= $values['id'] ?>' name="class" checked>
                                                             <label class="form-check-label label_custom" for="check_class_1">
-                                                                <?= $values['name_class'] ?>
+                                                                Chưa có lớp học
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            <?php ?>
-                                            <label for="" class="form-label">Ngày học</label>
-                                            <div class='mb-4 d-flex  flex-wrap'>
-                                                <div class="form-check">
-                                                    <div class='d-flex align-item-center '>
-                                                        <input class="form-check-input" id='check_day1' hidden  type="radio" value='0' name="check_day" checked>
-                                                        <label class="form-check-label label_custom" for="check_day1">
-                                                            Thứ 2 - 4 - 6 
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-message text-danger mt-1"></div>
-                                                </div>  
-                                                <div class="form-check">
-                                                    <div class='d-flex align-item-center '>
-                                                        <input class="form-check-input" id='check_day2' hidden  type="radio" value='1' name="check_day" >
-                                                        <label class="form-check-label label_custom" for="check_day2">
-                                                            Thứ 3 - 5 - 7 
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-message text-danger mt-1"></div>
-                                                </div>  
-                                            </div>
-                                            <label for="" class="form-label">Ca học</label>
-                                            <div class='mb-4 d-flex  flex-wrap'>
-                                                <div class="form-check">
-                                                    <div class='d-flex align-item-center'>
-                                                        <input class="form-check-input" value='1' id='check_time1' hidden type="radio" name="check_time" checked>
-                                                        <label class="form-check-label label_custom" for="check_time1">
-                                                            Ca 1 (7-9h)
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-message text-danger mt-1"></div>
-                                                </div>
-                                                <div class="form-check">
-                                                    <div class='d-flex align-item-center'>
-                                                        <input class="form-check-input" value='2' id='check_time2' hidden type="radio" name="check_time"  >
-                                                        <label class="form-check-label label_custom" for="check_time2">
-                                                            Ca 2 (9h15-11h15)
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-message text-danger mt-1"></div>
-                                                </div>  
-                                            </div>
-                                            <a href="#">
-                                                <input class="btn" name='btn_submit_course' type="submit" value='Đăng ký ngay'/>
-                                            </a>
+                                            <?php } ?>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                             <!-- Mô tả -->
                             <div class="tab_panel">
-                                <div class="tab_panel_title">Software Training</div>
+                                <div class="tab_panel_title">Mô tả về khóa học</div>
                                 <div class="tab_panel_content">
                                     <div class="tab_panel_text">
                                         <p><?php echo $detail['description_course']?></p>
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Chương trình học -->
                             <div class="tab_panel tab_panel_2">
                                 <div class="tab_panel_content">
@@ -176,11 +199,9 @@
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Đánh giá -->
                             <div class="tab_panel tab_panel_3">
                                 <div class="tab_panel_title">Đánh giá khóa học</div>
-
                                 <!-- Rating -->
                                 <div class="review_rating_container flex justify-content-center algin-items-center flex-wrap">
                                     <div class="review_rating " >
@@ -206,7 +227,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- Comments -->
                                 <div class="comments_container">
                                     <ul class="comments_list" id="rate_list"></ul>
                                     <ul class="comments_list pb-5">
@@ -244,7 +264,6 @@
                                         <a href="#" class="d-none text-dark" id="loadLess">Ẩn bớt</a>
                                     </div>
                                     <div class="add_comment_container pt-5">
-                                     
                                         <div class="add_comment_title">Đánh giá của bạn về khóa học</div>
                                             <form action="<?= LESSONS.'/'.$id ?>" method="post" onsubmit="return false">
                                                 <input type="hidden" name="image_student"   id="image_student"      value="course_4.jpg">
@@ -273,13 +292,10 @@
                     </div>
                 </div>
             </div>
-            <!-- Course Sidebar -->
             <div class="col-lg-4">
                 <div class="sidebar">
-
-                    <!-- Feature -->
                     <div class="sidebar_section">
-                        <div class="sidebar_section_title">Course Feature</div>
+                        <div class="sidebar_section_title">Chi tiết khóa học</div>
                         <div class="sidebar_feature">
                             <div class="course_price"><?= total($detail['price_course'],$detail['discount'])?></div>
 
@@ -288,65 +304,37 @@
 
                                 <!-- Feature -->
                                 <div class="feature d-flex flex-row align-items-center justify-content-start">
-                                    <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Duration:</span></div>
-                                    <div class="feature_text ml-auto">2 weeks</div>
+                                    <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Thời gian đào tạo:&nbsp;</span></div>
+                                    <div class="feature_text ml-auto">6 tháng</div>
                                 </div>
 
                                 <!-- Feature -->
                                 <div class="feature d-flex flex-row align-items-center justify-content-start">
-                                    <div class="feature_title"><i class="fa fa-file-text-o" aria-hidden="true"></i><span>Lectures:</span></div>
-                                    <div class="feature_text ml-auto">10</div>
+                                    <div class="feature_title"><i class="fa fa-file-text-o" aria-hidden="true"></i><span>Khai giảng:&nbsp;</span></div>
+                                    <div class="feature_text ml-auto">
+                                        <?= isset($class['time_start']) ? format_date($class['time_start']) : "" ?>
+                                    </div>
                                 </div>
 
                                 <!-- Feature -->
                                 <div class="feature d-flex flex-row align-items-center justify-content-start">
-                                    <div class="feature_title"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span>Lectures:</span></div>
-                                    <div class="feature_text ml-auto">6</div>
-                                </div>
-
-                                <!-- Feature -->
-                                <div class="feature d-flex flex-row align-items-center justify-content-start">
-                                    <div class="feature_title"><i class="fa fa-list-alt" aria-hidden="true"></i><span>Lectures:</span></div>
-                                    <div class="feature_text ml-auto">Yes</div>
-                                </div>
-
-                                <!-- Feature -->
-                                <div class="feature d-flex flex-row align-items-center justify-content-start">
-                                    <div class="feature_title"><i class="fa fa-users" aria-hidden="true"></i><span>Học viên:</span></div>
-                                    <div class="feature_text ml-auto">35</div>
+                                    <div class="feature_title"><i class="fa fa-users" aria-hidden="true"></i><span>Học viên:&nbsp;</span></div>
+                                    <div class="feature_text ml-auto"><?= $total_std_course ?></div>
                                 </div>
 
                             </div>
-                           
                         </div>
                     </div>
-
-                    <!-- Feature -->
                     <div class="sidebar_section">
-                        <div class="sidebar_section_title">Teacher</div>
+                        <div class="sidebar_section_title">Giảng viên</div>
                         <div class="sidebar_teacher">
                             <div class="teacher_title_container d-flex flex-row align-items-center justify-content-start">
-                                <div class="teacher_image"><img src="<?php $host?>/assets/uploads/teachers/<?php $detail['image_teacher']?>" alt=""></div>
-                                <div class="teacher_title">
+                                <div class="teacher_image d-flex align-items-center">
+                                    <img src="<?= $host?>/assets/uploads/teachers/<?= $detail['image_teacher']?>" alt="image teacher" width="80px" height="80px" style="border-radius: 50%">
+                                </div>
+                                <div class="teacher_title p-0">
                                     <div class="teacher_name"><a href="#"><?php echo $detail['name_teacher']?></a></div>
-                                    <div class="teacher_position">Marketing & Management</div>
-                                </div>
-                            </div>
-                            <div class="teacher_meta_container">
-                                <!-- Teacher Rating -->
-                                <div class="teacher_meta d-flex flex-row align-items-center justify-content-start">
-                                    <div class="teacher_meta_title">Average Rating:</div>
-                                    <div class="teacher_meta_text ml-auto"><span>4.7</span><i class="fa fa-star" aria-hidden="true"></i></div>
-                                </div>
-                                <!-- Teacher Review -->
-                                <div class="teacher_meta d-flex flex-row align-items-center justify-content-start">
-                                    <div class="teacher_meta_title">Review:</div>
-                                    <div class="teacher_meta_text ml-auto"><span>12k</span><i class="fa fa-comment" aria-hidden="true"></i></div>
-                                </div>
-                                <!-- Teacher Quizzes -->
-                                <div class="teacher_meta d-flex flex-row align-items-center justify-content-start">
-                                    <div class="teacher_meta_title">Quizzes:</div>
-                                    <div class="teacher_meta_text ml-auto"><span>600</span><i class="fa fa-user" aria-hidden="true"></i></div>
+                                    <div class="teacher_position"><?php echo $detail['scope_teacher']?> Dev</div>
                                 </div>
                             </div>
                             <div class="teacher_info">
@@ -430,18 +418,24 @@
     }
 
 </style>
-
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        Validator({
-            form: "#form_choise_course",
-            formGroupSelector: ".form-check",
-            errorSelector: ".form-message",
-            rules: [
-                Validator.isRequired("input[name='check_day']", "Vui lòng chọn buổi học"),
-                Validator.isRequired("input[name='check_time']", "Vui lòng chọn thời gian học"),
-            ],
-        });
-    });
-    
+    function ValidateForm(form){
+        if (
+            ( form.check_day[0].checked == false ) &&
+            ( form.check_day[1].checked == false )
+        ) {
+            showSuccessToast('Warning','Vui lòng chọn ngày học','warning')
+            return false;
+        }
+        else if (
+            ( form.check_time[0].checked == false ) &&
+            ( form.check_time[1].checked == false ) &&
+            ( form.check_time[2].checked == false )){
+            showSuccessToast('Warning','Vui lòng chọn ca học','warning')
+            return false;
+        }
+        else {
+            form.submit()
+        }
+    }
 </script>
