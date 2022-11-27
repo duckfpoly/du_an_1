@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="<?= BASE_URL ?>assets/img/favicon.png">
-    <title>DDH COURSES - Đăng Nhập</title>
+    <title>DDH COURSES - <?= strtoupper($_GET['a']) ?></title>
     <script src="https://kit.fontawesome.com/42d5adcbca.js"></script>
     <link href="<?= BASE_URL ?>assets/admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
     <style>

@@ -11,7 +11,7 @@
             $err = 'Tài khoản hoặc mật khẩu không đúng';
         }
     }
-    $client->setRedirectUri("http://localhost/courses/account/sign_in");
+    $client->setRedirectUri(BASE_URL."account/sign_in");
     if (isset($_GET['code'])) {
         $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
         $client->setAccessToken($token['access_token']);
