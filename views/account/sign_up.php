@@ -18,7 +18,7 @@
               <h5>Đăng ký với</h5>
             </div>
             <div class="row px-xl-5 px-sm-4 px-3">
-              <div class="col-3 ms-auto px-1">
+              <div class="col-3 ms-auto px-1 d-none">
                 <a class="btn btn-outline-light w-100" href="#">
                   <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -31,7 +31,7 @@
                 </a>
               </div>
               <div class="col-3 me-auto px-1">
-                <a class="btn btn-outline-light w-100" href="javascript:;">
+                <a class="btn btn-outline-light w-100" href="<?= $client->createAuthUrl() ?>">
                   <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                       <g transform="translate(3.000000, 2.000000)" fill-rule="nonzero">

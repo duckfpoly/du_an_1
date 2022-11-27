@@ -80,6 +80,26 @@
                                            </tbody>
                                         </table>
                                     </div>
+
+                                    <div class="tab_panel_title mt-5">Số lượng học viên</div>
+                                    <ul class="dropdowns mt-0">
+                                        <?php for($x = 0; $x <= 1; $x++){ ?>
+                                        <li class="has_children">
+                                            <div class="dropdown_item">
+                                                <div class="dropdown_item_title"><span>Ngày học</span> <?= $x == 0 ? '2 - 4 - 6' : '3 - 5 - 7' ?></div>
+                                            </div>
+                                            <ul>
+                                                <?php for($i = 1; $i <= 3; $i++) { ?>
+                                                <li><div class="dropdown_item">
+                                                        <div class="dropdown_item_title"><span>Ca <?= $i ?>:&nbsp;</span> <?= count_slot_class($class['id'],$x,$i) ?>/<?= slot_class($class['id']) ?> Học viên</div>
+                                                    </div></li>
+                                                <?php } ?>
+                                            </ul>
+                                        </li>
+                                        <?php } ?>
+
+                                    </ul>
+
                                     <div class="d-flex flex-column justify-content-center align-items-start mt-5">
                                         <form action="<?= PAYMENT ?>" id='form_choise_course' method="POST">
                                             <?php if(!empty($class['name_class'])) { ?>
