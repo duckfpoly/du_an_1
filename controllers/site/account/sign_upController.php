@@ -22,7 +22,7 @@
         $name_user  =  $google_account_info->name;
         $username   =  cut_email($email);
         $password   =  rand(0,9999990);
-        $create     =  $this->user->sign_up_gg($username,$name_user,$email,$password);
+        $create     =  sign_up_gg($username,$name_user,$email,$password);
     }
     include "views/account/sign_up.php";
 ?>
