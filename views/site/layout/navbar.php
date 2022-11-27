@@ -48,6 +48,7 @@
                                                            <?php }
                                                         ?>
                                                         <li><a href="#">Thông tin</a></li>
+                                                        <li><a href="<?= MYCOURSES?>">Khóa học</a></li>
                                                         <li><a href="#">Đổi mật khẩu</a></li>
                                                         <li><a href="<?= LOGOUT ?>">Đăng xuất</a></li>
                                                     </ul>

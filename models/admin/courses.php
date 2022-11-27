@@ -8,6 +8,10 @@
             return "Tên khóa học đã được giảng viên sử dụng !";
         }
     }
+    function get_all_course(){
+        $sql = 'SELECT * FROM courses';
+        return query($sql);
+    }
     function check_id_course($id){
         $sql = "SELECT * FROM `courses` WHERE id = ?";
         $check_ID = query_one($sql, $id);

@@ -24,7 +24,11 @@
                     break;
                 case "payment":
                     include  $urlClt;
-                    break;      
+                    break;  
+                // account
+                case "mycourses":
+                    include  $urlClt;
+                    break;         
                 default:
                 location($host."page_not_found");
                 break;

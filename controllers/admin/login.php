@@ -5,11 +5,7 @@
         $password = $_POST['password'];
         $login = login_admin($username,$password);
     }
-<<<<<<< HEAD
-    $client->setRedirectUri(BASE_URL.'login');
-=======
     $client->setRedirectUri(BASE_URL."login");
->>>>>>> ebc1d661083790baa4a3ed55a6bcfa0db6da6670
     if (isset($_GET['code'])) {
         $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
         $client->setAccessToken($token['access_token']);

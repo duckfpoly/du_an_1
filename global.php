@@ -46,6 +46,7 @@
     require_once $dir_model_admin.'orders.php';
     require_once $dir_model_admin.'sales.php';
     require_once $dir_model_admin.'statistical.php';
+    require_once $dir_model_admin.'rates.php';
 
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
@@ -70,6 +71,8 @@
     // url site
     define("HOME",          $host);  
     define("LESSONS",       $host.'lessons');
+    define("MYCOURSES",     $host.'mycourses');
+    define("MYCOURSE",      $host.'mycourse');
     define("ABOUT",         $host.'about');
     define("CONTACT",       $host.'contact');
     define("PAYMENT",       $host.'payment');

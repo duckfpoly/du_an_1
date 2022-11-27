@@ -42,6 +42,14 @@
         }
         return query($sql);
     }
+    function get_my_courses($id){
+        $sql = "SELECT *, courses.id AS id_course FROM tbl_orders INNER JOIN classes ON 
+        tbl_orders.id_class = classes.id INNER JOIN courses ON classes.id_course = courses.id
+        INNER JOIN teachers ON teachers.id = courses.id_teacher
+        WHERE tbl_orders.id_students = '$id'
+        ";
+        return query($sql);
+    }
 
     function get_rate_course($id){
         $sql = "SELECT * FROM rate_courses 

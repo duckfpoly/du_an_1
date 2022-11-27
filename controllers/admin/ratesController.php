@@ -1,0 +1,25 @@
+<?php
+
+if(isset($_GET['act'])){
+    $act = $_GET['act'];
+    switch ($act) {
+        case 'destroy':
+            $id = $_GET['id'];
+            delete_rate($id);
+            alert('Xóa thành công !',RATES);
+            break;
+        default:
+            location($host."page_not_found");
+            break;
+    }
+}else {
+    $all_course = get_all_course();
+    if(isset($_GET['c'])){
+        $id = $_GET['c'];
+        $read_comment = filter_course($id);
+    }else{
+        $read_comment = get_all_cmt();
+    }
+    include_once $direct_read;
+}
+?>
