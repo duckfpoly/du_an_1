@@ -8,12 +8,12 @@
         if (isset($_SESSION[$key])) {
             return $_SESSION[$key];
         } else {
-            location( HOME );
+            return false;
         }
     }
     function checkSessionAdmin(){
         if(getSession('scope') != 1){
-            location( 'login');
+            location( BASE_URL.'login');
         }
     }
     function checkSessionTeacher(){
