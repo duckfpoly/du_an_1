@@ -22,49 +22,48 @@
                     if($_GET['a'] == 'sign_in') {
                 ?>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="<?= BASE_URL ?>account/sign_up">
+                        <a class="nav-link me-2" href="<?= SIGUP ?>">
                             <i class="fas fa-user-circle opacity-6  me-1"></i>
                             Đăng ký
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="<?= BASE_URL ?>account/teacher_signin">
+                        <a class="nav-link me-2" href="<?= TEACHER_SIGNIN ?>">
                             <i class="fas fa-user-circle opacity-6  me-1"></i>
                             Đăng nhập ( giảng viên )
                         </a>
                     </li>
                 <?php } elseif ($_GET['a'] == 'sign_up'){ ?>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="<?= BASE_URL ?>account/sign_in">
+                        <a class="nav-link me-2" href="<?= SIGIN ?>">
                             <i class="fas fa-key opacity-6  me-1"></i>
                             Đăng nhập
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="<?= BASE_URL ?>account/teacher_signin">
+                        <a class="nav-link me-2" href="<?= TEACHER_SIGNIN ?>">
                             <i class="fas fa-user-circle opacity-6  me-1"></i>
                             Đăng nhập ( giảng viên )
                         </a>
                     </li>
                 <?php } else { ?>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="<?= BASE_URL ?>account/sign_in">
+                        <a class="nav-link me-2" href="<?= SIGIN ?>">
                             <i class="fas fa-key opacity-6  me-1"></i>
                             Đăng nhập
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="<?= BASE_URL ?>account/sign_up">
+                        <a class="nav-link me-2" href="<?= SIGUP ?>">
                             <i class="fas fa-user-circle opacity-6  me-1"></i>
                             Đăng ký
                         </a>
                     </li>
                 <?php } } ?>
-
             </ul>
             <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                    <a href="#" class="btn btn-sm mb-0 me-1 bg-gradient-light">Cần hỗ trợ ?</a>
+                    <a href="<?= CONTACT ?>" class="btn btn-sm mb-0 me-1 bg-gradient-light">Cần hỗ trợ ?</a>
                 </li>
             </ul>
         </div>

@@ -1,91 +1,5 @@
 <?php
-      $host                   = 'http://localhost/courses/';
-//     $host                   =  'http://localhost/coursesWeb/du_an_1/';
-    //    $host                   = 'http://localhost/hangdtph27628/';
-    $admin                  =  $host.'admin/';
-
-    define("BASE_URL",     $host);
-    define("ADMIN",        $host.'admin');
-    define("ADMIN_URL",    $host.'admin/');
-
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
-    require_once 'vendor/autoload.php';
-
-    $client         = new Google\Client();
-    $google_oauth   = new Google\Service\Oauth2($client);
-
-    $client->setClientId("860322000129-aa3jsl9jc2upei7jjitjeknhol9p552f.apps.googleusercontent.com");
-    $client->setClientSecret("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");
-    $client->addScope("email");
-    $client->addScope("profile");
-
-    $dir_config                 = 'config/';
-    $dir_model                  = 'models/';
-    $dir_model_admin            = 'models/admin/';
-    $dir_model_site             = 'models/site/';
-    $dir_model_manager  = 'models/manager/';
-
-    require_once $dir_config.'db.php';
-    require_once $dir_config.'session.php';
-    require_once $dir_config.'cookie.php';
-    require_once $dir_config.'vnpay.php';
-
-    require_once $dir_model.'process_db.php';
-
-    require_once $dir_model_manager.'teacher.php';
-
-    require_once $dir_model_admin.'accounts.php';
-    require_once $dir_model_admin.'categories.php';
-    require_once $dir_model_admin.'courses.php';
-    require_once $dir_model_admin.'teachers.php';
-    require_once $dir_model_admin.'students.php';
-    require_once $dir_model_admin.'classes.php';
-    require_once $dir_model_admin.'bills.php';
-    require_once $dir_model_admin.'orders.php';
-    require_once $dir_model_admin.'sales.php';
-    require_once $dir_model_admin.'statistical.php';
-    require_once $dir_model_admin.'rates.php';
-
-    require_once $dir_model_site.'categories.php';
-    require_once $dir_model_site.'courses.php';
-    require_once $dir_model_site.'payment.php';
-    require_once $dir_model_site.'sign_in.php';
-    require_once $dir_model_site.'sign_up.php';
-    require_once $dir_model_site.'pass_handle.php';
-
-    // url admin
-    define("DASHBOARD",     $host.'admin');
-    define("CATEGORIES",    $admin.'categories');
-    define("COURSES",       $admin.'courses');
-    define("TEACHERS",      $admin.'teachers');
-    define("STUDENTS",      $admin.'students');
-    define("BILLS",         $admin.'bills');
-    define("ORDERS",        $admin.'orders');
-    define("RATES",         $admin.'rates');
-    define("CLASSES",       $admin.'classes');
-    define("SALES",         $admin.'sales');
-    define("SIGNOUT",       $admin.'logout');
-    define("STATISTICAL",   $admin.'statistical');
-
-    // url site
-    define("HOME",          $host);  
-    define("LESSONS",       $host.'lessons');
-    define("MYCOURSES",     $host.'mycourses');
-    define("MYCOURSE",      $host.'mycourse');
-    define("ABOUT",         $host.'about');
-    define("CONTACT",       $host.'contact');
-    define("PAYMENT",       $host.'payment');
-    define("SIGUP",         $host.'account/sign_up');
-    define("SIGIN",         $host.'account/sign_in');
-    define("LOGOUT",        $host.'account/log_out');
-
-    // teacher manager
-    define("DASHBOARD_TEACHER",        $host.'teacher_manager');
-    define("COURSE_TEACHER",           $host.'teacher_manager/my_course');
-    define("CLASS_TEACHER",            $host.'teacher_manager/my_class');
-    define("TEACHING_SCHEDULE",        $host.'teacher_manager/teaching_schedule');
+    include 'config/inc.php';
 
     function active_item($item){
         echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';
@@ -453,5 +367,12 @@
                 </div>
             ');
         }
+    }
+
+    function fomat_image_base64($name_image){
+        $path = 'assets/uploads/courses/'.$name_image;
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
     }
 ?>

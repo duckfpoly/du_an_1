@@ -24,7 +24,7 @@
                 $check = check_user($email,$pass);
                 if(is_array($check)){
                     setSession('user',$check);
-                    location($host);
+                    location(BASE_URL);
                 }else{
                     $err = 'Tài khoản hoặc mật khẩu không đúng';
                 }

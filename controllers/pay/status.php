@@ -50,7 +50,7 @@
         include 'views/pay/status_pay.php';
     }
     else {
-        location($host);
+        location(BASE_URL);
     }
 ?>
 

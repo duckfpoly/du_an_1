@@ -9,7 +9,7 @@
         $module         = $_GET['module'];
         $direct_read    = 'views/admin/'.$module.'/read.php';
         isset($_GET['act']) && $direct_act = $dir_views.$module.'/'.$_GET['act'].'.php';
-        $dir_img        = $host.'assets/uploads/'.$module.'/';
+        $dir_img        = BASE_URL.'assets/uploads/'.$module.'/';
         $objectt        = $dir_ctrl.$module.$name_exten;
         switch ($module) {
             case "categories":

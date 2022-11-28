@@ -1,5 +1,5 @@
 <!-- Home -->
-<link rel="stylesheet" href="<?= $host ?>assets/css/css_site/customRadio.css">
+<link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/customRadio.css">
 
 <div class="home">
     <div class="breadcrumbs_container">
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <!-- Course Image -->
-                    <div class="course_image"><img src="<?php echo $host?>/assets/uploads/courses/<?php echo $detail['image_course']?>" alt="image course" width="100%" height="100%"></div>
+                    <div class="course_image"><img src="<?php echo BASE_URL ?>/assets/uploads/courses/<?php echo $detail['image_course']?>" alt="image course" width="100%" height="100%"></div>
                     <!-- Course Tabs -->
                     <div class="course_tabs_container">
                         <div class="tabs d-flex flex-row align-items-center justify-content-start">
@@ -259,7 +259,7 @@
                                             <li class="cmt-item">
                                                 <div class="comment_item d-flex flex-row align-items-start jutify-content-start">
                                                     <div class="comment_image">
-                                                        <img src="<?= $host ?>assets/uploads/students/<?= $values['image_student'] ?>" alt="Image User">
+                                                        <img src="<?= BASE_URL ?>assets/uploads/students/<?= $values['image_student'] ?>" alt="Image User">
                                                     </div>
                                                     <div class="comment_content">
                                                         <div class="comment_title_container ">
@@ -358,7 +358,7 @@
                         <div class="sidebar_teacher">
                             <div class="teacher_title_container d-flex flex-row align-items-center justify-content-start">
                                 <div class="teacher_image d-flex align-items-center">
-                                    <img src="<?= $host?>/assets/uploads/teachers/<?= $detail['image_teacher']?>" alt="image teacher" width="80px" height="80px" style="border-radius: 50%">
+                                    <img src="<?= BASE_URL?>/assets/uploads/teachers/<?= $detail['image_teacher']?>" alt="image teacher" width="80px" height="80px" style="border-radius: 50%">
                                 </div>
                                 <div class="teacher_title p-0">
                                     <div class="teacher_name"><a href="#"><?php echo $detail['name_teacher']?></a></div>

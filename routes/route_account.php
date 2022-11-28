@@ -24,7 +24,7 @@
                 include $urlAcc;
                 break;
             default:
-                location($host."page_not_found");
+                location(BASE_URL."page_not_found");
                 break;
         }
     }

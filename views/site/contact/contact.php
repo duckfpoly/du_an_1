@@ -41,36 +41,36 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h2 class="contact-title">Get in Touch</h2>
+                    <h2 class="contact-title">Liên hệ</h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                    <form action="https://script.google.com/macros/s/AKfycbxDQsxgJS0rlnvsNmC5EocOOcRcNmbTf2vQ5r3viuf0Iy_5Ppqo/exec" method="get" role="form" id="test-form" class="php-email-form">
                         <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                            <div class="col-md-12 mb-3">
+                                <div class="form-group rounded">
+                                    <input type="email" name="email" class="form-control p-3" id="email" placeholder="Email">
+                                    <span></span>
+                                    <small></small>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                    <textarea class="form-control p-3" name="message" rows="5" placeholder="Nội dung ..." id="message"></textarea>
+                                    <span></span>
+                                    <small></small>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
-                                </div>
+                            <div class="col-md-12 text-center my-3 mb-5">
+                                <div class="show-error"></div>
+                                <div id="error-message" class="error-message ">Gửi thất bại ❌❌❌</div>
+                                <div id="sent-message" class="sent-message ">✔✔✔ Cảm ơn bạn đã gửi. Thank you!</div>
                             </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
-                                </div>
+                            <div class="col-md-12 text-center mb-5">
+                                <button type="submit" id="submit-form" class="btn btn-outline-secondary p-2 w-25">Gửi</button>
                             </div>
-                        </div>
-                        <div class="form-group mt-3">
-                            <button type="submit" class="btn">Gửi</button>
                         </div>
                     </form>
+
                 </div>
                 <div class="col-lg-3 offset-lg-1">
                     <div class="media contact-info">
@@ -100,3 +100,100 @@
     </section>
     <!-- Contact Area End -->
 </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    const name = document.querySelector("#email")
+    const message = document.querySelector("#message")
+    const btnLogin = document.querySelector("#submit-form")
+    const errorMessageDiv = document.querySelector(".show-error")
+    function showErrorMessage(message){
+        errorMessageDiv.innerHTML = message
+    }
+    const validateEmail = (email) => {
+        return email.match(
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+    };
+    const validate = () => {
+        const email = document.querySelector("#email").value
+        if (!validateEmail(email)) {
+            showErrorMessage("Vui lòng nhập email !")
+        }
+        return false;
+    }
+    $('#email').on('input', validate);
+    name.onclick = function(e){
+        e.preventDefault()
+        name.style.border = "";
+        showErrorMessage("")
+    }
+    message.onclick = function(e){
+        e.preventDefault()
+        message.style.border = "";
+        showErrorMessage("")
+    }
+    btnLogin.onclick = function(e){
+        e.preventDefault()
+        if(name.value == ""){
+            showErrorMessage("Vui lòng nhập email !")
+            name.style.border = "1px solid red";
+            return false;
+        }
+
+        if(message.value ==""){
+            showErrorMessage("Vui lòng nhập nội dung cần gửi !")
+            message.style.border = "1px solid red";
+            return false;
+        }
+        showErrorMessage("")
+        $(document).ready(function () {
+            var data = $('form#test-form').serialize();
+            $.ajax({
+                type: 'GET',
+                url: 'https://script.google.com/macros/s/AKfycbxDQsxgJS0rlnvsNmC5EocOOcRcNmbTf2vQ5r3viuf0Iy_5Ppqo/exec',
+                dataType: 'json',
+                crossDomain: true,
+                data: data,
+                success: function (data) {
+                    if (data == 'false') {
+                        document.querySelector('#error-message').style.display = "block";
+                    } else {
+                        $('#name').val('');
+                        $('#message').val('');
+                        document.querySelector('#sent-message').style.display = "block";
+                    }
+                }
+            });
+            return false;
+        });
+    }
+</script>
+
+<style>
+    .php-email-form .error-message {
+        display: none;
+        color: #fff;
+        background: #ed3c0d;
+        text-align: center;
+        padding: 15px;
+        font-weight: 600;
+        border-radius: 10px;
+    }
+
+    .show-error {
+        color: #ed3c0d;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .php-email-form .sent-message {
+        display: none;
+        color: #fff;
+        background: #18d26e;
+        text-align: center;
+        padding: 15px;
+        font-weight: 600;
+        border-radius: 10px;
+    }
+
+</style>

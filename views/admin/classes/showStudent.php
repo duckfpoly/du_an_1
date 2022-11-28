@@ -46,7 +46,7 @@
                                                     <?= $key+= 1 ?>
                                                 </td>
                                                 <td>
-                                                    <img src="<?= $host.'assets/uploads/students/'.$values['image_student'] ?>" alt="Country flag" width="50px" height="50px">
+                                                    <img src="<?= BASE_URL.'assets/uploads/students/'.$values['image_student'] ?>" alt="Country flag" width="50px" height="50px">
                                                 </td>
                                                 <td>
                                                     <?= $values['name_student'] ?>
@@ -90,7 +90,7 @@
                                                     <?= $key+= 1 ?>
                                                 </td>
                                                 <td>
-                                                    <img src="<?= $host.'assets/uploads/students/'.$values['image_student'] ?>" alt="Country flag" width="50px" height="50px">
+                                                    <img src="<?= BASE_URL.'assets/uploads/students/'.$values['image_student'] ?>" alt="Country flag" width="50px" height="50px">
                                                 </td>
                                                 <td>
                                                     <?= $values['name_student'] ?>

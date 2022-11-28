@@ -35,7 +35,7 @@
             </p>
             <center>
                 <div class="mt-5">
-                    <a href="<?= $host ?>" class="btn btn-md btn-secondary">Quay về trang chủ </a>
+                    <a href="<?= BASE_URL ?>" class="btn btn-md btn-secondary">Quay về trang chủ </a>
                 </div>
             </center>
         </div>

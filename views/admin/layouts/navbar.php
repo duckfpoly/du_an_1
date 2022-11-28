@@ -7,7 +7,7 @@
           if(isset($_GET['module']) == true){
             if(isset($_GET['act']) == true){
               echo ' 
-                <li class="breadcrumb-item text-sm text-white active" aria-current="page"><a class="opacity-5 text-white" href="'.$admin.$_GET['module'].'">'.ucfirst($_GET['module']).'</a></li>
+                <li class="breadcrumb-item text-sm text-white active" aria-current="page"><a class="opacity-5 text-white" href="'.ADMIN.$_GET['module'].'">'.ucfirst($_GET['module']).'</a></li>
                 <li class="breadcrumb-item text-sm text-white active" aria-current="page">'.ucfirst($_GET['act']).'</li>
               ';
             }
@@ -45,7 +45,7 @@
               <a class="dropdown-item border-radius-md" href="javascript:;">
                 <div class="d-flex py-1">
                   <div class="my-auto">
-                    <img src="<?= $host ?>assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                    <img src="<?= BASE_URL ?>assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="text-sm font-weight-normal mb-1">
@@ -63,7 +63,7 @@
               <a class="dropdown-item border-radius-md" href="javascript:;">
                 <div class="d-flex py-1">
                   <div class="my-auto">
-                    <img src="<?= $host ?>assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                    <img src="<?= BASE_URL ?>assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="text-sm font-weight-normal mb-1">

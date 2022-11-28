@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form role="form" method="post" action="<?=$host?>login" id="form-1">
+                            <form role="form" method="post" action="<?= BASE_URL ?>login" id="form-1">
                                 <div class="mb-3 form-group">
                                     <input type="text" class="form-control" name="username" id="username" placeholder="Username" >
                                     <div class="form-message text-danger mt-1"></div>

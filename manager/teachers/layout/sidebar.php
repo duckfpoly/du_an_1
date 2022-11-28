@@ -27,23 +27,23 @@
                     <p>Quản lý lớp</p>
                 </a>
             </li>
-            <li id="teaching_schedule">
-                <a href="<?= TEACHING_SCHEDULE ?>">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>Lịch dạy</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>Điểm danh</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>Nhập điểm</p>
-                </a>
-            </li>
+<!--            <li id="teaching_schedule">-->
+<!--                <a href="--><?//= TEACHING_SCHEDULE ?><!--">-->
+<!--                    <i class="tim-icons icon-atom"></i>-->
+<!--                    <p>Lịch dạy</p>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="#">-->
+<!--                    <i class="tim-icons icon-atom"></i>-->
+<!--                    <p>Điểm danh</p>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="#">-->
+<!--                    <i class="tim-icons icon-atom"></i>-->
+<!--                    <p>Nhập điểm</p>-->
+<!--                </a>-->
+<!--            </li>-->
     </div>
 </div>

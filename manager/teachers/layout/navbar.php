@@ -9,7 +9,7 @@
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
             </div>
-            <a class="navbar-brand" href="<?= DASHBOARD_TEACHER ?>">Dashboard</a>
+            <a class="navbar-brand" href="<?= DASHBOARD_TEACHER ?>">Trang chủ</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -20,7 +20,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="search-bar input-group">
                     <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split" ></i>
-                        <span class="d-lg-none d-md-block">Search</span>
+                        <span class="d-lg-none d-md-block">Tìm kiếm</span>
                     </button>
                 </li>
                 <li class="dropdown nav-item">
@@ -28,7 +28,7 @@
                         <div class="notification d-none d-lg-block d-xl-block"></div>
                         <i class="tim-icons icon-sound-wave"></i>
                         <p class="d-lg-none">
-                            Notifications
+                            Thông báo
                         </p>
                     </a>
 <!--                    <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">-->
@@ -42,18 +42,18 @@
                 <li class="dropdown nav-item">
                     <a href="<?= LOGOUT ?>" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="photo">
-                            <img src="<?= $host ?>assets/uploads/teachers/<?= getSession('user')['image_teacher'] ?>" alt="Profile Photo">
+                            <img src="<?= BASE_URL ?>assets/uploads/teachers/<?= getSession('user')['image_teacher'] ?>" alt="Profile Photo">
                         </div>
                         <b class="caret d-none d-lg-block d-xl-block"></b>
                         <p class="d-lg-none">
-                            Log out
+                            Đăng xuất
                         </p>
                     </a>
                     <ul class="dropdown-menu dropdown-navbar">
-<!--                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>-->
-                        <li class="nav-link"><a href="<?= BASE_URL ?>" class="nav-item dropdown-item">Return Home Page</a></li>
+                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Thông tin cá nhân</a></li>
+                        <li class="nav-link"><a href="<?= BASE_URL ?>" class="nav-item dropdown-item">Quay lại trang người dùng</a></li>
                         <li class="dropdown-divider"></li>
-                        <li class="nav-link"><a href="<?= LOGOUT ?>" class="nav-item dropdown-item">Log out</a></li>
+                        <li class="nav-link"><a href="<?= LOGOUT ?>" class="nav-item dropdown-item">Đăng xuất</a></li>
                     </ul>
                 </li>
                 <li class="separator d-lg-none"></li>

@@ -67,7 +67,7 @@
                   <div class="text-center">
                   <button type="submit" name='btn_submit' class="btn bg-gradient-dark w-100 my-3 mb-2">Đăng nhập</button>
                 </div>
-                <p class="text-sm mt-3 mb-0">Bạn chưa có tài khoản?<a href="<?= BASE_URL ?>account/sign_up" class="text-dark font-weight-bolder"> Đăng ký ngay</a></p>
+                <p class="text-sm mt-3 mb-0">Bạn chưa có tài khoản?<a href="<?= SIGUP ?>" class="text-dark font-weight-bolder"> Đăng ký ngay</a></p>
               </form>
             </div>
           </div>

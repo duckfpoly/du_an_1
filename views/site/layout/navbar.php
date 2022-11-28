@@ -41,14 +41,14 @@
                                                         ?>
                                                     </a>
                                                     <ul class="submenu " style="border-radius: 10px;">
-                                                        <?php
-                                                            if(getSession('user')['role'] == 0){ ?>
-                                                                <li><a href="<?= $host?>teacher_manager">Trang quản trị</a></li>
-                                                           <?php }
-                                                        ?>
-                                                        <li><a href="#">Thông tin</a></li>
-                                                        <li><a href="<?= MYCOURSES?>">Khóa học</a></li>
-                                                        <li><a href="#">Đổi mật khẩu</a></li>
+                                                        <?php if(getSession('user')['role'] == 0){ ?>
+                                                            <li><a href="<?= BASE_URL ?>teacher_manager">Trang quản trị</a></li>
+                                                        <?php } ?>
+                                                        <?php if(getSession('user')['role'] == 1){ ?>
+                                                            <li><a href="#">Thông tin</a></li>
+                                                            <li><a href="<?= MYCOURSE ?>">Khóa học</a></li>
+                                                            <li><a href="#">Đổi mật khẩu</a></li>
+                                                        <?php } ?>
                                                         <li><a href="<?= LOGOUT ?>">Đăng xuất</a></li>
                                                     </ul>
                                             </li>

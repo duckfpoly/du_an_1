@@ -20,7 +20,7 @@ if(isset($_GET['act'])){
             alert('Xóa thành công !',ORDERS);
             break;
         default:
-            location($host."page_not_found");
+            location(BASE_URL."page_not_found");
             break;
     }
 }else {
