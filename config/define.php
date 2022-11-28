@@ -39,5 +39,5 @@
     define("DASHBOARD_TEACHER",     BASE_URL.'teacher_manager');
     define("COURSE_TEACHER",        BASE_URL.'teacher_manager/my_course');
     define("CLASS_TEACHER",         BASE_URL.'teacher_manager/my_class');
-    define("TEACHING_SCHEDULE",     BASE_URL.'teacher_manager/teaching_schedule');
+    define("TEACHER_PROFILE",       BASE_URL.'teacher_manager/teacher_profile');
 ?>

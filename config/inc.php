@@ -7,8 +7,8 @@
     require_once $dir_config.'lib.php';
     require_once $dir_config.'session.php';
     require_once $dir_config.'cookie.php';
-    require_once $dir_config.'vnpay.php';
     require_once $dir_config.'define.php';
+    require_once $dir_config.'vnpay.php';
     // database
     require_once $dir_model.'process_db.php';
     // admin

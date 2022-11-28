@@ -43,6 +43,10 @@
                 require_once $dir;
                 route_method($module);
                 break;
+            case 'teachers':
+                require_once $dir;
+                route_method($module);
+                break;
         }
     }
 ?>

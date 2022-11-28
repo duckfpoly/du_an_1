@@ -50,7 +50,7 @@
                         </p>
                     </a>
                     <ul class="dropdown-menu dropdown-navbar">
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Thông tin cá nhân</a></li>
+                        <li class="nav-link" id="teacher_profile"><a href="<?= TEACHER_PROFILE ?>" class="nav-item dropdown-item">Thông tin cá nhân</a></li>
                         <li class="nav-link"><a href="<?= BASE_URL ?>" class="nav-item dropdown-item">Quay lại trang người dùng</a></li>
                         <li class="dropdown-divider"></li>
                         <li class="nav-link"><a href="<?= LOGOUT ?>" class="nav-item dropdown-item">Đăng xuất</a></li>

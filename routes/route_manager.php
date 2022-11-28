@@ -15,7 +15,7 @@
             case "my_class":
                 include_once $objectt;
                 break;
-            case "teaching_schedule":
+            case "teacher_profile":
                 include_once $objectt;
                 break;
             default:

@@ -28,7 +28,7 @@
                 </a>
             </li>
 <!--            <li id="teaching_schedule">-->
-<!--                <a href="--><?//= TEACHING_SCHEDULE ?><!--">-->
+<!--                <a href="--><?//= TEACHING_PROFILE ?><!--">-->
 <!--                    <i class="tim-icons icon-atom"></i>-->
 <!--                    <p>Lịch dạy</p>-->
 <!--                </a>-->
