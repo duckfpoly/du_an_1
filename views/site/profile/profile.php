@@ -20,7 +20,7 @@
                             </div>
                         </div>
                     </div>
-                </div>          
+                </div>
             </div>
         </div>
     </section>
@@ -44,7 +44,7 @@
                     <label for="exampleInputEmail1" class="form-label">Email</label>
                     <input type="email" name ='email' value='<?= $data_user['email_student']?>' class="form-control text-dark" disabled placeholder="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
-            </div>  
+            </div>
             <div class="mb-3 form-group">
                 <label for="exampleInputEmail1" class="form-label">Avatar</label>
                 <input type="file" name ='avatar' id ='avatar'  class="form-control text-dark" id="exampleInputEmail1">

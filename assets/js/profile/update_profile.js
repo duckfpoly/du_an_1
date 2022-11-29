@@ -18,7 +18,7 @@ function update(){
 
         }else{
             // data_profile = `btn_update=${update}&name_student=${name_user}}`;
-             data_profile = {
+            data_profile = {
                 btn_update : update,
                 name_student : name_user,
             }
@@ -33,4 +33,3 @@ function update(){
         });
     }
 }
-

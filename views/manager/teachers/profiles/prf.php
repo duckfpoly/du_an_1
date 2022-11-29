@@ -222,8 +222,9 @@
                     }
                 })
                 .then((res) => {
+                    var pass_teacher = <?= getSession('user')['password_teacher'] ?>;
                     var old_pass = res.data.password_teacher
-                    if(old_password != old_pass) {
+                    if(old_password != <?= getSession('user')['password_teacher'] ?>) {
                         showSuccessToast('Cảnh báo','Mật khẩu cũ không đúng !','error')
                     }
                     else if(password_new != confirm_password_new){
