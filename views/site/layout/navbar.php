@@ -45,9 +45,9 @@
                                                             <li><a href="<?= BASE_URL ?>teacher_manager">Trang quản trị</a></li>
                                                         <?php } ?>
                                                         <?php if(getSession('user')['role'] == 1){ ?>
-                                                            <li><a href="#">Thông tin</a></li>
-                                                            <li><a href="<?= MYCOURSE ?>">Khóa học</a></li>
-                                                            <li><a href="#">Đổi mật khẩu</a></li>
+                                                            <li><a href="<?= PROFILE?>">Thông tin</a></li>
+                                                            <li><a href="<?= MYCOURSES ?>">Khóa học</a></li>
+                                                            <li><a href="">Đổi mật khẩu</a></li>
                                                         <?php } ?>
                                                         <li><a href="<?= LOGOUT ?>">Đăng xuất</a></li>
                                                     </ul>

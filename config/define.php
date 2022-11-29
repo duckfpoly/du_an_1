@@ -1,6 +1,6 @@
 <?php
-    define("BASE_URL",     'http://localhost/courses/');
-//    define("BASE_URL",     'http://localhost/coursesWeb/du_an_1/');
+    // define("BASE_URL",     'http://localhost/courses/');
+   define("BASE_URL",     'http://localhost/coursesWeb/du_an_1/');
 //    define("BASE_URL",     'http://localhost/hangdtph27628/du_an_1/');
     // database
     define("DB_HOST", "localhost");
@@ -25,6 +25,7 @@
     define("HOME",                  BASE_URL);
     define("LESSONS",               BASE_URL.'lessons');
     define("MYCOURSES",             BASE_URL.'mycourses');
+    define("PROFILE",               BASE_URL.'profile');
     define("MYCOURSE",              BASE_URL.'mycourse');
     define("ABOUT",                 BASE_URL.'about');
     define("CONTACT",               BASE_URL.'contact');

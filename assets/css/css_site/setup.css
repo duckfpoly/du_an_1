@@ -9,3 +9,8 @@
     max-width: 40px;
     object-fit: cover;
 }
+.avatar-img{
+    max-width: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+}

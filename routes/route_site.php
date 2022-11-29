@@ -31,6 +31,9 @@
                     break;   
                 case "mycourse":
                     include  $urlClt;
+                    break;  
+                case "profile":
+                    include  $urlClt;
                     break;            
                 default:
                 location(BASE_URL."page_not_found");
