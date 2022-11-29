@@ -54,15 +54,3 @@
         </form>
     </div>
 </main>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      Validator({
-          form: "#form_profile",
-          formGroupSelector: ".form-group",
-          errorSelector: ".form-message",
-          rules: [
-            Validator.isRequired("#name", "Vui lòng nhập họ tên"),
-          ],
-      });
-    });
-  </script>
