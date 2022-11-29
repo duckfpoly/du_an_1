@@ -33,7 +33,7 @@
                 <p class='fst-italic'>Code ko bug xoa group</p>
             </div>
         </div>
-        <form action='' method='post' id='form_profile' enctype='multipart/form-data'>
+        <form action='<?= PROFILE?>' method='post' enctype='multipart/form-data' onsubmit="return false">
             <div class='row'>
                 <div class="mb-3 col form-group">
                     <label for="exampleInputEmail1" class="form-label">Tên khách hàng</label>
@@ -47,14 +47,13 @@
             </div>  
             <div class="mb-3 form-group">
                 <label for="exampleInputEmail1" class="form-label">Avatar</label>
-                <input type="file" name ='avatar'  class="form-control text-dark" id="exampleInputEmail1">
+                <input type="file" name ='avatar' id ='avatar'  class="form-control text-dark" id="exampleInputEmail1">
             </div>
 
-            <button type="submit" name='btn_submit' class="btn btn-primary">Lưu</button>
+            <input type="submit" onclick='update()' name='btn_update'  value="Lưu" class="btn btn-primary">
         </form>
     </div>
 </main>
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       Validator({

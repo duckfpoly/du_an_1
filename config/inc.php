@@ -30,6 +30,7 @@
     require_once $dir_model_site.'sign_in.php';
     require_once $dir_model_site.'sign_up.php';
     require_once $dir_model_site.'pass_handle.php';
+    require_once $dir_model_site.'profile.php';
     //manager
     require_once $dir_model_manager.'teacher.php';
 ?>

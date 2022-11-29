@@ -117,6 +117,7 @@
     <!-- Đánh giá khóa học   -->
     <script> var host = "http://localhost/courses/";</script>
     <script src="<?= BASE_URL ?>assets/js/course/comment.js"></script>
+    <script src="<?= BASE_URL ?>assets/js/profile/update_profile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

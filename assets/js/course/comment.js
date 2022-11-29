@@ -46,6 +46,7 @@ function save() {
             content: content
         }
         this.data.push(item)
+   
         show()
         clear()
     }
