@@ -236,6 +236,9 @@
                             url: '<?= TEACHER_PROFILE ?>/update_password',
                             data: dataString,
                             success: function () {
+                                old_password.value = ''
+                                password_new.value = ''
+                                confirm_password_new.value = ''
                                 showSuccessToast('Success','Cập nhật mật khẩu thành công !','success')
                             }
                         });
