@@ -47,6 +47,10 @@
                 require_once $dir;
                 route_method($module);
                 break;
+            case 'students':
+                require_once $dir;
+                route_method($module);
+                break;
         }
     }
 ?>
