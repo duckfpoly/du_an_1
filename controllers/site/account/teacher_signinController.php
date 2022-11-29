@@ -1,4 +1,5 @@
 <?php
+
     $client->setRedirectUri(BASE_URL."account/teacher_signin");
     if (isset($_GET['code'])) {
         $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);

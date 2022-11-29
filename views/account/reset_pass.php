@@ -20,7 +20,7 @@
             <div class="card-body">
               <form role="form" method="post" action="" id="form-1">
                 <div class="mb-3 form-group">
-                  <input type="password" class="form-control" id="password" placeholder="Mật khẩu mới">
+                  <input type="password" name="password" class="form-control" id="password" placeholder="Mật khẩu mới">
                     <div class="form-message text-danger mt-1"></div>
                 </div>
                 <div class="mb-3 form-group">

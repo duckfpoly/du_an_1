@@ -10,7 +10,13 @@
                 break; 
             case 'sign_in':
                 include $urlAcc;
-                break;  
+                break;
+            case 'forgot_pass':
+                include $urlAcc;
+                break;
+            case 'reset_pass':
+                include $urlAcc;
+                break;
             case 'log_out':
                 include $urlAcc;
                 break;
@@ -18,7 +24,7 @@
                 include $urlAcc;
                 break;
             default:
-                location($host."page_not_found");
+                location(BASE_URL."page_not_found");
                 break;
         }
     }

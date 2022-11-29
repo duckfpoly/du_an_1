@@ -94,4 +94,23 @@
         $sql = "SELECT COUNT(*) FROM teachers";
         return query_value($sql);
     }
+
+    function teacher_profiles_update($name_teacher,$email_teacher,$phone_teacher,$updated_at,$id){
+        $sql = "UPDATE `teachers` SET 
+                        `name_teacher`          =   ?,
+                        `email_teacher`         =   ?,
+                        `phone_teacher`         =   ?,
+                        `updated_at`            =   ?
+                        WHERE id = ?
+                ";
+        query_sql($sql,$name_teacher,$email_teacher,$phone_teacher,$updated_at,$id);
+    }
+    function teacher_password_update($password_teacher,$updated_at,$id){
+        $sql = "UPDATE `teachers` SET 
+                `password_teacher`         =   ?,
+                `updated_at`               =   ?
+                WHERE id = ?
+                ";
+        query_sql($sql,$password_teacher,$updated_at,$id);
+    }
 ?>

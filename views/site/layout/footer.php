@@ -9,7 +9,7 @@
                             <div class="single-footer-caption mb-30">
                                 <!-- logo -->
                                 <div class="footer-logo mb-25">
-                                    <a href="<?= BASE_URL ?>"><img src="assets/img/img_site/img/logo/logo2_footer.png" alt=""></a>
+                                    <a href="<?= BASE_URL ?>"><img src="<?= BASE_URL ?>assets/img/img_site/img/logo/logo2_footer.png" alt=""></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">

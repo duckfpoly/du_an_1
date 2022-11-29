@@ -36,7 +36,8 @@ body::-webkit-scrollbar-track {
     background-image: linear-gradient(16deg, #ff005a 0%, #ff5d2d 64%, #ffba00 100%);
 }
 
-/* line 10, /Applications/MAMP/htdocs/old/palash/cl/shop_html/sass/_extends.scss */
+/* line 10, /Applications/MAMP/htdocs/old/palash/cl/shop_html/sass/_extends.s
+css */
 .form-contact .form-group .btn_1 {
     background-image: linear-gradient(to left, #fff 0%, #fff 51%, #fff 100%);
 }

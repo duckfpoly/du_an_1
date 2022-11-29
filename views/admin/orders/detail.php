@@ -51,7 +51,7 @@
                                                         <td>
                                                             <div class="d-flex justify-content-center align-items-center mb-2">
                                                                 <div class="flex-shrink-0">
-                                                                    <img src="<?= $host ?>assets/uploads/courses/<?= $course['image_course'] ?>" alt="" width="35" class="img-fluid">
+                                                                    <img src="<?= BASE_URL ?>assets/uploads/courses/<?= $course['image_course'] ?>" alt="" width="35" class="img-fluid">
                                                                 </div>
                                                                 <div class="flex-lg-grow-1 ms-3">
                                                                     <h6 class="small mb-0"><a href="#" class="text-reset"><?= $detail['name_class'] ?></a></h6>
@@ -103,7 +103,7 @@
                                         <div class="card mb-4">
                                             <div class="card-body" id="image_order">
                                                 <h3 class="h6">Ảnh hóa đơn</h3>
-                                                <img src="<?= $host ?>assets/uploads/courses/course_4.jpg" alt="">
+                                                <img src="<?= BASE_URL ?>assets/uploads/courses/course_4.jpg" alt="">
                                             </div>
                                         </div>
                                     </div>

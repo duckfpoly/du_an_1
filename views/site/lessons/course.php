@@ -1,5 +1,5 @@
 <!-- Home -->
-<link rel="stylesheet" href="<?= $host ?>assets/css/css_site/customRadio.css">
+<link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/customRadio.css">
 
 <div class="home">
     <div class="breadcrumbs_container">
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <!-- Course Image -->
-                    <div class="course_image"><img src="<?php echo $host?>/assets/uploads/courses/<?php echo $detail['image_course']?>" alt="image course" width="100%" height="100%"></div>
+                    <div class="course_image"><img src="<?php echo BASE_URL ?>/assets/uploads/courses/<?php echo $detail['image_course']?>" alt="image course" width="100%" height="100%"></div>
                     <!-- Course Tabs -->
                     <div class="course_tabs_container">
                         <div class="tabs d-flex flex-row align-items-center justify-content-start">
@@ -60,6 +60,7 @@
                         <div class="tab_panels">
                             <!-- Lớp -->
                             <div class="tab_panel active">
+                                <?php if(!empty($class['id'])){ ?>
                                 <div class="tab_panel_title">Chi tiết lớp thuộc khóa học</div>
                                 <div class="tab_panel_content">
                                     <div class="tab_panel_text">
@@ -80,7 +81,6 @@
                                            </tbody>
                                         </table>
                                     </div>
-
                                     <div class="tab_panel_title mt-5">Số lượng học viên</div>
                                     <ul class="dropdowns mt-0">
                                         <?php for($x = 0; $x <= 1; $x++){ ?>
@@ -97,11 +97,10 @@
                                             </ul>
                                         </li>
                                         <?php } ?>
-
                                     </ul>
-
                                     <div class="d-flex flex-column justify-content-center align-items-start mt-5">
-                                        <form action="<?= PAYMENT ?>" id='form_choise_course' method="POST">
+                                        <?php if(isset($_SESSION['user'])){ ?>
+                                            <form action="<?= PAYMENT ?>" id='form_choise_course' method="POST">
                                             <?php if(!empty($class['name_class'])) { ?>
                                                 <input type="hidden" value="<?= $class['id'] ?>" name="id_class">
                                                 <input type="hidden" value="<?= $_GET['id'] ?>" name="id_course">
@@ -172,9 +171,14 @@
                                                 </div>
                                             <?php } ?>
                                         </form>
+                                        <?php } else { ?>
+                                            <div class="add_comment_text"><h3>Vui lòng đăng nhập để đăng ký học! <a id="login" href="<?= BASE_URL ?>account/sign_in">Đăng nhập ngay</a></h3></div>
+                                        <?php } ?>
                                     </div>
                                 </div>
+                                <?php } else { echo 'Chưa có lớp học' ;} ?>
                             </div>
+
                             <!-- Mô tả -->
                             <div class="tab_panel">
                                 <div class="tab_panel_title">Mô tả về khóa học</div>
@@ -231,7 +235,7 @@
                                                 <div class="Stars" style="--rating: <?= $avg_rate ?>;"></div>
                                             </div>
                                         </div>
-                                        <div class="review_rating_text">(<?= $count_rate ?> Ratings)</div>
+                                        <div class="review_rating_text">(<?= $count_rate ?> đánh giá)</div>
                                     </div>
                                     <div class="review_rating_bars">
                                         <ul>
@@ -255,7 +259,7 @@
                                             <li class="cmt-item">
                                                 <div class="comment_item d-flex flex-row align-items-start jutify-content-start">
                                                     <div class="comment_image">
-                                                        <img src="<?= $host ?>assets/uploads/students/<?= $values['image_student'] ?>" alt="Image User">
+                                                        <img src="<?= BASE_URL ?>assets/uploads/students/<?= $values['image_student'] ?>" alt="Image User">
                                                     </div>
                                                     <div class="comment_content">
                                                         <div class="comment_title_container ">
@@ -284,7 +288,8 @@
                                         <a href="#" class="d-none text-dark" id="loadLess">Ẩn bớt</a>
                                     </div>
                                     <div class="add_comment_container pt-5">
-                                        <div class="add_comment_title">Đánh giá của bạn về khóa học</div>
+                                        <?php if(isset($_SESSION['user'])){ ?>
+                                            <div class="add_comment_title">Đánh giá của bạn về khóa học</div>
                                             <form action="<?= LESSONS.'/'.$id ?>" method="post" onsubmit="return false">
                                                 <input type="hidden" name="image_student"   id="image_student"      value="course_4.jpg">
                                                 <input type="hidden" name="name_student"    id="name_student"       value="Test">
@@ -305,6 +310,9 @@
                                                 <textarea name="content_rate" cols="30" rows="5" id="content_rate" class="form-control mt-2 fs-3" placeholder="Viết đánh giá ..."></textarea>
                                                 <button class="btn btn-secondary mt-3" onclick="save()">Gửi</button>
                                             </form>
+                                        <?php } else { ?>
+                                            <div class="add_comment_text"><h3>Vui lòng đăng nhập để đánh giá! <a id="login" href="<?= BASE_URL ?>account/sign_in">Đăng nhập ngay</a></h3></div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -350,7 +358,7 @@
                         <div class="sidebar_teacher">
                             <div class="teacher_title_container d-flex flex-row align-items-center justify-content-start">
                                 <div class="teacher_image d-flex align-items-center">
-                                    <img src="<?= $host?>/assets/uploads/teachers/<?= $detail['image_teacher']?>" alt="image teacher" width="80px" height="80px" style="border-radius: 50%">
+                                    <img src="<?= BASE_URL?>/assets/uploads/teachers/<?= $detail['image_teacher']?>" alt="image teacher" width="80px" height="80px" style="border-radius: 50%">
                                 </div>
                                 <div class="teacher_title p-0">
                                     <div class="teacher_name"><a href="#"><?php echo $detail['name_teacher']?></a></div>
@@ -373,6 +381,13 @@
     load_less_scroll(".cmt-item", "#loadLess", "#loadMore", lenght, 900);
 </script>
 <style>
+    #login {
+        color: #000;
+        text-decoration: none;
+    }
+    #login:hover {
+        color: cadetblue;
+    }
     .comment_image img {
         width: 70px;
         height: 70px;

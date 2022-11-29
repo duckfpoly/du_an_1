@@ -99,7 +99,7 @@
                 break;
             default:
                 // khi nhập linh tinh thì sẽ điều hướng về trang 404
-                location($host."page_not_found");
+                location(BASE_URL."page_not_found");
                 break;
         }
     }else {

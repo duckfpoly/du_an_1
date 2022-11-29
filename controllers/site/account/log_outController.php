@@ -1,4 +1,4 @@
 <?php
     unsetSession('user');
-    location($host.'account/sign_in');
+    location(BASE_URL.'account/sign_in');
 ?>

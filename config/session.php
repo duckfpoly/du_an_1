@@ -1,5 +1,4 @@
 <?php
-    include 'url.php';
     session_start();
     function setSession($key, $val){
         $_SESSION[$key] = $val;

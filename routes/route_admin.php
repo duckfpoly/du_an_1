@@ -9,7 +9,7 @@
         $module         = $_GET['module'];
         $direct_read    = 'views/admin/'.$module.'/read.php';
         isset($_GET['act']) && $direct_act = $dir_views.$module.'/'.$_GET['act'].'.php';
-        $dir_img        = $host.'assets/uploads/'.$module.'/';
+        $dir_img        = BASE_URL.'assets/uploads/'.$module.'/';
         $objectt        = $dir_ctrl.$module.$name_exten;
         switch ($module) {
             case "categories":
@@ -45,10 +45,10 @@
             case "logout":
 //                delete_Cookie('scope');
                 unsetSession('scope');
-                location($host.'login');
+                location(BASE_URL.'login');
                 break;
             default:
-                location($host."page_not_found");
+                location(BASE_URL."page_not_found");
                 break;
         }
         active_item($module);

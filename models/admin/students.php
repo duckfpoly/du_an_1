@@ -1,6 +1,5 @@
 <?php
-    function check_image_student($image_student)
-    {
+    function check_image_student($image_student){
         $sql = "SELECT * FROM `students` WHERE image_student = ?";
         $check_image_student = query_one($sql, $image_student);
         if ($check_image_student > 0) {
@@ -100,5 +99,4 @@
         $sql = "SELECT COUNT(YEAR(created_at)) FROM students WHERE YEAR(created_at) = $year";
         return query_value($sql);
     }
-
 ?>

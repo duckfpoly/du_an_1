@@ -61,10 +61,13 @@
                     '.$login_client.'
                   </small>
                 ' : '' ?>
-                <div class="text-center">
+                  <div class="d-flex align-items-center justify-content-center">
+                      <div class="g-recaptcha" data-sitekey="6Lcj8zYjAAAAAGHVzb_jOrfsspG4G1xxJa5wWDCO"></div>
+                  </div>
+                  <div class="text-center">
                   <button type="submit" name='btn_submit' class="btn bg-gradient-dark w-100 my-3 mb-2">Đăng nhập</button>
                 </div>
-                <p class="text-sm mt-3 mb-0">Bạn chưa có tài khoản?<a href="<?= BASE_URL ?>account/sign_up" class="text-dark font-weight-bolder"> Đăng ký ngay</a></p>
+                <p class="text-sm mt-3 mb-0">Bạn chưa có tài khoản?<a href="<?= SIGUP ?>" class="text-dark font-weight-bolder"> Đăng ký ngay</a></p>
               </form>
             </div>
           </div>
@@ -83,7 +86,6 @@
             Validator.isEmail('#email'),
             Validator.isRequired("#password", "Vui lòng nhập password"),
             Validator.minLength('#password', 8),
-            
           ],
       });
     });

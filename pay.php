@@ -4,8 +4,8 @@
 <head>
     <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
     <title>COURSES APP - Thanh toán</title>
-    <link rel="stylesheet" href="<?= $host ?>assets/admin/css/argon-dashboard.css"/>
-    <link rel="stylesheet" href="<?= $host ?>css/alert_pay.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/admin/css/argon-dashboard.css"/>
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/alert_pay.css">
 </head>
 <body>
 <?php

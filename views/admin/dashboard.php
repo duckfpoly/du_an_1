@@ -174,40 +174,32 @@
             </div>
               <div class="card-body">
                   <div class="course_sale">
-                    <?php foreach ($course_sale as $key => $values){ ?>
-                        <a href="<?= COURSES.'/detail/'.$values['id'] ?>">
-                            <div class="d-flex align-items-center justify-content-between m-4 course-item-sale">
+                    <?php foreach ($code_sale as $key => $values){ ?>
+                        <div class="d-flex align-items-center justify-content-between m-4 course-item-sale">
                                 <div class="w-20">
                                     <div class="d-flex px-2 py-1 align-items-center">
                                         <div>
-                                            <img src="assets/uploads/courses/<?= $values['image_course'] ?>" alt="Country flag" width="23px" height="17px">
+                                            <img src="assets/uploads/courses/course_4.jpg" alt="Country flag" width="23px" height="17px">
                                         </div>
                                         <div class="ms-4">
-                                            <p class="text-xs font-weight-bold mb-2">Khóa học</p>
-                                            <h6 class="text-sm mb-0"><?= $values['name_course'] ?></h6>
+                                            <p class="text-xs font-weight-bold mb-2">Mã khuyến mại</p>
+                                            <h6 class="text-sm mb-0"><?= $values['sale_code'] ?></h6>
                                         </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="text-center">
-                                        <p class="text-xs font-weight-bold mb-2">Giảng viên</p>
-                                        <h6 class="text-sm mb-0"><?= $values['name_teacher'] ?></h6>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="text-center">
                                         <p class="text-xs font-weight-bold mb-2">Giảm</p>
-                                        <h6 class="text-sm mb-0"><?= $values['discount'] ?>%</h6>
+                                        <h6 class="text-sm mb-0"><?= $values['percent_discount'] ?>%</h6>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="col text-center">
-                                        <p class="text-xs font-weight-bold mb-2">Giá khuyến mại</p>
-                                        <h6 class="text-sm mb-0"><?= total($values['price_course'],$values['discount']) ?></h6>
+                                        <p class="text-xs font-weight-bold mb-2">Ngày kết thúc</p>
+                                        <h6 class="text-sm mb-0"><?= format_date($values['time']) ?></h6>
                                     </div>
                                 </div>
                             </div>
-                        </a>
                     <?php } ?>
                       <div class="text-center">
                           <a href="#" id="loadMoreCourse">Xem thêm</a>
@@ -251,7 +243,7 @@
       </div>
 </div>
 <script>
-    var lenght = 4;
+    var lenght = 2;
     load_more(".cate_item", "#loadMore", "#loadLess", lenght);
     load_less(".cate_item", "#loadLess", "#loadMore", lenght);
 

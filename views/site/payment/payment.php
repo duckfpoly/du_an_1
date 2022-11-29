@@ -1,5 +1,5 @@
 <?php if(!isset($_SESSION['user'])){
-    location($host.'account/sign_in');
+    location(BASE_URL.'account/sign_in');
 } ?>
 <section class="breadcrumb_part">
     <div class="container">
@@ -92,7 +92,7 @@
                             <tr>
                                 <td>
                                     <a class="text-dark" href="#">
-                                        <img style="width: 65px; height: 65px;" class="rounded" src="<?php echo $host?>/assets/uploads/courses/<?php echo $course['image_course']?>" alt="">
+                                        <img style="width: 65px; height: 65px;" class="rounded" src="<?php echo BASE_URL?>/assets/uploads/courses/<?php echo $course['image_course']?>" alt="">
                                     </a>
                                 </td>
                                 <td>
@@ -143,7 +143,7 @@
         </div>
     </form>
 </section>
-<script src="<?= $host ?>assets/js/checkout/app.js"></script>
+<script src="<?= BASE_URL ?>assets/js/checkout/app.js"></script>
 <script LANGUAGE="JavaScript">
     function ValidateForm(form){
         if ( ( form.pay_option[0].checked == false ) && ( form.pay_option[1].checked == false ) && ( form.pay_option[2].checked == false ) ) {

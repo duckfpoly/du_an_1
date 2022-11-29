@@ -6,7 +6,7 @@
         $view           = $_GET['view'];
         $direct_read    = 'views/manager/teachers/'.$view.'/read.php';
         isset($_GET['action']) && $direct_act = $dir_views.$view.'/'.$_GET['action'].'.php';
-        $dir_img        = $host.'assets/uploads/'.$view.'/';
+        $dir_img        = BASE_URL.'assets/uploads/'.$view.'/';
         $objectt        = $dir_ctrl.$view.$name_exten;
         switch ($view) {
             case "my_course":
@@ -15,11 +15,11 @@
             case "my_class":
                 include_once $objectt;
                 break;
-            case "teaching_schedule":
+            case "teacher_profile":
                 include_once $objectt;
                 break;
             default:
-                location($host."page_not_found");
+                location(BASE_URL."page_not_found");
                 break;
         }
         active_item($view);

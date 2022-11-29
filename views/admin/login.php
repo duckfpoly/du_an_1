@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?= $host ?>assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="<?= $host ?>assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= BASE_URL ?>assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="<?= BASE_URL ?>assets/img/favicon.png">
     <title>DDH ADMIN - Đăng Nhập</title>
-    <link href="<?= $host ?>assets/admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+    <link href="<?= BASE_URL ?>assets/admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
     <style>
         .form-group.invalid .form-control {
             border-color: #f33a58;
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form role="form" method="post" action="<?=$host?>login" id="form-1">
+                            <form role="form" method="post" action="<?= BASE_URL ?>login" id="form-1">
                                 <div class="mb-3 form-group">
                                     <input type="text" class="form-control" name="username" id="username" placeholder="Username" >
                                     <div class="form-message text-danger mt-1"></div>
@@ -93,7 +93,7 @@
             </div>
         </div>
     </footer>
-    <script src="<?= $host ?>assets/admin/js/plugins/validate.js"></script>
+    <script src="<?= BASE_URL ?>assets/admin/js/plugins/validate.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             Validator({

@@ -4,6 +4,6 @@
     $count_courses      = course_count();
     $count_teachers     = count_teacher();
     $count_students     = count_student();
-    $course_sale        = course_sale();
+    $code_sale          = read_sale();
     include_once 'views/admin/dashboard.php';
 ?>
