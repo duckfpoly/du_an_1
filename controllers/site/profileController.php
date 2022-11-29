@@ -7,6 +7,7 @@
         $name_user = $_POST['name_student'];
         $avatar = isset($_POST['image_student']) ? $_POST['image_student'] : '';
         update_user($name_user,$avatar,$id);
+        $_SESSION['user'] = get_user($id);
     }
     include 'views/site/profile/profile.php';
 
