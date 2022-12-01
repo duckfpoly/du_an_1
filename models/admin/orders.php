@@ -1,4 +1,11 @@
 <?php
+
+    function check_order_code($order_code){
+        $sql = "SELECT * FROM `tbl_orders` WHERE order_code = ?";
+        if(query_one($sql, $order_code) > 0 ){
+            return "Tên danh mục đã được sử dụng!";
+        }
+    }
     function order_read(){
         $sql = "SELECT 
                 `tbl_orders`.*,

@@ -30,9 +30,13 @@
     }
 
     function class_read(){
-        $sql = "SELECT * FROM courses 
-                INNER JOIN teachers ON courses.id_teacher = teachers.id
-                INNER JOIN classes ON courses.id = classes.id_course
+        $sql = "SELECT 
+                classes.*,
+                courses.name_course,
+                teachers.name_teacher
+                FROM classes 
+                INNER JOIN teachers ON classes.id_teacher = teachers.id
+                INNER JOIN courses ON classes.id_course = courses.id
                 ORDER BY classes.id DESC 
          ";
         return query($sql);
@@ -60,11 +64,10 @@
     }
 
     function class_detail($id){
-        $sql = "SELECT 
-                *
-                FROM courses 
-                INNER JOIN teachers ON courses.id_teacher = teachers.id
-                INNER JOIN classes ON courses.id = classes.id_course
+        $sql = "SELECT *
+                FROM classes 
+                INNER JOIN teachers ON classes.id_teacher = teachers.id
+                INNER JOIN courses ON courses.id = classes.id_course
                 WHERE classes.id = ?
              ";
         return query_one($sql,$id);

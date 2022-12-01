@@ -12,8 +12,8 @@
                 $id_course  = $_POST['id_category'];
                 $time_learn = $_POST['time_learn'];
                 $time_start = $_POST['time_start'];
-                $time = strtotime ( '+6 month' , strtotime ( $time_start ) ) ;
-                $time_end = date ( 'Y-m-d' , $time );
+                $time       = strtotime ( '+6 month' , strtotime ( $time_start ) ) ;
+                $time_end   = date ( 'Y-m-d' , $time );
                 // kiểm tra rỗng
                 check_empty($name_class,CLASS_TEACHER . "/create");
                 check_empty($id_course, CLASS_TEACHER . "/create");

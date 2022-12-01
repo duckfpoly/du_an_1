@@ -28,7 +28,6 @@
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên khóa học</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Giảng viên</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá khóa học</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Danh mục</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
@@ -47,7 +46,6 @@
                                             </div>
                                         </td>
                                         <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_course'] ?></p></td>
-                                        <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_teacher'] ?></p></td>
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold"><?= number_format($values['price_course'], 0, '', ',') ?> VNĐ</span>
                                         </td>
@@ -60,7 +58,7 @@
                                             ?>
                                         </td>
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
-                                            <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0" href="<?= COURSES ?>/detail/<?= $values['id'] ?>">Chi tiết</a></span>&emsp;
+                                            <span class="text-secondary text-xs font-weight-bold d-none"><a class="btn btn-primary m-0" href="<?= COURSES ?>/detail/<?= $values['id'] ?>">Chi tiết</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0" href="<?= COURSES ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold">
                                                 <form action="<?= COURSES ?>/destroy/<?= $values['id'] ?>" method="post">

@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb_iner">
-                    <h2>CHECKOUT</h2>
+                    <h2>THANH TOÁN</h2>
                 </div>
             </div>
         </div>
@@ -14,10 +14,8 @@
 </section>
 <section class="mt-5">
     <form method="post" action='pay' id="forms_payment" >
-        <input type="hidden" name="id_student"      value="<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : ''?>" >
+        <input type="hidden" name="id_student"      value="<?= getSession('user')['id'] ?>" >
         <input type="hidden" name="id_class"        value="<?= $class['id']?>" >
-        <input type="hidden" name="check_day"       value="<?= isset( $_POST['check_day']) ?  $_POST['check_day'] : ''?>" >
-        <input type="hidden" name="check_time"      value="<?= isset($_POST['check_time']) ? $_POST['check_time'] : ''?>" >
         <input type="hidden" name="order_code"      value="<?= $order_code ?>" >
         <div class="d-flex flex-wrap justify-content-between align-items-start" id="main_content">
             <div class="col-lg-3 col-md-12 col-sm-12">
@@ -80,11 +78,10 @@
                     <table class="table" id="example">
                         <thead>
                             <tr>
-                                <th>Ảnh</th>
                                 <th>Khóa học</th>
                                 <td>Lớp</td>
-                                <th>Thời gian</th>
-                                <th>Ca học</th>
+                                <td>Giảng viên</td>
+                                <td>Ngày học</td>
                                 <th>Giá</th>
                             </tr>
                         </thead>
@@ -92,23 +89,29 @@
                             <tr>
                                 <td>
                                     <a class="text-dark" href="#">
-                                        <img style="width: 65px; height: 65px;" class="rounded" src="<?php echo BASE_URL?>/assets/uploads/courses/<?php echo $course['image_course']?>" alt="">
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="text-dark" href="#">
                                         <span class="d-inline-block text-truncate" style="max-width: 150px;">
-                                            <?= $course['name_course']?>
+                                            <?= $class['name_course']?>
                                         </span>
                                     </a>
                                 </td>
                                 <td>
                                     <?= $class['name_class']?>
                                 </td>
-                                <td><?= $day == 0 ? '2-4-6' : '3-5-7'?></td>
-                                <td><?= $time ?></td>
                                 <td>
-                                    <input type="text" readonly class="form-control" id="price_course" data-price="<?= total_no_fomat($course['price_course'],$course['discount']) ?>" value="<?= total($course['price_course'],$course['discount'])?>" style="background: none; border: none">
+                                    <?= $class['name_teacher']?>
+                                </td>
+                                <td>
+                                    <?= $class['time_learn']== 0 ? '2 - 4 - 6' : '3 - 5 - 7' ?>
+                                </td>
+                                <td>
+                                    <input
+                                            type="text"
+                                            readonly
+                                            class="form-controll"
+                                            id="price_course"
+                                            data-price="<?= total_no_fomat($class['price_course'],$class['discount']) ?>"
+                                            value="<?= total($class['price_course'],$class['discount'])?>"
+                                            style="background: none; border: none">
                                 </td>
                             </tr>
                         </tbody>
@@ -116,17 +119,17 @@
                     <div class="cupon_areaa d-flex mb-3">
                         <form>
                             <input type="text" class="form-control w-50" placeholder="Nhập mã giảm giá ..." id="input_coupon"/>
-                            <button type="button" class="btn btn-outline-secondary" id="apply_id_coupon" style="margin-left: 20px;">Apply</button>
+                            <button type="button" class="btn btn-outline-secondary" id="apply_id_coupon" style="margin-left: 20px;">Áp dụng</button>
                         </form>
                     </div>
                     <div id="show_message"></div>
                     <ul class="list list_2">
                         <li>
                             <a href="#" class="fw-bold">Tổng tiền thanh toán
-                                <input type="hidden" id="price_total" name="price_total" value="<?= total_no_fomat($course['price_course'],$course['discount']) ?>" >
+                                <input type="hidden" id="price_total" name="price_total" value="<?= total_no_fomat($class['price_course'],$class['discount']) ?>" >
                                 <span>
                                     <span id="total_order">
-                                        <?= total($course['price_course'],$course['discount'])?>
+                                        <?= total($class['price_course'],$class['discount'])?>
                                     </span>
                                 </span>
                             </a>
@@ -143,7 +146,7 @@
         </div>
     </form>
 </section>
-<script src="<?= BASE_URL ?>assets/js/checkout/app.js"></script>
+<script src="<?= BASE_URL ?>assets/js/checkout/checkout.js"></script>
 <script LANGUAGE="JavaScript">
     function ValidateForm(form){
         if ( ( form.pay_option[0].checked == false ) && ( form.pay_option[1].checked == false ) && ( form.pay_option[2].checked == false ) ) {

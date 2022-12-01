@@ -61,7 +61,7 @@
                                                                 <td class="align-middle text-center">
                                                                     <span class="text-secondary text-xs font-weight-bold"><?= $values['name_course'] ?></span>
                                                                 </td>
-                                                                <td><p class="text-xs font-weight-bold mb-0 text-center"><?= $values['slot'] ?></p></td>
+                                                                <td><p class="text-xs font-weight-bold mb-0 text-center"> <?= count_std_class_teacher($values['id'],getSession('user')['id']) ?>/<?= $values['slot'] ?></p></td>
                                                                 <td><p class="text-xs font-weight-bold mb-0 text-center"><?= format_date($values['time_start']) ?></p></td>
                                                                 <td class="align-middle text-center text-sm">
                                                                     <?=

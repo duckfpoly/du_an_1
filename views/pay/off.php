@@ -24,7 +24,7 @@
                     <tbody>
                     <tr>
                         <td><?= $order_code ?></td>
-                        <td><?= $price_course?> VNĐ</td>
+                        <td><?= $price_total ?> VNĐ</td>
                         <td><?= $order_date ?></td>
                     </tr>
                     </tbody>

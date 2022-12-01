@@ -86,7 +86,6 @@
                                             <?php echo $value['name_course']?>
                                         </a>
                                     </h3>
-                                    <p class="mb-3"><?= $value['name_teacher'] ?></p>
                                     <p class="card-title mb-3">
                                         <?php echo $value['description_course']?>
                                     </p>

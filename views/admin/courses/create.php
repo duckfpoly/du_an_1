@@ -50,16 +50,6 @@
                                 </select>
                                 <div class="form-message text-danger mt-1"></div>
                             </div>
-                            <div class="form-group ">
-                                <label for="id_teacher" class="form-label">Giảng viên</label>
-                                <select name="id_teacher" id="id_teacher" class="form-control">
-                                    <option disabled selected value="">Chọn giảng viên</option>
-                                    <?php foreach($teacher_read as $key => $values): ?>
-                                        <option value="<?= $values['id'] ?>"><?= $values['name_teacher'] ?> - MGV: <?= $values['id'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <div class="form-message text-danger mt-1"></div>
-                            </div>
                             <div class="mt-5">
                                 <a href="<?= COURSES ?>" class="btn btn-secondary">Quay lại</a>
                                 <button class="btn btn-success" name="create_course" type="submit">Thêm</button>
@@ -87,7 +77,6 @@
                 Validator.isRequired("#quote", "Vui lòng nhập trích dẫn"),
                 Validator.isRequired("#image_course", "Vui lòng chọn ảnh"),
                 Validator.isRequired("#id_category", "Vui lòng chọn danh mục"),
-                Validator.isRequired("#id_teacher", "Vui lòng chọn giảng viên"),
             ],
         });
     });

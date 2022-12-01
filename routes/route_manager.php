@@ -9,9 +9,6 @@
         $dir_img        = BASE_URL.'assets/uploads/'.$view.'/';
         $objectt        = $dir_ctrl.$view.$name_exten;
         switch ($view) {
-            case "my_course":
-                include_once $objectt;
-                break;
             case "my_class":
                 include_once $objectt;
                 break;

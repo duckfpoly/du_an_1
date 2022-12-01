@@ -25,15 +25,13 @@
                     <div class="table-responsive p-3">
                         <table class="table align-items-center " id="examplee">
                             <thead>
-                            <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Người đánh giá</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nội dung</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Khóa học</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giảng viên</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Thao tác</th>
-                            </tr>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Người đánh giá</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nội dung</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Khóa học</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Thao tác</th>
+                                </tr>
                             </thead>
                             <tbody>
                             <?php if(!empty($read_comment)){ ?>
@@ -50,16 +48,6 @@
                                         <td class="text-center"><p class="text-xs text-center font-weight-bold mb-0"><?= $values['content_rate'] ?></p></td>
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold"><?= $values['name_course'] ?></span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold"><?= $values['name_teacher'] ?></span>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <?=
-                                            $values['status_teacher'] == 0
-                                                ? '<span class="badge badge-sm bg-gradient-success">Kích hoạt</span>'
-                                                : '<span class="badge badge-sm bg-gradient-danger">Cấm</span>'
-                                            ?>
                                         </td>
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
 <!--                                            <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0" href="--><?//= RATES ?><!--/detail/--><?//= $values['id'] ?><!--">Chi tiết</a></span>&emsp;-->

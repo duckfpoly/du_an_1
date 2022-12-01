@@ -1,12 +1,14 @@
+<?php include '../config/define.php'?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" type="image/x-icon" href="http://localhost/courses/assets/img/img_site/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= BASE_URL ?>assets/img/img_site/img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page not found</title>
-    <link rel="stylesheet" href="http://localhost/courses/css/page_note_found.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/page_note_found.css">
 </head>
 <body>
 <div class="error">

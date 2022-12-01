@@ -1,4 +1,14 @@
 <?php
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    require_once 'vendor/autoload.php';
+    $client         = new Google\Client();
+    $google_oauth   = new Google\Service\Oauth2($client);
+    $client->setClientId("860322000129-aa3jsl9jc2upei7jjitjeknhol9p552f.apps.googleusercontent.com");
+    $client->setClientSecret("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");
+    $client->addScope("email");
+    $client->addScope("profile");
     include 'config/inc.php';
 
     function active_item($item){
@@ -304,6 +314,7 @@
             $google_account_info = $google_oauth->userinfo->get();
             $email      =  $google_account_info->email;
             $name_user  =  $google_account_info->name;
+
             $username   =  cut_email($email);
             $password   =  rand(0,999999);
             $create     =  sign_up_gg($username,$name_user,$email,$password);

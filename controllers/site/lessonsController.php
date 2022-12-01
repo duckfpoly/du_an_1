@@ -2,36 +2,30 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
         $check = check_id_course($id);
-        if(isset($check)){
-            alert('Khóa học không tồn tại',LESSONS);
-        }
+        isset($check) && alert('Khóa học không tồn tại',LESSONS);
         $detail = get_course($id);
         // lấy các đánh giá về khóa học
         $rate_course = get_rate_course($id);
         // đánh giá sao trung bình
-        if(empty(get_avg_rate_course($id))){
-            $avg_rate = 0;
-        }
-        else {
-            $avg_rate = get_avg_rate_course($id);
-        }
+        $avg_rate = empty(get_avg_rate_course($id)) ? 0 : get_avg_rate_course($id);
         // số đánh giá
         $count_rate = get_count_rate_course($id);
         // lớp học theo khóa học
-        $class = get_class_by_course($id);
+        $class =  isset($_SESSION['user']['id']) ? get_class_by_course_with_user($id,getSession('user')['id']) : get_class_by_course($id);
         // tổng sinh viên thuộc khóa học
         $total_std_course  = count_std_coursee($id);
+        // khóa học cùng danh mục
+        $course_same_cate  = course_same_cate($detail['id_cate'],$id);
         // đánh giá khóa học
         if(isset($_POST['send_cmt'])){
             $rate           = $_POST['rate'];
             $content_rate   = $_POST['content_rate'];
-            $id_course      = $id;
-            $id_student     = $_POST['id_student'];
+            $id_student     = getSession('user')['id'];
             $redirectt      = LESSONS.'/detail/'.$id;
             check_empty($rate           ,$redirectt);
             check_empty($content_rate   ,$redirectt);
             check_empty($id_student     ,$redirectt);
-            add_rate_course($rate,$content_rate,$id_course,$id_student);
+            add_rate_course($rate,$content_rate,$id,$id_student);
         }
         // nội dung chương trình khóa học
         $lesson_course = get_lesson_course($id);
@@ -39,7 +33,7 @@
     }
     else {
         $categories = get_all_categories();
-        $data_cate = pagination_normal('courses',6);
+        $data_cate  = pagination_normal('courses',6);
         $lessions   = $data_cate[0];
         if(isset($_GET['cate'])){
             if($_GET['cate'] != "all"){

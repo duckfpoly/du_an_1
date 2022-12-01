@@ -71,15 +71,6 @@
                                 </select>
                                 <div class="form-message text-danger mt-1"></div>
                             </div>
-                            <div class="form-group ">
-                                <label for="id_teacher" class="form-label">Giảng viên</label>
-                                <select name="id_teacher" id="id_teacher" class="form-control">
-                                    <?php foreach($teacher_read as $key => $values): ?>
-                                        <option <?= $courses_update['id_teacher'] == $values['id'] ? "selected" : "" ?> value="<?= $values['id'] ?>"><?= $values['name_teacher'] ?> - MGV: <?= $values['id'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <div class="form-message text-danger mt-1"></div>
-                            </div>
                             <div class="mt-5">
                                 <a href="<?= COURSES ?>" class="btn btn-secondary">Quay lại</a>
                                 <button class="btn btn-success" type="submit">Sửa</button>

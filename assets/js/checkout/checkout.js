@@ -47,8 +47,8 @@ function apply_coupon(){
                             document.getElementById("input_coupon").value = items.sale_code
                             document.getElementById("input_coupon").setAttribute('disabled',true)
                             document.getElementById("apply_id_coupon").setAttribute('disabled',true)
-                            document.getElementById("total_order").innerText =new Intl.NumberFormat('it-IT',{style:'currency',currency:'VND'}).format((Number(price) * Number(items.percent_discount)) / 100)
-                            document.getElementById("price_total").value = (Number(price) * Number(items.percent_discount)) / 100
+                            document.getElementById("total_order").innerText = new Intl.NumberFormat('it-IT',{style:'currency',currency:'VND'}).format(Number(price) - ((Number(price) * Number(items.percent_discount)) / 100))
+                            document.getElementById("price_total").value = Number(price) - ((Number(price) * Number(items.percent_discount)) / 100)
                         }
                     }
                     // else {

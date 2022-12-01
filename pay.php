@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
     <title>COURSES APP - Thanh toán</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/admin/css/argon-dashboard.css"/>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/alert_pay.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/alert_pay.css">
 </head>
 <body>
 <?php
@@ -18,6 +18,7 @@
     else {
         include 'routes/route_pay.php';
     }
+?>
 ?>
 </body>
 </html>

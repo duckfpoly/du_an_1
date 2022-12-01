@@ -15,12 +15,6 @@
                     <p>Trang chủ</p>
                 </a>
             </li>
-            <li id="my_course">
-                <a href="<?= COURSE_TEACHER ?>">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>Quản lý khóa học</p>
-                </a>
-            </li>
             <li id="my_class">
                 <a href="<?= CLASS_TEACHER ?>">
                     <i class="tim-icons icon-atom"></i>

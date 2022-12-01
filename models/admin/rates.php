@@ -1,8 +1,10 @@
 <?php
     function get_all_cmt(){
-        $sql = 'SELECT *, rate_courses.id as id_cmt  FROM rate_courses INNER JOIN courses ON rate_courses.id_course = courses.id
+        $sql = 'SELECT *, rate_courses.id as id_cmt  
+        FROM rate_courses 
+        INNER JOIN courses ON rate_courses.id_course = courses.id
         INNER JOIN students ON rate_courses.id_student = students.id
-        INNER JOIN teachers ON courses.id_teacher = teachers.id';
+        ';
         return query($sql);
     }
     function filter_course($id){

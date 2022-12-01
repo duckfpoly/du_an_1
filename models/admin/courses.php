@@ -19,7 +19,7 @@
             return "Khóa học không tồn tại !";
         }
     }
-    function courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher){
+    function courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category){
         $sql = "INSERT INTO `courses` SET 
             `name_course`           =   ?,
             `price_course`          =   ?,
@@ -27,34 +27,31 @@
             `description_course`    =   ?,
             `quote`                 =   ?,
             `created_at`            =   ?,
-            `id_category`           =   ?,
-            `id_teacher`            =   ?
+            `id_category`           =   ?
             ";
-        query_sql($sql,$name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category,$id_teacher);
+        query_sql($sql,$name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category);
     }
     function courses_read(){
-        $sql = "SELECT courses.*,teachers.name_teacher,categories.name_category
+        $sql = "SELECT courses.*,categories.name_category
             FROM `courses`
-            INNER JOIN teachers ON teachers.id = courses.id_teacher
             INNER JOIN categories ON courses.id_category = categories.id
         ";
         return query($sql);
     }
-    function courses_update($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id_teacher,$id){
+    function courses_update($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id){
         $sql = "UPDATE `courses` SET 
-                    `name_course`           =   ?,
-                    `price_course`          =   ?,
-                    `image_course`          =   ?,
-                    `status_course`         =   ?,
-                    `description_course`    =   ?,
-                    `quote`                 =   ?,
-                    `created_at`            =   ?,
-                    `updated_at`            =   ?,
-                    `id_category`           =   ?,
-                    `id_teacher`            =   ?
-                WHERE id = ?
+            `name_course`           =   ?,
+            `price_course`          =   ?,
+            `image_course`          =   ?,
+            `status_course`         =   ?,
+            `description_course`    =   ?,
+            `quote`                 =   ?,
+            `created_at`            =   ?,
+            `updated_at`            =   ?,
+            `id_category`           =   ?
+            WHERE id = ?
         ";
-        query_sql($sql,$name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id_teacher,$id);
+        query_sql($sql,$name_course,$price_course,$image_course,$status_course,$description_course,$quote,$create_at,$updated_at,$id_category,$id);
     }
     function course_delete($id){
         $sql = "DELETE FROM courses WHERE id = ?";
@@ -62,25 +59,22 @@
     }
     function course_detail($id){
         $sql = "SELECT 
-                categories.name_category,
-                courses.*,
-                teachers.name_teacher,
-                teachers.id id_teacherr
-                FROM courses 
-                INNER JOIN categories ON courses.id_category = categories.id
-                INNER JOIN teachers ON courses.id_teacher = teachers.id
-                WHERE courses.id = ?";
+            categories.name_category,
+            courses.*
+            FROM courses 
+            INNER JOIN categories ON courses.id_category = categories.id
+            WHERE courses.id = ?";
         return query_one($sql,$id);
     }
     function course_search($key){
         $sql = "SELECT 
-                categories.name_category,
-                courses.*,
-                teachers.name_teacher
-                FROM courses 
-                INNER JOIN categories ON courses.id_category = categories.id
-                INNER JOIN teachers ON courses.id_teacher = teachers.id
-                WHERE name_course LIKE '%$key%'";
+            categories.name_category,
+            courses.*,
+            teachers.name_teacher
+            FROM courses 
+            INNER JOIN categories ON courses.id_category = categories.id
+            INNER JOIN teachers ON courses.id_teacher = teachers.id
+            WHERE name_course LIKE '%$key%'";
         return query($sql);
     }
     function course_count(){
@@ -97,15 +91,15 @@
     }
     function course_sale(){
         $sql = "SELECT 
-                courses.id,
-                courses.name_course,
-                courses.image_course,
-                courses.price_course,
-                courses.discount,
-                teachers.name_teacher
-                FROM courses 
-                INNER JOIN teachers ON courses.id_teacher = teachers.id
-                WHERE courses.discount  !=  0";
+            courses.id,
+            courses.name_course,
+            courses.image_course,
+            courses.price_course,
+            courses.discount,
+            teachers.name_teacher
+            FROM courses 
+            INNER JOIN teachers ON courses.id_teacher = teachers.id
+            WHERE courses.discount  !=  0";
         return query($sql);
     }
     function filter($prop, $ordinal){

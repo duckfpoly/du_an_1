@@ -44,12 +44,6 @@
                                 <?= $courses_detail['name_category'] ?>
                             </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="name_course" class="form-label">Giảng viên</label>
-                            <div class="form-control">
-                                <?= $courses_detail['name_teacher'] ?>
-                            </div>
-                        </div>
                         <div class="mt-3">
                             <a href="<?= COURSES ?>" class="btn btn-secondary">Quay lại</a>
                         </div>

@@ -2,11 +2,9 @@
     function get_new_courses(){
         $sql = "SELECT 
                 courses.*,
-                categories.name_category,
-                teachers.name_teacher
+                categories.name_category
          FROM courses
          INNER JOIN categories ON courses.id_category = categories.id
-         INNER JOIN teachers ON courses.id_teacher = teachers.id
          ORDER BY courses.id DESC LIMIT 5";
         return query($sql);
     }
@@ -15,8 +13,11 @@
         return query($sql);
     }
     function get_course($id){
-        $sql = "SELECT * FROM courses 
-        INNER JOIN teachers ON courses.id_teacher = teachers.id 
+        $sql = "SELECT 
+            courses.* ,
+            categories.name_category,
+            categories.id id_cate
+        FROM courses 
         INNER JOIN categories ON courses.id_category = categories.id 
         WHERE courses.id = ?";
         return query_one($sql,$id);
@@ -31,7 +32,19 @@
         return query_one($sql);
     }
     function get_classes($id){
-        $sql = "SELECT * FROM classes WHERE id = ?";
+        $sql = "
+            SELECT
+            classes.*,
+            teachers.name_teacher,
+            courses.name_course,
+            courses.image_course,
+            courses.price_course,
+            courses.discount
+            FROM classes 
+            INNER JOIN courses ON courses.id = classes.id_course 
+            INNER JOIN teachers ON teachers.id = classes.id_teacher        
+            WHERE classes.id = ?
+        ";
         return query_one($sql,$id);
     }
 
@@ -50,6 +63,7 @@
         }
         return query($sql);
     }
+
     function get_my_courses($id){
         $sql = "SELECT *, courses.id AS id_course FROM tbl_orders INNER JOIN classes ON 
         tbl_orders.id_class = classes.id INNER JOIN courses ON classes.id_course = courses.id
@@ -109,7 +123,25 @@
     }
 
     function get_class_by_course($id_course){
-        $sql = "SELECT * FROM classes WHERE id_course = ?";
+        $sql = "
+            SELECT classes.*, teachers.name_teacher 
+            FROM classes 
+            INNER JOIN teachers ON classes.id_teacher  = teachers.id
+            WHERE classes.id_course = ?
+        ";
+        return query_one($sql,$id_course);
+    }
+
+    function get_class_by_course_with_user($id_course,$id_std){
+        $sql = "SELECT 
+            classes.*, 
+            teachers.name_teacher 
+        FROM classes
+        INNER JOIN tbl_orders ON classes.id = tbl_orders.id_class
+        INNER JOIN teachers ON classes.id_teacher  = teachers.id
+        WHERE classes.id_course = ? 
+        AND tbl_orders.id_students != $id_std
+        ";
         return query_one($sql,$id_course);
     }
 
@@ -119,5 +151,20 @@
                 WHERE classes.id_course = ?
         ";
         return query_value($sql,$id_course);
+    }
+    function count_std_class($id_class){
+        $sql = "SELECT COUNT(detail_classes.id_students) AS total FROM detail_classes
+                    INNER JOIN classes ON detail_classes.id_class = classes.id
+                    WHERE classes.id = ?
+            ";
+        return query_value($sql,$id_class);
+    }
+
+    function course_same_cate($id_cate,$id_course){
+        $sql = "SELECT * FROM courses
+                WHERE id_category = ? 
+                AND id != $id_course
+            ";
+        return query($sql,$id_cate);
     }
 ?>

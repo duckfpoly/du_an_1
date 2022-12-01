@@ -74,7 +74,7 @@
                         <div class="properties properties2 mb-30">
                             <div class="properties__card">
                                 <div class="properties__img overlay1">
-                                    <a href="<?= LESSONS?>/<?php echo $value['id']?>"><img src="assets/img/img_site/img/gallery/featured6.png" alt=""></a>
+                                    <a href="<?= LESSONS?>/<?php echo $value['id']?>"><img src="<?= BASE_URL ?>assets/uploads/courses/<?php echo $value['image_course']?>" alt=""></a>
                                 </div>
                                 <div class="properties__caption">
 <!--                                    <p>User Experience</p>-->
@@ -85,13 +85,9 @@
                                     <div class="properties__footer d-flex justify-content-between align-items-center">
                                         <div class="restaurant-name">
                                             <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half"></i>
+                                                <?= $avg_rate = empty(get_avg_rate_course($value['id'])) ? 0 : get_avg_rate_course($value['id']); ?>&nbsp;<i class="fas fa-star"></i>
                                             </div>
-                                            <p><span>(4.5)</span></p>
+<!--                                            <p><span>(--><?//= $avg_rate = empty(get_avg_rate_course($value['id'])) ? 0 : get_avg_rate_course($value['id']); ?><!--)</span></p>-->
                                         </div>
                                         <div class="price">
                                             <span class="<?php echo $value['discount'] != 0 ? 'text-decoration-line-through textPrice colorOldPrice' : '' ?>"><?php echo number_format($value['price_course'])?> $</span>
