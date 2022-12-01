@@ -995,32 +995,32 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <schema id="288" parent="1" name="db_courses">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="289" parent="1" name="db_students">
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </schema>
-    <schema id="290" parent="1" name="db_test">
+    <schema id="289" parent="1" name="db_test">
       <Current>1</Current>
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="291" parent="1" name="db_xshop">
+    <schema id="290" parent="1" name="db_xshop">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="292" parent="1" name="information_schema">
+    <schema id="291" parent="1" name="information_schema">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="293" parent="1" name="mysql">
+    <schema id="292" parent="1" name="mysql">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="294" parent="1" name="performance_schema">
+    <schema id="293" parent="1" name="performance_schema">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="295" parent="1" name="sys">
+    <schema id="294" parent="1" name="sys">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="296" parent="1" name="template">
+    <schema id="295" parent="1" name="template">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="297" parent="1" name="wordpress">
+    <schema id="296" parent="1" name="wordpress">
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </schema>
+    <schema id="297" parent="1" name="db_students">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
     <user id="298" parent="1" name="mysql.infoschema">
@@ -1041,67 +1041,67 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <user id="301" parent="1" name="root">
       <Host>localhost</Host>
     </user>
-    <table id="302" parent="290" name="account_manager">
+    <table id="302" parent="289" name="account_manager">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="303" parent="290" name="categories">
+    <table id="303" parent="289" name="categories">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <table id="304" parent="290" name="classes">
+    <table id="304" parent="289" name="classes">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="305" parent="290" name="classes_archive">
+    <table id="305" parent="289" name="classes_archive">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="306" parent="290" name="courses">
+    <table id="306" parent="289" name="courses">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="307" parent="290" name="detail_classes">
+    <table id="307" parent="289" name="detail_classes">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="308" parent="290" name="detail_lesson">
+    <table id="308" parent="289" name="detail_lesson">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <table id="309" parent="290" name="lesson_courses">
+    <table id="309" parent="289" name="lesson_courses">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="310" parent="290" name="order_detail">
+    <table id="310" parent="289" name="order_detail">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="311" parent="290" name="orders">
+    <table id="311" parent="289" name="orders">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="312" parent="290" name="password_reset_temp">
+    <table id="312" parent="289" name="password_reset_temp">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <table id="313" parent="290" name="rate_courses">
+    <table id="313" parent="289" name="rate_courses">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="314" parent="290" name="sales">
+    <table id="314" parent="289" name="sales">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <table id="315" parent="290" name="students">
+    <table id="315" parent="289" name="students">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="316" parent="290" name="tbl_orders">
+    <table id="316" parent="289" name="tbl_orders">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <table id="317" parent="290" name="teachers">
+    <table id="317" parent="289" name="teachers">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>

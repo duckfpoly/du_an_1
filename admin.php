@@ -37,6 +37,31 @@
     </style>
     <script> var admin = "<?= ADMIN ?>";</script>
     <script type="text/javascript" src="<?= BASE_URL ?>assets/admin/js/items/notification.js"></script>
+<!--    <script>-->
+<!--        // function load_unseen_notification(view = '') {-->
+<!--            $.ajax({-->
+<!--                url: "http://localhost/courses/admin/notifications",-->
+<!--                method: "POST",-->
+<!--                data: {-->
+<!--                    view: '',-->
+<!--                },-->
+<!--                dataType: "json",-->
+<!--                success: function (data) {-->
+<!--                    console.log(data.notification);-->
+<!--                    console.log(1)-->
+<!--                    $('#notifications').html(data.notification);-->
+<!--                }-->
+<!--            });-->
+<!--        // }-->
+<!--        // load_unseen_notification();-->
+<!--        // $(document).on('click', '#notifications', function () {-->
+<!--        //     load_unseen_notification('yes');-->
+<!--        // });-->
+<!--        // setInterval(function () {-->
+<!--        //     load_unseen_notification()-->
+<!--        // }, 1000);-->
+<!--    </script>-->
+
 </head>
 <body class="g-sidenav-show bg-gray-100">
     <div id="toastt"></div>

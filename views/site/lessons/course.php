@@ -89,7 +89,7 @@
                                                     <tr>
                                                         <form action="<?= PAYMENT ?>" method="post">
                                                             <input type="hidden" name="id_class" value="<?= $items['id'] ?>">
-                                                            <td><?= $items['name_class'] ?>0922P2 + <?= $items['id'] ?></td>
+                                                            <td><?= $items['name_class'] ?> + <?= $items['id'] ?></td>
                                                             <td><?= $items['name_teacher'] ?></td>
                                                             <td><?= format_date($items['time_start']) ?></td>
                                                             <td><?= $items['time_learn'] == 0 ? '7h30 - 11h30' : '14h - 18h' ?></td>

@@ -42,6 +42,9 @@
             case "statistical":
                 include_once $objectt;
                 break;
+            case "notifications":
+                include_once $objectt;
+                break;
             case "logout":
 //                delete_Cookie('scope');
                 unsetSession('scope');

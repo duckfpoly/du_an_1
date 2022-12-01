@@ -15,10 +15,11 @@ var pusher = new Pusher('fdd2d88095b96edb92f5', {
 var channel = pusher.subscribe('courses-app');
 channel.bind('notice', function (data) {
     n = new Notification(
+
         'Courses App', {
-            body:  data.message,
-            icon: '<?= BASE_URL ?>assets/img/apple-icon.png',
-            tag:  '<?= BASE_URL ?>'
+            body: data.message,
+            icon: admin+'assets/img/apple-icon.png',
+            tag:  admin+data.order_code
         }
     );
     setTimeout(n.close.bind(n), 3000);

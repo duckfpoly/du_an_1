@@ -51,6 +51,10 @@
                 require_once $dir;
                 route_method($module);
                 break;
+            case 'notifications':
+                require_once $dir;
+                route_method($module);
+                break;
         }
     }
 ?>

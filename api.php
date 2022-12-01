@@ -2,6 +2,8 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods.Authorization,X-Requested-With');
 header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET,POST,PUT,DELETE');
+
     $dir_api = 'api_dir/';
     require_once 'auth/auth_api.php';
     // tạo jwt
@@ -19,8 +21,8 @@ header('Access-Control-Allow-Origin: *');
             'error' => 'Access denied !',
         ));
     }else {
-        $is_jwt_valid = is_jwt_valid($bearer_token);
-        if($is_jwt_valid == true) {
+//        $is_jwt_valid = is_jwt_valid($bearer_token);
+//        if($is_jwt_valid == true) {
             $auth = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTmd1eWVuIER1YyIsInBob25lIjoiMDgyMzU2NTgzMSIsImVtYWlsIjoibmd1eWVuZHVjMTA2MDNAZ21haWwuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTY2OTgwNTQ4Nn0.PByr6NO_lYgDSnT-KkW0bLBgsNzfIySHO_IofdxiHsw';
             if($bearer_token == $auth) {
                 require_once $dir_api.'db_conn.php';
@@ -30,10 +32,12 @@ header('Access-Control-Allow-Origin: *');
                     'error' => 'Access denied !'
                 ));
             }
-        } else {
-            echo json_encode(array(
-                'error' => 'Access denied !'
-            ));
-        }
+//        } else {
+//            echo json_encode(array(
+//                'error' => 'Access denied !'
+//            ));
+//        }
     }
+
+
 ?>
