@@ -26,6 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js">            </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
     <script src="<?= BASE_URL ?>assets/admin/js/items/load_div.js">                            </script>
+    <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
     <style>
         .btn {
             margin-bottom: 0 !important;
@@ -34,12 +35,8 @@
             width: 0px;
         }
     </style>
-    <script>
-        function return_page(){
-            history.back();
-        }
-        var admin = "<?= ADMIN ?>";
-    </script>
+    <script> var admin = "<?= ADMIN ?>";</script>
+    <script type="text/javascript" src="<?= BASE_URL ?>assets/admin/js/items/notification.js"></script>
 </head>
 <body class="g-sidenav-show bg-gray-100">
     <div id="toastt"></div>

@@ -1,9 +1,9 @@
 var url         = location.href;
 var data        = [];
 function save() {
-    var image   = document.getElementById('image_student').value
-    var name    = document.getElementById('name_student').value
-    var checkbox = document.getElementsByName("rate");
+    var image       = document.getElementById('image_student').value
+    var name        = document.getElementById('name_student').value
+    var checkbox    = document.getElementsByName("rate");
     for (var i = 0; i < checkbox.length; i++){
         if (checkbox[i].checked === true){
             var rate    = checkbox[i].value

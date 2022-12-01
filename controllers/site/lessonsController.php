@@ -11,7 +11,10 @@
         // số đánh giá
         $count_rate = get_count_rate_course($id);
         // lớp học theo khóa học
-        $class =  isset($_SESSION['user']['id']) ? get_class_by_course_with_user($id,getSession('user')['id']) : get_class_by_course($id);
+//        $class =  isset($_SESSION['user']['id']) ? get_class_by_course_with_user($id,getSession('user')['id']) : get_class_by_course($id);
+//        $class =  isset($_SESSION['user']['id']) ? get_class_by_course_with_user($id,getSession('user')['id']) : get_class_by_course($id);
+        $class = get_class_by_course($id);
+
         // tổng sinh viên thuộc khóa học
         $total_std_course  = count_std_coursee($id);
         // khóa học cùng danh mục

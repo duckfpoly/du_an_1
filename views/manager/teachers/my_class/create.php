@@ -42,20 +42,20 @@
                                                             <div class="form-check">
                                                                 <input class="" type="radio" name="time_learn" id="statusCourse1" value="0" required>
                                                                 <label class="" for="statusCourse1">
-                                                                    2 - 4 - 6
+                                                                    7h30 - 11h30
                                                                 </label>
                                                             </div>
                                                             &emsp;&emsp;
                                                             <div class="form-check">
                                                                 <input class="" type="radio" name="time_learn" id="statusCourse2" value="1" required>
                                                                 <label class="" for="statusCourse2">
-                                                                    3 - 5 - 7
+                                                                    14h - 18h
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group ">
-                                                        <label for="time_start" class="form-label">Thời gian bắt đầu</label>
+                                                        <label for="time_start" class="form-label">Khai giảng</label>
                                                         <input type="date" name="time_start" min="<?= date("Y-m-d") ?>" id="time_start" class="form-control" required>
                                                         <div class="form-message text-danger mt-1"></div>
                                                     </div>
@@ -79,6 +79,7 @@
                                     rules: [
                                         Validator.isRequired("#name_class", "Vui lòng nhập tên lớp học"),
                                         Validator.isRequired("#id_category", "Vui lòng chọn khóa học"),
+                                        Validator.isRequired("#time_start", "Vui lòng chọn ngày khai giảng"),
                                     ],
                                 });
                             });

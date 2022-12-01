@@ -144,12 +144,27 @@
 
     function check_std_class($id_class,$id_students){
         $sql = "SELECT * FROM `detail_classes` 
-                WHERE detail_classes.id_class = ?
-                AND detail_classes.id_students = ?
+                WHERE id_class = ?
+                AND id_students = ?
         ";
         $check_std = query_one($sql,$id_class,$id_students);
         if($check_std > 0) {
             return "Học viên đã có trong lớp học !";
         }
     }
+
+    function check_std_course($id_course,$id_students){
+        $sql = "SELECT 
+                    *
+                FROM `classes` 
+                INNER JOIN detail_classes ON detail_classes.id_class = classes.id
+                WHERE classes.id_course = ?
+                AND detail_classes.id_students = ?
+            ";
+        $check_std = query_one($sql,$id_course,$id_students);
+        if($check_std > 0) {
+            return "Bạn đã đăng ký khóa học này rồi !";
+        }
+    }
+
 ?>

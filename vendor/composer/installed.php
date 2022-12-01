@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '2ba063c34c5f0f1a053c1590845fffebe2ea35e0',
+        'reference' => '9a2528d5255ad5911fe6fb9aadca41d9295bca30',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '2ba063c34c5f0f1a053c1590845fffebe2ea35e0',
+            'reference' => '9a2528d5255ad5911fe6fb9aadca41d9295bca30',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -109,6 +109,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'paragonie/sodium_compat' => array(
+            'pretty_version' => 'v1.19.0',
+            'version' => '1.19.0.0',
+            'reference' => 'cb15e403ecbe6a6cc515f855c310eb6b1872a933',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../paragonie/sodium_compat',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'phpmailer/phpmailer' => array(
             'pretty_version' => 'v6.6.5',
             'version' => '6.6.5.0',
@@ -195,6 +204,15 @@
             'provided' => array(
                 0 => '1.0.0 || 2.0.0 || 3.0.0',
             ),
+        ),
+        'pusher/pusher-php-server' => array(
+            'pretty_version' => '7.2.1',
+            'version' => '7.2.1.0',
+            'reference' => '5d708d43d774218e1068037c56a887658a4930ac',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../pusher/pusher-php-server',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'ralouphie/getallheaders' => array(
             'pretty_version' => '3.0.3',

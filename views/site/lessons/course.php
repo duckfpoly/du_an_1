@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <!-- Course Image -->
-                    <div class="course_image"><img src="<?php echo BASE_URL ?>/assets/uploads/courses/<?php echo $detail['image_course']?>" alt="image course" width="100%" height="100%"></div>
+                    <div class="course_image d-flex justify-content-center align-items-center"><img src="<?php echo BASE_URL ?>/assets/uploads/courses/<?php echo $detail['image_course']?>" alt="image course" width="50%" height="50%"></div>
                     <!-- Course Tabs -->
                     <div class="course_tabs_container">
                         <div class="tabs d-flex flex-row align-items-center justify-content-start">
@@ -65,7 +65,7 @@
                         <div class="tab_panels">
                             <!-- Lớp -->
                             <div class="tab_panel active">
-                                <?php if(!empty($class['id'])){ ?>
+                                <?php if(!empty($class)){ ?>
                                 <div class="tab_panel_title mb-4">Danh sách lớp thuộc khóa học</div>
                                 <div class="tab_panel_content">
                                     <div class="tab_panel_text table-responsive ">
@@ -81,27 +81,51 @@
                                                 </tr>
                                             </thead>
                                            <tbody>
-                                                <tr >
-                                                    <form action="<?= PAYMENT ?>" method="post">
-                                                        <input type="hidden" name="id_class" value="<?= $class['id'] ?>">
-                                                        <td><?= $class['name_class'] ?>0922P2 + <?= $class['id'] ?></td>
-                                                        <td><?= $class['name_teacher'] ?></td>
-                                                        <td><?= format_date($class['time_start']) ?></td>
-                                                        <td><?= $class['time_learn'] ?></td>
-                                                        <td><?= count_std_class($class['id']) ?>/<?= $class['slot'] ?></td>
-                                                        <?php if(isset($_SESSION['user'])){ if(count_std_class($class['id']) != $class['slot']) { if($_SESSION['user']['role'] == 1) { ?>
-                                                            <td ><button type="submit" class="btn">Đăng ký</button></td>
-                                                        <?php } } } else { ?><td></td><?php } ?>
-                                                    </form>
-                                                </tr>
+                                                <?php $check_std_course = ''; foreach ($class as $let => $items):  ?>
+                                                <?php   $time_start = strtotime($items['time_start']);
+                                                        $time_now   = strtotime(date("Y-m-d"));
+                                                        if($time_now < $time_start) {
+                                                ?>
+                                                    <tr>
+                                                        <form action="<?= PAYMENT ?>" method="post">
+                                                            <input type="hidden" name="id_class" value="<?= $items['id'] ?>">
+                                                            <td><?= $items['name_class'] ?>0922P2 + <?= $items['id'] ?></td>
+                                                            <td><?= $items['name_teacher'] ?></td>
+                                                            <td><?= format_date($items['time_start']) ?></td>
+                                                            <td><?= $items['time_learn'] == 0 ? '7h30 - 11h30' : '14h - 18h' ?></td>
+                                                            <td><?= count_std_class($items['id']) ?>/<?= $items['slot'] ?></td>
+                                                            <?php
+                                                                if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 1){
+                                                                    $check_std_course = check_std_course($id,$_SESSION['user']['id']);
+                                                                    if(!isset($check_std_course)){
+                                                                        if(count_std_class($items['id']) != $items['slot']) {
+//                                                                        $check_std = check_std_class($items['id'],$_SESSION['user']['id']);
+//                                                                        if(!isset($check_std)){
+                                                                            echo '<td><button type="submit" class="btn">Đăng ký</button></td>';
+//                                                                        } else {
+//                                                                            echo '<td></td>';
+//                                                                        }
+                                                                        }
+                                                                        else {
+                                                                            echo '<td>Đã đủ học viên</td>';
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ?>
+                                                        </form>
+                                                    </tr>
+                                                <?php } endforeach;  ?>
                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
-                                    <?php if(!isset($_SESSION['user'])){ ?>
-                                        Vui lòng <a href="<?= SIGIN ?>" class="text-danger">đăng nhập</a> để đăng ký lớp học
-                                    <?php } ?>
+                                <?php if(!isset($_SESSION['user'])){ ?>
+                                    Vui lòng <a href="<?= SIGIN ?>" class="text-danger">đăng nhập</a> để đăng ký lớp học
+                                <?php } ?>
                                 <?php } else { echo 'Chưa có lớp học' ;} ?>
+                                <div>
+                                    <?= isset($check_std_course) ? $check_std_course : ''; ?>
+                                </div>
                             </div>
                             <!-- Mô tả -->
                             <div class="tab_panel">
@@ -116,6 +140,8 @@
                             <!-- Chương trình học -->
                             <div class="tab_panel tab_panel_2">
                                 <div class="tab_panel_content">
+                                    <?php if(!empty($lesson_course)){  ?>
+
                                     <div class="tab_panel_title">Nội dung chương trình</div>
                                     <div class="tab_panel_content">
                                         <!-- Dropdowns -->
@@ -144,8 +170,11 @@
                                                     </li>
                                                 <?php } ?>
                                             <?php } ?>
+
+
                                         </ul>
                                     </div>
+                                    <?php } else {  echo 'Chưa có chương trình học'; } ?>
                                 </div>
                             </div>
                             <!-- Đánh giá -->
@@ -197,8 +226,8 @@
                                                         </div>
                                                         <div class="comment_text"><p><?= $values['content_rate'] ?></p></div>
                                                         <div class="comment_extras d-flex flex-row align-items-center justify-content-start">
-                                                            <div class="comment_extra comment_likes"><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span>15</span></a></div>&emsp;
-                                                            <div class="comment_extra comment_likes"><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i><span>30</span></a></div>
+                                                            <div class="comment_extra comment_likes"><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span>0</span></a></div>&emsp;
+                                                            <div class="comment_extra comment_likes"><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i><span>0</span></a></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -216,10 +245,10 @@
                                         <?php if(isset($_SESSION['user'])){ ?>
                                             <div class="add_comment_title">Đánh giá của bạn về khóa học</div>
                                             <form action="<?= LESSONS.'/'.$id ?>" method="post" onsubmit="return false">
-                                                <input type="hidden" name="image_student"   id="image_student"      value="course_4.jpg">
-                                                <input type="hidden" name="name_student"    id="name_student"       value="Test">
+                                                <input type="hidden" name="image_student"   id="image_student"      value="<?= getSession('user')['image_student'] ?>">
+                                                <input type="hidden" name="name_student"    id="name_student"       value="<?= getSession('user')['name_student'] ?>">
                                                 <input type="hidden" name="id_course"       id="id_course"          value="<?= $_GET['id'] ?>">
-                                                <input type="hidden" name="id_student"      id="id_student"         value="1">
+                                                <input type="hidden" name="id_student"      id="id_student"         value="<?= getSession('user')['id'] ?>">
                                                 <div class="rate">
                                                     <input type="radio" id="star5" name="rate" value="5">
                                                     <label for="star5">5 stars</label>
@@ -265,7 +294,7 @@
                         </div>
                     </div>
                     <div class="sidebar_section">
-                        <div class="sidebar_section_title">Khóa học cùng danh mục</div>
+                        <div class="sidebar_section_title">Khóa học liên quan</div>
                         <div class="sidebar_latest">
                             <?php foreach ($course_same_cate as $key => $values): ?>
                             <!-- Latest Course -->
@@ -436,6 +465,7 @@
     </div>
     <div class="swiper-pagination"></div>
 </div>
+<script src="<?= BASE_URL ?>assets/js/course/comment.js"></script>
 <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/course_details.css">
 <script>
     var lenght = 2;
