@@ -44,7 +44,10 @@ class AdvertisersLineItems extends \Google\Service\Resource
    * delete the assigned targeting options provided in
    * BulkEditAssignedTargetingOptionsRequest.delete_requests and then create the
    * assigned targeting options provided in
-   * BulkEditAssignedTargetingOptionsRequest.create_requests .
+   * BulkEditAssignedTargetingOptionsRequest.create_requests. Requests to this
+   * endpoint cannot be made concurrently with the following requests updating the
+   * same line item: * BulkUpdate * UpdateLineItem *
+   * CreateLineItemAssignedTargetingOption * DeleteLineItemAssignedTargetingOption
    * (lineItems.bulkEditAssignedTargetingOptions)
    *
    * @param string $advertiserId Required. The ID of the advertiser the line items
@@ -102,7 +105,11 @@ class AdvertisersLineItems extends \Google\Service\Resource
     return $this->call('bulkListAssignedTargetingOptions', [$params], BulkListAssignedTargetingOptionsResponse::class);
   }
   /**
-   * Updates multiple line items. (lineItems.bulkUpdate)
+   * Updates multiple line items. Requests to this endpoint cannot be made
+   * concurrently with the following requests updating the same line item: *
+   * BulkEditAssignedTargetingOptions * UpdateLineItem *
+   * CreateLineItemAssignedTargetingOption * DeleteLineItemAssignedTargetingOption
+   * (lineItems.bulkUpdate)
    *
    * @param string $advertisersId
    * @param BulkUpdateLineItemsRequest $postBody
@@ -149,8 +156,8 @@ class AdvertisersLineItems extends \Google\Service\Resource
     return $this->call('delete', [$params], DisplayvideoEmpty::class);
   }
   /**
-   * Duplicates a line item. Returns the newly created line item id if successful.
-   * (lineItems.duplicate)
+   * Duplicates a line item. Returns the ID of the created line item if
+   * successful. (lineItems.duplicate)
    *
    * @param string $advertiserId Required. The ID of the advertiser this line item
    * belongs to.
@@ -245,7 +252,7 @@ class AdvertisersLineItems extends \Google\Service\Resource
    * * `updateTime` The default sorting order is ascending. To specify descending
    * order for a field, a suffix "desc" should be added to the field name.
    * Example: `displayName desc`.
-   * @opt_param int pageSize Requested page size. Must be between `1` and `100`.
+   * @opt_param int pageSize Requested page size. Must be between `1` and `200`.
    * If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT`
    * if an invalid value is specified.
    * @opt_param string pageToken A token identifying a page of results the server
@@ -263,10 +270,9 @@ class AdvertisersLineItems extends \Google\Service\Resource
   /**
    * Updates an existing line item. Returns the updated line item if successful.
    * Requests to this endpoint cannot be made concurrently with the following
-   * requests updating the same line item: *
-   * BulkEditLineItemAssignedTargetingOptions * UpdateLineItem *
-   * CreateLineItemAssignedTargetingOption * DeleteLineItemAssignedTargetingOption
-   * (lineItems.patch)
+   * requests updating the same line item: * BulkEditAssignedTargetingOptions *
+   * BulkUpdateLineItems * CreateLineItemAssignedTargetingOption *
+   * DeleteLineItemAssignedTargetingOption (lineItems.patch)
    *
    * @param string $advertiserId Output only. The unique ID of the advertiser the
    * line item belongs to.
