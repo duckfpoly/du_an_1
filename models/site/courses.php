@@ -26,7 +26,7 @@
         $sql = "SELECT * FROM tbl_orders INNER JOIN classes ON tbl_orders.id_class = classes.id INNER
         JOIN students ON tbl_orders.id_students = students.id 
         INNER JOIN courses ON courses.id = classes.id_course INNER JOIN teachers ON 
-        teachers.id = courses.id_teacher
+        teachers.id = classes.id_teacher
         WHERE tbl_orders.id_students = '$id_user' AND 
         classes.id_course = '$id_course'";
         return query_one($sql);
@@ -64,7 +64,7 @@
     function get_my_courses($id){
         $sql = "SELECT *, courses.id AS id_course FROM tbl_orders INNER JOIN classes ON 
         tbl_orders.id_class = classes.id INNER JOIN courses ON classes.id_course = courses.id
-        INNER JOIN teachers ON teachers.id = courses.id_teacher
+        INNER JOIN teachers ON teachers.id = classes.id_teacher
         WHERE tbl_orders.id_students = '$id'
         ";
         return query($sql);

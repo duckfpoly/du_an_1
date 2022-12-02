@@ -29,7 +29,7 @@
         <div class='d-flex gap-3 mb-4'>
             <img class='avatar-img' src="assets/uploads/students/<?= $data_user['image_student']?>" alt="">
             <div class="name-user">
-                <p class='fw-bold fs-4 mt-2'><?= $data_user['name_student']?></p>
+                <p class='fw-bold fs-4 mt-2 name_user_profile'><?= $data_user['name_student']?></p>
                 <p class='fst-italic'>Code ko bug xoa group</p>
             </div>
         </div>
@@ -45,12 +45,81 @@
                     <input type="email" name ='email' value='<?= $data_user['email_student']?>' class="form-control text-dark" disabled placeholder="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
             </div>
-            <div class="mb-3 form-group">
-                <label for="exampleInputEmail1" class="form-label">Avatar</label>
-                <input type="file" name ='avatar' id ='avatar'  class="form-control text-dark" id="exampleInputEmail1">
-            </div>
+            <div class='row'>
+                <div class="mb-3 col form-group">
+                    <label for="exampleInputEmail1" class="form-label">Số điện thoại</label>
+                    <input type="text" name='phone_number' id='phone_number' value='<?= $data_user['phone_student']?>' class="form-control text-dark" id="exampleInputEmail1">
+                    <small class="form-message text-danger mt-1 fst-italic"></small>
+                </div>
+                <div class="mb-3 form-group col">
+                    <label for="exampleInputEmail1" class="form-label">Avatar</label>
+                    <input type="file" name ='avatar' id ='avatar'  class="form-control text-dark" id="exampleInputEmail1">
+                </div>
+            </div>    
+            <input type="text" hidden name="updated_at" id="updated_at" value='<?= date('d-m-y h:i:s')?>'>
 
             <input type="submit" onclick='update()' name='btn_update'  value="Lưu" class="btn btn-primary">
         </form>
     </div>
 </main>
+
+<script>
+
+var url = location.href;
+const phone_number = document.querySelector('#phone_number').value;
+let regex = /(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/;
+function update(){
+    let name_user_profile = document.querySelectorAll('.name_user_profile');
+    
+    console.log()
+    let avatar_user = document.querySelector('#avatar').files;
+    let arr = Array.from(avatar_user);
+    let name_user = document.querySelector('#name').value;
+    let new_phone = document.querySelector('#phone_number').value;
+    let updated_at = document.querySelector('#updated_at').value;
+    let update = 'btn_update';
+    let phone2 = '0388444506'
+    let data_profile;
+    if(!name_user){
+        showSuccessToast('Cảnh báo', 'Vui lòng điền đủ thông tin', 'warning')
+    }else{
+        if(new_phone){
+            if (!new_phone.match(regex)){
+                return showSuccessToast('Cảnh báo', 'Số điện thoại không tồn tại', 'warning')
+            }else{
+                data_profile = {
+                    btn_update : update,
+                    updated :updated_at,
+                    name_student : name_user,
+                    image_student: arr.length ? arr[0].name : '',
+                    phone : new_phone,
+                }
+
+            }
+
+        }else{
+            data_profile = {
+                btn_update : update,
+                updated :updated_at,
+                name_student : name_user,
+                image_student: arr.length ? arr[0].name : '',
+                phone : phone_number,
+            }
+        }
+        $.ajax({
+            type: "POST",
+            url : url,
+            data: data_profile,
+            success: function () {
+                showSuccessToast('Success', 'Cập nhật thành công', 'success');
+                name_user_profile.forEach((item) =>{
+                    console.log(item)
+                    item.innerText = name_user
+
+                })
+            }
+        });
+    }
+}
+
+</script>

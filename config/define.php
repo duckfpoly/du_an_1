@@ -26,6 +26,7 @@
     define("LESSONS",               BASE_URL.'lessons');
     define("MYCOURSES",             BASE_URL.'mycourses');
     define("PROFILE",               BASE_URL.'profile');
+    define("CHANGE_PASS",           BASE_URL.'change_pass');
     define("MYCOURSE",              BASE_URL.'mycourse');
     define("ABOUT",                 BASE_URL.'about');
     define("CONTACT",               BASE_URL.'contact');

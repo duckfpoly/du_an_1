@@ -1,9 +1,11 @@
 <?php
-    function update_user($name_user,$avatar, $id){
+    function update_user($name_user,$avatar,$id,$phone,$updated){
         if($avatar){
-            $sql = "UPDATE students SET name_student = '$name_user', image_student = '$avatar' WHERE id ='$id' ";
+            $sql = "UPDATE students SET name_student = '$name_user',
+             image_student = '$avatar', updated_at = '$updated', phone_student = '$phone' 
+             WHERE id ='$id' ";
         }else{
-            $sql = "UPDATE students SET name_student = '$name_user' WHERE id ='$id' ";
+            $sql = "UPDATE students SET name_student = '$name_user', updated_at = '$updated', phone_student = '$phone' WHERE id ='$id' ";
         }
         query_sql($sql);
     }

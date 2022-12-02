@@ -29,16 +29,19 @@
                                             <li><a href="<?= CONTACT?>">Liên hệ</a></li>
                                             <!-- Button -->
                                             <?php if(isset($_SESSION['user'])){?>
-                                                <li><a href="#">
+                                                <li><a href="#" class='d-flex'>
                                                         Xin chào,
-                                                        <?php
-                                                            if(isset(getSession('user')['name_teacher'])){
-                                                                echo getSession('user')['name_teacher'];
-                                                            }
-                                                            else {
-                                                                echo getSession('user')['name_student'];
-                                                            }
-                                                        ?>
+                                                        <div class='name_user_profile'>
+                                                            <?php
+                                                                if(isset(getSession('user')['name_teacher'])){
+                                                                    echo getSession('user')['name_teacher'];
+                                                                }
+                                                                else {
+                                                                    echo getSession('user')['name_student'];
+                                                                }
+                                                            ?>
+
+                                                        </div>
                                                     </a>
                                                     <ul class="submenu " style="border-radius: 10px;">
                                                         <?php if(getSession('user')['role'] == 0){ ?>
@@ -47,7 +50,7 @@
                                                         <?php if(getSession('user')['role'] == 1){ ?>
                                                             <li><a href="<?= PROFILE ?>">Thông tin</a></li>
                                                             <li><a href="<?= MYCOURSES ?>">Khóa học</a></li>
-                                                            <li><a href="#">Đổi mật khẩu</a></li>
+                                                            <li><a href="<?= CHANGE_PASS?>">Đổi mật khẩu</a></li>
                                                         <?php } ?>
                                                         <li><a href="<?= LOGOUT ?>">Đăng xuất</a></li>
                                                     </ul>

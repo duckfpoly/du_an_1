@@ -34,7 +34,10 @@
                     break;  
                 case "profile":
                     include  $urlClt;
-                    break;            
+                    break;    
+                case "change_pass":
+                    include  $urlClt;
+                    break;         
                 default:
                 location(BASE_URL."page_not_found");
                 break;
