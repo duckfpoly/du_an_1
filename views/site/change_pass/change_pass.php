@@ -56,25 +56,20 @@
         let password = document.querySelector('#password').value;
         let new_pass = document.querySelector('#new_pass').value;
         let comfirm_pass = document.querySelector('#comfirm_pass').value;
-        let update = 'btn_update';
+        let updated_at = document.querySelector('#updated_at').value;
         let data_profile;
-        if(!name_user){
+        if(!new_pass){
             showSuccessToast('Cảnh báo', 'Vui lòng điền đủ thông tin', 'warning')
-        }else{
-            if(arr.length){
-                //data_profile = `btn_update=${update}&name_student=${name_user}&image_student=${arr[0].name}`;
-                data_profile = {
-                    btn_update : update,
-                    name_student : name_user,
-                    image_student: arr[0].name,
-                }
+        }else if(new_pass == password){
+            showSuccessToast('Cảnh báo', 'Mật khẩu mới phải khác mật khẩu cũ', 'warning')
 
-            }else{
+        }else if(comfirm_pass != new_pass){
+            showSuccessToast('Cảnh báo', 'Mật khẩu không khớp', 'warning')
+        }else{
                 // data_profile = `btn_update=${update}&name_student=${name_user}}`;
-                data_profile = {
-                    btn_update : update,
-                    name_student : name_user,
-                }
+            data_profile = {
+                pass : new_pass,
+                updated : updated_at,
             }
             $.ajax({
                 type: "POST",
