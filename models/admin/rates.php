@@ -23,4 +23,9 @@
         query_sql($sql);
     }
 
+    function countratecourse($id_course){
+        $sql = "SELECT COUNT(*) FROM rate_courses WHERE id_course = ?";
+        return query_value($sql,$id_course);
+    }
+
 ?>

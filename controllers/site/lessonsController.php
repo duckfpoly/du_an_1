@@ -1,8 +1,11 @@
 <?php
     if(isset($_GET['id'])){
         $id = $_GET['id'];
+        $categories = get_all_categories();
         $check = check_id_course($id);
+        $check_status = check_status_courses($id);
         isset($check) && alert('Khóa học không tồn tại',LESSONS);
+        isset($check_status) && alert('Khóa học không còn hoạt động',LESSONS);
         $detail = get_course($id);
         // lấy các đánh giá về khóa học
         $rate_course = get_rate_course($id);
@@ -11,10 +14,9 @@
         // số đánh giá
         $count_rate = get_count_rate_course($id);
         // lớp học theo khóa học
-//        $class =  isset($_SESSION['user']['id']) ? get_class_by_course_with_user($id,getSession('user')['id']) : get_class_by_course($id);
-//        $class =  isset($_SESSION['user']['id']) ? get_class_by_course_with_user($id,getSession('user')['id']) : get_class_by_course($id);
         $class = get_class_by_course($id);
-
+        // check tbl orders
+        $check_tbl = '';
         // tổng sinh viên thuộc khóa học
         $total_std_course  = count_std_coursee($id);
         // khóa học cùng danh mục
@@ -36,14 +38,15 @@
     }
     else {
         $categories = get_all_categories();
-        $data_cate  = pagination_normal('courses',6);
-        $lessions   = $data_cate[0];
+//        $data_cate  = pagination_normal('courses',6);
+//        $data_cate = get_courses();
+        $lessions   = get_courses();
         if(isset($_GET['cate'])){
             if($_GET['cate'] != "all"){
                 $idCate = $_GET['cate'];
                 $lessions = filter_cate($idCate);
             }else{
-                $lessions = $data_cate[0];
+                $lessions = get_courses();
             }
         }
         if(isset($_POST['search_btn'])){

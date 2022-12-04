@@ -59,7 +59,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label for="quote" class="form-label">Trích dẫn khóa học</label>
-                                <input type="text" name="quote" id="quote" class="form-control" value="<?= $courses_update['description_course'] ?>">
+                                <input type="text" name="quote" id="quote" class="form-control" value="<?= $courses_update['quote'] ?>">
                                 <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="form-group ">

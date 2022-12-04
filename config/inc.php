@@ -4,7 +4,6 @@
     $dir_model_admin            = $dir_model.'admin/';
     $dir_model_site             = $dir_model.'site/';
     $dir_model_manager          = $dir_model.'manager/';
-    require_once $dir_config.'lib.php';
     require_once $dir_config.'session.php';
     require_once $dir_config.'cookie.php';
     require_once $dir_config.'define.php';

@@ -1,8 +1,8 @@
 <?php
     include 'global.php';
-    if(isset($_SESSION['user'])){
-        location(BASE_URL);
-    }
+//    if(isset($_SESSION['user'])){
+//        location(BASE_URL);
+//    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,8 +1,8 @@
 <?php
-
-    $client->setRedirectUri(BASE_URL."account/teacher_signin");
+    $client->setRedirectUri(TEACHER_SIGNIN);
     if (isset($_GET['code'])) {
         $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+        !isset($token['access_token']) && location(TEACHER_SIGNIN);
         $client->setAccessToken($token['access_token']);
         $google_account_info = $google_oauth->userinfo->get();
         $email =  $google_account_info->email;

@@ -1,8 +1,28 @@
+ServerSignature Off
+Options All -Indexes
+<files .htaccess>
+    order allow,deny
+    deny from all
+</files>
+
+<files .htaccess="">
+
+    order allow,deny
+
+    deny from all
+
+</files>
+
 Order Deny,Allow
 #Deny from all
 #Allow from 171.224.177.225
-ErrorDocument 404 http://localhost/courses/page_not_found
+ErrorDocument 403 page_not_found
+ErrorDocument 404 page_not_found
+ErrorDocument 500 page_not_found
+ErrorDocument 503 page_not_found
 #DirectoryIndex admin.php
+
+
 RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -17,7 +37,7 @@ RewriteRule ^login$                                                             
 RewriteRule ^apis$                                                                  api.php
 RewriteRule ^api/([a-zA-Z0-9_-]+)$                                                  api.php?module=$1                                   [QSA,L]
 RewriteRule ^api/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                                 api.php?module=$1&act=$2                            [QSA,L]
-RewriteRule ^api/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                api.php?module=$1&act=$2&id=$3                      [QSA,L]
+RewriteRule ^api/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(\d+)$                           api.php?module=$1&act=$2&id=$3                      [QSA,L]
 
 RewriteRule ^pay$                                                                   pay.php                                             [QSA,L]
 RewriteRule ^pay/status$                                                            pay.php?req_pay=status                              [QSA,L]
@@ -27,14 +47,14 @@ RewriteRule ^account/([a-zA-Z0-9_-]+)$                                          
 RewriteRule ^admin$                                                                 admin.php
 RewriteRule ^admin/([a-zA-Z0-9_-]+)$                                                admin.php?module=$1                                 [QSA,L]
 RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                               admin.php?module=$1&act=$2                          [QSA,L]
-RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$              admin.php?module=$1&act=$2&id=$3                    [QSA,L]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(\d+)$                         admin.php?module=$1&act=$2&id=$3                    [QSA,L]
 
 RewriteRule ^teacher_manager$                                                       teacher_manager.php
 RewriteRule ^teacher_manager/([a-zA-Z0-9_-]+)$                                      teacher_manager.php?view=$1                         [QSA,L]
 RewriteRule ^teacher_manager/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                     teacher_manager.php?view=$1&action=$2               [QSA,L]
-RewriteRule ^teacher_manager/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$    teacher_manager.php?view=$1&action=$2&id=$3         [QSA,L]
+RewriteRule ^teacher_manager/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/(\d+)$               teacher_manager.php?view=$1&action=$2&id=$3         [QSA,L]
 
 RewriteRule ^home$                                                                  index.php
 RewriteRule ^([a-zA-Z0-9_-]+)$                                                      index.php?v=$1                                      [QSA,L]
-RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$                                     index.php?v=$1&id=$2                                [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)/(\d+)$                                                index.php?v=$1&id=$2                                [QSA,L]
 

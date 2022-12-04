@@ -1,4 +1,7 @@
-<?php include 'global.php'; ?>
+<?php
+    include 'global.php';
+    check_time_class();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +13,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?= BASE_URL ?>assets/img/img_site/img/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/icons/font-awesome-4.7.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/css/css_site/course.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/css/css_site/course_responsive.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/css/css_site/animate.css">
@@ -26,6 +28,7 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/slick.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/nice-select.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/service.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/toasts/toast.css"/>
     <link rel="stylesheet" href="css/mains.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/flex.css">
@@ -41,24 +44,19 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
     />
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <style>
         body::-webkit-scrollbar {
             width: 10px;
         }
-
+        .overlay1::before {
+            background: transparent;
+        }
         body::-webkit-scrollbar-thumb {
-            /*background: linear-gradient(to bottom, #7A7FBA, #11C37C);*/
-            /*background: -moz-linear-gradient(top, #c054ff 0%, #5274ff 100%);*/
-            /*background: -webkit-linear-gradient(top, #c054ff 0%, #5274ff 100%);*/
             background: linear-gradient(to top, #c054ff 0%, #5274ff 100%);
-             /*background: #B08EAD; */
             border-radius: 10px;
         }
-
         body::-webkit-scrollbar-track {
-            /* background-color: #7A7FBA; */
             background: transparent
         }
     </style>

@@ -50,8 +50,8 @@
                         <p class="font-italic text-muted mb-4">
                             Cộng đồng NodeJS Việt Nam chạm mốc với hơn 55.000 member là lúc chúng tôi nhận ra mình cần làm điều gì đó để giúp cộng đồng lớn mạnh hơn nữa.
                             Chúng tôi khao khát tạo ra những giá trị thiết thực giúp các member mới nhanh chóng tiếp xúc với nguồn kiến thức bài bản thực chiến.
-                            Năm 2019, Nodemy chính thức thành lập, với mô hình coding bootcamp cùng giáo trình đúc kết bài bản. Năm đầu tiên, hơn 150 học viên đã tham gia.
-                            Trong số đó 90% học viên đã có thể đi làm ngay sau chương trình kết thúc. Đó luôn là điều Nodemy tự hào hướng tới.</p>
+                            Năm 2019, DDH chính thức thành lập, với mô hình coding bootcamp cùng giáo trình đúc kết bài bản. Năm đầu tiên, hơn 150 học viên đã tham gia.
+                            Trong số đó 90% học viên đã có thể đi làm ngay sau chương trình kết thúc. Đó luôn là điều DDH tự hào hướng tới.</p>
                     </div>
                 </div>
             </div>

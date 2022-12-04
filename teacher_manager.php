@@ -1,6 +1,8 @@
 <?php
     include 'global.php';
     checkSessionTeacher();
+    $id_teacher = getSession('user')['id'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,5 +1,4 @@
 <?php
-    $id_teacher = getSession('user')['id'];
     if (isset($_GET['action'])) {
         $act = $_GET['action'];
         switch ($act) {
@@ -16,10 +15,9 @@
                 $time_end   = date ( 'Y-m-d' , $time );
                 check_empty($name_class,CLASS_TEACHER . "/create");
                 check_empty($id_course, CLASS_TEACHER . "/create");
-                check_empty($time_learn,CLASS_TEACHER . "/create");
                 check_empty($time_start,CLASS_TEACHER . "/create");
                 check_data(check_course_class($id_course),CLASS_TEACHER . "/create");
-                class_create($name_class,$id_course,$time_learn,$time_start,$time_end);
+                class_create($name_class,$id_course,$id_teacher,$time_learn,$time_start,$time_end);
                 location(CLASS_TEACHER);
                 break;
             case "update":

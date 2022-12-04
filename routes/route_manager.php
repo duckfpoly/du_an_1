@@ -12,6 +12,9 @@
             case "my_class":
                 include_once $objectt;
                 break;
+            case "my_class_archive":
+                include_once $objectt;
+                break;
             case "teacher_profile":
                 include_once $objectt;
                 break;

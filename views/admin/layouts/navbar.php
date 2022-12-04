@@ -40,8 +40,7 @@
           <a href="#" class="nav-link text-white p-0 position-relative" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="text-danger position-absolute top-0 start-0 translate-middle-x" style="font-size: 5px">(🔴)</span> <i class="fa fa-bell cursor-pointer"></i>
           </a>
-          <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="notifications">
-
+          <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="show_notifications">
           </ul>
         </li>&emsp;
         <li class="nav-item d-flex align-items-center">
@@ -54,72 +53,38 @@
     </div>
   </div>
 </nav>
-
 <script>
-    var auth = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTmd1eWVuIER1YyIsInBob25lIjoiMDgyMzU2NTgzMSIsImVtYWlsIjoibmd1eWVuZHVjMTA2MDNAZ21haWwuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTY2OTgwNTQ4Nn0.PByr6NO_lYgDSnT-KkW0bLBgsNzfIySHO_IofdxiHsw';
     axios.get("<?= BASE_URL ?>api/notifications", {
         headers: {
-            Authorization: 'Bearer ' + auth
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTmd1eWVuIER1YyIsInBob25lIjoiMDgyMzU2NTgzMSIsImVtYWlsIjoibmd1eWVuZHVjMTA2MDNAZ21haWwuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTY2OTgwNTQ4Nn0.PByr6NO_lYgDSnT-KkW0bLBgsNzfIySHO_IofdxiHsw'
         },
     })
-        .then((res) => {
-            var results = res.data;
-            console.log(results);
-            results.forEach((items) => {
-
-            })
+    .then((res) => {
+        var results = res.data;
+        results.forEach((items) => {
+            document.getElementById('show_notifications').innerHTML += `
+                <li class="mb-2">
+                    <a class="dropdown-item border-radius-md" href="#">
+                        <div class="d-flex py-1">
+                            <div class="my-auto">
+                                <img src="assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                            </div>
+                            <div class="d-flex flex-column justify-content-center">
+                                <h6 class="text-sm font-weight-normal mb-1">
+                                    <span class="font-weight-bold">${items.body}</span>
+                                </h6>
+                                <p class="text-xs text-secondary mb-0">
+                                    <i class="fa fa-clock me-1"></i>
+                                    ${items.time}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            `
         })
-        .catch((error) => {
-            console.error(error);
-        });
+    })
+    .catch((error) => {
+        console.error(error);
+    });
 </script>
-
-<!--<script>-->
-<!--    $(document).ready(function () {-->
-<!---->
-<!--        function load_unseen_notification(view = '') {-->
-<!--            $.ajax({-->
-<!--                url: "fetch.php",-->
-<!--                method: "POST",-->
-<!--                data: {view: view},-->
-<!--                dataType: "json",-->
-<!--                success: function (data) {-->
-<!--                    $('.dropdown-menu').html(data.notification);-->
-<!--                    if (data.unseen_notification > 0) {-->
-<!--                        $('.count').html(data.unseen_notification);-->
-<!--                    }-->
-<!--                }-->
-<!--            });-->
-<!--        }-->
-<!---->
-<!--        load_unseen_notification();-->
-<!---->
-<!--        $('#comment_form').on('submit', function (event) {-->
-<!--            event.preventDefault();-->
-<!--            if ($('#subject').val() != '' && $('#comment').val() != '') {-->
-<!--                var form_data = $(this).serialize();-->
-<!--                $.ajax({-->
-<!--                    url: "insert.php",-->
-<!--                    method: "POST",-->
-<!--                    data: form_data,-->
-<!--                    success: function (data) {-->
-<!--                        $('#comment_form')[0].reset();-->
-<!--                        load_unseen_notification();-->
-<!--                    }-->
-<!--                });-->
-<!--            } else {-->
-<!--                alert("Both Fields are Required");-->
-<!--            }-->
-<!--        });-->
-<!---->
-<!--        $(document).on('click', '.dropdown-toggle', function () {-->
-<!--            $('.count').html('');-->
-<!--            load_unseen_notification('yes');-->
-<!--        });-->
-<!---->
-<!--        setInterval(function () {-->
-<!--            load_unseen_notification()-->
-<!--        }, 1000);-->
-<!---->
-<!--    });-->
-<!--</script>-->

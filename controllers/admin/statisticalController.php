@@ -38,6 +38,8 @@
                 $actually_received      =   return_empty_data(pay_filter_year(2,$year - 1));
                 $unpaids                =   return_empty_data(pay_filter_year(0,$year - 1));
                 $des_pay                =   return_empty_data(pay_filter_year(1,$year - 1));
+
+
             }
             else {
                 location(STATISTICAL);
@@ -82,5 +84,12 @@
             $no_join                =   return_empty_data(join_class(1));
         }
     }
+
+    $count_course       = statistical_count_courses();
+    $count_course_open  = statistical_courses_status(0);
+    $count_course_close = statistical_courses_status(1);
+
+
+
     include_once $direct_read;
 ?>

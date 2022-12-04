@@ -90,8 +90,9 @@
 <!--                                            <p><span>(--><?//= $avg_rate = empty(get_avg_rate_course($value['id'])) ? 0 : get_avg_rate_course($value['id']); ?><!--)</span></p>-->
                                         </div>
                                         <div class="price">
-                                            <span class="<?php echo $value['discount'] != 0 ? 'text-decoration-line-through textPrice colorOldPrice' : '' ?>"><?php echo number_format($value['price_course'])?> $</span>
-                                            <span><?php echo $value['discount'] != 0 ? total($value['price_course'],$value['discount']) : '' ?></span>
+                                            <span><?= total($value['price_course'],$value['discount']) ?></span>
+                                            <span class="d-none <?php echo $value['discount'] != 0 ? 'text-decoration-line-through textPrice colorOldPrice' : '' ?>"><?php echo number_format($value['price_course'])?></span>
+                                            <span class="d-none"><?php echo $value['discount'] != 0 ? total($value['price_course'],$value['discount']) : '' ?></span>
                                         </div>
                                     </div>
                                     <a href="<?= LESSONS ?>/<?php echo $value['id']?>" class="border-btn border-btn2">Tìm hiểu thêm</a>
@@ -101,9 +102,9 @@
                     </div>
                 <?php endforeach?>
             </div>
-            <div class="paginationn">
-                <?php pagination($data_cate[1], $data_cate[2], LESSONS); ?>
-            </div>
+<!--            <div class="paginationn">-->
+<!--                --><?php //pagination($data_cate[1], $data_cate[2], LESSONS); ?>
+<!--            </div>-->
         </div>
     </div>
 </main>
@@ -123,10 +124,9 @@
                 }
             })
             .then((res) => {
-                if(res){
-                    console.log(res)
-
-                }
+                // if(res){
+                //     console.log(res)
+                // }
                 var results = res.data
                 document.querySelector('#show_course').innerHTML = ""
                 if(results.error){
@@ -147,7 +147,7 @@
                                             <a href="<?= LESSONS?>/${items.id}">
                                                 <span id="name_course" style='color:black'>${items.name_course.slice(0, 30)}</span>
                                             </a>
-                                            <span id="price_course">$${items.price_course}</span>
+                                            <span id="price_course">${ new Intl.NumberFormat('it-IT',{style:'currency',currency:'VND'}).format(items.price_course)}</span>
                                         </div>
                                     </div>
                                `
@@ -161,6 +161,7 @@
     }
 </script>
 <style>
+
     .paginationn {
         display: flex;
         justify-content: flex-end;

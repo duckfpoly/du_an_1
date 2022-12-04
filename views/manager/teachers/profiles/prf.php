@@ -18,7 +18,7 @@
                                                     <div class="mt-3">
                                                         <h4 id="name_teacherr"><?= $teacher_detail['name_teacher'] ?></h4>
                                                         <p class="text-secondary mb-1"><?= $teacher_detail['scope_teacher'] ?> Developer</p>
-<!--                                                        <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>-->
+                                                        <p class="text-muted font-size-sm"><?= $teacher_detail['id'] ?></p>
 <!--                                                        <button class="btn btn-primary">Follow</button>-->
 <!--                                                        <button class="btn btn-outline-primary">Message</button>-->
                                                     </div>

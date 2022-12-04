@@ -7,6 +7,31 @@
         }
     }
 
+    function check_time_class(){
+        $sql = "SELECT * FROM classes";
+        $check = query($sql);
+        foreach ($check as $key => $values){
+            $time_end       =   strtotime ($values['time_end']);
+            $time_now       =   strtotime(date("Y-m-d"));
+            $time_archive   =   date("Y-m-d H:i:s");
+            if($time_end < $time_now){
+                $sql = "SELECT * FROM detail_classes WHERE id_class = ?";
+                $detail_class = query($sql,$values['id']);
+                foreach ($detail_class as $key => $items){
+                    $archive_detail = "INSERT INTO `detail_class_archive`(`id_class`, `id_students`) VALUES (?,?)";
+                    query_sql($archive_detail,$items['id_class'],$items['id_students']);
+                }
+                $archive = "INSERT INTO `classes_archive`(`name_class`,`id_course`,`id_teacher`,`slot`,`time_learn`,`time_start`,`time_end`,`time_archive`) 
+                        VALUES (?,?,?,?,?,?,?,?)";
+                query_sql($archive,$values['name_class'],$values['id_course'],$values['id_teacher'],$values['slot'],$values['time_learn'], $values['time_start'],$values['time_end'],$time_archive);
+                $delete_detail = "DELETE FROM detail_classes WHERE id_class = ?";
+                query_sql($delete_detail,$values['id']);
+                $delete = "DELETE FROM classes WHERE id = ?";
+                query_sql($delete,$values['id']);
+            }
+        }
+    }
+
     function check_name_class($name_class,$id){
         $sql = "SELECT * FROM `courses` 
             INNER JOIN teachers ON courses.id_teacher = teachers.id
@@ -18,40 +43,41 @@
             }
     }
 
-    function class_create($name_class,$id_course,$time_learn,$time_start,$time_end){
+    function class_create($name_class,$id_course,$id_teacher,$time_learn,$time_start,$time_end){
         $sql = "INSERT INTO `classes` SET 
                     `name_class`    =   ?,
                     `id_course`     =   ?,
+                    `id_teacher`    =   ?,
                     `time_learn`    =   ?,
                     `time_start`    =   ?,
                     `time_end`      =   ?
         ";
-        query_sql($sql,$name_class,$id_course,$time_learn,$time_start,$time_end);
+        query_sql($sql,$name_class,$id_course,$id_teacher,$time_learn,$time_start,$time_end);
     }
 
     function class_read(){
         $sql = "SELECT 
-                classes.*,
-                courses.name_course,
-                teachers.name_teacher
-                FROM classes 
-                INNER JOIN teachers ON classes.id_teacher = teachers.id
-                INNER JOIN courses ON classes.id_course = courses.id
-                ORDER BY classes.id DESC 
+            classes.*,
+            courses.name_course,
+            teachers.name_teacher
+            FROM classes 
+            INNER JOIN teachers ON classes.id_teacher = teachers.id
+            INNER JOIN courses ON classes.id_course = courses.id
+            ORDER BY classes.id DESC 
          ";
         return query($sql);
     }
 
     function class_update($name_class,$id_course,$time_learn,$time_start,$time_end,$status_class,$id){
         $sql = "UPDATE `classes` SET 
-                    `name_class`    =   ?,
-                    `id_course`     =   ?,
-                    `time_learn`    =   ?,
-                    `time_start`    =   ?,
-                    `time_end`      =   ?,
-                    `status_class`  =   ?
-                WHERE id = ?
-                ";
+                `name_class`    =   ?,
+                `id_course`     =   ?,
+                `time_learn`    =   ?,
+                `time_start`    =   ?,
+                `time_end`      =   ?,
+                `status_class`  =   ?
+            WHERE id = ?
+            ";
         query_sql($sql,$name_class,$id_course,$time_learn,$time_start,$time_end,$status_class,$id);
     }
 
@@ -73,14 +99,12 @@
         return query_one($sql,$id);
     }
 
-    function add_student_to_class($id_student,$day_sub,$time_sub,$id_class){
+    function add_student_to_class($id_student,$id_class){
         $sql = "INSERT INTO detail_classes SET 
                 id_students = ?, 
-                date_sub    = ?, 
-                time_sub    = ?, 
                 id_class    = ?
        ";
-        return query_sql($sql,$id_student,$day_sub,$time_sub,$id_class);
+        return query_sql($sql,$id_student,$id_class);
     }
 
     function class_search($key){
@@ -133,13 +157,11 @@
         return query($sql,$id_class,$date,$time);
     }
 
-    function count_slot_class($id_class,$date,$time){
+    function count_slot_class($id_class){
         $sql = "SELECT COUNT(*) FROM detail_classes 
                 WHERE detail_classes.id_class = ?
-                AND detail_classes.date_sub = ?
-                AND detail_classes.time_sub = ?
         ";
-        return query_value($sql,$id_class,$date,$time);
+        return query_value($sql,$id_class);
     }
 
     function check_std_class($id_class,$id_students){

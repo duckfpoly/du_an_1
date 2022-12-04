@@ -68,4 +68,40 @@
         $sql = "SELECT COUNT(id_students) FROM tbl_orders WHERE status = ? AND YEAR(order_date) = ?";
         return query_value($sql,$stt,$cal);
     }
+
+    function statistical_count_courses(){
+        $sql = "SELECT COUNT(*) FROM courses";
+        return query_value($sql);
+    }
+
+    function statistical_courses_status($status){
+        $sql = "SELECT COUNT(*) FROM courses WHERE status_course = ? ";
+        return query_value($sql,$status);
+    }
+
+
+    function count_pay_with_month($month,$year){
+        $sql = "SELECT SUM(amount) AS total 
+                FROM tbl_orders 
+                WHERE MONTH(order_date) = ?
+                AND status = 2
+                AND YEAR(order_date) = $year
+                ";
+        return query_value($sql,$month);
+    }
+
+    function count_pay_now_year(){
+        $date = getdate();
+        $year = $date['year'];
+        $sql = "SELECT COUNT(YEAR(order_date)) FROM tbl_orders WHERE YEAR(order_date) = $year AND status = 2";
+        return query_value($sql);
+    }
+    function count_pay_old_year(){
+        $date = getdate();
+        $year = $date['year'] - 1;
+        $sql = "SELECT COUNT(YEAR(order_date)) FROM tbl_orders WHERE YEAR(order_date) = $year AND status = 2";
+        return query_value($sql);
+    }
+
+
 ?>

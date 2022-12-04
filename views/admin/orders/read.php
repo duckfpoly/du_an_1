@@ -35,7 +35,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã hóa đơn</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ngày đặt</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Thời gian đăng ký</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Học viên</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Lớp</th>
@@ -55,7 +55,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td><p class="text-xs font-weight-bold mb-0"><?= $values['order_date'] ?></p></td>
+                                        <td><p class="text-xs font-weight-bold mb-0"><?= format_datetime('datetime',$values['order_date'])  ?></p></td>
                                         <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_student'] ?></p></td>
                                         <td><p class="text-xs font-weight-bold mb-0"><?= $values['email_student'] ?></p></td>
                                         <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_class'] ?></p></td>
@@ -69,8 +69,6 @@
                                                         data-id="<?= $values['id'] ?>"
                                                         data-id-class="<?= $values['id_class'] ?>"
                                                         data-id-student="<?= $values['id_students'] ?>"
-                                                        data-day="<?= $values['day_sub'] ?>"
-                                                        data-time="<?= $values['time_sub'] ?>"
                                                         onchange="change_qtyy(this)">
                                                     <option value="0" <?= $values['status'] == 0 ? 'selected' : "" ?>>Chưa thanh toán</option>
                                                     <option value="1" <?= $values['status'] == 1 ? 'selected' : "" ?>>Thanh toán thất bại</option>
@@ -103,8 +101,6 @@
         var dataString  = 'id=' + element.getAttribute('data-id') + '&status=' + element.value;
         var id_class    = element.getAttribute('data-id-class');
         var id_student  = element.getAttribute('data-id-student');
-        var day_sub     = element.getAttribute('data-day');
-        var time_sub    = element.getAttribute('data-time');
         $.ajax({
             type: "POST",
             url: '<?= ORDERS ?>/edit',
@@ -121,9 +117,7 @@
                     element.style.background = "#2dce89";
                     var storeStudent =
                         'id_class='     + id_class      +
-                        '&id_student='  + id_student    +
-                        '&date_sub='    + day_sub       +
-                        '&time_sub='    + time_sub
+                        '&id_student='  + id_student
                     $.ajax({
                         type: "POST",
                         url: '<?= CLASSES ?>/storeStudent',

@@ -8,10 +8,6 @@
             return "Tên khóa học đã được giảng viên sử dụng !";
         }
     }
-    function get_all_course(){
-        $sql = 'SELECT * FROM courses';
-        return query($sql);
-    }
     function check_id_course($id){
         $sql = "SELECT * FROM `courses` WHERE id = ?";
         $check_ID = query_one($sql, $id);
@@ -19,6 +15,7 @@
             return "Khóa học không tồn tại !";
         }
     }
+
     function courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category){
         $sql = "INSERT INTO `courses` SET 
             `name_course`           =   ?,

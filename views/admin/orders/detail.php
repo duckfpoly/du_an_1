@@ -30,7 +30,7 @@
                                             <div class="card-body">
                                                 <div class="mb-3 d-flex justify-content-between d-none">
                                                     <div>
-                                                        <span class="me-3"><?= $detail['order_date'] ?></span>
+                                                        <span class="me-3"><?= format_datetime('datetime',$detail['order_date'])  ?></span>
                                                         <span class="me-3">#<?= $detail['order_code'] ?></span>
                                                         <?= $detail['status'] == 0 ? '<span class="badge rounded-pill bg-secondary">Chưa thanh toán</span>' : '' ?>
                                                         <?= $detail['status'] == 1 ? '<span class="badge rounded-pill bg-danger">Thanh toán thất bại</span>' : '' ?>
@@ -42,8 +42,6 @@
                                                         <tr>
                                                             <td>#</td>
                                                             <td>Tên lớp</td>
-                                                            <td>Ngày học</td>
-                                                            <td>Ca học</td>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -60,8 +58,6 @@
                                                             </div>
                                                         </td>
                                                         <td><?= $detail['name_class'] ?></td>
-                                                        <td><?= $detail['day_sub'] == 0 ? '2 - 4 - 6' : '3 - 5 - 7' ?></td>
-                                                        <td><?= $detail['time_sub'] ?></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>

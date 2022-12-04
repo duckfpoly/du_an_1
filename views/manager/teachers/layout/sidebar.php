@@ -21,6 +21,12 @@
                     <p>Quản lý lớp</p>
                 </a>
             </li>
+            <li id="my_class_archive">
+                <a href="<?= CLASSARCHIVE_TEACHER ?>">
+                    <i class="tim-icons icon-atom"></i>
+                    <p>Lớp học đã lưu trữ</p>
+                </a>
+            </li>
 <!--            <li id="teaching_schedule">-->
 <!--                <a href="--><?//= TEACHING_PROFILE ?><!--">-->
 <!--                    <i class="tim-icons icon-atom"></i>-->

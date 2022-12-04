@@ -31,7 +31,7 @@
         $value = query_one($query);
         if(isset($value['email_teacher'])){
             if($value['status_teacher'] == 1) {
-                return "Tài khoản của bạn đã bị vô hiệu hóa !";
+                return "Tài khoản của bạn đã bị cấm !";
             }
             else {
                 setSession('user',$value);

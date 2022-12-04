@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 01, 2022 at 07:15 AM
+-- Generation Time: Dec 02, 2022 at 02:50 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -86,7 +86,8 @@ CREATE TABLE `classes` (
 
 INSERT INTO `classes` (`id`, `name_class`, `id_course`, `id_teacher`, `slot`, `time_learn`, `time_start`, `time_end`, `status_class`) VALUES
                                                                                                                                           (8, 'ReactJS1122C3', 195, 2, 3, 1, '2022-12-30', '2023-05-30', 0),
-                                                                                                                                          (9, 'ReactJS1222C4', 195, 5, 3, 0, '2022-12-30', '2023-06-30', 0);
+                                                                                                                                          (9, 'ReactJS1222C4', 195, 5, 3, 0, '2022-12-30', '2023-06-30', 0),
+                                                                                                                                          (10, 'VUEJS0123C5', 198, 5, 3, 1, '2023-01-15', '2023-07-15', 0);
 
 -- --------------------------------------------------------
 
@@ -143,7 +144,7 @@ INSERT INTO `courses` (`id`, `name_course`, `price_course`, `image_course`, `sta
                                                                                                                                                                                        (198, 'VueJS', 2000000, 'Vue.png', 0, 'Lập trình Fontend bằng framework VueJS', 'Vue.js là một framework Javascript được tạo bởi Evan You, giúp chúng ta xây dựng giao diện người dùng cũng như xây dựng Single Page Application thân thiện với người dùng, chúng xây dựng từ các thư viện, cách triển khai component, các chức năng đặc trưng của nó như SFC (Single File Component). Phiên bản ổn định mới nhất hiện tại của Vue.js là 2.6.10. Nào chúng ta cùng đi vào những kiến thức cơ bản nhất của Vue.', 0, '2022-11-26 04:08:08', '2022-11-30 04:48:50', 3),
                                                                                                                                                                                        (199, 'HTML/CSS/JS', 2000000, 'htmlcssjs.png', 0, 'Lập trình web cơ bản bằng HTML/CSS/JS', 'Html css javascript là gì? Đây là tên của một loại ngôn ngữ lập trình. Với sự phát triển của công nghệ thông tin, hiện nay có nhiều loại ngôn ngữ lập trình khác nhau. Mỗi một ngôn ngữ lập trình lại được sử dụng cho mục đích và nhóm ngành khác nhau. \n\nNgôn ngữ lập trình html css javascript là một loại mã hóa phổ biến và không thể thiếu để thiết lập nên một website', 0, '2022-11-30 07:33:52', '2022-11-30 07:33:58', 3),
                                                                                                                                                                                        (200, 'AngularJS', 800000, 'Angular.png', 0, 'Lập trình Fontend bằng framework AngularJS', 'AngularJS là một framework có cấu trúc cho các ứng dụng web động. Nó cho phép bạn sử dụng HTML như là ngôn ngữ mẫu và cho phép bạn mở rộng cú pháp của HTML để diễn đạt các thành phần ứng dụng của bạn một cách rõ ràng và súc tích. Hai tính năng cốt lõi: Data binding và Dependency injection của AngularJS loại bỏ phần lớn code mà bạn thường phải viết. Nó xảy ra trong tất cả các trình duyệt, làm cho nó trở thành đối tác lý tưởng của bất kỳ công nghệ Server nào.', 0, '2022-11-30 07:38:13', NULL, 3),
-                                                                                                                                                                                       (201, 'ExpressJS', 800000, 'Expressjs.png', 0, 'Lập trình Backend bằng framework ExpressJS', 'Expressjs là một framework được xây dựng trên nền tảng của Nodejs. Nó cung cấp các tính năng mạnh mẽ để phát triển web hoặc mobile. Expressjs hỗ trợ các method HTTP và midleware tạo ra API vô cùng mạnh mẽ và dễ sử dụng.', 0, '2022-11-30 07:39:41', NULL, 4),
+                                                                                                                                                                                       (201, 'ExpressJS', 800000, 'Expressjs.png', 0, 'Lập trình Backend bằng ExpressJS', 'Expressjs là một framework được xây dựng trên nền tảng của Nodejs. Nó cung cấp các tính năng mạnh mẽ để phát triển web hoặc mobile. Expressjs hỗ trợ các method HTTP và midleware tạo ra API vô cùng mạnh mẽ và dễ sử dụng.', 0, '2022-11-30 07:39:41', NULL, 4),
                                                                                                                                                                                        (202, 'NuxtJS', 800000, 'nuxtjs.png', 0, 'Lập trình Fontend bằng framework NuxtJS', 'Nuxt.JS là một Javascript framework để tạo các ứng dụng VueJS. Mục tiêu là để chúng ta có thể tạo một ứng dụng linh hoạt nhưng được render phía máy chủ, tương tự một trang web tĩnh giống như các website thông thường (điều mà có lợi cho SEO).\n\nNuxtJS tập trung vào khía cạnh render giao diện người dùng. Ngoài ra, Nuxt.js có rất nhiều tính năng giúp bạn phát triển giữa phía client và server như Dữ liệu bất đồng bộ (Asynchronous Data), Middleware, Layouts, v.v.', 0, '2022-11-30 07:42:08', NULL, 3),
                                                                                                                                                                                        (203, 'NextJS', 2000000, 'nextjs.png', 0, 'Lập trình Fontend bằng framework NextJS', 'Next.js là một framework front-end React được phát triển dưới dạng open-source bổ sung các khả năng tối ưu hóa như render phía máy chủ (SSR) và tạo trang web static. Next.js xây dựng dựa trên thư viện React, có nghĩa là các ứng dụng Next.js sử dụng core của React và chỉ thêm các tính năng bổ sung', 0, '2022-11-30 07:44:36', NULL, 3);
 
@@ -210,6 +211,28 @@ CREATE TABLE `lesson_courses` (
 INSERT INTO `lesson_courses` (`id`, `lession`, `id_course`) VALUES
                                                                 (1, 'Giới thiệu và làm quen', 195),
                                                                 (2, 'HTML - CSS - JS cơ bản', 195);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification_admin`
+--
+
+CREATE TABLE `notification_admin` (
+                                      `id` int NOT NULL,
+                                      `title` text,
+                                      `body` text,
+                                      `time` datetime DEFAULT NULL,
+                                      `status` tinyint NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `notification_admin`
+--
+
+INSERT INTO `notification_admin` (`id`, `title`, `body`, `time`, `status`) VALUES
+                                                                               (1, 'Test Noti', 'Body', '2022-01-12 16:00:00', 0),
+                                                                               (2, 'Test Noti 2', 'Body 2', '2022-01-12 16:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -366,8 +389,9 @@ CREATE TABLE `tbl_orders` (
 --
 
 INSERT INTO `tbl_orders` (`id`, `order_code`, `order_date`, `order_pay`, `id_students`, `id_class`, `amount`, `status`) VALUES
-                                                                                                                            (21, 1669790959, '2022-11-30 13:49:22', 0, 3, 8, 200000, 0),
-                                                                                                                            (22, 1669877110, '2022-12-01 13:45:17', 0, 1, 8, 2000000, 0);
+                                                                                                                            (27, 1669888696, '2022-12-01 16:58:29', 0, 1, 8, 2000000, 2),
+                                                                                                                            (28, 126476363, '2021-12-01 16:58:29', 1, 7, 8, 200000, 2),
+                                                                                                                            (29, 87839243, '2022-11-01 16:58:29', 2, 2, 8, 300000, 2);
 
 -- --------------------------------------------------------
 
@@ -458,6 +482,12 @@ ALTER TABLE `lesson_courses`
     ADD KEY `FK_ID_COURSE` (`id_course`);
 
 --
+-- Indexes for table `notification_admin`
+--
+ALTER TABLE `notification_admin`
+    ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -520,7 +550,7 @@ ALTER TABLE `account_manager`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -559,6 +589,12 @@ ALTER TABLE `lesson_courses`
     MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `notification_admin`
+--
+ALTER TABLE `notification_admin`
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
@@ -592,7 +628,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `teachers`

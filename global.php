@@ -306,6 +306,15 @@
         return (new DateTimeImmutable($date))->format('d/m/Y');
     }
 
+    function format_datetime($type_fomat,$date){
+        if($type_fomat == 'datetime'){
+            return (new DateTimeImmutable($date))->format('H:i:s - d/m/Y');
+        }
+        else {
+            return (new DateTimeImmutable($date))->format('d/m/Y');
+        }
+    }
+
     function signupgg($client,$google_oauth){
         $client->setRedirectUri("http://localhost/courseddh/sign_up");
         if (isset($_GET['code'])) {
@@ -324,7 +333,7 @@
 
     function cal_percent($obj,$sum){
         if(empty($sum)){
-            return 0;
+            return 100;
         }else {
             return round(($obj / $sum) * 100);
         }

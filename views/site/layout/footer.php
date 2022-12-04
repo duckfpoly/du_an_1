@@ -14,6 +14,11 @@
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
                                         <p>
+                                            Địa chỉ: <a
+                                                        href="https://www.google.com/maps/place/120+Ho%C3%A0ng+Qu%E1%BB%91c+Vi%E1%BB%87t,+C%E1%BB%95+Nhu%E1%BA%BF,+T%E1%BB%AB+Li%C3%AAm,+H%C3%A0+N%E1%BB%99i,+Vi%E1%BB%87t+Nam/@21.0490871,105.7947648,15z/data=!4m5!3m4!1s0x3135ab30160f7fd9:0x4a1e6e1a119ecb78!8m2!3d21.0480426!4d105.7921484">
+                                                        120,Hoàng Quốc Việt,<br>Cầu Giấy, Hà Nội
+                                                    </a>
+                                            <br><br>
                                             Mail: <a href="mailto:courses.app@gmail.com">courses.app@gmail.com</a> <br><br>
                                             Số điện thoại: <a href="tel:+84823565831">+84 823 565 831</a>
                                         </p>
@@ -79,7 +84,7 @@
                         <div class="col-xl-12 ">
                             <div class="footer-copy-right text-center">
                                 <p>
-                                    Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved
+                                    Copyright &copy; <script>document.write(new Date().getFullYear());</script> By DDH Teams
                                 </p>
                                 </div>
                             </div>

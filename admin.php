@@ -1,6 +1,7 @@
 <?php ob_start();
     include_once 'global.php';
     checkSessionAdmin();
+    check_time_class();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +28,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
     <script src="<?= BASE_URL ?>assets/admin/js/items/load_div.js">                            </script>
     <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="<?= BASE_URL ?>assets/admin/js/plugins/chartjs.min.js">                           </script>
+
+
     <style>
         .btn {
             margin-bottom: 0 !important;
@@ -37,31 +43,6 @@
     </style>
     <script> var admin = "<?= ADMIN ?>";</script>
     <script type="text/javascript" src="<?= BASE_URL ?>assets/admin/js/items/notification.js"></script>
-<!--    <script>-->
-<!--        // function load_unseen_notification(view = '') {-->
-<!--            $.ajax({-->
-<!--                url: "http://localhost/courses/admin/notifications",-->
-<!--                method: "POST",-->
-<!--                data: {-->
-<!--                    view: '',-->
-<!--                },-->
-<!--                dataType: "json",-->
-<!--                success: function (data) {-->
-<!--                    console.log(data.notification);-->
-<!--                    console.log(1)-->
-<!--                    $('#notifications').html(data.notification);-->
-<!--                }-->
-<!--            });-->
-<!--        // }-->
-<!--        // load_unseen_notification();-->
-<!--        // $(document).on('click', '#notifications', function () {-->
-<!--        //     load_unseen_notification('yes');-->
-<!--        // });-->
-<!--        // setInterval(function () {-->
-<!--        //     load_unseen_notification()-->
-<!--        // }, 1000);-->
-<!--    </script>-->
-
 </head>
 <body class="g-sidenav-show bg-gray-100">
     <div id="toastt"></div>
@@ -116,7 +97,6 @@
     <script src="<?= BASE_URL ?>assets/admin/js/core/bootstrap.min.js">                         </script>
     <script src="<?= BASE_URL ?>assets/admin/js/plugins/perfect-scrollbar.min.js">                 </script>
     <script src="<?= BASE_URL ?>assets/admin/js/plugins/smooth-scrollbar.min.js">                  </script>
-    <script src="<?= BASE_URL ?>assets/admin/js/plugins/chartjs.min.js">                           </script>
     <script src="<?= BASE_URL ?>assets/admin/js/plugins/validate.js">                              </script>
     <script src="<?= BASE_URL ?>assets/admin/js/argon-dashboard.js">                               </script>
     <script src="<?= BASE_URL ?>assets/admin/js/items/mainss.js">                                   </script>
@@ -125,96 +105,6 @@
     <script src="<?= BASE_URL ?>assets/toasts/toast.js">                                           </script>
     <script src="<?= BASE_URL ?>assets/admin/js/items/detec_connect.js">                           </script>
     <script async defer src="https://buttons.github.io/buttons.js">                             </script>
-    <script>
-        if (document.getElementById("chart-line")) {
-            var ctx1 = document.getElementById("chart-line").getContext("2d");
-            var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
-            gradientStroke1.addColorStop(1, "rgba(94, 114, 228, 0.2)");
-            gradientStroke1.addColorStop(0.2, "rgba(94, 114, 228, 0.0)");
-            gradientStroke1.addColorStop(0, "rgba(94, 114, 228, 0)");
-            new Chart(ctx1, {
-                type: "line",
-                data: {
-                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                    datasets: [
-                        {
-                            // Tên để thống kê
-                            label: "Students",
-                            tension: 0.4,
-                            borderWidth: 0,
-                            pointRadius: 0,
-                            borderColor: "#5e72e4",
-                            backgroundColor: gradientStroke1,
-                            borderWidth: 3,
-                            fill: true,
-                            // giá trị thống kê
-                            data: [
-                                <?php for($i = 1; $i<=12; $i++){
-                                    echo count_with_month($i).',';
-                                } ?>
-                            ],
-                            maxBarThickness: 6,
-                        },
-                    ],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false,
-                        },
-                    },
-                    interaction: {
-                        intersect: false,
-                        mode: "index",
-                    },
-                    scales: {
-                        y: {
-                            grid: {
-                                drawBorder: false,
-                                display: true,
-                                drawOnChartArea: true,
-                                drawTicks: false,
-                                borderDash: [5, 5],
-                            },
-                            ticks: {
-                                display: true,
-                                padding: 10,
-                                color: "#fbfbfb",
-                                font: {
-                                    size: 11,
-                                    family: "Open Sans",
-                                    style: "normal",
-                                    lineHeight: 2,
-                                },
-                            },
-                        },
-                        x: {
-                            grid: {
-                                drawBorder: false,
-                                display: false,
-                                drawOnChartArea: false,
-                                drawTicks: false,
-                                borderDash: [5, 5],
-                            },
-                            ticks: {
-                                display: true,
-                                color: "#ccc",
-                                padding: 20,
-                                font: {
-                                    size: 11,
-                                    family: "Open Sans",
-                                    style: "normal",
-                                    lineHeight: 2,
-                                },
-                            },
-                        },
-                    },
-                },
-            });
-        }
-    </script>
 </body>
 </html>
 <?php ob_end_flush(); ?>

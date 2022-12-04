@@ -4,12 +4,14 @@
         switch ($act) {
             case "create":
                 $courses_read   = courses_read();
+                $teacher_read   = teacher_read();
                 include_once $direct_act;
                 break;
             case "store":
                 // lấy dữ liệu từ form
                 $name_class = $_POST['name_class'];
                 $id_course  = $_POST['id_category'];
+                $id_teacher  = $_POST['id_teacher'];
                 $time_learn = $_POST['time_learn'];
                 $time_start = $_POST['time_start'];
                 $time = strtotime ( '+6 month' , strtotime ( $time_start ) ) ;
@@ -19,10 +21,9 @@
                 check_empty($id_course, CLASSES . "/create");
                 check_empty($time_learn,CLASSES . "/create");
                 check_empty($time_start,CLASSES . "/create");
-
                 check_data(check_course_class($id_course),CLASSES . "/create");
                 // Gọi model để thêm dữ liệu vào database
-                class_create($name_class,$id_course,$time_learn,$time_start,$time_end);
+                class_create($name_class,$id_course,$id_teacher,$time_learn,$time_start,$time_end);
                 // sau khi thêm hoàn thành sẽ điều hướng về trang read
                 location(CLASSES);
                 break;
@@ -72,21 +73,22 @@
             case "addStudent":
                 $id = $_GET['id'];
                 check_empty($id,CLASSES);
+                $count = count_slot_class($id);
+                $count == slot_class($id) && show_error('Lớp đã đủ học viên !',CLASSES);
                 $student_read  = read_student();
                 include_once $direct_act;
                 break;
             case "storeStudent":
                 $id_class       = $_POST['id_class'];
                 $id_student     = $_POST['id_student'];
-                $day_sub        = $_POST['date_sub'];
-                $time_sub       = $_POST['time_sub'];
-                check_empty($id_student,CLASSES."/addStudent/".$id_class);
-                $count = count_slot_class($id_class,$day_sub,$time_sub);
-                check_data(check_std_class($id_class,$id_student),CLASSES."/addStudent/".$id_class);
+                check_empty($id_class,CLASSES);
+                check_empty($id_student,CLASSES);
+                $count = count_slot_class($id_class);
+                check_data(check_std_class($id_class,$id_student),CLASSES);
                 if($count == slot_class($id_class)){
-                    show_error('Lớp đã đủ học viên !',CLASSES."/addStudent/".$id_class);
+                    show_error('Lớp đã đủ học viên !',CLASSES);
                 }
-                add_student_to_class($id_student,$day_sub,$time_sub,$id_class);
+                add_student_to_class($id_student,$id_class);
                 location(CLASSES.'/showStudent/'.$id_class);
                 break;
             case "deleteStudent":

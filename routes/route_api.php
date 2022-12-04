@@ -29,7 +29,7 @@
     }
     if (isset($_GET['module'])) {
         $module = $_GET['module'];
-        $dir    = $dir_api.$module.'.php';
+        $dir    = 'api_dir/'.$module.'.php';
         switch ($module){
             case 'categories':
                 require_once $dir;

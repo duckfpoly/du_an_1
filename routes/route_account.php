@@ -6,15 +6,19 @@
         $urlAcc = $dir_acc_ctrl.$a.$name_exten;
         switch ($a){
             case 'sign_up':
+                getSession('user') && location(HOME);
                 include $urlAcc;
                 break; 
             case 'sign_in':
+                getSession('user') && location(HOME);
                 include $urlAcc;
                 break;
             case 'forgot_pass':
+                getSession('user') && location(HOME);
                 include $urlAcc;
                 break;
             case 'reset_pass':
+                getSession('user') && location(HOME);
                 include $urlAcc;
                 break;
             case 'log_out':

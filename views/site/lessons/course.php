@@ -1,6 +1,4 @@
-<!-- Home -->
 <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/css_site/customRadio.css">
-
 <div class="home">
     <div class="breadcrumbs_container">
         <div class="container">
@@ -18,7 +16,6 @@
         </div>
     </div>
 </div>
-<!-- Course -->
 <div class="course">
     <div class="container">
         <div class="row">
@@ -191,7 +188,7 @@
                                         </div>
                                         <div class="review_rating_text">(<?= $count_rate ?> đánh giá)</div>
                                     </div>
-                                    <div class="review_rating_bars">
+                                    <div class="review_rating_bars d-none">
                                         <ul>
                                             <?php for ($i = 1 ; $i <= 5; $i++){  ?>
                                                 <li>
@@ -242,7 +239,7 @@
                                         <a href="#" class="d-none text-dark" id="loadLess">Ẩn bớt</a>
                                     </div>
                                     <div class="add_comment_container pt-5">
-                                        <?php if(isset($_SESSION['user'])){ ?>
+                                        <?php if( isset($_SESSION['user']) && getSession('user')['role'] == 1 ){ ?>
                                             <div class="add_comment_title">Đánh giá của bạn về khóa học</div>
                                             <form action="<?= LESSONS.'/'.$id ?>" method="post" onsubmit="return false">
                                                 <input type="hidden" name="image_student"   id="image_student"      value="<?= getSession('user')['image_student'] ?>">
@@ -279,7 +276,7 @@
                     <div class="sidebar_section">
                         <div class="sidebar_section_title">Chi tiết khóa học</div>
                         <div class="sidebar_feature">
-                            <div class="course_price"><?= total($detail['price_course'],$detail['discount'])?></div>
+                            <div class="course_price"><?= total($detail['price_course'],$detail['discount'])?> <small>( 1 tháng )</small> </div>
                             <!-- Features -->
                             <div class="feature_list">
                                 <div class="feature d-flex flex-row align-items-center justify-content-start">
@@ -297,20 +294,38 @@
                         <div class="sidebar_section_title">Khóa học liên quan</div>
                         <div class="sidebar_latest">
                             <?php foreach ($course_same_cate as $key => $values): ?>
-                            <!-- Latest Course -->
-                            <div class="latest d-flex flex-row align-items-start justify-content-start">
-                                <div class="latest_image">
-                                    <div>
-                                        <a href="<?= LESSONS ?>/<?= $values['id'] ?>">
-                                            <img class="rounded" src="<?php echo BASE_URL ?>/assets/uploads/courses/<?= $values['image_course'] ?>" alt="">
-                                        </a>
+                            <div class="same_course mb-4">
+                                <div class=" latest d-flex flex-row align-items-start justify-content-start ">
+                                    <div class="latest_image">
+                                        <div>
+                                            <a href="<?= LESSONS ?>/<?= $values['id'] ?>">
+                                                <img class="rounded" src="<?php echo BASE_URL ?>/assets/uploads/courses/<?= $values['image_course'] ?>" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="latest_content">
+                                        <div class="latest_title"><a href="<?= LESSONS ?>/<?= $values['id'] ?>"><?= $values['name_course'] ?></a></div>
+                                        <div class="latest_price"><?= total($values['price_course'],$values['discount'])  ?></div>
                                     </div>
                                 </div>
-                                <div class="latest_content">
-                                    <div class="latest_title"><a href="<?= LESSONS ?>/<?= $values['id'] ?>"><?= $values['name_course'] ?></a></div>
-                                    <div class="latest_price"><?= total($values['price_course'],$values['discount'])  ?></div>
-                                </div>
                             </div>
+                            <?php endforeach; ?>
+                            <div class="text-center ">
+                                <a href="#" class="text-dark" id="loadMoreCourseOther">Xem thêm</a>
+                                <a href="#" class="d-none text-dark" id="loadLessCourseOther">Ẩn bớt</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar_section">
+                        <div class="sidebar_section_title">Danh mục khóa học</div>
+                        <div class="sidebar_latest">
+                            <?php foreach ($categories as $key => $values): ?>
+                                <!-- Latest Course -->
+                                <div class="latest d-flex flex-row align-items-start justify-content-start">
+                                    <div class="latest_content">
+                                        <div class="latest_title"><a href="<?= LESSONS ?>/?cate=<?= $values['id'] ?>"><?= $values['name_category'] ?></a></div>
+                                    </div>
+                                </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -319,151 +334,153 @@
         </div>
     </div>
 </div>
-<section class="amazing_feature">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12" data-aos="flip-up">
-                <div class="single_feature">
-                    <div class="feature_icon"><i class="far fa-heart"></i></div>
-                    <h3>500 +</h3>
-                    <p>Số giờ học (8h/buổi + 5 buổi/tuần + 65 buổi). Học như đi làm</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12" data-aos="zoom-in">
-                <div class="single_feature">
-                    <div class="feature_icon"><i class="fa fa-magic"></i></div>
-                    <h3>300+</h3>
-                    <p>Bài tập thực hành, phân chia căn bản, nâng cao, chuyên sâu</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12" data-aos="flip-down">
-                <div class="single_feature">
-                    <div class="feature_icon"><i class="fas fa-location-arrow"></i></div>
-                    <h3>3+</h3>
-                    <p>Số dự án bạn sẽ làm được bao gồm dự án cá nhân, nhóm</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<secion id="mainWrapper">
-    <div class="feat bg-gray pt-5 pb-5">
+<div>
+    <section class="amazing_feature">
         <div class="container">
             <div class="row">
-                <div class="section-head col-sm-12">
-                    <h4>Học viên sẽ nhận được gì?</h4>
-                </div>
-                <div class="col-lg-4 col-sm-6" data-aos="zoom-out-right">
-                    <div class="item"> <span class="icon feature_box_col_one"><i class="fa fa-globe"></i></span>
-                        <h6>80% Thời gian thực hành</h6>
-                        <p>Hầu hết thời gian học viên sẽ được luyện tập trực tiếp 1-1 cùng với trợ giảng nâng cao kỹ năng vận dụng kiến thức khi làm dự án</p>
+                <div class="col-md-4 col-sm-6 col-xs-12" data-aos="flip-up">
+                    <div class="single_feature">
+                        <div class="feature_icon"><i class="far fa-heart"></i></div>
+                        <h3>500 +</h3>
+                        <p>Số giờ học (8h/buổi + 5 buổi/tuần + 65 buổi). Học như đi làm</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6" data-aos="zoom-out-up">
-                    <div class="item"> <span class="icon feature_box_col_three"><i class="fa fa-hourglass-half"></i></span>
-                        <h6>Thực chiến 3 dự án</h6>
-                        <p>Mỗi Module học tập học viên sẽ được làm một dự án. Học viên có tối đa 5 dự án thêm vào CV là điểm cộng rất lớn khi xin việc.</p>
+                <div class="col-md-4 col-sm-6 col-xs-12" data-aos="zoom-in">
+                    <div class="single_feature">
+                        <div class="feature_icon"><i class="fa fa-magic"></i></div>
+                        <h3>300+</h3>
+                        <p>Bài tập thực hành, phân chia căn bản, nâng cao, chuyên sâu</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6" data-aos="zoom-out-left">
-                    <div class="item"> <span class="icon feature_box_col_four"><i class="fa fa-database"></i></span>
-                        <h6>Cam kết công việc sau tốt nghiệp</h6>
-                        <p>Hoàn thành đồ án, học viên được cấp chứng chỉ và hướng dẫn viết CV, kỹ năng phỏng vấn và hỗ trợ tìm môi trường làm việc lý tưởng</p>
+                <div class="col-md-4 col-sm-6 col-xs-12" data-aos="flip-down">
+                    <div class="single_feature">
+                        <div class="feature_icon"><i class="fas fa-location-arrow"></i></div>
+                        <h3>3+</h3>
+                        <p>Số dự án bạn sẽ làm được bao gồm dự án cá nhân, nhóm</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</secion>
-<div class="container my-5">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="py-4">
-                <h2 class="text-capitalize font-weight-bold my-3">Những điều <span  style="color: #9B5DE5">Đặc Biệt</span> của khóa học</h2>
-                <p class="text-secondary" style="line-height: 2;">Phương pháp học tập tạo sự khác biệt dẫn đến thành công</p>
+    </section>
+    <secion id="mainWrapper">
+        <div class="feat bg-gray pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="section-head col-sm-12">
+                        <h4>Học viên sẽ nhận được gì?</h4>
+                    </div>
+                    <div class="col-lg-4 col-sm-6" data-aos="zoom-out-right">
+                        <div class="item"> <span class="icon feature_box_col_one"><i class="fa fa-globe"></i></span>
+                            <h6>80% Thời gian thực hành</h6>
+                            <p>Hầu hết thời gian học viên sẽ được luyện tập trực tiếp 1-1 cùng với trợ giảng nâng cao kỹ năng vận dụng kiến thức khi làm dự án</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6" data-aos="zoom-out-up">
+                        <div class="item"> <span class="icon feature_box_col_three"><i class="fa fa-hourglass-half"></i></span>
+                            <h6>Thực chiến 3 dự án</h6>
+                            <p>Mỗi Module học tập học viên sẽ được làm một dự án. Học viên có tối đa 5 dự án thêm vào CV là điểm cộng rất lớn khi xin việc.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6" data-aos="zoom-out-left">
+                        <div class="item"> <span class="icon feature_box_col_four"><i class="fa fa-database"></i></span>
+                            <h6>Cam kết công việc sau tốt nghiệp</h6>
+                            <p>Hoàn thành đồ án, học viên được cấp chứng chỉ và hướng dẫn viết CV, kỹ năng phỏng vấn và hỗ trợ tìm môi trường làm việc lý tưởng</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-8">
-            <div class="row">
-                <div class="col-md-6 px-4 my-2">
-                    <i class="fa-solid fa-code"></i>
-                    <div class="mt-3">
-                        <h5 class="mb-2" style="font-weight: 600;"><a href="#" style="color: #9B5DE5">Code chuẩn chỉnh</a></h5>
-                        <p class="text-secondary">Code sẽ được review cải tiến chuẩn mức yêu cầu như đi làm</p>
+    </secion>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="py-4">
+                    <h2 class="text-capitalize font-weight-bold my-3">Những điều <span  style="color: #9B5DE5">Đặc Biệt</span> của khóa học</h2>
+                    <p class="text-secondary" style="line-height: 2;">Phương pháp học tập tạo sự khác biệt dẫn đến thành công</p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6 px-4 my-2">
+                        <i class="fa-solid fa-code"></i>
+                        <div class="mt-3">
+                            <h5 class="mb-2" style="font-weight: 600;"><a href="#" style="color: #9B5DE5">Code chuẩn chỉnh</a></h5>
+                            <p class="text-secondary">Code sẽ được review cải tiến chuẩn mức yêu cầu như đi làm</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 px-4 my-2">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                        <div class="mt-3">
+                            <h5 class="mb-2" style="font-weight: 600;"><a href="#" style="color: #9B5DE5">Support học viên 24/7</a></h5>
+                            <p class="text-secondary">Nhóm Zalo học tập, giải đáp mọi thắc mắc ngay tức thì</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 px-4 my-2">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <div class="mt-3">
+                            <h5 class="mb-2" style="font-weight: 600;"><a href="#" style="color: #9B5DE5">Kỹ năng Search</a></h5>
+                            <p class="text-secondary">Không thể thiếu với lập trình viên, search sao cho chuẩn, ra vấn đề</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 px-4 my-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <div class="mt-3">
+                            <h5 class="mb-2" style="font-weight: 600;"><a href="#" style="color: #9B5DE5">Thực chiến dự án</a></h5>
+                            <p class="text-secondary">Thực hành, thực hành và thực hành. Hơn 300+ bài tập lớn nhỏ</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 px-4 my-2">
-                    <i class="fa-solid fa-handshake-angle"></i>
-                    <div class="mt-3">
-                        <h5 class="mb-2" style="font-weight: 600;"><a href="#" style="color: #9B5DE5">Support học viên 24/7</a></h5>
-                        <p class="text-secondary">Nhóm Zalo học tập, giải đáp mọi thắc mắc ngay tức thì</p>
-                    </div>
-                </div>
-                <div class="col-md-6 px-4 my-2">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <div class="mt-3">
-                        <h5 class="mb-2" style="font-weight: 600;"><a href="#" style="color: #9B5DE5">Kỹ năng Search</a></h5>
-                        <p class="text-secondary">Không thể thiếu với lập trình viên, search sao cho chuẩn, ra vấn đề</p>
-                    </div>
-                </div>
-                <div class="col-md-6 px-4 my-2">
-                    <i class="fa-solid fa-clock"></i>
-                    <div class="mt-3">
-                        <h5 class="mb-2" style="font-weight: 600;"><a href="#" style="color: #9B5DE5">Thực chiến dự án</a></h5>
-                        <p class="text-secondary">Thực hành, thực hành và thực hành. Hơn 300+ bài tập lớn nhỏ</p>
-                    </div>
-                </div>
+
             </div>
 
         </div>
-
     </div>
-</div>
-<div class="section-head col-sm-12 p-3" style="margin-top: 100px">
-    <h4>Các sản phẩm của học viên</h4>
-</div>
-<div class="swiper mySwiper container mb-5">
-    <div class="swiper-wrapper container">
-        <div class="swiper-slide">
-            <figure class="snip0016">
-                <img src="https://mlcumuvdzi0w.i.optimole.com/cb:UbYe.da8/w:500/h:357/q:mauto/f:avif/https://nodemy.vn/wp-content/uploads/2022/09/K13-CShop.png" alt="sample41"/>
-                <figcaption>
-                    <h2>CShop Ecommerce</h2>
-                    <p>Dự án thương mại điện tử,
-                        phát triển bởi K13 với ReactJS NodeJS,
-                        giai đoạn 1 hoàn thành các chức năng cho phép tạo các gian hàng ảo của mình. <br>
-                        <button class="btn btn-outline-danger mt-3" href="http://thexstore.tk/">Xem dự án</button>
-                    </p>
-                    <a href="http://thexstore.tk/"></a>
-                </figcaption>
-            </figure>
-        </div>
-        <div class="swiper-slide">
-            <figure class="snip0016">
-                <img src="https://mlcumuvdzi0w.i.optimole.com/cb:UbYe.da8/w:500/h:366/q:mauto/f:avif/https://nodemy.vn/wp-content/uploads/2022/09/K14-shop-my-pham.png" alt="sample41"/>
-                <figcaption>
-                    <h2>Store Mỹ Phẩm</h2>
-                    <p>Ý tưởng K11 xây dựng một của hàng thể thao online. Tiền đề cho kế hoạch bán hàng online của nhóm. Công nghệ: ReactJS & NodeJS<br>
-                        <button class="btn btn-outline-danger mt-3" href="http://thexstore.tk/">Xem dự án</button>
-                    </p>
-                    <a href="http://thexstore.tk/"></a>
-                </figcaption>
-            </figure>
-        </div>
-        <div class="swiper-slide">
-            <figure class="snip0016">
-                <img src="https://mlcumuvdzi0w.i.optimole.com/cb:UbYe.da8/w:500/h:289/q:mauto/f:avif/https://nodemy.vn/wp-content/uploads/2022/09/K14-shop-nu.png" alt="sample41"/>
-                <figcaption>
-                    <h2>Shop Thời Trang Nữ</h2>
-                    <p>Một Shop có UI/UX đẹp sẽ giúp kích thích khách mua hàng. Với ReactJS & NodeJS Team 2 K14 hoàn thành project web bán hàng đơn giản và tinh tế<br>
-                        <button class="btn btn-outline-danger mt-3" href="http://thexstore.tk/">Xem dự án</button>
-                    </p>
-                    <a href="http://thexstore.tk/"></a>
-                </figcaption>
-            </figure>
-        </div>
+    <div class="section-head col-sm-12 p-3" style="margin-top: 100px">
+        <h4>Các sản phẩm của học viên</h4>
     </div>
-    <div class="swiper-pagination"></div>
+    <div class="swiper mySwiper container mb-5">
+        <div class="swiper-wrapper container">
+            <div class="swiper-slide">
+                <figure class="snip0016">
+                    <img src="https://mlcumuvdzi0w.i.optimole.com/cb:UbYe.da8/w:500/h:357/q:mauto/f:avif/https://nodemy.vn/wp-content/uploads/2022/09/K13-CShop.png" alt="sample41"/>
+                    <figcaption>
+                        <h2>CShop Ecommerce</h2>
+                        <p>Dự án thương mại điện tử,
+                            phát triển bởi K13 với ReactJS NodeJS,
+                            giai đoạn 1 hoàn thành các chức năng cho phép tạo các gian hàng ảo của mình. <br>
+                            <button class="btn btn-outline-danger mt-3" href="http://thexstore.tk/">Xem dự án</button>
+                        </p>
+                        <a href="http://thexstore.tk/"></a>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="swiper-slide">
+                <figure class="snip0016">
+                    <img src="https://mlcumuvdzi0w.i.optimole.com/cb:UbYe.da8/w:500/h:366/q:mauto/f:avif/https://nodemy.vn/wp-content/uploads/2022/09/K14-shop-my-pham.png" alt="sample41"/>
+                    <figcaption>
+                        <h2>Store Mỹ Phẩm</h2>
+                        <p>Ý tưởng K11 xây dựng một của hàng thể thao online. Tiền đề cho kế hoạch bán hàng online của nhóm. Công nghệ: ReactJS & NodeJS<br>
+                            <button class="btn btn-outline-danger mt-3" href="http://thexstore.tk/">Xem dự án</button>
+                        </p>
+                        <a href="http://thexstore.tk/"></a>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="swiper-slide">
+                <figure class="snip0016">
+                    <img src="https://mlcumuvdzi0w.i.optimole.com/cb:UbYe.da8/w:500/h:289/q:mauto/f:avif/https://nodemy.vn/wp-content/uploads/2022/09/K14-shop-nu.png" alt="sample41"/>
+                    <figcaption>
+                        <h2>Shop Thời Trang Nữ</h2>
+                        <p>Một Shop có UI/UX đẹp sẽ giúp kích thích khách mua hàng. Với ReactJS & NodeJS Team 2 K14 hoàn thành project web bán hàng đơn giản và tinh tế<br>
+                            <button class="btn btn-outline-danger mt-3" href="http://thexstore.tk/">Xem dự án</button>
+                        </p>
+                        <a href="http://thexstore.tk/"></a>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
 </div>
 <script src="<?= BASE_URL ?>assets/js/course/comment.js"></script>
 <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/course_details.css">
@@ -471,6 +488,9 @@
     var lenght = 2;
     load_more_2(".cmt-item", "#loadMore", "#loadLess", lenght);
     load_less_scroll(".cmt-item", "#loadLess", "#loadMore", lenght, 900);
+
+    load_more_2(".same_course", "#loadMoreCourseOther", "#loadLessCourseOther", lenght);
+    load_less_2(".same_course", "#loadLessCourseOther", "#loadMoreCourseOther", lenght);
 </script>
 <script>
     var swiper = new Swiper(".mySwiper", {

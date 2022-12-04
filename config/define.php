@@ -1,7 +1,8 @@
 <?php
-    //  define("BASE_URL",     'http://localhost/courses/');
-  define("BASE_URL",     'http://localhost/coursesWeb/du_an_1/');
+      define("BASE_URL",     'http://localhost/courses/');
+//  define("BASE_URL",     'http://localhost/coursesWeb/du_an_1/');
 //    define("BASE_URL",     'http://localhost/hangdtph27628/du_an_1/');
+    define("URI",     $_SERVER['REQUEST_URI']);
     // database
     define("DB_HOST", "localhost");
     define("DB_USER", "root");
@@ -39,7 +40,7 @@
     define("TEACHER_SIGNIN",        BASE_URL.'account/teacher_signin');
     // teacher manager
     define("DASHBOARD_TEACHER",     BASE_URL.'teacher_manager');
-    define("COURSE_TEACHER",        BASE_URL.'teacher_manager/my_course');
+    define("CLASSARCHIVE_TEACHER",  BASE_URL.'teacher_manager/my_class_archive');
     define("CLASS_TEACHER",         BASE_URL.'teacher_manager/my_class');
     define("TEACHER_PROFILE",       BASE_URL.'teacher_manager/teacher_profile');
 ?>

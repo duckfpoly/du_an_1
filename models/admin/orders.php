@@ -1,5 +1,4 @@
 <?php
-
     function check_order_code($order_code){
         $sql = "SELECT * FROM `tbl_orders` WHERE order_code = ?";
         if(query_one($sql, $order_code) > 0 ){
@@ -76,4 +75,10 @@
             ";
         return query($sql,$status);
     }
+
+    function countclasscourse($id_course){
+        $sql = "SELECT COUNT(*) FROM classes WHERE id_course = ?";
+        return query_value($sql,$id_course);
+    }
+
 ?>

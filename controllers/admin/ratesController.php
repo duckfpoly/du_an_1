@@ -13,7 +13,7 @@ if(isset($_GET['act'])){
             break;
     }
 }else {
-    $all_course = get_all_course();
+    $all_course = get_all_courses();
     if(isset($_GET['c'])){
         $id = $_GET['c'];
         $read_comment = filter_course($id);

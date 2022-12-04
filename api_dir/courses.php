@@ -26,8 +26,7 @@ class courses {
                     'discount'              => $discount,
                     'created_at'            => $created_at,
                     'updated_at'            => $updated_at,
-                    'id_category '          => $id_category,
-                    'id_teacher '           => $id_teacher,
+                    'id_category '          => $id_category
                 );
                 array_push($data_array,$data_item);
             }
@@ -125,8 +124,7 @@ class courses {
                             'discount'              => $discount,
                             'created_at'            => $created_at,
                             'updated_at'            => $updated_at,
-                            'id_category '          => $id_category,
-                            'id_teacher '           => $id_teacher,
+                            'id_category '          => $id_category
                         );
                         array_push($data_array,$data_item);
                     }

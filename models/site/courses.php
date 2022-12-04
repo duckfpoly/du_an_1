@@ -5,7 +5,7 @@
                 categories.name_category
          FROM courses
          INNER JOIN categories ON courses.id_category = categories.id
-         ORDER BY courses.id DESC LIMIT 5";
+         ORDER BY courses.price_course DESC LIMIT 5";
         return query($sql);
     }
     function get_all_courses(){
@@ -69,6 +69,9 @@
         ";
         return query($sql);
     }
+
+
+
     function get_rate_course($id){
         $sql = "SELECT * FROM rate_courses 
                 INNER JOIN students ON rate_courses.id_student  = students.id
@@ -106,7 +109,7 @@
     function get_count_rate($id,$rate){
         $sql = "SELECT COUNT(rate) AS count_rate
                 FROM rate_courses
-                WHERE id_course  = ? AND rate = ?
+                WHERE id_course = ? AND rate = ?
                 GROUP BY rate
                 ";
         return query_one($sql,$id,$rate);
@@ -116,7 +119,7 @@
             SELECT classes.*, teachers.name_teacher 
             FROM classes 
             INNER JOIN teachers ON classes.id_teacher  = teachers.id
-            WHERE classes.id_course = ?
+            WHERE classes.id_course = ? AND classes.status_class = 0
         ";
         return query($sql,$id_course);
     }
@@ -150,4 +153,18 @@
             ";
         return query($sql,$id_cate);
     }
+
+    function get_courses(){
+        $sql = "SELECT * FROM courses WHERE status_course =0";
+        return query($sql);
+    }
+
+    function check_status_courses($id){
+        $sql = "SELECT * FROM `courses` WHERE id = ? AND status_course = 1";
+        $check_ID = query_one($sql, $id);
+        if(isset($check_ID['id'])) {
+            return "Khóa học không tồn tại !";
+        }
+    }
+
 ?>

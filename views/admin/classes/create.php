@@ -25,6 +25,16 @@
                                 </select>
                                 <div class="form-message text-danger mt-1"></div>
                             </div>
+                            <div class="form-group ">
+                                <label for="id_teacher" class="form-label">Giảng viên</label>
+                                <select name="id_teacher" id="id_teacher" class="form-control">
+                                    <option disabled selected value="">Chọn giảng viên</option>
+                                    <?php foreach($teacher_read as $key => $values): ?>
+                                        <option value="<?= $values['id'] ?>"><?= $values['name_teacher'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <div class="form-message text-danger mt-1"></div>
+                            </div>
                             <div class="form-group">
                                 <label for="time_learn" class="form-label">
                                     Thời gian học
@@ -33,21 +43,21 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="time_learn" id="statusCourse1" value="0" required>
                                         <label class="form-check-label" for="statusCourse1">
-                                            2 - 4 - 6
+                                            7h30 - 12h
                                         </label>
                                     </div>
                                     &emsp;&emsp;
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="time_learn" id="statusCourse2" value="1" required>
                                         <label class="form-check-label" for="statusCourse2">
-                                            3 - 5 - 7
+                                            13h30 - 18h
                                         </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label for="time_start" class="form-label">Thời gian bắt đầu</label>
-                                <input type="date" name="time_start" id="time_start" class="form-control" required>
+                                <input type="date" name="time_start" id="time_start" min="<?= date("Y-m-d") ?>" class="form-control" required>
                                 <div class="form-message text-danger mt-1"></div>
                             </div>
                             <div class="mt-5">
@@ -70,18 +80,8 @@
             rules: [
                 Validator.isRequired("#name_class", "Vui lòng nhập tên lớp học"),
                 Validator.isRequired("#id_category", "Vui lòng chọn khóa học"),
+                Validator.isRequired("#id_teacher", "Vui lòng chọn giảng viên"),
             ],
         });
     });
-
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $("#image_course_preview").attr("src", e.target.result);
-                $("#preview_img").attr("href", e.target.result);
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
 </script>

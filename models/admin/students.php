@@ -87,6 +87,16 @@
                 ";
         return query_value($sql,$month);
     }
+    function count_std_with_month($month,$year){
+        $sql = "SELECT COUNT(MONTH(created_at)) AS total 
+                    FROM students 
+                    WHERE MONTH(created_at) = ?
+                    AND YEAR(created_at) = $year
+                    ";
+        return query_value($sql,$month);
+    }
+
+
     function now_year(){
         $date = getdate();
         $year = $date['year'];
