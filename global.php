@@ -81,7 +81,7 @@
             return strtoupper($_GET['v']).' - '.course_detail($_GET['id'])['name_course'];
         }
         else {
-            return isset($_GET['v']) == true ? strtoupper($_GET['v']) : "Courses App" ;
+            return isset($_GET['v']) == true ? strtoupper($_GET['v']) : "Trung tâm HDO" ;
         }
     }
 

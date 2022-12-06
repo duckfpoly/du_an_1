@@ -37,23 +37,23 @@
             <div class='row'>
                 <div class="mb-3 col form-group">
                     <label for="exampleInputEmail1" class="form-label">Tên khách hàng</label>
-                    <input type="text" name='name' id='name' value='<?= $data_user['name_student']?>' class="form-control text-dark" id="exampleInputEmail1">
+                    <input type="text" name='name' id='name' value='<?= $data_user['name_student']?>' class="form-control text-dark form_setup" id="exampleInputEmail1">
                     <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="mb-3 col form-group">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" name ='email' value='<?= $data_user['email_student']?>' class="form-control text-dark" disabled placeholder="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" name ='email' value='<?= $data_user['email_student']?>' class="form-control text-dark form_setup" disabled placeholder="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
             </div>
             <div class='row'>
                 <div class="mb-3 col form-group">
                     <label for="exampleInputEmail1" class="form-label">Số điện thoại</label>
-                    <input type="text" name='phone_number' id='phone_number' value='<?= $data_user['phone_student']?>' class="form-control text-dark" id="exampleInputEmail1">
+                    <input type="text" name='phone_number' id='phone_number' value='<?= $data_user['phone_student']?>' class="form-control text-dark form_setup" id="exampleInputEmail1">
                     <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="mb-3 form-group col">
                     <label for="exampleInputEmail1" class="form-label">Avatar</label>
-                    <input type="file" name ='avatar' id ='avatar'  class="form-control text-dark" id="exampleInputEmail1">
+                    <input type="file" name ='avatar' id ='avatar'  class="form-control text-dark form_setup" id="exampleInputEmail1">
                 </div>
             </div>    
             <input type="text" hidden name="updated_at" id="updated_at" value='<?= date('d-m-y h:i:s')?>'>

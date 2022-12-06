@@ -8,7 +8,7 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-7 col-md-12">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Courses Learning</h1>
+                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Trung tâm HDO</h1>
                                     <p data-animation="fadeInLeft" data-delay="0.4s">Xây dựng kỹ năng lập trình với các khóa học</p>
                                     <a href="<?= SIGUP?>" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Join Now</a>
                                 </div>

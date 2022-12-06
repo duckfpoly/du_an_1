@@ -29,19 +29,19 @@
         <form action='<?= PROFILE?>' method='post' enctype='multipart/form-data' onsubmit="return false">
             <div class='row'>
                 <div class="mb-3 col form-group">
-                    <label for="password" class="form-label">Tên khách hàng</label>
-                    <input type="text" name='password' disabled id='password' value='<?= $data_user['password_student']?>' class="form-control text-dark">
+                    <label for="password" class="form-label">Mật khẩu cũ</label>
+                    <input type="password" name='password' disabled id='password' value='<?= $data_user['password_student']?>' class="form-control form_setup text-dark">
                     <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="mb-3 col form-group">
                     <label for="new_pass" class="form-label">Mật khẩu mới</label>
-                    <input type="text" name ='new_pass' id ='new_pass' value='' class="form-control text-dark" >
+                    <input type="password" name ='new_pass' id ='new_pass' value='' class="form-control form_setup text-dark" >
                 </div>
             </div>
 
             <div class="mb-3 form-group ">
                 <label for="comfirm_pass" class="form-label">Xác nhận mật khẩu</label>
-                <input type="text" name ='comfirm_pass' id ='comfirm_pass'  class="form-control text-dark">
+                <input type="password" name ='comfirm_pass' id ='comfirm_pass'  class="form-control form_setup text-dark">
             </div>
  
             <input type="text" hidden name="updated_at" id="updated_at" value='<?= date('d-m-y h:i:s')?>'>
