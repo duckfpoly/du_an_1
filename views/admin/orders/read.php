@@ -98,20 +98,22 @@
 </section>
 <script>
     let change_qtyy = element => {
-        var dataString  = 'id=' + element.getAttribute('data-id') + '&status=' + element.value;
         var id_class    = element.getAttribute('data-id-class');
         var id_student  = element.getAttribute('data-id-student');
+        var status      = element.value;
+        var id          = element.getAttribute('data-id');
+        var dataString  = 'id='+id+'&status='+status+'&id_student='+id_student+'&id_class='+ id_class;
         $.ajax({
             type: "POST",
             url: '<?= ORDERS ?>/edit',
             data: dataString,
             success: function () {
-                if(element.value == 1) {
+                if(status == 1) {
                     element.setAttribute("disabled", true)
                     element.style.color = "#fff";
                     element.style.background = "#fb6340";
                 }
-                else if(element.value == 2) {
+                else if(status == 2) {
                     element.setAttribute("disabled", true)
                     element.style.color = "#fff";
                     element.style.background = "#2dce89";

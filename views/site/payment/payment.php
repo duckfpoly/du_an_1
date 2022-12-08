@@ -1,6 +1,16 @@
 <?php if(!isset($_SESSION['user'])){
     location(BASE_URL.'account/sign_in');
 } ?>
+<style>
+    #name,#email,#phone {
+        padding: 10px;
+        font-size: 20px;
+    }
+    .item {
+        font-size: 20px;
+        margin: 10px 0px 10px 0px;
+    }
+</style>
 <section class="breadcrumb_part">
     <div class="container">
         <div class="row">

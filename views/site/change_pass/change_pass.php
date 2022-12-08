@@ -83,3 +83,27 @@
     }
 
 </script>
+
+<style>
+    .colorOldPrice{
+        color: rgba(0,0,0,0.3) !important;
+    }
+    .textPrice{
+        font-size:17px !important;
+    }
+
+    .avatar_user{
+        max-width: 40px;
+        object-fit: cover;
+    }
+    .avatar-img{
+        max-width: 100px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+    .form_setup{
+        padding: 14px 15px;
+        border-radius: 10px;
+        font-size:15px;
+    }
+</style>
