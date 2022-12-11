@@ -8,10 +8,12 @@
          ORDER BY courses.price_course DESC LIMIT 5";
         return query($sql);
     }
+
     function get_all_courses(){
         $sql = "SELECT * FROM courses";
         return query($sql);
     }
+
     function get_course($id){
         $sql = "SELECT 
             courses.* ,
@@ -22,6 +24,7 @@
         WHERE courses.id = ?";
         return query_one($sql,$id);
     }
+
     function detail_mycourse($id_user,$id_course){
         $sql = "SELECT * FROM tbl_orders INNER JOIN classes ON tbl_orders.id_class = classes.id INNER
         JOIN students ON tbl_orders.id_students = students.id 
@@ -31,6 +34,7 @@
         classes.id_course = '$id_course'";
         return query_one($sql);
     }
+
     function get_classes($id){
         $sql = "
             SELECT
@@ -47,10 +51,12 @@
         ";
         return query_one($sql,$id);
     }
+
     function filter_cate($id){
         $sql = "SELECT * FROM courses WHERE id_category = $id";
         return query($sql);
     }
+
     function find_product($input, $id){
         if(isset($id)){
             $sql = "SELECT * FROM courses WHERE name_course like '%$input%'";
@@ -61,6 +67,7 @@
         }
         return query($sql);
     }
+
     function get_my_courses($id){
         $sql = "SELECT *, courses.id AS id_course FROM tbl_orders INNER JOIN classes ON 
         tbl_orders.id_class = classes.id INNER JOIN courses ON classes.id_course = courses.id
@@ -69,8 +76,6 @@
         ";
         return query($sql);
     }
-
-
 
     function get_rate_course($id){
         $sql = "SELECT * FROM rate_courses 
@@ -81,6 +86,7 @@
         ";
         return query($sql,$id);
     }
+
     function add_rate_course($rate,$content_rate,$id_course,$id_student){
         $sql = "INSERT INTO rate_courses SET 
                 `rate`          = ?,
@@ -90,22 +96,27 @@
         ";
         query_sql($sql,$rate,$content_rate,$id_course,$id_student);
     }
+
     function get_lesson_course($id){
         $sql = "SELECT * FROM lesson_courses WHERE lesson_courses.id_course = ? ";
         return query($sql,$id);
     }
+
     function get_detail_lesson_course($id){
         $sql = "SELECT * FROM detail_lesson WHERE detail_lesson.id_lesson  = ?";
         return query($sql,$id);
     }
+
     function get_avg_rate_course($id){
         $sql = "SELECT AVG(rate) FROM rate_courses WHERE rate_courses.id_course  = ?";
         return query_value($sql,$id);
     }
+
     function get_count_rate_course($id){
         $sql = "SELECT COUNT(rate) FROM rate_courses WHERE rate_courses.id_course  = ?";
         return query_value($sql,$id);
     }
+
     function get_count_rate($id,$rate){
         $sql = "SELECT COUNT(rate) AS count_rate
                 FROM rate_courses
@@ -114,15 +125,19 @@
                 ";
         return query_one($sql,$id,$rate);
     }
+
     function get_class_by_course($id_course){
         $sql = "
             SELECT classes.*, teachers.name_teacher 
             FROM classes 
             INNER JOIN teachers ON classes.id_teacher  = teachers.id
-            WHERE classes.id_course = ? AND classes.status_class = 0
+            WHERE classes.id_course = ? 
+            AND classes.status_class = 0
+            AND teachers.status_teacher = 0
         ";
         return query($sql,$id_course);
     }
+
     function get_class_by_course_with_user($id_course,$id_std){
         $sql = "SELECT 
             classes.*, 
@@ -135,6 +150,7 @@
         ";
         return query_one($sql,$id_course);
     }
+
     function count_std_coursee($id_course){
         $sql = "SELECT COUNT(detail_classes.id_students) AS total FROM detail_classes
                 INNER JOIN classes ON detail_classes.id_class = classes.id
@@ -142,10 +158,12 @@
         ";
         return query_value($sql,$id_course);
     }
+
     function count_std_class($id_class){
         $sql = "SELECT COUNT(detail_classes.id_students) AS total FROM detail_classes WHERE detail_classes.id_class = ?";
         return query_value($sql,$id_class);
     }
+
     function course_same_cate($id_cate,$id_course){
         $sql = "SELECT * FROM courses
                 WHERE id_category = ? 

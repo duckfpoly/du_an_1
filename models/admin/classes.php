@@ -32,17 +32,6 @@
         }
     }
 
-    function check_name_class($name_class,$id){
-        $sql = "SELECT * FROM `courses` 
-            INNER JOIN teachers ON courses.id_teacher = teachers.id
-            INNER JOIN classes ON courses.id = classes.id_course
-            WHERE classes.name_class = ? AND teachers.id = ?";
-            $check_name_class = query_one($sql,$name_class,$id);
-            if($check_name_class > 0) {
-                return "Tên lớp đã được giảng viên sử dụng !";
-            }
-    }
-
     function class_create($name_class,$id_course,$id_teacher,$time_learn,$time_start,$time_end){
         $sql = "INSERT INTO `classes` SET 
                 `name_class`    =   ?,
@@ -151,8 +140,6 @@
         $sql = "SELECT * FROM detail_classes 
             INNER JOIN students ON detail_classes.id_students = students.id
             WHERE detail_classes.id_class = ?
-            AND detail_classes.date_sub = ?
-            AND detail_classes.time_sub = ?
         ";
         return query($sql,$id_class,$date,$time);
     }
@@ -177,15 +164,27 @@
 
     function check_std_course($id_course,$id_students){
         $sql = "SELECT 
-                    *
-                FROM `classes` 
-                INNER JOIN detail_classes ON detail_classes.id_class = classes.id
-                WHERE classes.id_course = ?
-                AND detail_classes.id_students = ?
-            ";
+                *
+            FROM `classes` 
+            INNER JOIN detail_classes ON detail_classes.id_class = classes.id
+            WHERE classes.id_course = ?
+            AND detail_classes.id_students = ?
+        ";
         $check_std = query_one($sql,$id_course,$id_students);
         if($check_std > 0) {
             return "Bạn đã đăng ký khóa học này rồi !";
+        }
+    }
+
+    function my_class($id_student){
+        $sql = "SELECT * FROM detail_classes WHERE id_students = ?";
+        $class = query($sql,$id_student);
+        $sql = "SELECT * FROM tbl_orders WHERE id_students = ? AND status = 2";
+        $order = query($sql,$id_student);
+        foreach ($order as $items){
+            if($items['status'] == 2){
+                return $class;
+            }
         }
     }
 

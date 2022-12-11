@@ -1,7 +1,7 @@
 <?php ob_start();
     include_once 'global.php';
     checkSessionAdmin();
-    check_time_class();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,8 +31,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="<?= BASE_URL ?>assets/admin/js/plugins/chartjs.min.js">                           </script>
-
-
     <style>
         .btn {
             margin-bottom: 0 !important;

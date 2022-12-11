@@ -11,6 +11,13 @@
     $client->addScope("profile");
     include 'config/inc.php';
 
+    check_time_class();
+    update_status_order();
+
+
+
+
+
     function active_item($item){
         echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';
     }
@@ -150,23 +157,28 @@
     }
 
     function send_mail($mail,$output,$title){
-        $mailer         = new PHPMailer(true);
-        $mailer->SMTPDebug = 0;
-        $mailer->isSMTP();
-        $mailer->Host       = 'smtp.gmail.com';
-        $mailer->SMTPAuth   = true;
-        $mailer->Username   = 'ndcake.store@gmail.com';
-        $mailer->Password   = 'mswwgrjitnohamff';
-        $mailer->SMTPSecure = 'tls';
-        $mailer->Port       = 587;
-        $mailer->setFrom('ndcake.store@gmail.com', 'DDH Manager');
-        $mailer->addAddress($mail);
-        $mailer->isHTML(true);
-        $mailer->AddReplyTo('ndcake.store@gmail.com', 'DDH Manager');
-        $body = $output;
-        $mailer->Subject = 'DDH Manager - '.$title;
-        $mailer->Body = $body;
-        $mailer->send();
+        $mailer = new PHPMailer(true);
+        try {
+            $mailer->SMTPDebug = true;
+            $mailer->isSMTP();
+            $mailer->Host       = 'smtp.gmail.com';
+            $mailer->SMTPAuth   = true;
+            $mailer->Username   = 'ndcake.store@gmail.com';
+            $mailer->Password   = 'znbusgktghhcwbaw';
+            $mailer->SMTPSecure = 'tls';
+            $mailer->Port       = 587;
+            $mailer->setFrom('ndcake.store@gmail.com', 'DDH Courses');
+            $mailer->addAddress($mail);
+            $mailer->isHTML(true);
+            $mailer->AddReplyTo('ndcake.store@gmail.com', 'DDH Courses');
+            $body = $output;
+            $mailer->Subject = 'DDH Courses - '.$title;
+            $mailer->Body = $body;
+            $mailer->send();
+        }catch (Exception $e){
+//            echo "Mail của bạn chưa được gửi đi. Lỗi: {$e}";
+//            echo "Mail của bạn chưa được gửi đi. Lỗi: {$mailer->ErrorInfo}";
+        }
     }
 
     function cut_email($email){
@@ -313,22 +325,6 @@
         else {
             return (new DateTimeImmutable($date))->format('d/m/Y');
         }
-    }
-
-    function signupgg($client,$google_oauth){
-        $client->setRedirectUri("http://localhost/courseddh/sign_up");
-        if (isset($_GET['code'])) {
-            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-            $client->setAccessToken($token['access_token']);
-            $google_account_info = $google_oauth->userinfo->get();
-            $email      =  $google_account_info->email;
-            $name_user  =  $google_account_info->name;
-
-            $username   =  cut_email($email);
-            $password   =  rand(0,999999);
-            $create     =  sign_up_gg($username,$name_user,$email,$password);
-        }
-        include 'view/site/account/sign_up.php';
     }
 
     function cal_percent($obj,$sum){

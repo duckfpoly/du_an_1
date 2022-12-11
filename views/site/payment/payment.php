@@ -53,13 +53,13 @@
                     <div class="mb-3">
                         <h3>Thanh toán</h3>
                     </div>
-                    <input  type="radio" name="pay_option" value="0" id="offline">
-                    <label class="item" for="offline">
-                        <div class="title d-flex justify-content-between align-items-center">
-                            Thanh toán tại trung tâm
-                            <img src="https://bizweb.dktcdn.net/100/329/122/files/02icon-cod.png?v=1639559673947" alt="">
-                        </div>
-                    </label>
+<!--                    <input type="radio" name="pay_option" value="0" id="offline">-->
+<!--                    <label class="item" for="offline">-->
+<!--                        <div class="title d-flex justify-content-between align-items-center">-->
+<!--                            Thanh toán tại trung tâm-->
+<!--                            <img src="https://bizweb.dktcdn.net/100/329/122/files/02icon-cod.png?v=1639559673947" alt="">-->
+<!--                        </div>-->
+<!--                    </label>-->
                     <input  type="radio" name="pay_option" value="1" id="vietqr">
                     <label class="item" for="vietqr">
                         <div class="title d-flex justify-content-between align-items-center">
@@ -159,7 +159,8 @@
 <script src="<?= BASE_URL ?>assets/js/checkout/checkout.js"></script>
 <script LANGUAGE="JavaScript">
     function ValidateForm(form){
-        if ( ( form.pay_option[0].checked == false ) && ( form.pay_option[1].checked == false ) && ( form.pay_option[2].checked == false ) ) {
+        // if ( ( form.pay_option[0].checked == false ) && ( form.pay_option[1].checked == false ) && ( form.pay_option[2].checked == false ) ) {
+        if ( ( form.pay_option[0].checked == false ) && ( form.pay_option[1].checked == false ) ) {
             showSuccessToast('Warning','Vui lòng chọn hình thức thanh toán','warning')
             return false;
         }else {

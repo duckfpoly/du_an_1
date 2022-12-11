@@ -78,7 +78,11 @@
                                                 </tr>
                                             </thead>
                                            <tbody>
-                                                <?php $check_std_course = ''; foreach ($class as $let => $items):  ?>
+                                                <?php
+                                                    $check_std_course = '';
+                                                    $check_order_course = '';
+                                                    foreach ($class as $let => $items):
+                                                ?>
                                                 <?php   $time_start = strtotime($items['time_start']);
                                                         $time_now   = strtotime(date("Y-m-d"));
                                                         if($time_now < $time_start) {
@@ -94,18 +98,16 @@
                                                             <?php
                                                                 if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 1){
                                                                     $check_std_course = check_std_course($id,$_SESSION['user']['id']);
-                                                                    if(!isset($check_std_course)){
-                                                                        if(count_std_class($items['id']) != $items['slot']) {
-//                                                                        $check_std = check_std_class($items['id'],$_SESSION['user']['id']);
-//                                                                        if(!isset($check_std)){
-                                                                            echo '<td><button type="submit" class="btn">Đăng ký</button></td>';
-//                                                                        } else {
-//                                                                            echo '<td></td>';
-//                                                                        }
+                                                                    $check_order_course = check_order_course($id,$_SESSION['user']['id']);
+                                                                    if(count_std_class($items['id']) != $items['slot']) {
+                                                                        if(!isset($check_std_course)){
+                                                                            if(!isset($check_order_course)){
+                                                                                echo '<td><button type="submit" class="btn">Đăng ký</button></td>';
+                                                                            }
                                                                         }
-                                                                        else {
-                                                                            echo '<td>Đã đủ học viên</td>';
-                                                                        }
+                                                                    }
+                                                                    else {
+                                                                        echo '<td>Đã đủ học viên</td>';
                                                                     }
                                                                 }
                                                             ?>
@@ -120,8 +122,9 @@
                                     Vui lòng <a href="<?= SIGIN ?>" class="text-danger">đăng nhập</a> để đăng ký lớp học
                                 <?php } ?>
                                 <?php } else { echo 'Chưa có lớp học' ;} ?>
-                                <div>
-                                    <?= isset($check_std_course) ? $check_std_course : ''; ?>
+                                <div class="mt-3">
+                                    <?= isset($check_std_course)    ? $check_std_course : ''; ?>
+                                    <?= isset($check_order_course)  ? $check_order_course : ''; ?>
                                 </div>
                             </div>
                             <!-- Mô tả -->

@@ -1,6 +1,6 @@
 <?php
     $check = check_order_code($_POST['order_code']);
-    isset($check) && location(BASE_URL);
+    isset($check) && die(location(BASE_URL));
     $order_code     = $_POST['order_code'];
     $order_date     = date("Y-m-d H:i:s");
     $order_pay      = $_POST['pay_option'];
