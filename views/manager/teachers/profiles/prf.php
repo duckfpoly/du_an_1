@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">Teacher Profiles</h5>
+                    <h5 class="title">Thông tin cá nhân</h5>
                 </div>
                 <div class="card-body ">
                     <div class="row">
@@ -18,7 +18,7 @@
                                                     <div class="mt-3">
                                                         <h4 id="name_teacherr"><?= $teacher_detail['name_teacher'] ?></h4>
                                                         <p class="text-secondary mb-1"><?= $teacher_detail['scope_teacher'] ?> Developer</p>
-                                                        <p class="text-muted font-size-sm"><?= $teacher_detail['id'] ?></p>
+<!--                                                        <p class="text-muted font-size-sm">--><?//= $teacher_detail['id'] ?><!--</p>-->
 <!--                                                        <button class="btn btn-primary">Follow</button>-->
 <!--                                                        <button class="btn btn-outline-primary">Message</button>-->
                                                     </div>
@@ -59,6 +59,20 @@
                                                 </ul>
                                             </div>
                                         </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Cập nhật ảnh đại diện</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <form enctype="multipart/form-data">
+                                                        <input type="file" name="" id="" class="form-control">
+                                                        <button type="button" class="btn">Lưu</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="card">

@@ -10,10 +10,12 @@
     add_orders($order_code,$order_date,$order_pay,$id_student,$id_class,$price_total);
     $student = student_detail($id_student);
     $class  = class_detail($id_class);
+    add_student_to_class($id_student,$id_class);
+
     switch ($order_pay){
-        case 0:
-            include 'controllers/pay/process_pay_off.php';
-            break;
+//        case 0:
+//            include 'controllers/pay/process_pay_off.php';
+//            break;
         case 1:
             include 'controllers/pay/process_vietqr.php';
             break;

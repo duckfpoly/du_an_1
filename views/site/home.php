@@ -29,7 +29,7 @@
                             <div class="features-caption">
                                 <h3>Học từ con số 0</h3>
                                 <p>Học bài bản cho người bắt đầu.
-                                    Bất kì ai cũng có thể tham gia học tập</p>
+                                    Bất kì ai cũng có thể tham gia học lập trình</p>
                             </div>
                         </div>
                     </div>

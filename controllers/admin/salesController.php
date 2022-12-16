@@ -32,6 +32,7 @@
                 location(SALES);
                 break;
             case "destroy":
+                die(location(SALES));
                 $id = $_POST['id_sale'];
                 check_empty($id,SALES);
                 delete_sale($id);

@@ -1,5 +1,4 @@
 <?php
-    $sort = COURSES;
 
     $dir_ctrl    = 'controllers/admin/';
     $dir_views   = 'views/admin/';

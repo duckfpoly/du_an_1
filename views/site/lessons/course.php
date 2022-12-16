@@ -57,7 +57,7 @@
                             <div class="tab active">Lớp học</div>
                             <div class="tab ">Mô tả</div>
                             <div class="tab">Chương trình học</div>
-                            <div class="tab">Đánh giá (<?= $count_rate ?>)</div>
+                            <div class="tab">Đánh giá (<span id="count_rate_1"><?= $count_rate ?></span>)</div>
                         </div>
                         <div class="tab_panels">
                             <!-- Lớp -->
@@ -170,8 +170,6 @@
                                                     </li>
                                                 <?php } ?>
                                             <?php } ?>
-
-
                                         </ul>
                                     </div>
                                     <?php } else {  echo 'Chưa có chương trình học'; } ?>
@@ -189,7 +187,7 @@
                                                 <div class="Stars" style="--rating: <?= $avg_rate ?>;"></div>
                                             </div>
                                         </div>
-                                        <div class="review_rating_text">(<?= $count_rate ?> đánh giá)</div>
+                                        <div class="review_rating_text">( <span id="count_rate_2"><?= $count_rate ?></span> đánh giá)</div>
                                     </div>
                                     <div class="review_rating_bars d-none">
                                         <ul>
@@ -324,7 +322,7 @@
                         <div class="sidebar_latest">
                             <?php foreach ($categories as $key => $values): ?>
                                 <!-- Latest Course -->
-                                <div class="latest d-flex flex-row align-items-start justify-content-start">
+                                <div class="latest d-flex flex-row align-items-start justify-content-start <?= $values['id'] == 1 ? 'd-none' : '' ?>">
                                     <div class="latest_content">
                                         <div class="latest_title"><a href="<?= LESSONS ?>/?cate=<?= $values['id'] ?>"><?= $values['name_category'] ?></a></div>
                                     </div>

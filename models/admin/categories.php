@@ -20,9 +20,9 @@
         $sql = "SELECT * FROM categories";
         return query($sql);
     }
-    function category_update($name_category,$id){
-        $sql = "UPDATE `categories` SET `name_category` = ? WHERE id = ?";
-        query_sql($sql,$name_category,$id);
+    function category_update($name_category,$status,$id){
+        $sql = "UPDATE `categories` SET `name_category` = ? , `status` = ? WHERE id = ?";
+        query_sql($sql,$name_category,$status,$id);
     }
     function category_delete($id){
         $sql = "DELETE FROM categories WHERE id = ?";

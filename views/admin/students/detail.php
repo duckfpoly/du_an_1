@@ -35,7 +35,7 @@ s<section class="container-fluid py-4">
                         <div class="form-group mb-3">
                             <label for="role" class="form-label">Chức vụ</label>
                             <div class="form-control">
-                                <?= $student_detail['role'] == 0 ? "Học viên" : "" ?>
+                                <?= $student_detail['role'] == 1 ? "Học viên" : "" ?>
                             </div>
                         </div>
                         <div class="mt-3">

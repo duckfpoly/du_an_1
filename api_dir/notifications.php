@@ -1,11 +1,10 @@
 <?php
-    header('Content-Type: application/json');
-    header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods.Authorization,X-Requested-With');
     class notifications {
         public function __construct(){
             $this->conn = (new db())->connect();
+            $this->format_date = new fomat_datetime();
         }
-        public function read(){
+        public function read2(){
             $sql = "SELECT * FROM notification_admin WHERE status = 0 ORDER BY id DESC LIMIT 5 ";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
@@ -26,47 +25,62 @@
                 return html_entity_decode( json_encode($data_array, JSON_UNESCAPED_UNICODE) );
             }
         }
-        public function create(){
-            header('Access-Control-Allow-Methods: POST');
-            $result = json_decode(file_get_contents("php://input"));
-            return json_encode(array('message' => $result));
-
-            $this->title    = $result->title;
-            $this->body     = $result->body;
-            $this->time     = $result->time;
-//            $query = "INSERT INTO notification_admin SET title = :title ,body = :body, time = :time";
-            $stmt = $this->conn->prepare($query);
-//            $this->title = htmlspecialchars(strip_tags($this->title));
-            $stmt->bindParam(':title', $this->title);
-//            $this->body = htmlspecialchars(strip_tags($this->body));
-            $stmt->bindParam(':body', $this->body);
-//            $this->time = htmlspecialchars(strip_tags($this->time));
-            $stmt->bindParam(':time', $this->time);
-            if($stmt->execute()) {
-                return json_encode(array('message' => 'Created successfully'));
+        public function read(){
+            $sql = "SELECT * FROM notification_admin WHERE status = 0 ORDER BY id DESC LIMIT 5 ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $num  = $stmt->rowCount();
+            if($num > 0){
+                $output = '';
+                while($items = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    $time = $this->format_date->diffForHuman($items['time']);
+                    $output .= '
+                        <li class="mb-2">
+                            <a class="dropdown-item border-radius-md" href="#">
+                                <div class="d-flex py-1">
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="text-sm font-weight-normal mb-1">
+                                            <span class="font-weight-bold">'.$items['body'].'</span>
+                                        </h6>
+                                        <p class="text-xs text-secondary mb-0">
+                                            <i class="fa fa-clock me-1"></i>
+                                            '.$time.'
+                                        </p>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center" style="font-size: 5px; margin-left: 20px">
+                                        <div>🔴</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    ';
+                }
+                $sql = "SELECT COUNT(*) FROM notification_admin WHERE status = 0";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute();
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $count = array_values($row)[0];
+                $data = array (
+                    'notification'          => $output,
+                    'unseen_notification'   => $count
+                );
+                return html_entity_decode( json_encode($data, JSON_UNESCAPED_UNICODE) );
+            }else {
+                $data = array (
+                    'notification'          => 'Chưa có thông báo mới !',
+                    'unseen_notification'   => 0
+                );
+                return html_entity_decode( json_encode($data, JSON_UNESCAPED_UNICODE) );
             }
-            printf("Error %s.\n", $stmt->error);
-            return json_encode(array('message' => "Don't create !"));
         }
         public function update(){
-            header('Access-Control-Allow-Methods: PUT');
-            $result = json_decode(file_get_contents("php://input"));
-            $this->id 	= $result->id;
-            $this->name_category = $result->name_category;
-            $query = "UPDATE categories SET name_category=:name_category WHERE id=:id";
+            $query = "UPDATE notification_admin SET status = 1";
             $stmt = $this->conn->prepare($query);
-            // clean data
-            $this->id = htmlspecialchars(strip_tags($this->id));
-            $this->name_category = htmlspecialchars(strip_tags($this->name_category));
-            // bind data
-            $stmt->bindParam(':id', $this->id);
-            $stmt->bindParam(':name_category', $this->name_category);
             if($stmt->execute()) {
-                return json_encode(array('message' => 'Updated successfully !'));
+                return json_encode(array('success' => 'Updated successfully !'));
             }
             printf("Error %s.\n", $stmt->error);
-            return json_encode(array('message' => 'Updated False !'));
-
+            return json_encode(array('error' => 'Updated False !'));
         }
     }
 ?>

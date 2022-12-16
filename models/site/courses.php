@@ -82,6 +82,7 @@
                 INNER JOIN students ON rate_courses.id_student  = students.id
                 INNER JOIN courses  ON rate_courses.id_course   = courses.id
                 WHERE rate_courses.id_course = ?
+                AND rate_courses.status = 0
                 ORDER BY rate_courses.id DESC 
         ";
         return query($sql,$id);
@@ -108,12 +109,12 @@
     }
 
     function get_avg_rate_course($id){
-        $sql = "SELECT AVG(rate) FROM rate_courses WHERE rate_courses.id_course  = ?";
+        $sql = "SELECT AVG(rate) FROM rate_courses WHERE rate_courses.id_course  = ? AND rate_courses.status = 0 ";
         return query_value($sql,$id);
     }
 
     function get_count_rate_course($id){
-        $sql = "SELECT COUNT(rate) FROM rate_courses WHERE rate_courses.id_course  = ?";
+        $sql = "SELECT COUNT(rate) FROM rate_courses WHERE rate_courses.id_course  = ? AND rate_courses.status  = 0";
         return query_value($sql,$id);
     }
 

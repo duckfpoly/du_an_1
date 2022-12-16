@@ -5,7 +5,7 @@
                 <div class="card-header border-bottom ">
                     <div class="d-flex justify-content-between align-items-center">
                         <h6>Chi tiết hóa đơn </h6>
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center d-none">
                             <form action="<?= ORDERS ?>/destroy" method="post">
                                 <input type="hidden" name="id_order" value="<?= $_GET['id'] ?>">
                                 <button onclick="return confirm('Bạn muốn xóa hóa đơn ' + <?= $detail['order_code'] ?> + '?') " class="btn btn-danger">Xóa</button>

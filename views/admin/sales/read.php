@@ -57,7 +57,7 @@
                                             </p></td>
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0" href="<?= SALES ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
-                                            <span class="text-secondary text-xs font-weight-bold">
+                                            <span class="text-secondary text-xs font-weight-bold d-none">
                                                 <form action="<?= SALES ?>/destroy" method="post">
                                                     <input type="hidden" name="id_sale" value="<?= $values['id'] ?>">
                                                     <button onclick="return confirm('Bạn muốn xóa khuyến mãi <?= $values['sale_code'] ?> ?')" class="btn btn-danger m-0">Xóa</button>

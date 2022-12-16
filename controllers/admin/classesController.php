@@ -53,6 +53,8 @@
                 location(CLASSES);
                 break;
             case "destroy":
+                die(location(STUDENTS));
+
                 // Lấy id từ trên url và kiểm tra
                 $id = $_GET['id'];
                 // nếu k tồn tại id thì trả lại view read
@@ -71,6 +73,8 @@
                 include_once $direct_act;
                 break;
             case "addStudent":
+                die(location(STUDENTS));
+
                 $id = $_GET['id'];
                 check_empty($id,CLASSES);
                 $count = count_slot_class($id);
@@ -79,6 +83,7 @@
                 include_once $direct_act;
                 break;
             case "storeStudent":
+                die(location(STUDENTS));
                 $id_class       = $_POST['id_class'];
                 $id_student     = $_POST['id_student'];
                 check_empty($id_class,CLASSES);

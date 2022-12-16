@@ -69,6 +69,7 @@ if(isset($_GET['act'])){
             }
 
         case "destroy":
+            die(location(ORDERS));
             $id = $_POST['id_order'];
             check_empty($id,ORDERS);
             order_delete($id);

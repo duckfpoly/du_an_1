@@ -17,21 +17,21 @@
                     <li class="mb-2">
                         <a class="dropdown-item border-radius-md" href="#">
                             <div class="d-flex py-1">
-                                <div class="my-auto">
-                                    <img src="'.BASE_URL.'assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
-                                </div>
                                 <div class="d-flex flex-column justify-content-center">
                                     <h6 class="text-sm font-weight-normal mb-1">
-                                        <span class="font-weight-bold">Đơn hàng mới</span>
+                                        <span class="font-weight-bold">'.$items['body'].'</span>
                                     </h6>
                                     <p class="text-xs text-secondary mb-0">
                                         <i class="fa fa-clock me-1"></i>
                                         '.$items['time'].'
                                     </p>
                                 </div>
+                                <div class="d-flex justify-content-end align-items-center" style="font-size: 5px; margin-left: 20px">
+                                    <div>🔴</div>
+                                </div>
                             </div>
                         </a>
-                    </li>       
+                    </li>
                 ';
             }
         }

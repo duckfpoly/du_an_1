@@ -25,7 +25,9 @@
                 check_data(check_email_student($email_student),$redirect);
                 check_data(check_phone_student($phone_student),$redirect);
 
-                save_file('image_student', 'students');
+//                save_file('image_student', 'students');
+                $saveImg = saveImage('image_student','students');
+                isset($saveImg) && show_error($saveImg,STUDENTS.'/create');
 
                 students_create($name_student,$email_student,$phone_student, $password_student,$image_student,$created_at);
                 location(STUDENTS);
@@ -59,7 +61,9 @@
                     $image_student = $image_goc;
                 } else {
                     $image_student = $image_up;
-                    save_file('image_student', 'students');
+//                    save_file('image_student', 'students');
+                    $saveImg = saveImage('image_student','students');
+                    isset($saveImg) && show_error($saveImg,STUDENTS.'/update/'.$id);
                 }
                 // Nếu dữ liệu update == dữ liệu trên database thì sẽ update bình thường
                 // Nếu dữ liệu update != dữ liệu trên databse thì sẽ tiếp tục check ( k trùng thì update, ngược lại k update trả về 1 thông báo và về lại giao diện update )
@@ -72,6 +76,7 @@
                 break;
 
             case "destroy":
+                die(location(STUDENTS));
                 // Lấy id từ trên url và kiểm tra
                 $id = $_GET['id'];
                 // nếu k tồn tại id thì trả lại view read

@@ -46,7 +46,7 @@
                                         </td>
                                         <td><p class="text-xs font-weight-bold mb-0"><?= $values['name_student'] ?></p></td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold"><?= $values['phone_student'] ?></span>
+                                            <span class="text-secondary text-xs font-weight-bold"><?= empty($values['phone_student']) ? 'Chưa có số điện thoại' : $values['phone_student']?></span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <?=
@@ -58,7 +58,7 @@
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0" href="<?= STUDENTS ?>/detail/<?= $values['id'] ?>">Chi tiết</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0" href="<?= STUDENTS ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
-                                            <span class="text-secondary text-xs font-weight-bold">
+                                            <span class="text-secondary text-xs font-weight-bold d-none">
                                                 <form action="<?= STUDENTS ?>/destroy/<?= $values['id'] ?>" method="post">
                                                     <button onclick="return confirm('Bạn muốn xóa học viên <?= $values['name_student'] ?> ?')" class="btn btn-danger m-0" >Xóa</button>
                                                 </form>

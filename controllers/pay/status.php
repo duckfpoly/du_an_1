@@ -34,7 +34,6 @@
                 $get_data_order = get_order($order_id);
                 $id_student = $get_data_order['id_students'];
                 $id_class   = $get_data_order['id_class'];
-                add_student_to_class($id_student,$id_class);
                 $student = student_detail($id_student);
                 $class  = class_detail($id_class);
                 $output  = '<p>Thân gửi, '.$student['name_student'].'</p>';

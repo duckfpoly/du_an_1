@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/admin/css/nucleo-svg.css"                       />
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/admin/css/argon-dashboard.css"                  />
 <!--    <link rel="stylesheet" href="--><?//= BASE_URL ?><!--assets/preloader/prea.css"                             />-->
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/toasts/toast.css"                               />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.css">
@@ -27,10 +26,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js">            </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
     <script src="<?= BASE_URL ?>assets/admin/js/items/load_div.js">                            </script>
-    <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
+<!--    <script src="https://js.pusher.com/3.2/pusher.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="<?= BASE_URL ?>assets/admin/js/plugins/chartjs.min.js">                           </script>
+    <script src="<?= BASE_URL ?>assets/toasts/toast.js">                                           </script>
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/toasts/toast.css"                               />
+
+
     <style>
         .btn {
             margin-bottom: 0 !important;
@@ -40,7 +42,12 @@
         }
     </style>
     <script> var admin = "<?= ADMIN ?>";</script>
-    <script type="text/javascript" src="<?= BASE_URL ?>assets/admin/js/items/notification.js"></script>
+    <script src="https://www.jsviews.com/download/jsrender.min.js"></script>
+
+    <!--    <script type="text/javascript" src="--><?//= BASE_URL ?><!--assets/admin/js/items/notification.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.5/plugin/relativeTime.min.js"></script>
 </head>
 <body class="g-sidenav-show bg-gray-100">
     <div id="toastt"></div>
@@ -100,7 +107,6 @@
     <script src="<?= BASE_URL ?>assets/admin/js/items/mainss.js">                                   </script>
     <script src="<?= BASE_URL ?>assets/admin/js/items/courses.js">                                 </script>
     <!--    <script src="--><?//= BASE_URL ?><!--assets/preloader/preloader.js">                   </script>-->
-    <script src="<?= BASE_URL ?>assets/toasts/toast.js">                                           </script>
     <script src="<?= BASE_URL ?>assets/admin/js/items/detec_connect.js">                           </script>
     <script async defer src="https://buttons.github.io/buttons.js">                             </script>
 </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 02, 2022 at 02:50 PM
+-- Generation Time: Dec 15, 2022 at 08:48 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -85,9 +85,9 @@ CREATE TABLE `classes` (
 --
 
 INSERT INTO `classes` (`id`, `name_class`, `id_course`, `id_teacher`, `slot`, `time_learn`, `time_start`, `time_end`, `status_class`) VALUES
-                                                                                                                                          (8, 'ReactJS1122C3', 195, 2, 3, 1, '2022-12-30', '2023-05-30', 0),
-                                                                                                                                          (9, 'ReactJS1222C4', 195, 5, 3, 0, '2022-12-30', '2023-06-30', 0),
-                                                                                                                                          (10, 'VUEJS0123C5', 198, 5, 3, 1, '2023-01-15', '2023-07-15', 0);
+                                                                                                                                          (8, 'ReactJS1122C3', 195, 5, 3, 1, '2022-12-30', '2023-05-30', 0),
+                                                                                                                                          (11, 'Laravel0223C5', 197, 2, 3, 1, '2023-02-01', '2023-08-01', 0),
+                                                                                                                                          (12, 'NODEJS0223C2', 193, 2, 3, 0, '2023-02-01', '2023-08-01', 0);
 
 -- --------------------------------------------------------
 
@@ -98,20 +98,21 @@ INSERT INTO `classes` (`id`, `name_class`, `id_course`, `id_teacher`, `slot`, `t
 CREATE TABLE `classes_archive` (
                                    `id` int NOT NULL,
                                    `name_class` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                                   `id_students` int DEFAULT NULL,
                                    `id_course` int DEFAULT NULL,
+                                   `id_teacher` int DEFAULT NULL,
                                    `slot` int DEFAULT NULL,
                                    `time_learn` tinyint DEFAULT NULL,
-                                   `time_start` timestamp NULL DEFAULT NULL,
-                                   `time_end` timestamp NULL DEFAULT NULL
+                                   `time_start` date DEFAULT NULL,
+                                   `time_end` date DEFAULT NULL,
+                                   `time_archive` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `classes_archive`
 --
 
-INSERT INTO `classes_archive` (`id`, `name_class`, `id_students`, `id_course`, `slot`, `time_learn`, `time_start`, `time_end`) VALUES
-    (1, 'Fontend', 1, 195, 3, 0, '2022-11-07 17:00:00', '2022-11-10 17:00:00');
+INSERT INTO `classes_archive` (`id`, `name_class`, `id_course`, `id_teacher`, `slot`, `time_learn`, `time_start`, `time_end`, `time_archive`) VALUES
+    (10, 'VUEJS0123C5', 198, 2, 3, 1, '2023-01-15', '2022-07-15', '2022-12-03 11:59:34');
 
 -- --------------------------------------------------------
 
@@ -138,15 +139,16 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `name_course`, `price_course`, `image_course`, `status_course`, `description_course`, `quote`, `discount`, `created_at`, `updated_at`, `id_category`) VALUES
-                                                                                                                                                                                       (193, 'NodeJS', 2000000, 'nodejs.png', 0, 'Lập trình Backend bằng NodeJS', 'NodeJS là một môi trường runtime chạy JavaScript đa nền tảng và có mã nguồn mở, được sử dụng để chạy các ứng dụng web bên ngoài trình duyệt của client. Nền tảng này được phát triển bởi Ryan Dahl vào năm 2009, được xem là một giải pháp hoàn hảo cho các ứng dụng sử dụng nhiều dữ liệu nhờ vào mô hình hướng sự kiện (event-driven) không đồng bộ.', 0, '2022-11-04 20:00:37', '2022-11-25 14:26:42', 4),
-                                                                                                                                                                                       (195, 'ReactJS', 2000000, 'react.png', 0, 'Lập trình Fontend bằng framework ReactJS', 'ReactJS là một thư viện JavaScript mã nguồn mở được thiết kế bởi Facebook để tạo ra những ứng dụng web hấp dẫn, nhanh và hiệu quả với mã hóa tối thiểu. Mục đích cốt lõi của ReactJS không chỉ khiến cho trang web phải thật mượt mà còn phải nhanh, khả năng mở rộng cao và đơn giản.\n\nSức mạnh của nó xuất phát từ việc tập trung vào các thành phần riêng lẻ. Chính vì vậy, thay vì làm việc trên toàn bộ ứng dụng web, ReactJS cho phép một developer có thể phá vỡ giao diện người dùng phức tạp thành các thành phần đơn giản hơn.', 0, '2022-11-06 04:11:34', '2022-11-30 08:07:52', 3),
-                                                                                                                                                                                       (197, 'Laravel', 2000000, 'laravel.png', 0, 'Lập trình Backend bằng framework Laravel', 'Laravel là một trong những PHP Web Framework phổ biến nhất theo mẫu MVC (Model-View- Controller). Được tạo bởi Taylor Otwell, Laravel framework là nguồn mở và miễn phí giúp bạn đưa ra các sản phẩm chất lượng cao. Các code sẽ được giảm thiểu đi, nhưng vẫn đạt tiêu chuẩn ngành, giúp bạn tiết kiệm được hàng trăm giờ đồng hồ dành cho việc phát triển.\n\nLaravel đã trở nên khá thông dụng và có sẵn miễn phí. Laravel web development rất hữu ích trong việc tạo ra phần mềm web được cá nhân hóa một cách nhanh chóng và hiệu quả.', 0, '2022-11-25 14:13:52', '2022-11-26 04:02:46', 4),
-                                                                                                                                                                                       (198, 'VueJS', 2000000, 'Vue.png', 0, 'Lập trình Fontend bằng framework VueJS', 'Vue.js là một framework Javascript được tạo bởi Evan You, giúp chúng ta xây dựng giao diện người dùng cũng như xây dựng Single Page Application thân thiện với người dùng, chúng xây dựng từ các thư viện, cách triển khai component, các chức năng đặc trưng của nó như SFC (Single File Component). Phiên bản ổn định mới nhất hiện tại của Vue.js là 2.6.10. Nào chúng ta cùng đi vào những kiến thức cơ bản nhất của Vue.', 0, '2022-11-26 04:08:08', '2022-11-30 04:48:50', 3),
-                                                                                                                                                                                       (199, 'HTML/CSS/JS', 2000000, 'htmlcssjs.png', 0, 'Lập trình web cơ bản bằng HTML/CSS/JS', 'Html css javascript là gì? Đây là tên của một loại ngôn ngữ lập trình. Với sự phát triển của công nghệ thông tin, hiện nay có nhiều loại ngôn ngữ lập trình khác nhau. Mỗi một ngôn ngữ lập trình lại được sử dụng cho mục đích và nhóm ngành khác nhau. \n\nNgôn ngữ lập trình html css javascript là một loại mã hóa phổ biến và không thể thiếu để thiết lập nên một website', 0, '2022-11-30 07:33:52', '2022-11-30 07:33:58', 3),
-                                                                                                                                                                                       (200, 'AngularJS', 800000, 'Angular.png', 0, 'Lập trình Fontend bằng framework AngularJS', 'AngularJS là một framework có cấu trúc cho các ứng dụng web động. Nó cho phép bạn sử dụng HTML như là ngôn ngữ mẫu và cho phép bạn mở rộng cú pháp của HTML để diễn đạt các thành phần ứng dụng của bạn một cách rõ ràng và súc tích. Hai tính năng cốt lõi: Data binding và Dependency injection của AngularJS loại bỏ phần lớn code mà bạn thường phải viết. Nó xảy ra trong tất cả các trình duyệt, làm cho nó trở thành đối tác lý tưởng của bất kỳ công nghệ Server nào.', 0, '2022-11-30 07:38:13', NULL, 3),
-                                                                                                                                                                                       (201, 'ExpressJS', 800000, 'Expressjs.png', 0, 'Lập trình Backend bằng ExpressJS', 'Expressjs là một framework được xây dựng trên nền tảng của Nodejs. Nó cung cấp các tính năng mạnh mẽ để phát triển web hoặc mobile. Expressjs hỗ trợ các method HTTP và midleware tạo ra API vô cùng mạnh mẽ và dễ sử dụng.', 0, '2022-11-30 07:39:41', NULL, 4),
-                                                                                                                                                                                       (202, 'NuxtJS', 800000, 'nuxtjs.png', 0, 'Lập trình Fontend bằng framework NuxtJS', 'Nuxt.JS là một Javascript framework để tạo các ứng dụng VueJS. Mục tiêu là để chúng ta có thể tạo một ứng dụng linh hoạt nhưng được render phía máy chủ, tương tự một trang web tĩnh giống như các website thông thường (điều mà có lợi cho SEO).\n\nNuxtJS tập trung vào khía cạnh render giao diện người dùng. Ngoài ra, Nuxt.js có rất nhiều tính năng giúp bạn phát triển giữa phía client và server như Dữ liệu bất đồng bộ (Asynchronous Data), Middleware, Layouts, v.v.', 0, '2022-11-30 07:42:08', NULL, 3),
-                                                                                                                                                                                       (203, 'NextJS', 2000000, 'nextjs.png', 0, 'Lập trình Fontend bằng framework NextJS', 'Next.js là một framework front-end React được phát triển dưới dạng open-source bổ sung các khả năng tối ưu hóa như render phía máy chủ (SSR) và tạo trang web static. Next.js xây dựng dựa trên thư viện React, có nghĩa là các ứng dụng Next.js sử dụng core của React và chỉ thêm các tính năng bổ sung', 0, '2022-11-30 07:44:36', NULL, 3);
+                                                                                                                                                                                       (193, 'NodeJS', 150000, 'nodejs.png', 0, 'Lập trình Backend bằng NodeJS', 'NodeJS là một môi trường runtime chạy JavaScript đa nền tảng và có mã nguồn mở, được sử dụng để chạy các ứng dụng web bên ngoài trình duyệt của client. Nền tảng này được phát triển bởi Ryan Dahl vào năm 2009, được xem là một giải pháp hoàn hảo cho các ứng dụng sử dụng nhiều dữ liệu nhờ vào mô hình hướng sự kiện (event-driven) không đồng bộ.', 0, '2022-11-04 20:00:37', '2022-11-25 14:26:42', 4),
+                                                                                                                                                                                       (195, 'ReactJS', 100000, 'react.png', 0, 'Lập trình Fontend bằng ReactJS', 'ReactJS là một opensource được phát triển bởi Facebook, ra mắt vào năm 2013, bản thân nó là một thư viện Javascript được dùng để để xây dựng các tương tác với các thành phần trên website. Một trong những điểm nổi bật nhất của ReactJS đó là việc render dữ liệu không chỉ thực hiện được trên tầng Server mà còn ở dưới Client nữa.', 0, '2022-11-06 04:11:34', '2022-12-03 07:11:23', 3),
+                                                                                                                                                                                       (197, 'Laravel', 200000, 'laravel.png', 0, 'Lập trình Backend bằng Laravel', 'Laravel là một trong những PHP Web Framework phổ biến nhất theo mẫu MVC (Model-View- Controller). Được tạo bởi Taylor Otwell, Laravel framework là nguồn mở và miễn phí giúp bạn đưa ra các sản phẩm chất lượng cao. Các code sẽ được giảm thiểu đi, nhưng vẫn đạt tiêu chuẩn ngành, giúp bạn tiết kiệm được hàng trăm giờ đồng hồ dành cho việc phát triển.Laravel đã trở nên khá thông dụng và có sẵn miễn phí. Laravel web development rất hữu ích trong việc tạo ra phần mềm web được cá nhân hóa một cách nhanh chóng và hiệu quả.', 0, '2022-11-25 14:13:52', '2022-12-08 10:15:35', 4),
+                                                                                                                                                                                       (198, 'VueJS', 420000, 'Vue.png', 0, 'Lập trình Fontend bằng VueJS', 'Vue.js là một framework Javascript được tạo bởi Evan You, giúp chúng ta xây dựng giao diện người dùng cũng như xây dựng Single Page Application thân thiện với người dùng, chúng xây dựng từ các thư viện, cách triển khai component, các chức năng đặc trưng của nó như SFC (Single File Component). Phiên bản ổn định mới nhất hiện tại của Vue.js là 2.6.10. Nào chúng ta cùng đi vào những kiến thức cơ bản nhất của Vue.', 0, '2022-11-26 04:08:08', '2022-12-08 10:15:56', 3),
+                                                                                                                                                                                       (199, 'HTML/CSS/JS', 300000, 'htmlcssjs.png', 0, 'Lập trình web cơ bản bằng HTML/CSS/JS', 'Html css javascript là gì? Đây là tên của một loại ngôn ngữ lập trình. Với sự phát triển của công nghệ thông tin, hiện nay có nhiều loại ngôn ngữ lập trình khác nhau. Mỗi một ngôn ngữ lập trình lại được sử dụng cho mục đích và nhóm ngành khác nhau. \n\nNgôn ngữ lập trình html css javascript là một loại mã hóa phổ biến và không thể thiếu để thiết lập nên một website', 0, '2022-11-30 07:33:52', '2022-11-30 07:33:58', 3),
+                                                                                                                                                                                       (200, 'AngularJS', 300000, 'Angular.png', 0, 'Lập trình Fontend bằng AngularJS', 'AngularJS là một framework có cấu trúc cho các ứng dụng web động. Nó cho phép bạn sử dụng HTML như là ngôn ngữ mẫu và cho phép bạn mở rộng cú pháp của HTML để diễn đạt các thành phần ứng dụng của bạn một cách rõ ràng và súc tích. Hai tính năng cốt lõi: Data binding và Dependency injection của AngularJS loại bỏ phần lớn code mà bạn thường phải viết. Nó xảy ra trong tất cả các trình duyệt, làm cho nó trở thành đối tác lý tưởng của bất kỳ công nghệ Server nào.', 0, '2022-11-30 07:38:13', NULL, 3),
+                                                                                                                                                                                       (201, 'ExpressJS', 100000, 'Expressjs.png', 0, 'Lập trình Backend bằng ExpressJS', 'Expressjs là một framework được xây dựng trên nền tảng của Nodejs. Nó cung cấp các tính năng mạnh mẽ để phát triển web hoặc mobile. Expressjs hỗ trợ các method HTTP và midleware tạo ra API vô cùng mạnh mẽ và dễ sử dụng.', 0, '2022-11-30 07:39:41', NULL, 4),
+                                                                                                                                                                                       (202, 'NuxtJS', 500000, 'nuxtjs.png', 0, 'Lập trình Fontend bằng NuxtJS', 'Nuxt.JS là một Javascript framework để tạo các ứng dụng VueJS. Mục tiêu là để chúng ta có thể tạo một ứng dụng linh hoạt nhưng được render phía máy chủ, tương tự một trang web tĩnh giống như các website thông thường (điều mà có lợi cho SEO).\n\nNuxtJS tập trung vào khía cạnh render giao diện người dùng. Ngoài ra, Nuxt.js có rất nhiều tính năng giúp bạn phát triển giữa phía client và server như Dữ liệu bất đồng bộ (Asynchronous Data), Middleware, Layouts, v.v.', 0, '2022-11-30 07:42:08', NULL, 3),
+                                                                                                                                                                                       (203, 'NextJS', 300000, 'nextjs.png', 0, 'Lập trình Fontend bằng NextJS', 'Next.js là một framework front-end React được phát triển dưới dạng open-source bổ sung các khả năng tối ưu hóa như render phía máy chủ (SSR) và tạo trang web static. Next.js xây dựng dựa trên thư viện React, có nghĩa là các ứng dụng Next.js sử dụng core của React và chỉ thêm các tính năng bổ sung', 0, '2022-11-30 07:44:36', NULL, 3),
+                                                                                                                                                                                       (205, 'aloalo', 12312, 'img.png', 1, 'aloalo', 'aloalo', 0, '2022-12-14 09:09:11', '2022-12-14 09:09:23', 3);
 
 -- --------------------------------------------------------
 
@@ -165,7 +167,26 @@ CREATE TABLE `detail_classes` (
 --
 
 INSERT INTO `detail_classes` (`id`, `id_students`, `id_class`) VALUES
-    (26, 3, 8);
+    (39, 3, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_class_archive`
+--
+
+CREATE TABLE `detail_class_archive` (
+                                        `id` int NOT NULL,
+                                        `id_class` int DEFAULT NULL,
+                                        `id_students` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `detail_class_archive`
+--
+
+INSERT INTO `detail_class_archive` (`id`, `id_class`, `id_students`) VALUES
+    (1, 10, 2);
 
 -- --------------------------------------------------------
 
@@ -313,7 +334,7 @@ CREATE TABLE `rate_courses` (
 --
 
 INSERT INTO `rate_courses` (`id`, `rate`, `content_rate`, `id_course`, `id_student`) VALUES
-    (21, 4, 'Khóa học rất hay !', 195, 1);
+    (22, 4, 'uci', 195, 3);
 
 -- --------------------------------------------------------
 
@@ -362,10 +383,10 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name_student`, `username_student`, `email_student`, `phone_student`, `password_student`, `image_student`, `role`, `created_at`, `updated_at`, `status_student`) VALUES
-                                                                                                                                                                                                   (1, 'Nguyễn Đức', NULL, 'duc@gmail.com', '\n0823565831', 'nguyenduc', 'avatar.png', 1, '2022-10-03 05:56:00', '2022-04-20 04:14:18', 0),
+                                                                                                                                                                                                   (1, 'Nguyễn Đức', NULL, 'duc@gmail.com', '\n0823565831', 'nguyenduc', 'avatar.png', 1, '2022-03-03 05:56:00', '2022-04-20 04:14:18', 0),
                                                                                                                                                                                                    (2, 'Nguyễn Đức 2', NULL, 'duc2@gmail.com', '0823565832', '123456', 'avatar.png', 1, '2022-11-02 22:56:00', '2022-11-02 22:58:00', 0),
                                                                                                                                                                                                    (3, 'Nguyễn Đức 3', NULL, 'thienduc.nguyen098@gmail.com', '0823565833', '12345678', 'avatar.png', 1, '2021-04-02 22:56:00', '2022-06-02 22:58:00', 0),
-                                                                                                                                                                                                   (7, 'ND CAKE', NULL, 'ndcake.store@gmail.com', '0823565833', '$2y$10$LlgUeSVxXTYBjqb8dNPkneIIt147GXax8uGEag4kihrjRrXGEc2yq', 'avatar.png', 1, '2022-11-29 10:49:16', NULL, 0);
+                                                                                                                                                                                                   (7, 'ND CAKE', NULL, 'ndcake.store@gmail.com', '0823565833', '$2y$10$LlgUeSVxXTYBjqb8dNPkneIIt147GXax8uGEag4kihrjRrXGEc2yq', 'avatar.png', 1, '2022-07-29 10:49:16', '2022-12-03 07:11:41', 0);
 
 -- --------------------------------------------------------
 
@@ -389,9 +410,7 @@ CREATE TABLE `tbl_orders` (
 --
 
 INSERT INTO `tbl_orders` (`id`, `order_code`, `order_date`, `order_pay`, `id_students`, `id_class`, `amount`, `status`) VALUES
-                                                                                                                            (27, 1669888696, '2022-12-01 16:58:29', 0, 1, 8, 2000000, 2),
-                                                                                                                            (28, 126476363, '2021-12-01 16:58:29', 1, 7, 8, 200000, 2),
-                                                                                                                            (29, 87839243, '2022-11-01 16:58:29', 2, 2, 8, 300000, 2);
+    (61, 1670677883, '2022-12-10 08:11:39', 1, 3, 11, 200000, 2);
 
 -- --------------------------------------------------------
 
@@ -419,8 +438,8 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`id`, `name_teacher`, `email_teacher`, `phone_teacher`, `password_teacher`, `image_teacher`, `about_teacher`, `scope_teacher`, `role`, `created_at`, `updated_at`, `status_teacher`) VALUES
-                                                                                                                                                                                                                 (2, 'Nguyễn Đức ', 'thienduc.nguyen098@gmail.com', '0823565831', '123', 'blog_4.jpg', 'backend dev\nLorem ipsum dolor sit amet, consectetuer adipiscing elit.\nMaecenas porttitor congue massa.\nFusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.\nNunc viverra imperdiet enim.\nFusce est.\n\n', 'Backend', 0, '2022-11-05 03:52:30', '2022-11-28 15:33:42', 0),
-                                                                                                                                                                                                                 (5, 'Bùi huy', 'ndcake.store@gmail.com', '0868400973', '12', 'blog_4.jpg', 'fontend dev\nLorem ipsum dolor sit amet, consectetuer adipiscing elit.\nMaecenas porttitor congue massa.\nFusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.\nNunc viverra imperdiet enim.\nFusce est.\n\n', 'Fontend', 0, '2022-11-05 08:39:00', '2022-11-05 09:17:36', 0);
+                                                                                                                                                                                                                 (2, 'giangvienbe', 'thienduc.nguyen098@gmail.com', '0823565831', '12345678', 'blog_4.jpg', 'backend devLorem ipsum dolor sit amet, consectetuer adipiscing elit.Maecenas porttitor congue massa.Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim.Fusce est.', 'Backend', 0, '2022-11-05 03:52:30', '2022-12-14 09:13:45', 0),
+                                                                                                                                                                                                                 (5, 'giangvienfre', 'ducntph27832@fpt.edu.vn', '0868400973', '1231231231', 'blog_4.jpg', 'fontend devLorem ipsum dolor sit amet, consectetuer adipiscing elit.Maecenas porttitor congue massa.Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim.Fusce est.', 'Fontend', 0, '2022-11-05 08:39:00', '2022-12-10 13:42:04', 0);
 
 --
 -- Indexes for dumped tables
@@ -450,7 +469,9 @@ ALTER TABLE `classes`
 -- Indexes for table `classes_archive`
 --
 ALTER TABLE `classes_archive`
-    ADD PRIMARY KEY (`id`);
+    ADD PRIMARY KEY (`id`),
+    ADD KEY `FK_ID_GV` (`id_teacher`),
+    ADD KEY `FK_ID_KHOAHOC` (`id_course`);
 
 --
 -- Indexes for table `courses`
@@ -466,6 +487,14 @@ ALTER TABLE `detail_classes`
     ADD PRIMARY KEY (`id`),
     ADD KEY `FK_ID_CLASS` (`id_class`),
     ADD KEY `FK_ID_STUDENTSES` (`id_students`);
+
+--
+-- Indexes for table `detail_class_archive`
+--
+ALTER TABLE `detail_class_archive`
+    ADD PRIMARY KEY (`id`),
+    ADD KEY `FK_ID_STUDSS` (`id_students`),
+    ADD KEY `FK_ID_CLASES` (`id_class`);
 
 --
 -- Indexes for table `detail_lesson`
@@ -550,7 +579,7 @@ ALTER TABLE `account_manager`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -559,22 +588,22 @@ ALTER TABLE `classes`
     MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `classes_archive`
---
-ALTER TABLE `classes_archive`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
 
 --
 -- AUTO_INCREMENT for table `detail_classes`
 --
 ALTER TABLE `detail_classes`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT for table `detail_class_archive`
+--
+ALTER TABLE `detail_class_archive`
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `detail_lesson`
@@ -610,7 +639,7 @@ ALTER TABLE `order_detail`
 -- AUTO_INCREMENT for table `rate_courses`
 --
 ALTER TABLE `rate_courses`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `sales`
@@ -628,7 +657,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `teachers`
@@ -648,6 +677,13 @@ ALTER TABLE `classes`
     ADD CONSTRAINT `FK_ID_TEACHERSR` FOREIGN KEY (`id_teacher`) REFERENCES `teachers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
+-- Constraints for table `classes_archive`
+--
+ALTER TABLE `classes_archive`
+    ADD CONSTRAINT `FK_ID_GV` FOREIGN KEY (`id_teacher`) REFERENCES `teachers` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT,
+    ADD CONSTRAINT `FK_ID_KHOAHOC` FOREIGN KEY (`id_course`) REFERENCES `courses` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT;
+
+--
 -- Constraints for table `courses`
 --
 ALTER TABLE `courses`
@@ -659,6 +695,13 @@ ALTER TABLE `courses`
 ALTER TABLE `detail_classes`
     ADD CONSTRAINT `FK_ID_CLASS` FOREIGN KEY (`id_class`) REFERENCES `classes` (`id`),
     ADD CONSTRAINT `FK_ID_STUDENTSES` FOREIGN KEY (`id_students`) REFERENCES `students` (`id`);
+
+--
+-- Constraints for table `detail_class_archive`
+--
+ALTER TABLE `detail_class_archive`
+    ADD CONSTRAINT `FK_ID_CLASES` FOREIGN KEY (`id_class`) REFERENCES `classes_archive` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    ADD CONSTRAINT `FK_ID_STUDSS` FOREIGN KEY (`id_students`) REFERENCES `students` (`id`);
 
 --
 -- Constraints for table `detail_lesson`

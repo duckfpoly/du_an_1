@@ -62,10 +62,10 @@
                                             ?>
                                         </td>
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
-                                            <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASSES ?>/addStudent/<?= $values['id'] ?>">Thêm HV</a></span>&emsp;
+                                            <span class="text-secondary text-xs font-weight-bold d-none"><a class="btn btn-primary m-0"  href="<?= CLASSES ?>/addStudent/<?= $values['id'] ?>">Thêm HV</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0"  href="<?= CLASSES ?>/showStudent/<?= $values['id'] ?>">DSHV</a></span>&emsp;
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0"  href="<?= CLASSES ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
-                                            <span class="text-secondary text-xs font-weight-bold">
+                                            <span class="text-secondary text-xs font-weight-bold d-none">
                                                 <form action="<?= CLASSES ?>/destroy/<?= $values['id'] ?>" method="post">
                                                     <button onclick="return confirm('Bạn muốn xóa lớp học <?= $values['name_class'] ?> do giảng viên <?= $values['name_teacher'] ?> dạy ?')" class="btn btn-danger m-0">Xóa</button>
                                                 </form>

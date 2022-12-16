@@ -100,7 +100,7 @@
           </div>
         </div>
       </div>
-      <div class="row mt-4">
+      <div class="row mt-4 d-none">
         <div class="col-lg-12 mb-lg-0 mb-4">
           <div class="card z-index-2 h-100">
             <div class="card-header pb-0 pt-3 bg-transparent">
@@ -178,9 +178,9 @@
                         <div class="d-flex align-items-center justify-content-between m-4 course-item-sale">
                                 <div class="w-20">
                                     <div class="d-flex px-2 py-1 align-items-center">
-                                        <div>
-                                            <img src="assets/uploads/courses/course_4.jpg" alt="Country flag" width="23px" height="17px">
-                                        </div>
+<!--                                        <div>-->
+<!--                                            <img src="assets/uploads/courses/course_4.jpg" alt="Country flag" width="23px" height="17px">-->
+<!--                                        </div>-->
                                         <div class="ms-4">
                                             <p class="text-xs font-weight-bold mb-2">Mã khuyến mại</p>
                                             <h6 class="text-sm mb-0"><?= $values['sale_code'] ?></h6>

@@ -21,7 +21,7 @@
                                             <li><a href="<?= LESSONS ?>">Khóa học</a>
                                                 <ul class="submenu text-center" style="border-radius: 10px;">
                                                     <?php foreach (category_read() as $item => $value): ?>
-                                                    <li><a href="<?= LESSONS ?>?cate=<?= $value['id'] ?>"><?= $value['name_category'] ?></a></li>
+                                                    <li class="<?= $value['id'] == 1 ? 'd-none' : '' ?>" ><a href="<?= LESSONS ?>?cate=<?= $value['id'] ?>"><?= $value['name_category'] ?></a></li>
                                                     <?php endforeach; ?>
                                                 </ul>
                                             </li>

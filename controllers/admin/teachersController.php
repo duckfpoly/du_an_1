@@ -30,7 +30,9 @@
                 check_data(check_phone_teacher($phone_teacher),$redirect);
                 // sau khi pass qua kiểm tra sẽ thực hiện insert vào db và lưu ảnh vào thư mục
                 // lưu file ảnh, field: name input file ở form thêm, name_dir: là tên của danh mục đang làm ( đang làm là teachers thì name_dir sẽ là teachers )
-                save_file('image_teacher', 'teachers');
+//                save_file('image_teacher', 'teachers');
+                $saveImg = saveImage('image_teacher','teachers');
+                isset($saveImg) && show_error($saveImg,TEACHERS.'/create');
                 // Gọi model để thêm dữ liệu vào database
                 teachers_create($name_teacher,$email_teacher,$phone_teacher, $password_teacher,$image_teacher,$about_teacher,$scope_teacher,$created_at);
                 // sau khi thêm hoàn thành sẽ điều hướng về trang read
@@ -67,7 +69,9 @@
                     $image_teacher = $image_goc;
                 } else {
                     $image_teacher = $image_up;
-                    save_file('image_teacher', 'teachers');
+//                    save_file('image_teacher', 'teachers');
+                    $saveImg = saveImage('image_teacher','teachers');
+                    isset($saveImg) && show_error($saveImg,TEACHERS.'/update/'.$id);
                 }
                 // Nếu dữ liệu update == dữ liệu trên database thì sẽ update bình thường
                 // Nếu dữ liệu update != dữ liệu trên databse thì sẽ tiếp tục check ( k trùng thì update, ngược lại k update trả về 1 thông báo và về lại giao diện update )
@@ -79,6 +83,7 @@
                 location(TEACHERS);
                 break;
             case "destroy":
+                die(location(TEACHERS));
                 // Lấy id từ trên url và kiểm tra
                 $id = $_GET['id'];
                 // nếu k tồn tại id thì trả lại view read

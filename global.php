@@ -14,10 +14,6 @@
     check_time_class();
     update_status_order();
 
-
-
-
-
     function active_item($item){
         echo '<script>document.getElementById("'.$item.'").classList.add("active");</script>';
     }
@@ -36,7 +32,7 @@
     }
 
     function alert($text,$url){
-        echo '<script>alert("'.$text.'"); window.location="'.$url.'";</script>';
+         die('<script>alert("'.$text.'"); window.location="'.$url.'";</script>');
     }
 
     function show_error($message,$url){
@@ -63,15 +59,6 @@
                 </div>
             </div>
         </section>');
-    }
-
-    function save_file($fieldname, $name_dir){
-        $target_dir = 'assets/uploads/'.$name_dir.'/';
-        $file_uploaded = $_FILES[$fieldname];
-        $file_name = basename($file_uploaded["name"]);
-        $target_path = $target_dir . $file_name;
-        move_uploaded_file($file_uploaded["tmp_name"], $target_path);
-        return $file_name;
     }
 
     function title_tab($data,$home){
@@ -408,5 +395,44 @@
 //        $pusher->trigger('courses-app', 'notice', $data);
     }
 
+    function save_file($fieldname, $name_dir){
+        $target_dir = 'assets/uploads/'.$name_dir.'/';
+        $file_uploaded = $_FILES[$fieldname];
+        $file_name = basename($file_uploaded["name"]);
+        $target_path = $target_dir . $file_name;
+        move_uploaded_file($file_uploaded["tmp_name"], $target_path);
+        return $file_name;
+    }
 
+    function saveImage($name_input_file,$name_dir){
+        if (!isset($_FILES[$name_input_file])) {
+            return 'Chưa chọn file để upload. Vui lòng thử lại !';
+        }
+        $filepath = $_FILES[$name_input_file]['tmp_name'];
+        $fileSize = filesize($filepath);
+        $fileinfo = finfo_open(FILEINFO_MIME_TYPE);
+        $filetype = finfo_file($fileinfo, $filepath);
+        if ($fileSize === 0) {
+            return 'File trống !';
+        }
+        // 3 MB (1 byte * 1024 * 1024 * 3 (for 3 MB))
+        $maxSize = 5;
+        $max_sixe = 1 * 1024 * 1024 * $maxSize;
+        if ($fileSize > $max_sixe) {
+            return 'Ảnh phải nhỏ hơn '.$max_sixe. ' MB';
+        }
+        $allowedTypes = [
+            'image/png'     => 'png',
+            'image/jpeg'    => 'jpg',
+        ];
+        if (!in_array($filetype, array_keys($allowedTypes))) {
+            return 'Không phải là ảnh ! File được chấp nhận dưới dạng ".png" và ".jpg"';
+        }
+        $target_dir     = 'assets/uploads/'.$name_dir.'/';
+        $file_uploaded  = $_FILES[$name_input_file];
+        $file_name      = basename($file_uploaded["name"]);
+        $target_path    = $target_dir . $file_name;
+        move_uploaded_file($file_uploaded["tmp_name"], $target_path);
+//        return $file_name;
+    }
 ?>

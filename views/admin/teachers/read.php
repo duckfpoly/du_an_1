@@ -66,7 +66,7 @@
                                         <td class="align-middle text-center d-flex justify-content-center align-items-center">
 <!--                                            <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-primary m-0" href="--><?//= TEACHERS ?><!--/detail/--><?//= $values['id'] ?><!--">Chi tiết</a></span>&emsp;-->
                                             <span class="text-secondary text-xs font-weight-bold"><a class="btn btn-secondary m-0" href="<?= TEACHERS ?>/update/<?= $values['id'] ?>">Sửa</a></span>&emsp;
-                                            <span class="text-secondary text-xs font-weight-bold">
+                                            <span class="text-secondary text-xs font-weight-bold d-none">
                                                 <form action="<?= TEACHERS ?>/destroy/<?= $values['id'] ?>" method="post">
                                                     <button onclick="return confirm('Bạn muốn xóa giảng viên <?= $values['name_teacher'] ?> ?')" class="btn btn-danger m-0" >Xóa</button>
                                                 </form>

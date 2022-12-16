@@ -15,7 +15,6 @@
             return "Khóa học không tồn tại !";
         }
     }
-
     function courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category){
         $sql = "INSERT INTO `courses` SET 
             `name_course`           =   ?,
@@ -103,4 +102,17 @@
         $sql = "SELECT * FROM `courses` ORDER BY $prop $ordinal";
         return query($sql);
     }
+    function update_category_course($id_category){
+        $sql = "UPDATE `courses` SET `id_category` = 1 WHERE id_category = ?";
+        query_sql($sql,$id_category);
+    }
+    function courses_read_with_cate($id_category){
+        $sql = "SELECT courses.*,categories.name_category
+                FROM `courses`
+                INNER JOIN categories ON courses.id_category = categories.id
+                WHERE courses.id_category = ?
+        ";
+        return query($sql,$id_category);
+    }
+
 ?>

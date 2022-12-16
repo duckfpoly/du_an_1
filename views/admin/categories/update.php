@@ -10,6 +10,27 @@
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="p-3">
                         <form action="<?= CATEGORIES ?>/edit/<?= $update_category['id'] ?>" method="post" id="form-1" >
+                            <div class="form-group">
+                                <label for="statuscourse" class="form-label">
+                                    Trạng thái
+                                </label>
+                                <div class="d-flex">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status" id="status1" value="0" <?= $update_category['status'] == 0 ? "checked" : "" ?>>
+                                        <label class="form-check-label" for="status1">
+                                            Mở
+                                        </label>
+                                    </div>
+                                    &emsp;&emsp;
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status" id="status2" value="1" <?= $update_category['status'] == 1 ? "checked" : "" ?>>
+                                        <label class="form-check-label" for="status2">
+                                            Khóa
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group ">
                                 <label for="" class="form-label">Tên danh mục</label>
                                 <input type="text" name="name_category" id="name_category" class="form-control" value="<?= $update_category['name_category'] ?>">

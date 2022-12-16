@@ -21,10 +21,14 @@
         $sql = "DELETE FROM `rate_courses` WHERE id = '$id'";
         query_sql($sql);
     }
-
     function countratecourse($id_course){
         $sql = "SELECT COUNT(*) FROM rate_courses WHERE id_course = ?";
         return query_value($sql,$id_course);
     }
+    function update_status_rate($status,$id_rate){
+        $sql = "UPDATE `rate_courses` SET `status`=  ? WHERE id = ?";
+        query_sql($sql,$status,$id_rate);
+    }
+
 
 ?>

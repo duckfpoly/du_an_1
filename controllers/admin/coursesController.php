@@ -25,7 +25,8 @@
                 check_empty($description_course     ,$redirect);
                 check_empty($quote                  ,$redirect);
                 check_empty($id_category            ,$redirect);
-                save_file('image_course', 'courses');
+                $saveImg = saveImage('image_course','courses');
+                isset($saveImg) && show_error($saveImg,$redirect);
                 courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category);
                 location(COURSES);
                 break;
@@ -60,12 +61,15 @@
                     $image_course = $image_goc;
                 } else {
                     $image_course = $image_up;
-                    save_file('image_course', 'courses');
+//                    save_file('image_course', 'courses');
+                    $saveImg = saveImage('image_course','courses');
+                    isset($saveImg) && show_error($saveImg,COURSES.'/update/'.$id);
                 }
                 courses_update($name_course,$price_course,$image_course,$status_course,$description_course,$quote,$created_at,$updated_at,$id_category,$id);
                 location(COURSES);
                 break;
             case "destroy":
+                die(location(COURSES));
                 // Lấy id từ trên url và kiểm tra
                 $id = $_GET['id'];
                 // nếu k tồn tại id thì trả lại view read
@@ -93,7 +97,14 @@
         if(isset($_GET['course'])){
             check_empty($_GET['course'],COURSES);
             $courses_read   = course_search($_GET['course']);
-        }else {
+        }
+        elseif (isset($_GET['category'])){
+            $id = $_GET['category'];
+            empty($id) && location(COURSES);
+            check_id_category($id) !== null && location(COURSES);
+            $courses_read   = courses_read_with_cate($id);
+        }
+        else {
             $courses_read   = courses_read();
         }
         $category_read  = category_read();

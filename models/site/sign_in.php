@@ -35,7 +35,7 @@
             }
             else {
                 setSession('user',$value);
-                location(BASE_URL);
+                location(DASHBOARD_TEACHER);
             }
         }
         else {

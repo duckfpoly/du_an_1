@@ -55,6 +55,8 @@ function show() {
     if(document.getElementById('no_review')) {
         document.getElementById('no_review').innerHTML = '';
     }
+    var count_rate1 = Number(document.getElementById('count_rate_1').innerText)
+    var count_rate2 = Number(document.getElementById('count_rate_2').innerText)
     var list = this.data.reverse();
     var list_cmt = ``;
     for (var i = 0; i < data.length; i++) {
@@ -85,6 +87,10 @@ function show() {
         `
     }
     document.getElementById('rate_list').innerHTML = list_cmt
+    var add_number_rate = count_rate1 + 1
+    var add_number_rate2 = count_rate2 + 1
+    document.getElementById('count_rate_1').innerText = add_number_rate
+    document.getElementById('count_rate_2').innerText = add_number_rate2
 }
 function clear() {
     document.getElementById('content_rate').value = ""

@@ -98,7 +98,6 @@
 
     function class_search($key){
         $sql = "SELECT * FROM courses 
-                INNER JOIN teachers ON courses.id_teacher = teachers.id
                 INNER JOIN classes ON courses.id = classes.id_course
                 WHERE classes.name_class LIKE '%$key%'
                 ORDER BY classes.id DESC 
@@ -177,13 +176,14 @@
     }
 
     function my_class($id_student){
-        $sql = "SELECT * FROM detail_classes WHERE id_students = ?";
-        $class = query($sql,$id_student);
         $sql = "SELECT * FROM tbl_orders WHERE id_students = ? AND status = 2";
         $order = query($sql,$id_student);
         foreach ($order as $items){
             if($items['status'] == 2){
-                return $class;
+                $sql = "SELECT * FROM classes 
+                INNER JOIN detail_classes ON classes.id = detail_classes.id_class
+                WHERE classes.status_class = 0 AND detail_classes.id_students = ?";
+                return query($sql,$id_student);
             }
         }
     }

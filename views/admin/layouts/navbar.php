@@ -37,11 +37,11 @@
           </a>
         </li>
         <li class="nav-item dropdown pe-2 d-flex align-items-center" id="notifications">
-          <a href="#" class="nav-link text-white p-0 position-relative" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-              <span class="text-danger position-absolute top-0 start-0 translate-middle-x" style="font-size: 5px">(🔴)</span> <i class="fa fa-bell cursor-pointer"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="show_notifications">
-          </ul>
+            <button onclick="hide_noti()" class="p-0 position-relative text-white" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="background: none; border: none">
+                <span id="count_noti" class="d-none position-absolute top-0 start-0 translate-middle-x text-light bg-danger text-center fw-bold" style="width: 15px; height: 15px; font-size: 8px; border-radius: 50%"></span>
+                <i class="fa fa-bell cursor-pointer"></i>
+            </button>
+          <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="show_notifications"></ul>
         </li>&emsp;
         <li class="nav-item d-flex align-items-center">
           <a href="<?= SIGNOUT ?>" class="nav-link text-white font-weight-bold px-0">
@@ -54,37 +54,28 @@
   </div>
 </nav>
 <script>
-    axios.get("<?= BASE_URL ?>api/notifications", {
-        headers: {
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTmd1eWVuIER1YyIsInBob25lIjoiMDgyMzU2NTgzMSIsImVtYWlsIjoibmd1eWVuZHVjMTA2MDNAZ21haWwuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTY2OTgwNTQ4Nn0.PByr6NO_lYgDSnT-KkW0bLBgsNzfIySHO_IofdxiHsw'
-        },
-    })
-    .then((res) => {
-        var results = res.data;
-        results.forEach((items) => {
-            document.getElementById('show_notifications').innerHTML += `
-                <li class="mb-2">
-                    <a class="dropdown-item border-radius-md" href="#">
-                        <div class="d-flex py-1">
-                            <div class="my-auto">
-                                <img src="assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                                <h6 class="text-sm font-weight-normal mb-1">
-                                    <span class="font-weight-bold">${items.body}</span>
-                                </h6>
-                                <p class="text-xs text-secondary mb-0">
-                                    <i class="fa fa-clock me-1"></i>
-                                    ${items.time}
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            `
-        })
-    })
-    .catch((error) => {
-        console.error(error);
-    });
+    function render_notifications(){
+         axios.get("<?= BASE_URL ?>api/notifications")
+            .then(function (response) {
+                $("#show_notifications").html(response.data.notification);
+                if(response.data.unseen_notification > 0 ){
+                    $('#count_noti').removeClass('d-none')
+                    $('#count_noti').text(response.data.unseen_notification)
+                }
+            })
+            .catch(function (error) {
+                console.log('Message: ' + error);
+            });
+    }
+    render_notifications();
+    setInterval(function(){
+        render_notifications();
+    }, 1000);
+    function hide_noti(){
+        var count_noti = document.querySelector('#count_noti')
+        count_noti.classList.add("d-none");
+        axios.put("<?= BASE_URL ?>api/notifications")
+            .then((res) => {})
+            .catch((error) => {console.error(error);});
+    }
 </script>
