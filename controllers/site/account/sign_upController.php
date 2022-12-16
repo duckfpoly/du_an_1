@@ -4,12 +4,13 @@
         $email = $_POST['email'];
         $pass = $_POST['pass'];
         $date = $_POST['date_time'];
-        $check = checkEmail($email);
+        $user_name = $_POST['user_name'];
+        $check = checkUser($email,$user_name);
         if(is_array($check)){
             $err = 'Tài khoản đã tồn tại';
         }
         else{
-            addUser($name,$email,$pass,$date);
+            addUser($name,$email,$pass,$date,$user_name);
             location(SIGIN);
         }
     }

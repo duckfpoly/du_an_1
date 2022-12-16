@@ -38,6 +38,7 @@
             <div class="courses-actives">
                 <!-- Single -->
                 <!-- Single -->
+                <?php if(count($data) > 0){?>
                 <?php foreach ($data as $value):?>
                     <div class="properties pb-20">
                         <div class="properties__card">
@@ -83,6 +84,9 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
+                <?php }else{?>
+                    <h3 class='fst-italic text-danger'>Bạn chưa mua khóa học nào</h3>
+                <?php }?>    
                 <!-- Single -->
             </div>
         </div>

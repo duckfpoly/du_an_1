@@ -51,6 +51,7 @@
                                                             <li><a href="<?= PROFILE ?>">Thông tin</a></li>
                                                             <li><a href="<?= MYCOURSES ?>">Khóa học</a></li>
                                                             <li><a href="<?= CHANGE_PASS?>">Đổi mật khẩu</a></li>
+                                                            <li><a href="<?= RECEIPT?>">Hóa đơn </a></li>
                                                         <?php } ?>
                                                         <li><a href="<?= LOGOUT ?>">Đăng xuất</a></li>
                                                     </ul>

@@ -30,7 +30,8 @@
             <div class='row'>
                 <div class="mb-3 col form-group">
                     <label for="password" class="form-label">Mật khẩu cũ</label>
-                    <input type="password" name='password' disabled id='password' value='<?= $data_user['password_student']?>' class="form-control form_setup text-dark">
+                    <input type="password" name='password' id='password' value='' class="form-control form_setup text-dark">
+                    <input type="hidden" name=""id='old_pass'  value ='<?= $_SESSION['user']['password_student']?>'>
                     <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="mb-3 col form-group">
@@ -54,13 +55,16 @@
     var url = location.href;
     function update_pass(){
         let password = document.querySelector('#password').value;
+        let old_pass = document.querySelector('#old_pass').value;
         let new_pass = document.querySelector('#new_pass').value;
         let comfirm_pass = document.querySelector('#comfirm_pass').value;
         let updated_at = document.querySelector('#updated_at').value;
         let data_profile;
-        if(!new_pass){
+        if(!new_pass || !password || !comfirm_pass){
             showSuccessToast('Cảnh báo', 'Vui lòng điền đủ thông tin', 'warning')
-        }else if(new_pass == password){
+        }else if(password != old_pass)
+            showSuccessToast('Cảnh báo', 'Mật khẩu không đúng', 'warning')
+        else if(new_pass == password){
             showSuccessToast('Cảnh báo', 'Mật khẩu mới phải khác mật khẩu cũ', 'warning')
 
         }else if(comfirm_pass != new_pass){
@@ -68,8 +72,10 @@
         }else{
                 // data_profile = `btn_update=${update}&name_student=${name_user}}`;
             data_profile = {
+                password : password,
                 pass : new_pass,
                 updated : updated_at,
+
             }
             $.ajax({
                 type: "POST",

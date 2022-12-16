@@ -60,10 +60,10 @@
                     <hr class='dropdown-divider'/>
                 </li>
                 <div class="offcanvas-body">
-                    <ul class='gap-5 row ml-3'>
+                    <ul class='gap-5 row ml-5>
                         <li><a href="<?= LESSONS ?>">Tất cả</a></li>
                         <?php foreach($categories as $value):?>
-                            <li><a href="<?= LESSONS ?>?cate=<?php echo $value['id']?>"><?php echo $value['name_category']?></a></li>
+                            <li class='nav-item'><a href="<?= LESSONS ?>?cate=<?php echo $value['id']?>"><?php echo $value['name_category']?></a></li>
                         <?php endforeach?>
                     </ul>
                 </div>

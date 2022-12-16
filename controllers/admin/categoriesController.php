@@ -60,7 +60,7 @@
             if(empty($_GET['s'])){
                 location(CATEGORIES);
             }else {
-                $data_cate = pagination_search('categories','name_category',$_GET['s'],5);
+                $data_cate = pagination_search('categories','name_category',$_GET['s'],5); 
                 $read_category = $data_cate[0];
             }
         }else {
@@ -68,6 +68,7 @@
             $read_category = $data_cate[0];
         }
         include_once $direct_read;
+        
     }
 ?>
 

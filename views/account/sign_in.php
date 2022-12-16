@@ -41,7 +41,7 @@
             <div class="card-body">
               <form role="form" method="post" action="<?= SIGIN?>" id="form-1">
                 <div class="mb-3 form-group">
-                  <input type="email" name='email' class="form-control" id="email" placeholder="Địa chỉ email" >
+                  <input type="text" name='email' class="form-control" id="email" placeholder="Địa chỉ email hoặc tài khoản" >
                     <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="mb-3 form-group">
@@ -83,7 +83,6 @@
           errorSelector: ".form-message",
           rules: [
             Validator.isRequired("#email", "Vui lòng nhập email"),
-            Validator.isEmail('#email'),
             Validator.isRequired("#password", "Vui lòng nhập password"),
             Validator.minLength('#password', 8),
           ],

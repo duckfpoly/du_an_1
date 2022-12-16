@@ -45,6 +45,10 @@
                     <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
                 <div class="mb-3 form-group">
+                  <input type="text" class="form-control" id="user_name" name='user_name' placeholder="Tên đăng nhập">
+                    <small class="form-message text-danger mt-1 fst-italic"></small>
+                </div>
+                <div class="mb-3 form-group">
                   <input type="email" class="form-control" id="email" name='email' placeholder="Địa chỉ email">
                     <small class="form-message text-danger mt-1 fst-italic"></small>
                 </div>
