@@ -73,6 +73,7 @@ function update(){
     
     console.log()
     let avatar_user = document.querySelector('#avatar').files;
+    console.log(avatar_user[0])
     let arr = Array.from(avatar_user);
     let name_user = document.querySelector('#name').value;
     let new_phone = document.querySelector('#phone_number').value;
@@ -88,10 +89,14 @@ function update(){
                 return showSuccessToast('Cảnh báo', 'Số điện thoại không tồn tại', 'warning')
             }else{
                 data_profile = {
+                    dataType: 'text',
+                    contentType: false,
+                    processData: false,
                     btn_update : update,
+                    cache: false,
                     updated :updated_at,
                     name_student : name_user,
-                    image_student: arr.length ? arr[0].name : '',
+                    image_student: arr.length ? avatar_user[0] : '',
                     phone : new_phone,
                 }
 
@@ -99,10 +104,14 @@ function update(){
 
         }else{
             data_profile = {
+                dataType: 'text',
+                contentType: false,
+                processData: false,
+                cache: false,
                 btn_update : update,
                 updated :updated_at,
                 name_student : name_user,
-                image_student: arr.length ? arr[0].name : '',
+                image_student: arr.length ? avatar_user[0] : '',
                 phone : phone_number,
             }
         }

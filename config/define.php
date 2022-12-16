@@ -38,6 +38,7 @@
     define("FORGOT_PASS",           BASE_URL.'account/forgot_pass');
     define("RESET_PASS",            BASE_URL.'account/reset_pass');
     define("TEACHER_SIGNIN",        BASE_URL.'account/teacher_signin');
+    define("RECEIPT",               BASE_URL.'receipt');
     // teacher manager
     define("DASHBOARD_TEACHER",     BASE_URL.'teacher_manager');
     define("CLASSARCHIVE_TEACHER",  BASE_URL.'teacher_manager/my_class_archive');

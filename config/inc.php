@@ -24,6 +24,7 @@
     require_once $dir_model_admin.'rates.php';
     require_once $dir_model_admin.'notifications.php';
     // site
+    require_once $dir_model_site.'receipt.php';
     require_once $dir_model_site.'categories.php';
     require_once $dir_model_site.'courses.php';
     require_once $dir_model_site.'payment.php';
