@@ -34,24 +34,27 @@
                     </div>
                 </div>
             </div>
+        <?php if($data){?>   
         <table class="table table-hover">
             <thead>
                 <tr>
-                <th scope="col">Thứ</th>
-                <th scope="col">Môn học</th>
+                <th scope="col">Ngày mua</th>
+                <th scope="col">Khóa học</th>
                 <th scope="col">Lớp</th>
                 <th scope="col">Giảng viên</th>
                 </tr>
             </thead>
             <tbody>
                     <tr>
-                    <th scope="row">1</th>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
+                        <th><?= $data['order_date']?></th>
+                        <td><?= $data['name_course']?></td>
+                        <td><?= $data['name_class']?></td>
+                        <td><?= $data['name_teacher']?></td>
                     </tr>
             </tbody>
         </table>
-
+        <?php }else{?>
+            <h3 class='fst-italic text-danger'>Bạn chưa mua khóa học nào</h3>
+        <?php }?>    
     </div>
 </main>

@@ -7,10 +7,10 @@
 
     if(isset($_GET['module'])) {
         $module         = $_GET['module'];
-        $direct_read    = 'views/admin/'.$module.'/read.php';
-        isset($_GET['act']) && $direct_act = $dir_views.$module.'/'.$_GET['act'].'.php';
+        $direct_read    = 'views/admin/'.$module.'/read.php'; // link đến views
+        isset($_GET['act']) && $direct_act = $dir_views.$module.'/'.$_GET['act'].'.php';//views/admin/categories/create.php
         $dir_img        = BASE_URL.'assets/uploads/'.$module.'/';
-        $objectt        = $dir_ctrl.$module.$name_exten;
+        $objectt        = $dir_ctrl.$module.$name_exten; // controllers/admin/categoriesController.php
         switch ($module) {
             case "categories":
                 include_once $objectt;

@@ -5,6 +5,7 @@
     if(isset($_POST['pass'])){
         $id = $data_user['id'];
         $new_pass = $_POST['pass'];
+        $pass = $_POST['password'];
         $updated = $_POST['updated'];
         change_pass($new_pass,$updated,$id);
         $_SESSION['user'] = get_user($id);

@@ -1,11 +1,11 @@
 <?php
-    function checkEmail ($email){
-        $sql = "SELECT * FROM students WHERE email_student = '$email'";
+    function checkUser ($email,$username){
+        $sql = "SELECT * FROM students WHERE email_student = '$email' || username_student = '$username'";
         return query_one($sql);
     }
     function addUser($name, $email, $pass, $date){
-        $sql = "INSERT INTO students(name_student, email_student, password_student, created_at,image_student) VALUES
-        ('$name','$email','$pass','$date','avatar.png')";
+        $sql = "INSERT INTO students(name_student, email_student, password_student, created_at,image_student,username_student) VALUES
+        ('$name','$email','$pass','$date','avatar.png','$user_name')";
         query_sql($sql);
     }
      function sign_up_gg($name,$email,$password,$created_at){
