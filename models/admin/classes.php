@@ -45,12 +45,12 @@
 
     function class_create($name_class,$id_course,$id_teacher,$time_learn,$time_start,$time_end){
         $sql = "INSERT INTO `classes` SET 
-                    `name_class`    =   ?,
-                    `id_course`     =   ?,
-                    `id_teacher`    =   ?,
-                    `time_learn`    =   ?,
-                    `time_start`    =   ?,
-                    `time_end`      =   ?
+                `name_class`    =   ?,
+                `id_course`     =   ?,
+                `id_teacher`    =   ?,
+                `time_learn`    =   ?,
+                `time_start`    =   ?,
+                `time_end`      =   ?
         ";
         query_sql($sql,$name_class,$id_course,$id_teacher,$time_learn,$time_start,$time_end);
     }

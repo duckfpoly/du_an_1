@@ -89,4 +89,3 @@ function show() {
 function clear() {
     document.getElementById('content_rate').value = ""
 }
-

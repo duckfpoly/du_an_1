@@ -26,7 +26,7 @@
                 check_empty($quote                  ,$redirect);
                 check_empty($id_category            ,$redirect);
                 save_file('image_course', 'courses');
-               courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category);
+                courses_create($name_course,$price_course,$image_course,$description_course,$quote,$created_at,$id_category);
                 location(COURSES);
                 break;
             case "update":

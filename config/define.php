@@ -1,7 +1,7 @@
 <?php
-    //   define("BASE_URL",     'http://localhost/courses/');
- define("BASE_URL",     'http://localhost/coursesWeb/du_an_1/');
-//    define("BASE_URL",     'http://localhost/hangdtph27628/du_an_1/');
+    //    define("BASE_URL",     'http://localhost/courses/');
+// define("BASE_URL",     'http://localhost/coursesWeb/du_an_1/');
+   define("BASE_URL",     'http://localhost/hangdtph27628/du_an_1/');
     define("URI",     $_SERVER['REQUEST_URI']);
     // database
     define("DB_HOST", "localhost");

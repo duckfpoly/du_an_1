@@ -1,8 +1,8 @@
 <?php
     $vnp_TxnRef                     = $order_code;
-    $vnp_OrderInfo                  = 'Thanh toán hóa đơn khóa học';
+    $vnp_OrderInfo                  = 'Thanh toán hóa đơn đăng ký khóa học';
     $vnp_OrderType                  = 'billpayment';
-    $vnp_Amount                     = $price_course  * 100;
+    $vnp_Amount                     = (int)$price_total * 100;
     $vnp_Locale                     = 'vn';
     $vnp_BankCode                   = isset($_POST['bank_code']) ? $_POST['bank_code'] : '';
     $vnp_IpAddr                     = $_SERVER['REMOTE_ADDR'];
