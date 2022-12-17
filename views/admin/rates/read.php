@@ -47,8 +47,8 @@
                                         </td>
                                         <td>
                                             <select class="form-control text-center" data-id-rate="<?= $values['id_cmt'] ?>" onchange="change_qtyy(this)">>
-                                                <option value="0" <?= $values['status'] == 0 ? 'selected disabled' : '' ?>>Hiện</option>
-                                                <option value="1" <?= $values['status'] == 1 ? 'selected disabled' : '' ?>>Ẩn</option>
+                                                <option value="0" <?= $values['status'] == 0 ? 'selected' : '' ?>>Hiện</option>
+                                                <option value="1" <?= $values['status'] == 1 ? 'selected' : '' ?>>Ẩn</option>
                                             </select>
                                         </td>
                                     </tr>
@@ -76,8 +76,9 @@
     }
 </style>
 <script>
+
     let change_qtyy = element => {
-        var id    = element.getAttribute('data-id-rate');
+        var id          = element.getAttribute('data-id-rate');
         var status      = element.value;
         var dataString  = 'id_rate='+id+'&status='+status;
         $.ajax({

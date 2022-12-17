@@ -3,6 +3,8 @@
 class fomat_datetime
 {
     public function diffForHuman($time1){
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+
         $time2 = date("Y-m-d H:i:s");
         $precision = 1;
 //        2, 3

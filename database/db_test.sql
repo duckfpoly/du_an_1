@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 15, 2022 at 08:48 AM
+-- Generation Time: Dec 17, 2022 at 12:28 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -51,16 +51,19 @@ INSERT INTO `account_manager` (`id`, `email`, `username`, `password`, `scope`, `
 
 CREATE TABLE `categories` (
                               `id` int NOT NULL,
-                              `name_category` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
+                              `name_category` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+                              `status` tinyint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name_category`) VALUES
-                                                     (3, 'Fontend'),
-                                                     (4, 'Backend');
+INSERT INTO `categories` (`id`, `name_category`, `status`) VALUES
+                                                               (1, 'Chưa xác định', 0),
+                                                               (3, 'Fontend', 0),
+                                                               (4, 'Backend', 0),
+                                                               (45, 'test', 0);
 
 -- --------------------------------------------------------
 
@@ -107,13 +110,6 @@ CREATE TABLE `classes_archive` (
                                    `time_archive` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `classes_archive`
---
-
-INSERT INTO `classes_archive` (`id`, `name_class`, `id_course`, `id_teacher`, `slot`, `time_learn`, `time_start`, `time_end`, `time_archive`) VALUES
-    (10, 'VUEJS0123C5', 198, 2, 3, 1, '2023-01-15', '2022-07-15', '2022-12-03 11:59:34');
-
 -- --------------------------------------------------------
 
 --
@@ -148,7 +144,7 @@ INSERT INTO `courses` (`id`, `name_course`, `price_course`, `image_course`, `sta
                                                                                                                                                                                        (201, 'ExpressJS', 100000, 'Expressjs.png', 0, 'Lập trình Backend bằng ExpressJS', 'Expressjs là một framework được xây dựng trên nền tảng của Nodejs. Nó cung cấp các tính năng mạnh mẽ để phát triển web hoặc mobile. Expressjs hỗ trợ các method HTTP và midleware tạo ra API vô cùng mạnh mẽ và dễ sử dụng.', 0, '2022-11-30 07:39:41', NULL, 4),
                                                                                                                                                                                        (202, 'NuxtJS', 500000, 'nuxtjs.png', 0, 'Lập trình Fontend bằng NuxtJS', 'Nuxt.JS là một Javascript framework để tạo các ứng dụng VueJS. Mục tiêu là để chúng ta có thể tạo một ứng dụng linh hoạt nhưng được render phía máy chủ, tương tự một trang web tĩnh giống như các website thông thường (điều mà có lợi cho SEO).\n\nNuxtJS tập trung vào khía cạnh render giao diện người dùng. Ngoài ra, Nuxt.js có rất nhiều tính năng giúp bạn phát triển giữa phía client và server như Dữ liệu bất đồng bộ (Asynchronous Data), Middleware, Layouts, v.v.', 0, '2022-11-30 07:42:08', NULL, 3),
                                                                                                                                                                                        (203, 'NextJS', 300000, 'nextjs.png', 0, 'Lập trình Fontend bằng NextJS', 'Next.js là một framework front-end React được phát triển dưới dạng open-source bổ sung các khả năng tối ưu hóa như render phía máy chủ (SSR) và tạo trang web static. Next.js xây dựng dựa trên thư viện React, có nghĩa là các ứng dụng Next.js sử dụng core của React và chỉ thêm các tính năng bổ sung', 0, '2022-11-30 07:44:36', NULL, 3),
-                                                                                                                                                                                       (205, 'aloalo', 12312, 'img.png', 1, 'aloalo', 'aloalo', 0, '2022-12-14 09:09:11', '2022-12-14 09:09:23', 3);
+                                                                                                                                                                                       (205, 'aloalo', 12312, 'img.png', 1, 'aloalo', 'aloalo', 0, '2022-12-14 09:09:11', '2022-12-16 08:03:02', 1);
 
 -- --------------------------------------------------------
 
@@ -167,7 +163,7 @@ CREATE TABLE `detail_classes` (
 --
 
 INSERT INTO `detail_classes` (`id`, `id_students`, `id_class`) VALUES
-    (39, 3, 11);
+    (41, 3, 8);
 
 -- --------------------------------------------------------
 
@@ -180,13 +176,6 @@ CREATE TABLE `detail_class_archive` (
                                         `id_class` int DEFAULT NULL,
                                         `id_students` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
---
--- Dumping data for table `detail_class_archive`
---
-
-INSERT INTO `detail_class_archive` (`id`, `id_class`, `id_students`) VALUES
-    (1, 10, 2);
 
 -- --------------------------------------------------------
 
@@ -244,6 +233,7 @@ CREATE TABLE `notification_admin` (
                                       `title` text,
                                       `body` text,
                                       `time` datetime DEFAULT NULL,
+                                      `url` text,
                                       `status` tinyint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
@@ -251,9 +241,8 @@ CREATE TABLE `notification_admin` (
 -- Dumping data for table `notification_admin`
 --
 
-INSERT INTO `notification_admin` (`id`, `title`, `body`, `time`, `status`) VALUES
-                                                                               (1, 'Test Noti', 'Body', '2022-01-12 16:00:00', 0),
-                                                                               (2, 'Test Noti 2', 'Body 2', '2022-01-12 16:00:00', 1);
+INSERT INTO `notification_admin` (`id`, `title`, `body`, `time`, `url`, `status`) VALUES
+    (22, 'Đơn đăng ký mới', 'Học viên Nguyễn Đức 3 vừa đăng ký', '2022-12-17 10:54:29', 'http://localhost/courses/admin/orders.?s=1671249264', 1);
 
 -- --------------------------------------------------------
 
@@ -326,15 +315,16 @@ CREATE TABLE `rate_courses` (
                                 `rate` float DEFAULT NULL,
                                 `content_rate` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
                                 `id_course` int DEFAULT NULL,
-                                `id_student` int DEFAULT NULL
+                                `id_student` int DEFAULT NULL,
+                                `status` tinyint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `rate_courses`
 --
 
-INSERT INTO `rate_courses` (`id`, `rate`, `content_rate`, `id_course`, `id_student`) VALUES
-    (22, 4, 'uci', 195, 3);
+INSERT INTO `rate_courses` (`id`, `rate`, `content_rate`, `id_course`, `id_student`, `status`) VALUES
+    (22, 4, 'uci', 195, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -383,10 +373,8 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name_student`, `username_student`, `email_student`, `phone_student`, `password_student`, `image_student`, `role`, `created_at`, `updated_at`, `status_student`) VALUES
-                                                                                                                                                                                                   (1, 'Nguyễn Đức', NULL, 'duc@gmail.com', '\n0823565831', 'nguyenduc', 'avatar.png', 1, '2022-03-03 05:56:00', '2022-04-20 04:14:18', 0),
-                                                                                                                                                                                                   (2, 'Nguyễn Đức 2', NULL, 'duc2@gmail.com', '0823565832', '123456', 'avatar.png', 1, '2022-11-02 22:56:00', '2022-11-02 22:58:00', 0),
-                                                                                                                                                                                                   (3, 'Nguyễn Đức 3', NULL, 'thienduc.nguyen098@gmail.com', '0823565833', '12345678', 'avatar.png', 1, '2021-04-02 22:56:00', '2022-06-02 22:58:00', 0),
-                                                                                                                                                                                                   (7, 'ND CAKE', NULL, 'ndcake.store@gmail.com', '0823565833', '$2y$10$LlgUeSVxXTYBjqb8dNPkneIIt147GXax8uGEag4kihrjRrXGEc2yq', 'avatar.png', 1, '2022-07-29 10:49:16', '2022-12-03 07:11:41', 0);
+                                                                                                                                                                                                   (1, 'Nguyễn Đức', 'ntduc106', 'nguyenduc10603@gmail.com', '\n0823565831', '$2y$10$ThUPMQrd/PoYQLunDZ.F/u14ftdDa7.z5stoZpcx.vI/PYuVgR9fC', 'avatar.png', 1, '2022-03-03 05:56:00', '2022-04-20 04:14:18', 0),
+                                                                                                                                                                                                   (3, 'Nguyễn Đức 3', 'ntduc2k3', 'thienduc.nguyen098@gmail.com', '0823565833', '$2y$10$ThUPMQrd/PoYQLunDZ.F/u14ftdDa7.z5stoZpcx.vI/PYuVgR9fC', 'avatar.png', 1, '2021-04-02 22:56:00', '2022-06-02 22:58:00', 0);
 
 -- --------------------------------------------------------
 
@@ -410,7 +398,7 @@ CREATE TABLE `tbl_orders` (
 --
 
 INSERT INTO `tbl_orders` (`id`, `order_code`, `order_date`, `order_pay`, `id_students`, `id_class`, `amount`, `status`) VALUES
-    (61, 1670677883, '2022-12-10 08:11:39', 1, 3, 11, 200000, 2);
+    (63, 1671249264, '2022-12-17 10:54:29', 1, 3, 8, 100000, 0);
 
 -- --------------------------------------------------------
 
@@ -439,7 +427,7 @@ CREATE TABLE `teachers` (
 
 INSERT INTO `teachers` (`id`, `name_teacher`, `email_teacher`, `phone_teacher`, `password_teacher`, `image_teacher`, `about_teacher`, `scope_teacher`, `role`, `created_at`, `updated_at`, `status_teacher`) VALUES
                                                                                                                                                                                                                  (2, 'giangvienbe', 'thienduc.nguyen098@gmail.com', '0823565831', '12345678', 'blog_4.jpg', 'backend devLorem ipsum dolor sit amet, consectetuer adipiscing elit.Maecenas porttitor congue massa.Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim.Fusce est.', 'Backend', 0, '2022-11-05 03:52:30', '2022-12-14 09:13:45', 0),
-                                                                                                                                                                                                                 (5, 'giangvienfre', 'ducntph27832@fpt.edu.vn', '0868400973', '1231231231', 'blog_4.jpg', 'fontend devLorem ipsum dolor sit amet, consectetuer adipiscing elit.Maecenas porttitor congue massa.Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim.Fusce est.', 'Fontend', 0, '2022-11-05 08:39:00', '2022-12-10 13:42:04', 0);
+                                                                                                                                                                                                                 (5, 'giangvienfre', 'ducntph27832@fpt.edu.vn', '0868400973', '1231231231', 'blog_4.jpg', 'fontend devLorem ipsum dolor sit amet, consectetuer adipiscing elit.Maecenas porttitor congue massa.Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.Nunc viverra imperdiet enim.Fusce est.', 'Fontend', 0, '2022-11-05 08:39:00', '2022-12-16 07:41:49', 0);
 
 --
 -- Indexes for dumped tables
@@ -579,7 +567,7 @@ ALTER TABLE `account_manager`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -597,7 +585,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `detail_classes`
 --
 ALTER TABLE `detail_classes`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `detail_class_archive`
@@ -621,7 +609,7 @@ ALTER TABLE `lesson_courses`
 -- AUTO_INCREMENT for table `notification_admin`
 --
 ALTER TABLE `notification_admin`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -651,13 +639,13 @@ ALTER TABLE `sales`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+    MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `teachers`

@@ -1,5 +1,3 @@
-<!--<link rel="stylesheet" href="--><?//= $host ?><!--assets/admin/css/argon-dashboard.css"/>-->
-<!--<link rel="stylesheet" href="--><?//= $host ?><!--assets/css/alert_pay.css">-->
 <section class="mb-5">
     <div class="container">
         <div class="row">
