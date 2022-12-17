@@ -24,27 +24,22 @@
             </div>
         </div>
     </section>
-
     <div class='bg-white rounded my-5 p-4 shadow-sm m_top container section-padding40 fix'>
         <form action='<?= PROFILE?>' method='post' enctype='multipart/form-data' onsubmit="return false">
             <div class='row'>
                 <div class="mb-3 col form-group">
                     <label for="password" class="form-label">Mật khẩu cũ</label>
-                    <input type="password" name='password' id='password' value='' class="form-control form_setup text-dark">
-                    <input type="hidden" name=""id='old_pass'  value ='<?= $_SESSION['user']['password_student']?>'>
-                    <small class="form-message text-danger mt-1 fst-italic"></small>
+                    <input type="password" id='old_pass' value='' class="form-control form_setup text-dark">
                 </div>
                 <div class="mb-3 col form-group">
                     <label for="new_pass" class="form-label">Mật khẩu mới</label>
-                    <input type="password" name ='new_pass' id ='new_pass' value='' class="form-control form_setup text-dark" >
+                    <input type="password" id ='new_pass' value='' class="form-control form_setup text-dark" >
                 </div>
             </div>
-
             <div class="mb-3 form-group ">
                 <label for="comfirm_pass" class="form-label">Xác nhận mật khẩu</label>
-                <input type="password" name ='comfirm_pass' id ='comfirm_pass'  class="form-control form_setup text-dark">
+                <input type="password" id ='comfirm_pass'  class="form-control form_setup text-dark">
             </div>
- 
             <input type="text" hidden name="updated_at" id="updated_at" value='<?= date('d-m-y h:i:s')?>'>
             <input type="submit" onclick='update_pass()' name='btn_update'  value="Lưu" class="btn btn-primary">
         </form>
@@ -54,43 +49,32 @@
 <script>
     var url = location.href;
     function update_pass(){
-        let password = document.querySelector('#password').value;
-        let old_pass = document.querySelector('#old_pass').value;
-        let new_pass = document.querySelector('#new_pass').value;
+        let old_pass     = document.querySelector('#old_pass').value;
+        let new_pass     = document.querySelector('#new_pass').value;
         let comfirm_pass = document.querySelector('#comfirm_pass').value;
-        let updated_at = document.querySelector('#updated_at').value;
-        let data_profile;
-        // if(!new_pass || !password || !comfirm_pass){
-        //     showSuccessToast('Cảnh báo', 'Vui lòng điền đủ thông tin', 'warning')
-        // }else if(password != old_pass)
-        //     showSuccessToast('Cảnh báo', 'Mật khẩu không đúng', 'warning')
-        // else if(new_pass == password){
-        //     showSuccessToast('Cảnh báo', 'Mật khẩu mới phải khác mật khẩu cũ', 'warning')
-
-        // }else if(comfirm_pass != new_pass){
-        //     showSuccessToast('Cảnh báo', 'Mật khẩu không khớp', 'warning')
-        // }else{
-                // data_profile = `btn_update=${update}&name_student=${name_user}}`;
-            data_profile = {
-                password : password,
-                pass : new_pass,
-                updated : updated_at,
-
-            }
-            $.ajax({
-                type: "POST",
-                url : url,
-                data: data_profile,
-                success: function (res) {
-                    showSuccessToast('Success', 'Cập nhật thành công', 'success');
-                    console.log(res);
-                }
-            });
-        // }
+        let updated_at   = document.querySelector('#updated_at').value;
+        updatePasswordStudent(<?= getSession('user')['id'] ?>,old_pass,new_pass);
     }
-
 </script>
-
+<script>
+    function updatePasswordStudent(idStudent,oldPass,newPass){
+        axios
+            .get("api/students", {
+                params: {
+                    id: idStudent,
+                    old_pass: oldPass,
+                    new_pass: newPass
+                }
+            })
+            .then((res) => {
+                console.log(res.data)
+                showSuccessToast('Thông báo',res.data.message,'success')
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+</script>
 <style>
     .colorOldPrice{
         color: rgba(0,0,0,0.3) !important;

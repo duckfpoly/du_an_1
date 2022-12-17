@@ -6,13 +6,14 @@
             .get("api/students", {
                 params: {
                     id: idStudent,
-                    new_pass: oldPass,
-                    old_pass: newPass
+                    old_pass: oldPass,
+                    new_pass: newPass
                 }
             })
             .then((res) => {
                 console.clear()
                 console.log(res.data)
+                showSuccessToast('Cảnh báo',res.data.message,'warning')
             })
             .catch((error) => {
                 console.error(error);
