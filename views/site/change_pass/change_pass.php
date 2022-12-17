@@ -60,16 +60,16 @@
         let comfirm_pass = document.querySelector('#comfirm_pass').value;
         let updated_at = document.querySelector('#updated_at').value;
         let data_profile;
-        if(!new_pass || !password || !comfirm_pass){
-            showSuccessToast('Cảnh báo', 'Vui lòng điền đủ thông tin', 'warning')
-        }else if(password != old_pass)
-            showSuccessToast('Cảnh báo', 'Mật khẩu không đúng', 'warning')
-        else if(new_pass == password){
-            showSuccessToast('Cảnh báo', 'Mật khẩu mới phải khác mật khẩu cũ', 'warning')
+        // if(!new_pass || !password || !comfirm_pass){
+        //     showSuccessToast('Cảnh báo', 'Vui lòng điền đủ thông tin', 'warning')
+        // }else if(password != old_pass)
+        //     showSuccessToast('Cảnh báo', 'Mật khẩu không đúng', 'warning')
+        // else if(new_pass == password){
+        //     showSuccessToast('Cảnh báo', 'Mật khẩu mới phải khác mật khẩu cũ', 'warning')
 
-        }else if(comfirm_pass != new_pass){
-            showSuccessToast('Cảnh báo', 'Mật khẩu không khớp', 'warning')
-        }else{
+        // }else if(comfirm_pass != new_pass){
+        //     showSuccessToast('Cảnh báo', 'Mật khẩu không khớp', 'warning')
+        // }else{
                 // data_profile = `btn_update=${update}&name_student=${name_user}}`;
             data_profile = {
                 password : password,
@@ -81,11 +81,12 @@
                 type: "POST",
                 url : url,
                 data: data_profile,
-                success: function () {
+                success: function (res) {
                     showSuccessToast('Success', 'Cập nhật thành công', 'success');
+                    console.log(res);
                 }
             });
-        }
+        // }
     }
 
 </script>

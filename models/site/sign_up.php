@@ -3,9 +3,10 @@
         $sql = "SELECT * FROM students WHERE email_student = '$email' || username_student = '$username'";
         return query_one($sql);
     }
-    function addUser($name, $email, $pass, $date){
+    function addUser($name, $email, $pass, $date,$user_name){
+        $han_pass = password_hash($pass,PASSWORD_DEFAULT);
         $sql = "INSERT INTO students(name_student, email_student, password_student, created_at,image_student,username_student) VALUES
-        ('$name','$email','$pass','$date','avatar.png','$user_name')";
+        ('$name','$email','$han_pass','$date','avatar.png','$user_name')";
         query_sql($sql);
     }
      function sign_up_gg($name,$email,$password,$created_at){

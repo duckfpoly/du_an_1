@@ -10,6 +10,7 @@
             $err = 'Tài khoản đã tồn tại';
         }
         else{
+            
             addUser($name,$email,$pass,$date,$user_name);
             location(SIGIN);
         }

@@ -21,17 +21,8 @@
             if($data->success == false){
                 $err = 'Spam';
             }else{
-                $check = check_user($email,$pass);
-                if(is_array($check)){
-                    if($check['status_student'] == 1){
-                        $err = 'Tài khoản đã bị khóa';
-                    }else{
-                        setSession('user',$check);
-                        location(BASE_URL);
-                    }
-                }else{
-                    $err = 'Tài khoản hoặc mật khẩu không đúng';
-                }
+
+                $err = check_user($email, $pass);
             }
         }
     }

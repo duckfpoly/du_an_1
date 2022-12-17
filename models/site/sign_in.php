@@ -1,7 +1,26 @@
 <?php
     function check_user($username,$pass){
-        $sql = "SELECT * FROM students WHERE (email_student = '$username' || username_student = '$username') AND password_student = '$pass'";
-        return query_one($sql);
+        $sql = "SELECT * FROM students WHERE email_student = '$username' OR 
+        username_student = '$username'";
+        $data = query_one($sql);
+        if(isset($data['username_student']) || isset($data['email_student'])){
+            if($data['status_student'] == 1){
+                $err = 'Tài khoản đã bị khóa';
+                return $err;
+            }else{
+                $check_pass = password_verify($pass, $data['password_student']);
+                if($check_pass > 0){
+                    setSession('user',$data);
+                }else{
+                    $err = 'Sai mật khẩu!';
+                    return $err;
+                }
+            }
+        }else{
+            $err = 'Tài khoản không tồn tại';
+            return $err;
+        }
+        
     }
 
     function check_teacher($email, $pass){
