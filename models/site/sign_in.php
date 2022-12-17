@@ -20,7 +20,6 @@
             $err = 'Tài khoản không tồn tại';
             return $err;
         }
-        
     }
 
     function check_teacher($email, $pass){

@@ -21,8 +21,10 @@
             if($data->success == false){
                 $err = 'Spam';
             }else{
-
                 $err = check_user($email, $pass);
+                if(!$err){
+                    location(HOME);
+                }
             }
         }
     }
