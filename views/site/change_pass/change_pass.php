@@ -29,16 +29,16 @@
             <div class='row'>
                 <div class="mb-3 col form-group">
                     <label for="password" class="form-label">Mật khẩu cũ</label>
-                    <input type="password" id='old_pass' value='' class="form-control form_setup text-dark">
+                    <input type="password" id='old_pass' class="form-control form_setup text-dark">
                 </div>
                 <div class="mb-3 col form-group">
                     <label for="new_pass" class="form-label">Mật khẩu mới</label>
-                    <input type="password" id ='new_pass' value='' class="form-control form_setup text-dark" >
+                    <input type="password" id ='new_pass' class="form-control form_setup text-dark" >
                 </div>
             </div>
             <div class="mb-3 form-group ">
                 <label for="comfirm_pass" class="form-label">Xác nhận mật khẩu</label>
-                <input type="password" id ='comfirm_pass'  class="form-control form_setup text-dark">
+                <input type="password" id ='comfirm_pass' class="form-control form_setup text-dark">
             </div>
             <input type="text" hidden name="updated_at" id="updated_at" value='<?= date('d-m-y h:i:s')?>'>
             <input type="submit" onclick='update_pass()' name='btn_update'  value="Lưu" class="btn btn-primary">
@@ -53,7 +53,21 @@
         let new_pass     = document.querySelector('#new_pass').value;
         let comfirm_pass = document.querySelector('#comfirm_pass').value;
         let updated_at   = document.querySelector('#updated_at').value;
-        updatePasswordStudent(<?= getSession('user')['id'] ?>,old_pass,new_pass);
+        if(old_pass.length < 6){
+            showSuccessToast('Cảnh báo','Input mật khẩu cũ chưa đủ 8 ký tự !','error')
+        }
+        else if(new_pass.length < 6) {
+            showSuccessToast('Cảnh báo','Input mật khẩu mới chưa đủ 8 ký tự !','error')
+        }
+        else if(comfirm_pass.length < 6) {
+            showSuccessToast('Cảnh báo','Input nhập lại mật khẩu mới chưa đủ 8 ký tự !','error')
+        }
+        else if(new_pass != comfirm_pass){
+            showSuccessToast('Cảnh báo','Mật khẩu mới và nhập lại mật khẩu mới không khớp !','error')
+        }
+        else {
+            updatePasswordStudent(<?= getSession('user')['id'] ?>,old_pass,new_pass);
+        }
     }
 </script>
 <script>
