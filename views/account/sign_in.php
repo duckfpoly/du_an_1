@@ -84,7 +84,7 @@
           rules: [
             Validator.isRequired("#email", "Vui lòng nhập email"),
             Validator.isRequired("#password", "Vui lòng nhập password"),
-            Validator.minLength('#password', 8),
+            Validator.minLength('#password', 6),
           ],
       });
     });

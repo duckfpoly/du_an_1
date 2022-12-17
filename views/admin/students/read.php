@@ -11,7 +11,8 @@
                                 <?php
                                     if(isset($_GET['s'])){
                                         echo '&emsp;<a class="btn btn-outline-primary" href="'.STUDENTS.'">X</a>';
-                                    }else {
+                                    }
+                                    else {
                                         echo '&emsp;<button class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass"></i></button>';
                                     }
                                 ?>

@@ -65,11 +65,9 @@
     function course_search($key){
         $sql = "SELECT 
             categories.name_category,
-            courses.*,
-            teachers.name_teacher
+            courses.*
             FROM courses 
             INNER JOIN categories ON courses.id_category = categories.id
-            INNER JOIN teachers ON courses.id_teacher = teachers.id
             WHERE name_course LIKE '%$key%'";
         return query($sql);
     }

@@ -1,7 +1,6 @@
 <?php
     function check_user($username,$pass){
-        $sql = "SELECT * FROM students WHERE email_student = '$username' OR 
-        username_student = '$username'";
+        $sql = "SELECT * FROM students WHERE email_student = '$username' OR username_student = '$username'";
         $data = query_one($sql);
         if(isset($data['username_student']) || isset($data['email_student'])){
             if($data['status_student'] == 1){

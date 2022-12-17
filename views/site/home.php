@@ -70,7 +70,7 @@
                 <div class="courses-actives">
                     <!-- Single -->
                     <!-- Single -->
-                    <?php foreach ($data as $value):?>
+                    <?php foreach ($data as $value): ?>
                         <div class="properties pb-20">
                             <div class="properties__card">
                                 <div class="properties__img overlay1">

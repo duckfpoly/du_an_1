@@ -97,8 +97,14 @@
     }
 
     function class_search($key){
-        $sql = "SELECT * FROM courses 
-                INNER JOIN classes ON courses.id = classes.id_course
+        $sql = "
+                SELECT 
+                     classes.*,
+                    courses.name_course,
+                    teachers.name_teacher
+                    FROM classes 
+                    INNER JOIN teachers ON classes.id_teacher = teachers.id
+                    INNER JOIN courses ON classes.id_course = courses.id
                 WHERE classes.name_class LIKE '%$key%'
                 ORDER BY classes.id DESC 
         ";

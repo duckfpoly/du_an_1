@@ -112,13 +112,9 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     document.querySelector('#filter').addEventListener('input', (e) => filterData(e.target.value))
-    var auth = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTmd1eWVuIER1YyIsInBob25lIjoiMDgyMzU2NTgzMSIsImVtYWlsIjoibmd1eWVuZHVjMTA2MDNAZ21haWwuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTY2OTgwNTQ4Nn0.PByr6NO_lYgDSnT-KkW0bLBgsNzfIySHO_IofdxiHsw';
     function filterData(search) {
         axios
             .get("api/courses", {
-                headers: {
-                    Authorization: 'Bearer ' + auth
-                },
                 params: {
                     q: search.toLowerCase()
                 }
@@ -140,16 +136,16 @@
                         results.forEach((items) => {
                             document.querySelector('#show_course').innerHTML += `
                                  <div class="product d-flex justify-content-start align-items-center m-2">
+                                    <a href="<?= LESSONS?>/${items.id}">
+                                        <img id="image_course" src="assets/uploads/courses/${items.image_course}" width="50px" height="50px" alt="Image Course" style="border-radius: 5px">
+                                    </a>
+                                    <div class="product-detail d-flex flex-column" style="margin-left: 10px">
                                         <a href="<?= LESSONS?>/${items.id}">
-                                            <img id="image_course" src="assets/uploads/courses/${items.image_course}" width="50px" height="50px" alt="Image Course" style="border-radius: 5px">
+                                            <span id="name_course" style='color:black'>${items.name_course.slice(0, 30)}</span>
                                         </a>
-                                        <div class="product-detail d-flex flex-column" style="margin-left: 10px">
-                                            <a href="<?= LESSONS?>/${items.id}">
-                                                <span id="name_course" style='color:black'>${items.name_course.slice(0, 30)}</span>
-                                            </a>
-                                            <span id="price_course">${ new Intl.NumberFormat('it-IT',{style:'currency',currency:'VND'}).format(items.price_course)}</span>
-                                        </div>
+                                        <span id="price_course">${ new Intl.NumberFormat('it-IT',{style:'currency',currency:'VND'}).format(items.price_course)}</span>
                                     </div>
+                                </div>
                                `
                         })
                     }
