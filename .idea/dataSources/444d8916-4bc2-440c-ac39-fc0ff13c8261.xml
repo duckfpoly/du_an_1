@@ -1315,7 +1315,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="364" parent="306" name="id">
-      <AutoIncrement>205</AutoIncrement>
+      <AutoIncrement>206</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1425,7 +1425,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="388" parent="308" name="id">
-      <AutoIncrement>39</AutoIncrement>
+      <AutoIncrement>40</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1533,7 +1533,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="411" parent="311" name="id">
-      <AutoIncrement>4</AutoIncrement>
+      <AutoIncrement>22</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1550,386 +1550,390 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DataType>datetime|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="415" parent="311" name="status">
+    <column id="415" parent="311" name="url">
+      <DataType>text|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="416" parent="311" name="status">
       <DataType>tinyint|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>5</Position>
+      <Position>6</Position>
     </column>
-    <index id="416" parent="311" name="PRIMARY">
+    <index id="417" parent="311" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="417" parent="311" name="PRIMARY">
+    <key id="418" parent="311" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="418" parent="312" name="id">
+    <column id="419" parent="312" name="id">
       <AutoIncrement>2</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="419" parent="312" name="id_students">
+    <column id="420" parent="312" name="id_students">
       <DataType>int|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="420" parent="312" name="id_course">
+    <column id="421" parent="312" name="id_course">
       <DataType>int|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="421" parent="312" name="time_learn">
+    <column id="422" parent="312" name="time_learn">
       <DataType>tinyint|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="422" parent="312" name="id_order">
+    <column id="423" parent="312" name="id_order">
       <DataType>int|0s</DataType>
       <Position>5</Position>
     </column>
-    <foreign-key id="423" parent="312" name="FK_ID_STD">
+    <foreign-key id="424" parent="312" name="FK_ID_STD">
       <ColNames>id_students</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>students</RefTableName>
     </foreign-key>
-    <foreign-key id="424" parent="312" name="FK_ID_COUR">
+    <foreign-key id="425" parent="312" name="FK_ID_COUR">
       <ColNames>id_course</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>courses</RefTableName>
     </foreign-key>
-    <foreign-key id="425" parent="312" name="fk_id_orders">
+    <foreign-key id="426" parent="312" name="fk_id_orders">
       <ColNames>id_order</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>orders</RefTableName>
     </foreign-key>
-    <index id="426" parent="312" name="PRIMARY">
+    <index id="427" parent="312" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="427" parent="312" name="FK_ID_STD">
+    <index id="428" parent="312" name="FK_ID_STD">
       <ColNames>id_students</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="428" parent="312" name="FK_ID_COUR">
+    <index id="429" parent="312" name="FK_ID_COUR">
       <ColNames>id_course</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="429" parent="312" name="fk_id_orders">
+    <index id="430" parent="312" name="fk_id_orders">
       <ColNames>id_order</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="430" parent="312" name="PRIMARY">
+    <key id="431" parent="312" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="431" parent="313" name="id">
+    <column id="432" parent="313" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="432" parent="313" name="order_date">
+    <column id="433" parent="313" name="order_date">
       <DataType>datetime|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="433" parent="313" name="order_pay">
+    <column id="434" parent="313" name="order_pay">
       <DataType>tinyint|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="434" parent="313" name="status">
+    <column id="435" parent="313" name="status">
       <DataType>tinyint|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <Position>4</Position>
     </column>
-    <index id="435" parent="313" name="PRIMARY">
+    <index id="436" parent="313" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="436" parent="313" name="PRIMARY">
+    <key id="437" parent="313" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="437" parent="314" name="email">
+    <column id="438" parent="314" name="email">
       <DataType>varchar(255)|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="438" parent="314" name="keyy">
+    <column id="439" parent="314" name="keyy">
       <DataType>varchar(255)|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="439" parent="314" name="expDate">
+    <column id="440" parent="314" name="expDate">
       <DataType>varchar(255)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="440" parent="315" name="id">
+    <column id="441" parent="315" name="id">
       <AutoIncrement>24</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="441" parent="315" name="rate">
+    <column id="442" parent="315" name="rate">
       <DataType>float|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="442" parent="315" name="content_rate">
+    <column id="443" parent="315" name="content_rate">
       <DataType>text|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="443" parent="315" name="id_course">
+    <column id="444" parent="315" name="id_course">
       <DataType>int|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="444" parent="315" name="id_student">
+    <column id="445" parent="315" name="id_student">
       <DataType>int|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="445" parent="315" name="status">
+    <column id="446" parent="315" name="status">
       <DataType>tinyint|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <foreign-key id="446" parent="315" name="FK_ID_COURSE_2">
+    <foreign-key id="447" parent="315" name="FK_ID_COURSE_2">
       <ColNames>id_course</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>courses</RefTableName>
     </foreign-key>
-    <foreign-key id="447" parent="315" name="fk_id_stdss">
+    <foreign-key id="448" parent="315" name="fk_id_stdss">
       <ColNames>id_student</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>students</RefTableName>
     </foreign-key>
-    <index id="448" parent="315" name="PRIMARY">
+    <index id="449" parent="315" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="449" parent="315" name="FK_ID_COURSE_2">
+    <index id="450" parent="315" name="FK_ID_COURSE_2">
       <ColNames>id_course</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="450" parent="315" name="fk_id_stdss">
+    <index id="451" parent="315" name="fk_id_stdss">
       <ColNames>id_student</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="451" parent="315" name="PRIMARY">
+    <key id="452" parent="315" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="452" parent="316" name="id">
-      <AutoIncrement>6</AutoIncrement>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="453" parent="316" name="sale_code">
-      <DataType>varchar(255)|0s</DataType>
-      <Position>2</Position>
-    </column>
-    <column id="454" parent="316" name="percent_discount">
-      <DataType>int|0s</DataType>
-      <Position>3</Position>
-    </column>
-    <column id="455" parent="316" name="time">
-      <DataType>date|0s</DataType>
-      <Position>4</Position>
-    </column>
-    <index id="456" parent="316" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="457" parent="316" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="458" parent="317" name="id">
-      <AutoIncrement>8</AutoIncrement>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="459" parent="317" name="name_student">
-      <DataType>varchar(255)|0s</DataType>
-      <Position>2</Position>
-    </column>
-    <column id="460" parent="317" name="username_student">
-      <DataType>varchar(255)|0s</DataType>
-      <Position>3</Position>
-    </column>
-    <column id="461" parent="317" name="email_student">
-      <DataType>varchar(255)|0s</DataType>
-      <Position>4</Position>
-    </column>
-    <column id="462" parent="317" name="phone_student">
-      <DataType>varchar(255)|0s</DataType>
-      <Position>5</Position>
-    </column>
-    <column id="463" parent="317" name="password_student">
-      <DataType>varchar(255)|0s</DataType>
-      <Position>6</Position>
-    </column>
-    <column id="464" parent="317" name="image_student">
-      <DataType>varchar(255)|0s</DataType>
-      <Position>7</Position>
-    </column>
-    <column id="465" parent="317" name="role">
-      <DataType>tinyint|0s</DataType>
-      <DefaultExpression>1</DefaultExpression>
-      <Position>8</Position>
-    </column>
-    <column id="466" parent="317" name="created_at">
-      <DataType>timestamp|0s</DataType>
-      <Position>9</Position>
-    </column>
-    <column id="467" parent="317" name="updated_at">
-      <DataType>timestamp|0s</DataType>
-      <Position>10</Position>
-    </column>
-    <column id="468" parent="317" name="status_student">
-      <DataType>tinyint|0s</DataType>
-      <DefaultExpression>0</DefaultExpression>
-      <Position>11</Position>
-    </column>
-    <index id="469" parent="317" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="470" parent="317" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="471" parent="318" name="id">
-      <AutoIncrement>62</AutoIncrement>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="472" parent="318" name="order_code">
-      <DataType>int|0s</DataType>
-      <Position>2</Position>
-    </column>
-    <column id="473" parent="318" name="order_date">
-      <DataType>datetime|0s</DataType>
-      <Position>3</Position>
-    </column>
-    <column id="474" parent="318" name="order_pay">
-      <DataType>tinyint|0s</DataType>
-      <Position>4</Position>
-    </column>
-    <column id="475" parent="318" name="id_students">
-      <DataType>int|0s</DataType>
-      <Position>5</Position>
-    </column>
-    <column id="476" parent="318" name="id_class">
-      <DataType>int|0s</DataType>
-      <Position>6</Position>
-    </column>
-    <column id="477" parent="318" name="amount">
-      <DataType>float|0s</DataType>
-      <Position>7</Position>
-    </column>
-    <column id="478" parent="318" name="status">
-      <DataType>tinyint|0s</DataType>
-      <DefaultExpression>0</DefaultExpression>
-      <Position>8</Position>
-    </column>
-    <foreign-key id="479" parent="318" name="fk_id_std_class">
-      <ColNames>id_students</ColNames>
-      <RefColNames>id</RefColNames>
-      <RefTableName>students</RefTableName>
-    </foreign-key>
-    <foreign-key id="480" parent="318" name="fk_id_class_tbl">
-      <ColNames>id_class</ColNames>
-      <RefColNames>id</RefColNames>
-      <RefTableName>classes</RefTableName>
-    </foreign-key>
-    <index id="481" parent="318" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="482" parent="318" name="fk_id_studentts">
-      <ColNames>id_students</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="483" parent="318" name="fk_id_classss">
-      <ColNames>id_class</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="484" parent="318" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="485" parent="319" name="id">
+    <column id="453" parent="316" name="id">
       <AutoIncrement>7</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="486" parent="319" name="name_teacher">
+    <column id="454" parent="316" name="sale_code">
       <DataType>varchar(255)|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="487" parent="319" name="email_teacher">
-      <DataType>varchar(255)|0s</DataType>
+    <column id="455" parent="316" name="percent_discount">
+      <DataType>int|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="488" parent="319" name="phone_teacher">
-      <DataType>varchar(255)|0s</DataType>
+    <column id="456" parent="316" name="time">
+      <DataType>date|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="489" parent="319" name="password_teacher">
-      <DataType>varchar(255)|0s</DataType>
-      <Position>5</Position>
-    </column>
-    <column id="490" parent="319" name="image_teacher">
-      <DataType>varchar(255)|0s</DataType>
-      <Position>6</Position>
-    </column>
-    <column id="491" parent="319" name="about_teacher">
-      <DataType>text|0s</DataType>
-      <Position>7</Position>
-    </column>
-    <column id="492" parent="319" name="scope_teacher">
-      <DataType>text|0s</DataType>
-      <Position>8</Position>
-    </column>
-    <column id="493" parent="319" name="role">
-      <DataType>tinyint|0s</DataType>
-      <DefaultExpression>0</DefaultExpression>
-      <Position>9</Position>
-    </column>
-    <column id="494" parent="319" name="created_at">
-      <DataType>timestamp|0s</DataType>
-      <Position>10</Position>
-    </column>
-    <column id="495" parent="319" name="updated_at">
-      <DataType>timestamp|0s</DataType>
-      <Position>11</Position>
-    </column>
-    <column id="496" parent="319" name="status_teacher">
-      <DataType>tinyint|0s</DataType>
-      <DefaultExpression>0</DefaultExpression>
-      <Position>12</Position>
-    </column>
-    <index id="497" parent="319" name="PRIMARY">
+    <index id="457" parent="316" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="498" parent="319" name="PRIMARY">
+    <key id="458" parent="316" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="459" parent="317" name="id">
+      <AutoIncrement>8</AutoIncrement>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="460" parent="317" name="name_student">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="461" parent="317" name="username_student">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="462" parent="317" name="email_student">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="463" parent="317" name="phone_student">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="464" parent="317" name="password_student">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="465" parent="317" name="image_student">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <column id="466" parent="317" name="role">
+      <DataType>tinyint|0s</DataType>
+      <DefaultExpression>1</DefaultExpression>
+      <Position>8</Position>
+    </column>
+    <column id="467" parent="317" name="created_at">
+      <DataType>timestamp|0s</DataType>
+      <Position>9</Position>
+    </column>
+    <column id="468" parent="317" name="updated_at">
+      <DataType>timestamp|0s</DataType>
+      <Position>10</Position>
+    </column>
+    <column id="469" parent="317" name="status_student">
+      <DataType>tinyint|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>11</Position>
+    </column>
+    <index id="470" parent="317" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="471" parent="317" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="472" parent="318" name="id">
+      <AutoIncrement>62</AutoIncrement>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="473" parent="318" name="order_code">
+      <DataType>int|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="474" parent="318" name="order_date">
+      <DataType>datetime|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="475" parent="318" name="order_pay">
+      <DataType>tinyint|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="476" parent="318" name="id_students">
+      <DataType>int|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="477" parent="318" name="id_class">
+      <DataType>int|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="478" parent="318" name="amount">
+      <DataType>float|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <column id="479" parent="318" name="status">
+      <DataType>tinyint|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="480" parent="318" name="fk_id_std_class">
+      <ColNames>id_students</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>students</RefTableName>
+    </foreign-key>
+    <foreign-key id="481" parent="318" name="fk_id_class_tbl">
+      <ColNames>id_class</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>classes</RefTableName>
+    </foreign-key>
+    <index id="482" parent="318" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="483" parent="318" name="fk_id_studentts">
+      <ColNames>id_students</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="484" parent="318" name="fk_id_classss">
+      <ColNames>id_class</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="485" parent="318" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="486" parent="319" name="id">
+      <AutoIncrement>8</AutoIncrement>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="487" parent="319" name="name_teacher">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="488" parent="319" name="email_teacher">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="489" parent="319" name="phone_teacher">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="490" parent="319" name="password_teacher">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="491" parent="319" name="image_teacher">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="492" parent="319" name="about_teacher">
+      <DataType>text|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <column id="493" parent="319" name="scope_teacher">
+      <DataType>text|0s</DataType>
+      <Position>8</Position>
+    </column>
+    <column id="494" parent="319" name="role">
+      <DataType>tinyint|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>9</Position>
+    </column>
+    <column id="495" parent="319" name="created_at">
+      <DataType>timestamp|0s</DataType>
+      <Position>10</Position>
+    </column>
+    <column id="496" parent="319" name="updated_at">
+      <DataType>timestamp|0s</DataType>
+      <Position>11</Position>
+    </column>
+    <column id="497" parent="319" name="status_teacher">
+      <DataType>tinyint|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>12</Position>
+    </column>
+    <index id="498" parent="319" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="499" parent="319" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

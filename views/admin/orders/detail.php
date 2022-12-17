@@ -23,7 +23,7 @@
                                 </div>
                                 <!-- Main content -->
                                 <div class="row">
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-12">
                                         <!-- Details -->
                                         <div class="card mb-4">
                                             <div class="card-body">
@@ -94,7 +94,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4 d-none">
                                         <div class="card mb-4">
                                             <div class="card-body" id="image_order">
                                                 <h3 class="h6">Ảnh hóa đơn</h3>

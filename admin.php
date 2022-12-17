@@ -30,9 +30,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
     <script src="<?= BASE_URL ?>assets/admin/js/plugins/chartjs.min.js">                           </script>
     <script src="<?= BASE_URL ?>assets/toasts/toast.js">                                           </script>
+    <script src="<?= BASE_URL ?>assets/noti/noti.js">                                           </script>
+    <script src="<?= BASE_URL ?>assets/toasts/toast.js">                                           </script>
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/toasts/toast.css"                               />
-
-
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/noti/noti.css"                               />
     <style>
         .btn {
             margin-bottom: 0 !important;
@@ -43,7 +44,6 @@
     </style>
     <script> var admin = "<?= ADMIN ?>";</script>
     <script src="https://www.jsviews.com/download/jsrender.min.js"></script>
-
     <!--    <script type="text/javascript" src="--><?//= BASE_URL ?><!--assets/admin/js/items/notification.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
@@ -51,6 +51,7 @@
 </head>
 <body class="g-sidenav-show bg-gray-100">
     <div id="toastt"></div>
+    <div id="noti"></div>
     <?php //include_once 'views/preloader.php'; ?>
     <div id="course_app">
         <div class="min-height-300 bg-secondary position-absolute w-100"></div>
@@ -60,31 +61,6 @@
             <?php include_once 'routes/route_admin.php';            ?>
             <?php include_once 'views/admin/layouts/footer.php';    ?>
         </main>
-    </div>
-    <div class="fixed-plugin d-none">
-        <div class="card shadow-lg">
-            <div class="card-header pb-0 pt-3">
-                <div class="float-start">
-                    <h5 class="mt-3 mb-0">DDH Configurator</h5>
-                    <p>Change Theme</p>
-                </div>
-                <div class="float-end mt-4">
-                    <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-                        <i class="fa fa-close"></i>
-                    </button>
-                </div>
-                <!-- End Toggle Button -->
-            </div>
-            <div class="card-body overflow-auto">
-                <hr class="horizontal dark ">
-                <div class="mb-5 d-flex">
-                    <h6 class="mb-0">Light / Dark</h6>
-                    <div class="form-check form-switch ps-0 ms-auto my-auto">
-                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.js">          </script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js">                </script>

@@ -16,8 +16,8 @@
                                     }
                                 ?>
                             </form>
-                            &emsp;|&emsp;
-                            <a class="btn btn-success m-0" href="<?= STUDENTS ?>/create">Thêm</a>
+<!--                            &emsp;|&emsp;-->
+<!--                            <a class="btn btn-success m-0" href="--><?//= STUDENTS ?><!--/create">Thêm</a>-->
                         </div>
                     </div>
                 </div>

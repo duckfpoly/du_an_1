@@ -37,11 +37,21 @@
           </a>
         </li>
         <li class="nav-item dropdown pe-2 d-flex align-items-center" id="notifications">
-            <button onclick="hide_noti()" class="p-0 position-relative text-white" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="background: none; border: none">
+            <button class="p-0 position-relative text-white" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="background: none; border: none">
                 <span id="count_noti" class="d-none position-absolute top-0 start-0 translate-middle-x text-light bg-danger text-center fw-bold" style="width: 15px; height: 15px; font-size: 8px; border-radius: 50%"></span>
                 <i class="fa fa-bell cursor-pointer"></i>
             </button>
-          <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton" id="show_notifications"></ul>
+          <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" style="min-width: 300px" aria-labelledby="dropdownMenuButton" id="show_notifications">
+              <p class="fw-bold">Thông báo mới</p>
+              <div id="unseen"></div>
+              <hr>
+              <p class="fw-bold">Trước đó</p>
+              <div id="seen">
+                  <li class="mb-2 text-center">
+                      <p class="border-radius-md fw-bold" style="font-size: 13px">Không có thông báo !</p>
+                  </li>
+              </div>
+          </ul>
         </li>&emsp;
         <li class="nav-item d-flex align-items-center">
           <a href="<?= SIGNOUT ?>" class="nav-link text-white font-weight-bold px-0">
@@ -54,28 +64,54 @@
   </div>
 </nav>
 <script>
-    function render_notifications(){
-         axios.get("<?= BASE_URL ?>api/notifications")
+    var reload_noti = setInterval(getData, 1000);
+    getData();
+    function getData(callback){
+        axios.get("<?= BASE_URL ?>api/notifications")
             .then(function (response) {
-                $("#show_notifications").html(response.data.notification);
-                if(response.data.unseen_notification > 0 ){
-                    $('#count_noti').removeClass('d-none')
-                    $('#count_noti').text(response.data.unseen_notification)
-                }
+                render_notifications(response.data)
             })
             .catch(function (error) {
                 console.log('Message: ' + error);
             });
     }
-    render_notifications();
-    setInterval(function(){
-        render_notifications();
-    }, 1000);
-    function hide_noti(){
-        var count_noti = document.querySelector('#count_noti')
-        count_noti.classList.add("d-none");
-        axios.put("<?= BASE_URL ?>api/notifications")
-            .then((res) => {})
-            .catch((error) => {console.error(error);});
+    function render_notifications(data){
+        if(data.count_unseen_notification > 0 ){
+            $('#count_noti').removeClass('d-none')
+            $("#unseen").html(data.unseen_notification);
+            $('#count_noti').text(data.count_unseen_notification)
+            setTimeout(function () {
+                // showNotifications('Đơn đăng ký mới')
+
+            },1000)
+        }
+        else {
+            $("#unseen").html(`
+                <li class="mb-2 text-center">
+                    <p class="border-radius-md fw-bold" style="font-size: 13px">Chưa có thông báo mới !</p>
+                </li>
+            `);
+            $('#count_noti').addClass('d-none')
+        }
+        $("#seen").html(data.seen_notification);
     }
+    $('#dropdownMenuButton').click(function() {
+        $('#count_noti').addClass('d-none')
+    });
+    // clearInterval(reload_noti);
+    function updateStatusNotification(id_noti) {
+        const input = {
+            'id': Number(id_noti),
+        }
+        axios.put("<?= BASE_URL ?>api/notifications", input , {
+            headers: {
+                'content-type': 'application/json',
+            },
+        })
+        .then((res) => {
+            showNotifications('Đánh dấu là đã đọc !')
+        })
+        .catch((error) => {console.error(error);});
+    }
+
 </script>

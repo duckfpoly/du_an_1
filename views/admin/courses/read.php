@@ -3,10 +3,10 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header border-bottom">
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
                         <h6>Danh sách khóa học</h6>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <form action="<?= COURSES ?>">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap ">
+                            <form class="m-3" action="<?= COURSES ?>">
                                 <?php $category = isset($_GET['category']) ? $_GET['category'] : "" ?>
                                 <select onchange="this.form.submit()" class="form-control" name="category">
                                     <option value="" <?= empty($category) ? 'selected' : '' ?> selected>Lọc</option>
@@ -15,8 +15,7 @@
                                     <?php endforeach; ?>
                                 </select>
                             </form>
-                            &emsp;|&emsp;
-                            <form action="<?= COURSES ?>" class="d-flex justify-content-center align-items-center">
+                            <form action="<?= COURSES ?>" class="m-3 d-flex justify-content-center align-items-center">
                                 <input type="search" name="course" class="form-control" placeholder="Tìm khóa học" value="<?= isset($_GET['course']) ? $_GET['course'] : "" ?>">
                                 <?php
                                 if(isset($_GET['course'])){
@@ -26,8 +25,7 @@
                                 }
                                 ?>
                             </form>
-                            &emsp;|&emsp;
-                            <a class="btn btn-success m-0" href="<?= COURSES ?>/create">Thêm</a>
+                            <a class="btn btn-success m-sm-3 m-md-3 m-lg-0" href="<?= COURSES ?>/create">Thêm</a>
                         </div>
                     </div>
                 </div>

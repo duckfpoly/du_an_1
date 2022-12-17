@@ -1,4 +1,6 @@
 <?php
+    date_default_timezone_set("Asia/Ho_Chi_Minh");
+
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
@@ -145,27 +147,22 @@
 
     function send_mail($mail,$output,$title){
         $mailer = new PHPMailer(true);
-        try {
-            $mailer->SMTPDebug = true;
-            $mailer->isSMTP();
-            $mailer->Host       = 'smtp.gmail.com';
-            $mailer->SMTPAuth   = true;
-            $mailer->Username   = 'ndcake.store@gmail.com';
-            $mailer->Password   = 'znbusgktghhcwbaw';
-            $mailer->SMTPSecure = 'tls';
-            $mailer->Port       = 587;
-            $mailer->setFrom('ndcake.store@gmail.com', 'DDH Courses');
-            $mailer->addAddress($mail);
-            $mailer->isHTML(true);
-            $mailer->AddReplyTo('ndcake.store@gmail.com', 'DDH Courses');
-            $body = $output;
-            $mailer->Subject = 'DDH Courses - '.$title;
-            $mailer->Body = $body;
-            $mailer->send();
-        }catch (Exception $e){
-//            echo "Mail của bạn chưa được gửi đi. Lỗi: {$e}";
-//            echo "Mail của bạn chưa được gửi đi. Lỗi: {$mailer->ErrorInfo}";
-        }
+        $mailer->SMTPDebug = true;
+        $mailer->isSMTP();
+        $mailer->Host       = 'smtp.gmail.com';
+        $mailer->SMTPAuth   = true;
+        $mailer->Username   = 'ndcake.store@gmail.com';
+        $mailer->Password   = 'znbusgktghhcwbaw';
+        $mailer->SMTPSecure = 'tls';
+        $mailer->Port       = 587;
+        $mailer->setFrom('ndcake.store@gmail.com', 'DDH Courses');
+        $mailer->addAddress($mail);
+        $mailer->isHTML(true);
+        $mailer->AddReplyTo('ndcake.store@gmail.com', 'DDH Courses');
+        $body = $output;
+        $mailer->Subject = 'DDH Courses - '.$title;
+        $mailer->Body = $body;
+        $mailer->send();
     }
 
     function cut_email($email){

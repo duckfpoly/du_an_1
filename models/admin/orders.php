@@ -116,5 +116,11 @@
         }
     }
 
+
+    function student_order($id_student){
+        $sql = "SELECT * FROM tbl_orders WHERE id_students = ?";
+        return query_sql($sql,$id_student);
+    }
+
 ?>
 

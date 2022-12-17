@@ -43,5 +43,36 @@
         }
     }
 
+    function login_students($data,$password){
+        if(empty($data) || empty($password)){
+            $alert = "Vui lòng nhập đầy đủ thông tin !";
+            return $alert;
+        }
+        else {
+            $query = "SELECT * FROM students WHERE username_student = '$data' OR email_student = '$data'";
+            $value = query_one($query);
+            if(isset($value['username_student']) || isset($value['email_student'])){
+                if($value['status_student'] == 1 ){
+                    $alert = "Tài khoản của bạn đã bị vô hiệu hóa !";
+                    return $alert;
+                }
+                else {
+                    $checkPass = password_verify($password, $value['password_student']);
+                    if ($checkPass > 0) {
+                        setSession('user',$value);
+                    }
+                    else {
+                        $alert = "Sai mật khẩu !";
+                        return $alert;
+                    }
+                }
+            }
+            else {
+                $alert = "Tài khoản không tồn tại !";
+                return $alert;
+            }
+        }
+    }
+
 
 ?>
