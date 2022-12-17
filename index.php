@@ -1,6 +1,9 @@
 <?php
     include 'global.php';
     check_time_class();
+    if(!isset($_SESSION['user'])){
+        location(SIGIN);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

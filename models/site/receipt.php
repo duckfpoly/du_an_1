@@ -1,9 +1,9 @@
 <?php
     function get_receipt($id){
-        $sql = "SELECT * FROM order_detail INNER JOIN orders ON order_detail.id_order = orders.id
-            INNER JOIN courses ON order_detail.id_course = courses.id INNER JOIN classes 
-            ON courses.id = classes.id_course INNER JOIN teachers ON classes.id_teacher = teachers.id
-            WHERE order_detail.id_students = $id
+        $sql = "SELECT * FROM tbl_orders INNER JOIN classes 
+            ON tbl_orders.id_class = classes.id INNER JOIN teachers 
+            ON classes.id_teacher = teachers.id INNER JOIN courses ON classes.id_course = courses.id
+            WHERE tbl_orders.id_students = $id AND tbl_orders.status = 2
         ";
         return query_one($sql);
     }
