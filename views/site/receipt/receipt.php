@@ -38,6 +38,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
+                <th scope="col">Mã hóa đơn</th>
                 <th scope="col">Ngày mua</th>
                 <th scope="col">Khóa học</th>
                 <th scope="col">Lớp</th>
@@ -46,7 +47,8 @@
             </thead>
             <tbody>
                     <tr>
-                        <th><?= $data['order_date']?></th>
+                        <th><?= $data['order_code']?></th>
+                        <td><?= $data['order_date']?></td>
                         <td><?= $data['name_course']?></td>
                         <td><?= $data['name_class']?></td>
                         <td><?= $data['name_teacher']?></td>
