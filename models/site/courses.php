@@ -72,7 +72,7 @@
         $sql = "SELECT *, courses.id AS id_course FROM tbl_orders INNER JOIN classes ON 
         tbl_orders.id_class = classes.id INNER JOIN courses ON classes.id_course = courses.id
         INNER JOIN teachers ON teachers.id = classes.id_teacher
-        WHERE tbl_orders.id_students = '$id'
+        WHERE tbl_orders.id_students = '$id' and tbl_orders.status = 2
         ";
         return query($sql);
     }
